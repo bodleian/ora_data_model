@@ -145,7 +145,7 @@
     <mods:identifier type="pubs_id">field:identifiers_pubs_identifier</mods:identifier>
     <mods:identifier type="source_identifier">field:identifiers_source_identifier</mods:identifier>
     <mods:identifier type="tinypid">field:identifiers_tinypid</mods:identifier>
-    <mods:identifier type="tombstone">field:identifiers_record_tombstone_identifier</mods:identifier>
+    <mods:identifier type="tombstone">field:identifiers_tombstone_record_identifier</mods:identifier>
     <mods:identifier type="uuid">field:identifiers_uuid</mods:identifier>
    
     <!-- ORIGIN INFO significant dates and place of publication of 'original' published work -->        
@@ -197,7 +197,7 @@
     </mods:name>
     
     <!-- CONTRIBUTORS -->
-    <mods:name authority="http://www.bodleian.ox.ac.uk/ora/authority" type="personal">
+    <mods:name type="personal">
         <mods:displayForm>field:contributors__display_name</mods:displayForm>
         
         <mods:namePart type="given">field:contributors__given_names</mods:namePart>
@@ -221,11 +221,11 @@
         <!-- Funding relationships -->
         <mods:extension>
             <!-- 
-                To link an individual to a grant, target the grant_identifier/@id value for the individual act of funding
+                To link an individual to a grant, target the grant_identifier/@xml:id value for the corresponding act of funding
                 
-                mods:name[@type='corporate'][mods:role/mods:roleTerm/text()='Funder']/mods:extension/ora_admin:funding/ora_admin:grant_identifier/@id
+                mods:name[@type='corporate'][mods:role/mods:roleTerm/text()='Funder']/mods:extension/ora_admin:funding/ora_admin:grant_identifier/@xml:id
             -->
-            <ora_admin:funding_identifier_reference xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" idref="//ora_admin:grant_identifier/@id" />
+            <ora_admin:funding_identifier_reference xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" idref="{value at xpath //ora_admin:grant_identifier/@xml:id}"/>
         </mods:extension>
         
         <!-- Affiliations 
@@ -282,24 +282,24 @@
                 <!-- 
                     GRANT IDENTIFIERS
                                             
-                    If funding is to be linked with a person, then a grant_identifier is mandatory. 
+                    If an act of funding is to be linked with a person, then a grant_identifier/@xml:id is mandatory. 
                     
-                    Grant identifiers must be unique values within the document.
+                    This is the case even when no funders__funder_grant_identifier is present.
                     
-                    If a grant number is known, then it should be used, e.g.
+                    Grant identifier xml:ids must be unique values within the document. They should be randomly generated in the form
+                    grant-id-{uuid}, e.g.
                     
-                        <mods:nameIdentifier type="grant_identifier" id="ahrc/123123/2018">ahrc/123123/2018</mods:nameIdentifier>
+                        grant-id-12345678-1234-1234-1234-12345678abcd
+                        
+                    If no grant identifier is known, the element should be empty, e.g. 
                     
-                    If a grant number is not known, then a randomly generated uuid in the form
-                    grant_id:{uuid} should be created as the grant identifier element id. However, 
-                    the element should have no text content, e.g.
+                        <ora_admin:grant_identifier xml:id="grant-id-12345678-1234-1234-1234-12345678abcd"/>
+                        
+                    If a grant identifier is known, then the grant identifier should be the value of the field, e.g.
                     
-                        <mods:nameIdentifier type="grant_identifier" id="grant_id:12345678-1234-1234-1234-12345678abcd"/>
+                        <ora_admin:grant_identifier xml:id="grant-id-12345678-1234-1234-1234-12345678abcd">field:funders__funder_grant_identifier</ora_admin:grant_identifier>
                 -->
-                <!-- Where grant identifier is known -->
-                <ora_admin:grant_identifier id="field:funders__funder_grant_identifier">field:funders__funder_grant_identifier</ora_admin:grant_identifier>
-                <!-- Where grant identifier is not known -->
-                <ora_admin:grant_identifier id="{RANDOMLY GENERATED UUID}" />                           
+                <ora_admin:grant_identifier xml:id="GRANT-ID-VALUE-SEE-ABOVE">field:funders__funder_grant_identifier</ora_admin:grant_identifier>                        
             </ora_admin:funding>
         </mods:extension>  
     </mods:name>
@@ -584,9 +584,17 @@
     
     
     <!-- 
-        ======================================
-        APPENDIX: CONVERSION FROM MODS TO METS
-        ======================================
+        ================================================
+        APPENDIX: CONVERSION OF THIS MODS FORMAT TO METS
+        ================================================
+        
+        This appendix contains a sample METS skeleton file as an example of how the above MODS code would be
+        converted into METS. This is an example only, and is included in this file for convenience.
+        
+        The METS file has placed in a <mods:extension>. This is purely to allow for syntax highlighting and
+        validation in an XML editor. 
+        
+        An actual ORA object encoded in MODS would not contain this <mods:extension> element.
         
         Each metadata section is as defined in METADATA SECTIONS in the introduction to this document.
         
