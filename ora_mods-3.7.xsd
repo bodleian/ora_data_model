@@ -527,6 +527,14 @@ Choice two.	With <etal>.
 					<xs:enumeration value="corporate"/>
 					<xs:enumeration value="conference"/>
 					<xs:enumeration value="family"/>
+					<!-- 
+		                ============
+		                ORA ADDITION
+		                ============
+		                
+		                This addition is purely for the ORA sample MODS file itself
+		            -->
+					<xs:enumeration value="field:contributors__contributor_type"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
