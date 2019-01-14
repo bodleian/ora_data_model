@@ -138,6 +138,7 @@
 
     <!-- EVENT related metadata -->
     <mods:relatedItem otherType="event">
+        <mods:titleInfo><mods:title>field:event_title</mods:title></mods:titleInfo>
         <mods:location>
             <mods:physicalLocation>field:event_location</mods:physicalLocation>
             <mods:url>field:event_website_url</mods:url>
@@ -156,11 +157,11 @@
     <mods:identifier type="isbn13">field:identifiers_isbn_13</mods:identifier>
     <mods:identifier type="issn">field:identifiers_issn</mods:identifier>
     <mods:identifier type="pii">field:identifiers_pii</mods:identifier>
-    <mods:identifier type="pid">field:identifiers_pid</mods:identifier>
+    <mods:identifier type="pid">field:pid</mods:identifier>
     <mods:identifier type="pmid">field:identifiers_pmid</mods:identifier>   
     <mods:identifier type="pubs_id">field:identifiers_pubs_identifier</mods:identifier>
     <mods:identifier type="source_identifier">field:identifiers_source_identifier</mods:identifier>
-    <mods:identifier type="tinypid">field:identifiers_tinypid</mods:identifier>
+    <mods:identifier type="tinypid">field:tinypid</mods:identifier>
     <mods:identifier type="tombstone">field:identifiers_tombstone_record_identifier</mods:identifier>
     <mods:identifier type="uuid">field:identifiers_uuid</mods:identifier>
    
@@ -240,7 +241,7 @@
                 To link an individual to a grant, target the grant_identifier/@xml:id value for the corresponding act of funding
                 
                 mods:name[@type='corporate'][mods:role/mods:roleTerm/text()='Funder']/mods:extension/ora_admin:funding/ora_admin:grant_identifier/@xml:id
-            -->
+            -->c
             <ora_admin:funding_identifier_reference xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" idref="{value at xpath //ora_admin:grant_identifier/@xml:id}"/>
         </mods:extension>
         
@@ -339,7 +340,10 @@
     <!-- BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
     <mods:relatedItem type="host">
         <mods:titleInfo>
+            <!-- For non event-proceedings -->
             <mods:title>field:host_title</mods:title>
+            <!-- For event proceedings only-->
+            <mods:title>field:event_proceedings_title</mods:title>
         </mods:titleInfo>
         <mods:part>
             <mods:detail type="chapter_number">
@@ -360,7 +364,7 @@
             <mods:form type="peer_reviewed">field:host_peer_review_status</mods:form>
         </mods:physicalDescription>
     </mods:relatedItem>
-    <!-- /BOOK, BOOK CHAPTER, EDITED BOOK -->
+    <!-- /BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
     
     <!-- DATASET related markup -->
     <mods:extension>

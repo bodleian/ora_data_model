@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    This set of mappings is written against the ORA Data Model 2.0rc2
+    
+    Where an ORA field is a second-level field, the parent field is given in the 'parent' attribute.
+    
+    Where an ORA field is a third-level field, the grandparent field is given in the grandparent attribute.
+    
+    Where there is no corresponding ORA field, a no_mapping element is used.
+    
+    Where there is no correspoinding Symplectic field, there is no text value to the ora_field element.
+    
+    
+    ORA identifiers for a work
+    ==========================
+    doi
+    eisbn
+    eissn
+    isbn_10
+    isbn_13
+    issn
+    pii
+    pmid
+    pubs_id
+
+    ORA identifiers for an individual
+    =================================
+    orcid
+    sso (Oxford Single-Sign-On id)
+-->
+<ora_symplectic_field_mappings>
+    <symplectic_field name="abstract"><ora_field>abstract</ora_field></symplectic_field>
+    
+    <symplectic_field name="acceptance-date"><ora_field>acceptance_date</ora_field></symplectic_field>
+    
+    <symplectic_field name="associated-authors">
+        <ora_field>contributors</ora_field>
+        <ora_note>In ORA, associated authors would have a role attribute, with role_title="contributor" and role_order denoting their position in the 'contributor' role order</ora_note>
+    </symplectic_field>    
+    
+    <symplectic_field name="addresses"><no_mapping /></symplectic_field>
+    
+    <symplectic_field name="associated-identifiers"><no_mapping /><ora_note>identifiers are mapped individually</ora_note></symplectic_field>
+    
+    <symplectic_field name="authors">
+        <ora_field>contributors</ora_field>
+        <ora_note>In ORA authors would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+    </symplectic_field>
+    
+    <symplectic_field name="author-url"><ora_field>contributors__contributor_website_url</ora_field></symplectic_field>
+    
+    <symplectic_field name="commissioning-body"><ora_field>comissioning_body</ora_field></symplectic_field>
+    
+    <symplectic_field name="confidential"><ora_field>confidential_report</ora_field></symplectic_field>
+    
+    <symplectic_field name="doi"><ora_field>identifiers_doi</ora_field></symplectic_field>
+    
+    <symplectic_field name="edition"><ora_field>edition</ora_field></symplectic_field>
+    
+    <symplectic_field name="editors">
+        <ora_field>contributors</ora_field>
+        <ora_note>In ORA, editors would have a role attribute, with role_title="editor" and role_order denoting their position in the editor order</ora_note>
+    </symplectic_field>  
+    
+    <symplectic_field name="eissn"><ora_field>identifiers_eissn</ora_field></symplectic_field>
+    
+    <symplectic_field name="external-identifiers">source_identifier<ora_note>Identifiers with a mapping specified in the ORA Data Model should be mapped using those fields. Source identifiers for works should include a prefix identifiying the identifying scheme.</ora_note></symplectic_field>
+
+    <symplectic_field name="filed-date"><ora_field>field:patent_filed_date</ora_field></symplectic_field>
+
+    <symplectic_field name="finish-date"><ora_field>field:event_finish_date</ora_field></symplectic_field>
+
+    <symplectic_field name="funding-acknowledgements"><no_mapping /><note>ORA funding info is more fine grained than a notes field. I suspect that, as a result of the Open Access Monitor, Symplectic Grant information is too. This field will require more work.</note></symplectic_field>
+
+    <symplectic_field name="isbn-10"><ora_field>identifiers_isbn_10</ora_field></symplectic_field>
+
+    <symplectic_field name="isbn-13"><ora_field>identifiers_isbn_13</ora_field></symplectic_field>
+
+    <symplectic_field name="issn"><ora_field>identifiers_issn</ora_field></symplectic_field>
+
+    <symplectic_field name="issue"><ora_field>issue_number</ora_field></symplectic_field>
+
+    <symplectic_field name="journal"><ora_field>journal_title</ora_field></symplectic_field>
+
+    <symplectic_field name="keywords"><ora_field>keyword</ora_field></symplectic_field>
+
+    <symplectic_field name="language"><ora_field>language</ora_field></symplectic_field>
+
+    <symplectic_field name="location">
+        <if test="record is a Conference"><ora_field>event_location</ora_field></if>
+        <note>TODO: confirm mapping</note>
+    </symplectic_field>
+    
+    <symplectic_field name="medium"><no_mapping/></symplectic_field>
+    
+    <symplectic_field name="name-of-conference">
+        <if test="object type is Conference"><ora_field>title</ora_field></if>
+        <if test="object type is Conference proceedings"><ora_field>event_proceedings_title</ora_field></if>
+        <if test="object type is Conference paper, or Conference poster"><ora_field>event_title</ora_field></if>
+    </symplectic_field>
+    
+    <symplectic_field name="notes"><ora_field>additional_information</ora_field></symplectic_field>
+    
+    <symplectic_field name="number">
+        <if test="describing a journal article"><ora_field>article_number</ora_field></if>
+        <if test="describing a journal series"><ora_field>series_number</ora_field></if>
+        <if test="describing a book chapter"><ora_field>chapter_number</ora_field></if>
+    </symplectic_field>
+    
+    <symplectic_field name="number-of-pieces"><no_mapping/></symplectic_field>
+    
+    <symplectic_field name="online-publication-date">
+        <if test="describing a record">record_publication_date</if>
+        <if test="describing a binary file">binary_files__file_made_available_date</if>
+    </symplectic_field>
+    
+    <symplectic_field name="pagination"><ora-field>pagination</ora-field></symplectic_field>
+    
+    <symplectic_field name="parent_title"><ora_field>host_title</ora_field></symplectic_field>
+    
+    <symplectic_field name="patent-number"><ora_field>patent_number</ora_field></symplectic_field>
+    
+    <symplectic_field name="patent-status"><ora_field>patent_status</ora_field></symplectic_field>
+    
+    <symplectic_field name="pii"><ora_field>identifiers_pii</ora_field></symplectic_field>
+    
+    <symplectic_field name="place-of-publication"><ora_field>citation_place_of_publication</ora_field></symplectic_field>
+    
+    <symplectic_field name="publication-date"><ora_field>citation_publication_date</ora_field></symplectic_field>
+    
+    <symplectic_field name="publication-status"><ora_field>host_publication_status</ora_field></symplectic_field>
+    
+    <symplectic_field name="publisher"><ora_field>publisher_name</ora_field></symplectic_field>
+    
+    <symplectic_field name="publisher-licence"><ora_field>licence</ora_field><note>TODO: confirm mapping</note></symplectic_field>
+    
+    <symplectic_field name="publisher-url"><ora_field>publisher_website_url</ora_field></symplectic_field>
+    
+    <symplectic_field name="references"><no_mapping/></symplectic_field>
+    
+    <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
+    
+    <symplectic_field name="finish-date"><ora_field>field:event_start_date</ora_field></symplectic_field>
+    
+    <symplectic_field name="thesis-type"><ora_field>degree_level</ora_field></symplectic_field>
+    
+    <symplectic_field name="title"><ora_field>title</ora_field></symplectic_field>
+    
+    <symplectic_field name="types"><ora_field>type_of_work</ora_field></symplectic_field>
+    
+    <symplectic_field name="version">
+        <if test="describing a record"><ora_field>record_version</ora_field></if>
+        <if test="describing a bianry file"><ora_field>binary_files__file_version</ora_field></if>
+        <if test="describing a binary file's Rioxx/Open access status, e.g. Version of Record"><ora_field>binary_files__file_rioxx_file_version</ora_field></if>
+    </symplectic_field>
+    
+    <symplectic_field name="volume"><ora_field>volume</ora_field></symplectic_field>
+</ora_symplectic_field_mappings>
