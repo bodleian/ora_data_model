@@ -32,11 +32,15 @@
 <ora_symplectic_field_mappings>
     <symplectic_field name="abstract"><ora_field>abstract</ora_field></symplectic_field>
     
+    <symplectic_field name="are-files-confidential"><computed /><note>TODO: I'm assuming this means ANY binary file is embargoed?</note></symplectic_field>
+    
+    <symplectic_field name="author-licence"><ora_field>licence_url</ora_field></symplectic_field>
+    
     <symplectic_field name="acceptance-date"><ora_field>acceptance_date</ora_field></symplectic_field>
     
     <symplectic_field name="associated-authors">
         <ora_field>contributors</ora_field>
-        <ora_note>In ORA, associated authors would have a role attribute, with role_title="contributor" and role_order denoting their position in the 'contributor' role order</ora_note>
+        <ora_note>In ORA, associated contributors would have a role attribute, with role_title="contributor" and role_order denoting their position in the 'contributor' role order. Translators would have the role 'translator'</ora_note>
     </symplectic_field>    
     
     <symplectic_field name="addresses"><no_mapping /></symplectic_field>
@@ -50,9 +54,17 @@
     
     <symplectic_field name="author-url"><ora_field>contributors__contributor_website_url</ora_field></symplectic_field>
     
+    <symplectic_field name="c-apc2"><no_mapping/><note>TODO: refine field usage</note></symplectic_field>
+    
+    <symplectic_field name="c-apc"><no_mapping/><note>TODO: refine field usage</note></symplectic_field>
+    
+    <symplectic_field name="collections"><no_mapping /></symplectic_field>
+    
     <symplectic_field name="commissioning-body"><ora_field>comissioning_body</ora_field></symplectic_field>
     
     <symplectic_field name="confidential"><ora_field>confidential_report</ora_field></symplectic_field>
+    
+    <symplectic_field name="confidential-files-reason"><ora_field>binary_files__file_embargo_reason</ora_field></symplectic_field>
     
     <symplectic_field name="doi"><ora_field>identifiers_doi</ora_field></symplectic_field>
     
@@ -60,14 +72,20 @@
     
     <symplectic_field name="editors">
         <ora_field>contributors</ora_field>
-        <ora_note>In ORA, editors would have a role attribute, with role_title="editor" and role_order denoting their position in the editor order</ora_note>
+        <ora_note>In ORA, editors would have a role attribute, with role_title="editor" and role_order denoting their position in the editor order. If the record was a Thesis, they would have the role_title of 'Supervisor'</ora_note>
     </symplectic_field>  
     
     <symplectic_field name="eissn"><ora_field>identifiers_eissn</ora_field></symplectic_field>
     
+    <symplectic_field name="embargo-release-date"><ora_field>binary_files__file_embargo_end_date</ora_field><note>A file which is embargoed but with no specified end date will have the end date 9999-12-31</note></symplectic_field>
+    
     <symplectic_field name="external-identifiers">source_identifier<ora_note>Identifiers with a mapping specified in the ORA Data Model should be mapped using those fields. Source identifiers for works should include a prefix identifiying the identifying scheme.</ora_note></symplectic_field>
 
-    <symplectic_field name="filed-date"><ora_field>field:patent_filed_date</ora_field></symplectic_field>
+    <symplectic_field name="filed-date">
+        <if test="record is a Patent"><ora_field>field:patent_filed_date</ora_field></if>
+        <if test="record is a Thesis"><no_mapping/><note>TODO: is it correct that we don't track Thesis submission dates? Symplectic does</note></if>
+    </symplectic_field>
+    
 
     <symplectic_field name="finish-date"><ora_field>field:event_finish_date</ora_field></symplectic_field>
 
@@ -78,6 +96,12 @@
     <symplectic_field name="isbn-13"><ora_field>identifiers_isbn_13</ora_field></symplectic_field>
 
     <symplectic_field name="issn"><ora_field>identifiers_issn</ora_field></symplectic_field>
+    
+    <symplectic_field name="is-compliant-with-inst-policy"><ora_field>ref_compliant_at_deposit</ora_field></symplectic_field>
+    
+    <symplectic_field name="is-open-access"><computed /><note>TODO: assuming that this means a record has at least one open access binary file, is this correct?</note></symplectic_field>
+    
+    <symplectic_field name="is-embargoed"><computed /><note>A file with ANY binary_files__file_embargo_end_date is embargoed.</note></symplectic_field>
 
     <symplectic_field name="issue"><ora_field>issue_number</ora_field></symplectic_field>
 
@@ -88,27 +112,35 @@
     <symplectic_field name="language"><ora_field>language</ora_field></symplectic_field>
 
     <symplectic_field name="location">
-        <if test="record is a Conference"><ora_field>event_location</ora_field></if>
+        <if test="record is a Conference, Exhibition, Performance, Presentation, etc."><ora_field>event_location</ora_field></if>
+        <if test="record is a Physical item"><no_mapping /></if>
+        <if test="record is a Journal Article"><ora_field>citation_place_of_publication</ora_field></if>
+        <if test="record is a Patent">patent_territory</if>
         <note>TODO: confirm mapping</note>
     </symplectic_field>
     
     <symplectic_field name="medium"><no_mapping/></symplectic_field>
     
     <symplectic_field name="name-of-conference">
-        <if test="object type is Conference"><ora_field>title</ora_field></if>
-        <if test="object type is Conference proceedings"><ora_field>event_proceedings_title</ora_field></if>
-        <if test="object type is Conference paper, or Conference poster"><ora_field>event_title</ora_field></if>
+        <if test="record is a Conference"><ora_field>title</ora_field></if>
+        <if test="record is a Conference paper, or Conference poster"><ora_field>event_title</ora_field></if>
+        <if test="record is a Conference proceedings"><ora_field>event_proceedings_title</ora_field></if>
     </symplectic_field>
     
     <symplectic_field name="notes"><ora_field>additional_information</ora_field></symplectic_field>
     
     <symplectic_field name="number">
-        <if test="describing a journal article"><ora_field>article_number</ora_field></if>
-        <if test="describing a journal series"><ora_field>series_number</ora_field></if>
-        <if test="describing a book chapter"><ora_field>chapter_number</ora_field></if>
+        <if test="record is a Book Chapter"><ora_field>chapter_number</ora_field></if>
+        <if test="record is a Journal Article"><ora_field>article_number</ora_field></if>
+        <if test="record is a Patent"><ora_field>patent_application_number</ora_field></if>
+        <if test="record is a Working paper"><ora_field>paper_number</ora_field></if>
     </symplectic_field>
     
     <symplectic_field name="number-of-pieces"><no_mapping/></symplectic_field>
+    
+    <symplectic_field name="oa-location-url"><ora_field>binary_files__file_public_url</ora_field></symplectic_field>
+    
+    <symplectic_field name="oa-location-file-version"><ora_field>binary_files__file_rioxx_file_version</ora_field></symplectic_field>
     
     <symplectic_field name="online-publication-date">
         <if test="describing a record">record_publication_date</if>
@@ -117,7 +149,7 @@
     
     <symplectic_field name="pagination"><ora-field>pagination</ora-field></symplectic_field>
     
-    <symplectic_field name="parent_title"><ora_field>host_title</ora_field></symplectic_field>
+    <symplectic_field name="parent-title"><ora_field>host_title</ora_field></symplectic_field>
     
     <symplectic_field name="patent-number"><ora_field>patent_number</ora_field></symplectic_field>
     
@@ -126,6 +158,8 @@
     <symplectic_field name="pii"><ora_field>identifiers_pii</ora_field></symplectic_field>
     
     <symplectic_field name="place-of-publication"><ora_field>citation_place_of_publication</ora_field></symplectic_field>
+    
+    <symplectic_field name="public-url"><ora_field>has_public_url</ora_field></symplectic_field>
     
     <symplectic_field name="publication-date"><ora_field>citation_publication_date</ora_field></symplectic_field>
     
@@ -137,11 +171,22 @@
     
     <symplectic_field name="publisher-url"><ora_field>publisher_website_url</ora_field></symplectic_field>
     
+    <symplectic_field name="record-made-public-at-source-date"><ora_field>record_publication_date</ora_field></symplectic_field>
+    
+    <symplectic_field name="record-created-at-source-date"><ora_field>field:record_created_date</ora_field></symplectic_field>
+    
+    <symplectic_field name="relative-citation-ratio"><no_mapping/></symplectic_field>
+    
     <symplectic_field name="references"><no_mapping/></symplectic_field>
+    
+    <symplectic_field name="repository-status"><no_mapping /><note>TODO: to be inferred from computed values</note></symplectic_field>
     
     <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
     
-    <symplectic_field name="finish-date"><ora_field>field:event_start_date</ora_field></symplectic_field>
+    <symplectic_field name="start-date">
+        <if test="record is a Patent"><ora_field>field:patent_awarded_date</ora_field></if>
+        <if test="record is not a Patent"><ora_field>field:event_start_date</ora_field></if>
+    </symplectic_field>
     
     <symplectic_field name="thesis-type"><ora_field>degree_level</ora_field></symplectic_field>
     

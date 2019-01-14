@@ -369,7 +369,7 @@
     <!-- DATASET related markup -->
     <mods:extension>
         <ora_dataset:dataset 
-                xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/patent" 
+                xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" 
                 xmlns:mods="http://www.loc.gov/mods/v3" 
                 xmlns:dcterms="http://purl.org/dc/terms/"
                 xmlns:dc="http://purl.org/dc/elements/1.1/">
