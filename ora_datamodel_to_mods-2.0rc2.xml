@@ -222,7 +222,7 @@
         
         <mods:alternativeName altType="preferred_name">
             <mods:namePart type="given">field:contributors__preferred_given_names</mods:namePart>
-            <mods:namePart type="family">field:contributor__preferred_family_name</mods:namePart>
+            <mods:namePart type="family">field:contributors__preferred_family_name</mods:namePart>
             <mods:nameIdentifier type="preferred_email_address">field:contributors__preferred_contributor_email</mods:nameIdentifier>
         </mods:alternativeName>
         
@@ -231,7 +231,7 @@
         
         <mods:nameIdentifier type="sso">field:contributors__contributor_institutional_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
-        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_id_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
+        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
         
         <!-- Funding relationships -->
@@ -274,13 +274,7 @@
             <mods:roleTerm type="text">field:contributors__roles__role_title</mods:roleTerm>
         </mods:role>
     </mods:name>
-    
-    <!-- CONTRIBUTORS ET AL -->
-    <!-- If field:contributors_et_al has the value boolean true -->
-    <mods:name type="personal">
-        <mods:etal />
-    </mods:name>
-    
+       
     <!-- COPYRIGHT HOLDER -->
     <mods:name type="corporate">
         <mods:displayForm>field:rights_holders</mods:displayForm>
