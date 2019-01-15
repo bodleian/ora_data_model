@@ -387,10 +387,9 @@
     <!-- BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
     <mods:relatedItem type="host">
         <mods:titleInfo>
-            <!-- For non event-proceedings -->
             <mods:title>field:host_title</mods:title>
-            <!-- For event proceedings only-->
-            <mods:title>field:event_proceedings_title</mods:title>
+            <!-- To be used if a conference proceeding is published in a Journal -->
+            <mods:subTitle>field:journal_title</mods:subTitle>
         </mods:titleInfo>
         <mods:part>
             <mods:detail type="chapter_number">
