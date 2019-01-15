@@ -34,13 +34,54 @@
     These additions will not be found in ORA Data Model conformant MODS documents
     
     
+    ORA DATA MODEL FIELD NAMING CONVENTIONS
+    =======================================
     
-    FIELD NAMES
-    ===========
-    Where a field from the ORA datamodel is to be encoded in MODS, this is indicated
-    by the string field:{field_name} (e.g. 'field:title').
+    Field levels
+    ************
     
-    Where a field is a second-level property, this is indicated by the object property,
+    ORA fields can be defined as first-level (properties of a record), second level (properties of a record property),
+    or third-level (properties of a second level property). In JSON:
+    
+    { "first-level-property":"value",
+      "another-first-level-property": 
+        [{  "second-level-property": "value"
+            "another-second-level-property": 
+              [{  "third-level-property": "value" }]
+        }]
+    }
+    
+    
+    An example from the ORA Data Model
+    
+    { 
+      "title":"Title of the work",
+      "contributors": 
+        [{  "display_name": "First Contributor"
+            "roles": 
+              [{  "role_title": "Author",
+                  "role_order": 1 
+              }]
+          },
+          { "display_name": "Second Contributor"
+            "roles": 
+              [{  "role_title": "Author",
+                  "role_order": 2 },
+                { "role_title": "Depositor",
+                  "role_order": 1
+        }]
+      }]
+    }
+    
+
+    Field names in extended format
+    ******************************
+    
+    In this document, ORA field names are given in extended format.
+    
+    Extended format allows for a field name to indicate it's parent and grandparent fields.
+    
+    Where a field is a second-level property, this is indicated by the parent first-level field,
     a double underscore, and then the field name. For example, a contributor's last name
     is indicated by the string 'field:contributors__last_name'.
     
@@ -52,6 +93,9 @@
     
     FIELD OUTPUT IN MODS
     ====================
+    
+    Where a field from the ORA datamodel is to be encoded in MODS, this is indicated
+    by the string field:{field_name} (e.g. 'field:title').
     
     In almost all cases, ORA field values are output either as element content, or as a field value.
     

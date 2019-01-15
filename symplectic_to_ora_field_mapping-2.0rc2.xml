@@ -3,13 +3,16 @@
     
     This set of mappings is written against the ORA Data Model 2.0rc2
     
-    Where an ORA field is a second-level field, the parent field is given in the 'parent' attribute.
+    The Symplectic field is given first, and it's corresponding ORA field is given in an <ora_field /> element.
     
-    Where an ORA field is a third-level field, the grandparent field is given in the grandparent attribute.
+    ORA field names are given in their extended form (see Ora Data Model to MODS document): parent/ancestor fields
+    are indicated by a prefix to the field name followed by two double underscores, e.g. 'contributors__last_name'
     
-    Where there is no corresponding ORA field, a no_mapping element is used.
+    Where there is no corresponding ORA field, a <no_mapping/> element is used.
+        
+    Where a field in Symplectic can be inferred from a combination of ORA fields, a <computed/> element is used.
     
-    Where there is no correspoinding Symplectic field, there is no text value to the ora_field element.
+    If a field can be mapped to more than one value, an <if test=""/> element is used.
     
     
     ORA identifiers for a work
@@ -82,7 +85,7 @@
     <symplectic_field name="external-identifiers">source_identifier<ora_note>Identifiers with a mapping specified in the ORA Data Model should be mapped using those fields. Source identifiers for works should include a prefix identifiying the identifying scheme.</ora_note></symplectic_field>
 
     <symplectic_field name="filed-date">
-        <if test="record is a Patent"><ora_field>field:patent_filed_date</ora_field></if>
+        <if test="record is a Patent"><ora_field>patent_filed_date</ora_field></if>
         <if test="record is a Thesis"><no_mapping/><note>TODO: is it correct that we don't track Thesis submission dates? Symplectic does</note></if>
     </symplectic_field>
     
@@ -184,8 +187,8 @@
     <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
     
     <symplectic_field name="start-date">
-        <if test="record is a Patent"><ora_field>field:patent_awarded_date</ora_field></if>
-        <if test="record is not a Patent"><ora_field>field:event_start_date</ora_field></if>
+        <if test="record is a Patent"><ora_field>patent_awarded_date</ora_field></if>
+        <if test="record is not a Patent"><ora_field>event_start_date</ora_field></if>
     </symplectic_field>
     
     <symplectic_field name="thesis-type"><ora_field>degree_level</ora_field></symplectic_field>
