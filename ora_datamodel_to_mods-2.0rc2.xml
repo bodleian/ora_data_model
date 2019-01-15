@@ -280,14 +280,16 @@
         <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
         
         <!-- Funding relationships -->
-        <mods:extension>
-            <!-- 
-                To link an individual to a grant, target the grant_identifier/@xml:id value for the corresponding act of funding
+        <!-- 
+                To link an individual to a grant, target the grant_identifier/@xml:id value for the corresponding act of funding.
+                
+                Each act of funding is recorded by a grant_identifier element in the Funder element(s). See FUNDERS
+                
+                The xpath should be:
                 
                 mods:name[@type='corporate'][mods:role/mods:roleTerm/text()='Funder']/mods:extension/ora_admin:funding/ora_admin:grant_identifier/@xml:id
-            -->c
-            <ora_admin:funding_identifier_reference xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" idref="{value at xpath //ora_admin:grant_identifier/@xml:id}"/>
-        </mods:extension>
+        -->
+        <mods:nameIdentifier type="funding_reference"><!-- value at xpath //ora_admin:grant_identifier/@xml:id --></mods:nameIdentifier>
         
         <!-- Affiliations 
             
