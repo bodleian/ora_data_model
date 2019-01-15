@@ -3,7 +3,14 @@
     
     This set of mappings is written against the ORA Data Model 2.0rc2
     
-    The Symplectic field is given first, and it's corresponding ORA field is given in an <ora_field /> element.
+    The Symplectic field is given first in a <symplectic_field name="" /> element. All mappings related to this field will be children of this element
+    
+    A corresponding ORA field is given in an <ora_field /> child element.
+    
+    Notes are in a child <note/> element.
+    
+    Where a Symplectic field contains child fields (e.g. funding-acknowledgements) these are contained within a <symplectic_child_field/> element. This will have the
+    same contents as a <symplectic_field/> element.
     
     ORA field names are given in their extended form (see Ora Data Model to MODS document): parent/ancestor fields
     are indicated by a prefix to the field name followed by two double underscores, e.g. 'contributors__last_name'
@@ -35,7 +42,7 @@
 <ora_symplectic_field_mappings>
     <symplectic_field name="abstract"><ora_field>abstract</ora_field></symplectic_field>
     
-    <symplectic_field name="are-files-confidential"><computed /><note>TODO: I'm assuming this means ANY binary file is embargoed?</note></symplectic_field>
+    <symplectic_field name="are-files-confidential"><computed /><note>We assuming this means ANY binary file is embargoed</note></symplectic_field>
     
     <symplectic_field name="author-licence"><ora_field>licence_url</ora_field></symplectic_field>
     
@@ -57,9 +64,9 @@
     
     <symplectic_field name="author-url"><ora_field>contributors__contributor_website_url</ora_field></symplectic_field>
     
-    <symplectic_field name="c-apc2"><no_mapping/><note>TODO: refine field usage</note></symplectic_field>
+    <symplectic_field name="c-apc2"><no_mapping/><note>Deprecated field</note></symplectic_field>
     
-    <symplectic_field name="c-apc"><no_mapping/><note>TODO: refine field usage</note></symplectic_field>
+    <symplectic_field name="c-apc"><no_mapping/><note>Deprecated field</note></symplectic_field>
     
     <symplectic_field name="collections"><no_mapping /></symplectic_field>
     
@@ -86,14 +93,16 @@
 
     <symplectic_field name="filed-date">
         <if test="record is a Patent"><ora_field>patent_filed_date</ora_field></if>
-        <if test="record is a Thesis"><no_mapping/><note>TODO: is it correct that we don't track Thesis submission dates? Symplectic does</note></if>
+        <if test="record is a Thesis"><no_mapping/></if>
     </symplectic_field>
     
 
     <symplectic_field name="finish-date"><ora_field>field:event_finish_date</ora_field></symplectic_field>
 
-    <symplectic_field name="funding-acknowledgements"><no_mapping /><note>ORA funding info is more fine grained than a notes field. I suspect that, as a result of the Open Access Monitor, Symplectic Grant information is too. This field will require more work.</note></symplectic_field>
-
+    <symplectic_field name="funding-acknowledgements">
+        <symplectic_child_field name="orgainsation"><ora_field>funders__funder_name</ora_field></symplectic_child_field>
+        <symplectic_child_field name="grant-id"><ora_field>funders__grant_identifier</ora_field><note>all grant identifiers should also have a randomly generated uuid_{uuid} xml:id in MODS, as specified in Ora Data Model to MODS</note></symplectic_child_field>
+    </symplectic_field>
     <symplectic_field name="isbn-10"><ora_field>identifiers_isbn_10</ora_field></symplectic_field>
 
     <symplectic_field name="isbn-13"><ora_field>identifiers_isbn_13</ora_field></symplectic_field>
@@ -102,7 +111,7 @@
     
     <symplectic_field name="is-compliant-with-inst-policy"><ora_field>ref_compliant_at_deposit</ora_field></symplectic_field>
     
-    <symplectic_field name="is-open-access"><computed /><note>TODO: assuming that this means a record has at least one open access binary file, is this correct?</note></symplectic_field>
+    <symplectic_field name="is-open-access"><no_mapping /><note>TODO: we may map this to licence_url</note></symplectic_field>
     
     <symplectic_field name="is-embargoed"><computed /><note>A file with ANY binary_files__file_embargo_end_date is embargoed.</note></symplectic_field>
 
@@ -119,7 +128,7 @@
         <if test="record is a Physical item"><no_mapping /></if>
         <if test="record is a Journal Article"><ora_field>citation_place_of_publication</ora_field></if>
         <if test="record is a Patent">patent_territory</if>
-        <note>TODO: confirm mapping</note>
+        <note>TODO: discuss Physical location w. JP</note>
     </symplectic_field>
     
     <symplectic_field name="medium"><no_mapping/></symplectic_field>
@@ -128,6 +137,7 @@
         <if test="record is a Conference"><ora_field>title</ora_field></if>
         <if test="record is a Conference paper, or Conference poster"><ora_field>event_title</ora_field></if>
         <if test="record is a Conference proceedings"><ora_field>event_proceedings_title</ora_field></if>
+        <note>TODO: discuss w. JP</note>
     </symplectic_field>
     
     <symplectic_field name="notes"><ora_field>additional_information</ora_field></symplectic_field>
@@ -170,7 +180,7 @@
     
     <symplectic_field name="publisher"><ora_field>publisher_name</ora_field></symplectic_field>
     
-    <symplectic_field name="publisher-licence"><ora_field>licence</ora_field><note>TODO: confirm mapping</note></symplectic_field>
+    <symplectic_field name="publisher-licence"><ora_field>licence_url</ora_field></symplectic_field>
     
     <symplectic_field name="publisher-url"><ora_field>publisher_website_url</ora_field></symplectic_field>
     
@@ -182,7 +192,7 @@
     
     <symplectic_field name="references"><no_mapping/></symplectic_field>
     
-    <symplectic_field name="repository-status"><no_mapping /><note>TODO: to be inferred from computed values</note></symplectic_field>
+    <symplectic_field name="repository-status"><computed /><note>Computed from ora_field:record_review_status</note></symplectic_field>
     
     <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
     
@@ -199,7 +209,7 @@
     
     <symplectic_field name="version">
         <if test="describing a record"><ora_field>record_version</ora_field></if>
-        <if test="describing a bianry file"><ora_field>binary_files__file_version</ora_field></if>
+        <if test="describing a binary file"><ora_field>binary_files__file_version</ora_field></if>
         <if test="describing a binary file's Rioxx/Open access status, e.g. Version of Record"><ora_field>binary_files__file_rioxx_file_version</ora_field></if>
     </symplectic_field>
     
