@@ -91,6 +91,7 @@ ORA_Data_Model_Object = {
     "subject": "",
     "tinypid": "",
     "title": "",
+    "sub_type_of_work": "",
     "type_of_work": "",
 
     // ADMIN FIELDS
