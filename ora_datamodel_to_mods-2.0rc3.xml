@@ -602,6 +602,7 @@
             <dc:format>field:binary_files__file_format</dc:format>
             <dcterms:extent>field:binary_files__file_size</dcterms:extent>
             <dcterms:hasVersion>field:binary_files__file_version</dcterms:hasVersion>
+            <dcterms:location>field:binary_files__file_path</dcterms:location>
             <foxml:datastream>field:binary_files__file_admin_fedora3_datastream_identifier</foxml:datastream>
             <rioxxterms:version>field:binary_files__file_rioxx_file_version</rioxxterms:version>
             <oxds:embargoedUntil>field:binary_files__file_embargo_end_date</oxds:embargoedUntil>
