@@ -275,22 +275,11 @@
         <mods:alternativeName altType="initials"><mods:namePart>field:contributors__initials</mods:namePart></mods:alternativeName>
         <mods:alternativeName altType="preferred_initials"><mods:namePart>field:contributors__preferred_initials</mods:namePart></mods:alternativeName>
         
+        <mods:nameIdentifier type="contributor_record_identifier">field:contributors__contributor_record_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="sso">field:contributors__contributor_institutional_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
-        
-        <!-- Funding relationships -->
-        <!-- 
-                To link an individual to a grant, target the grant_identifier/@xml:id value for the corresponding act of funding.
-                
-                Each act of funding is recorded by a grant_identifier element in the Funder element(s). See FUNDERS
-                
-                The xpath should be:
-                
-                mods:name[@type='corporate'][mods:role/mods:roleTerm/text()='Funder']/mods:extension/ora_admin:funding/ora_admin:grant_identifier/@xml:id
-        -->
-        <mods:nameIdentifier type="funding_reference"><!-- value at xpath //ora_admin:grant_identifier/@xml:id --></mods:nameIdentifier>
         
         <!-- Affiliations 
             
@@ -343,27 +332,7 @@
                 <!-- For multiple grants, create one ora_admin:funding element for each grant -->
                 <ora_admin:funding_programme>field:funders__funder_funding_programme</ora_admin:funding_programme>
                 <ora_admin:funder_compliance>field:funders__funder_compliance_met</ora_admin:funder_compliance>
-                <!-- 
-                    GRANT IDENTIFIERS
-                                            
-                    If an act of funding is to be linked with a person, then a grant_identifier/@xml:id is mandatory. 
-                    
-                    This is the case even when no funders__funder_grant_identifier is present.
-                    
-                    Grant identifier xml:ids must be unique values within the document. They should be randomly generated in the form
-                    grant-id-{uuid}, e.g.
-                    
-                        grant-id-12345678-1234-1234-1234-12345678abcd
-                        
-                    If no grant identifier is known, the element should be empty, e.g. 
-                    
-                        <ora_admin:grant_identifier xml:id="grant-id-12345678-1234-1234-1234-12345678abcd"/>
-                        
-                    If a grant identifier is known, then the grant identifier should be the value of the field, e.g.
-                    
-                        <ora_admin:grant_identifier xml:id="grant-id-12345678-1234-1234-1234-12345678abcd">field:funders__funder_grant_identifier</ora_admin:grant_identifier>
-                -->
-                <ora_admin:grant_identifier xml:id="GRANT-ID-VALUE-SEE-ABOVE">field:funders__funder_grant_identifier</ora_admin:grant_identifier>                        
+                <ora_admin:funder_grant is_funding_for="field:funders__funder_grant__is_funding_for">field:funders__funder_grant__grant_identifier</ora_admin:funder_grant>                        
             </ora_admin:funding>
         </mods:extension>  
     </mods:name>

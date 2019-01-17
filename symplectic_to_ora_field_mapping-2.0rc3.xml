@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     
-    This set of mappings is written against the ORA Data Model 2.0rc2
+    Symplectic -> ORA Data Model data mapping
+    =========================================
     
-    The Symplectic field is given first in a <symplectic_field name="" /> element. All mappings related to this field will be children of this element
+    This set of mappings is written against the ORA Data Model 2.0rc3
     
-    A corresponding ORA field is given in an <ora_field /> child element.
     
-    Notes are in a child <note/> element.
+    Symplectic fields
+    =================
     
-    Where a Symplectic field contains child fields (e.g. funding-acknowledgements) these are contained within a <symplectic_child_field/> element. This will have the
-    same contents as a <symplectic_field/> element.
+    The Symplectic field is given first in a <symplectic_field name="" /> element. All mappings related to this field will be children of this element.
     
+    If the field is a custom field in Oxford's Oxris Symplectic installation, then an <oxford_symplectic_field name="" number=""> 
+    element is used. The number corresponds to the generic field number in the Symplectic installation.
+    
+    Where a Symplectic field contains child fields (e.g. funding-acknowledgements) these are contained within a 
+    <symplectic_child_field/> element. This will have the same contents as a <symplectic_field/> element.
+    
+    
+    ORA field mappings
+    ==================
+    
+    A corresponding ORA field is given in a <ora_field /> child element to the Symplectic field.
+        
     ORA field names are given in their extended form (see Ora Data Model to MODS document): parent/ancestor fields
     are indicated by a prefix to the field name followed by two double underscores, e.g. 'contributors__last_name'
     
     Where there is no corresponding ORA field, a <no_mapping/> element is used.
-        
+    
     Where a field in Symplectic can be inferred from a combination of ORA fields, a <computed/> element is used.
     
-    If a field can be mapped to more than one value, an <if test=""/> element is used.
+    Fields that require attention are marked with a <to_do /> element.
+    
+    
+    Other elements
+    ==============
+    
+    If a field can be mapped to more than one value, an <if test=""/> element is used to define the possible mappings.
+    
+    Notes are in a child <note/> element.
+    
     
     TODOS
     =====
@@ -106,7 +127,7 @@
 
     <symplectic_field name="funding-acknowledgements">
         <symplectic_child_field name="organisation"><ora_field>funders__funder_name</ora_field></symplectic_child_field>
-        <symplectic_child_field name="grant-id"><ora_field>funders__grant_identifier</ora_field><note>All grant identifiers should also have a randomly generated uuid_{uuid} xml:id in MODS, as specified in Ora Data Model to MODS</note></symplectic_child_field>
+        <symplectic_child_field name="grant-id"><ora_field>funders__funder_grant__grant_identifier</ora_field></symplectic_child_field>
     </symplectic_field>
     <symplectic_field name="isbn-10"><ora_field>identifiers_isbn_10</ora_field></symplectic_field>
 
@@ -217,4 +238,108 @@
     </symplectic_field>
     
     <symplectic_field name="volume"><ora_field>volume</ora_field></symplectic_field>
+    
+    <!-- 
+        Oxford custom fields
+        ====================
+    -->
+    
+    <oxford_symplectic_field number="01" name="division-affiliation"><ora_field>contributors__division</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="02" name="Academic Affiliations"><ora_field>contributors__institution</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="03" name="College Affiliation"><ora_field>contributors__oxford_college</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="04" name="Job Description"><to_do /><note>TODO: is this contributors__roles__role_title=='depositor' or 'impersonator'?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="06" name="Department Affiliation"><ora_field>contributors__department</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="07" name="Sub Unit Affiliation"><ora_field>contributors__sub_unit</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="09" name="Student"><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="10" name="Source"><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="11" name="HESA Staff ID"><ora_field>contributors__contributor_institutional_identifier</ora_field><to_do/><note>Which institutional identifier field is right?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="12" name="Employee No"><ora_field>contributors__contributor_institutional_identifier</ora_field><to_do/><note>Which institutional identifier field is right?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="13" name="UOA"><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="14" name="REFCat14"><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="15" name="Eligible"><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="16" name="Return"><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="17" name="REF Module User"><no_mapping /><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="18" name="Employee No [BizTalk]"><ora_field>contributors__contributor_institutional_identifier</ora_field><to_do /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="19" name="Date Modified [BizTalk]"><no_mapping /><ora_field></ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="20" name="Generic20"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="21" name="Generic21"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="22" name="Generic22"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="23" name="Local [Original]"><no_mapping /><to_do/></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="24" name="User table ID [Original]"><no_mapping/></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="25" name="Title [Original]"><no_mapping/></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="26" name="Initials [Original]"><ora_field>contributors__initials</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="27" name="First Name [Original]"><ora_field>contributors__given_names</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="28" name="Last Name [Original]"><ora_field>contributors__last_name</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="29" name="Known as [Original]"><no_mapping /><to_do/><note>How does this relate to preferred names?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="30" name="Suffix [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="31" name="Email [Original]"><ora_field>contributors__contributor_email</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="32" name="ProprietaryID [Original]"><ora_field>contributors__contributor_institutional_identifier</ora_field><to_do/><note>Which institutional identifier field is right?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="33" name="Username [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="34" name="Authenticating Authority [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="35" name="IsAcademic [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="36" name="IsCurrent [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="37" name="Login Allowed [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="38" name="Primary Group Descriptor [Original]"><no_mapping /><to_do/></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="39" name="Arrive Date [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="40" name="Leave Date [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="41" name="Division [Original]"><ora_field>contributors__division</ora_field></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="42" name="Academic Affiliation [Original]"><ora_field>contributors__institution</ora_field><to_do/><note>How does this relate to Academic Affiliations, field 02?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="43" name="College Affiliation [Original]"><ora_field>contributors__oxford_college</ora_field><to_do/><note>How does this relate to College Affiliation, field 03above?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="44" name="Job Description [Original]"><ora_field></ora_field><to_do/><note>How does this relate to Job description, field 04, above?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="45" name="ORCiD [Original]"><ora_field>contributors__orcid_identifier</ora_field><to_do/><note>How does this relate to ORCID, field 05, above?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="46" name="SSO [Original]"><ora_field>contributors__contributor_institutional_identifier</ora_field><to_do/><note>Which institutional identifier field is right?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="47" name="Employee ID [Original]"><ora_field>contributors__contributor_institutional_identifier</ora_field><to_do/><note>Which institutional identifier field is right?</note></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="48" name="Generic08"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="49" name="Student [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <oxford_symplectic_field number="50" name="Source [Original]"><no_mapping /></oxford_symplectic_field>
+        
 </ora_symplectic_field_mappings>
