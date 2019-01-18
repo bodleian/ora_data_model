@@ -57,7 +57,6 @@ ORA_Data_Model_Object = {
     },
     "contributors_et_al": "",
     "commissioning_body": "",
-    "confidential_report": "",
     "funding": [{
         "funder_compliance_met": "",
         "funder_funding_programme": "",
@@ -81,6 +80,7 @@ ORA_Data_Model_Object = {
     "pre_counter_downloads": "",
     "pre_counter_views": "",
     "record_content_source": "",
+    "record_created_date": "",
     "record_publication_date": "",
     "record_version": "",
     "related_items": [{
@@ -97,10 +97,12 @@ ORA_Data_Model_Object = {
     // ADMIN FIELDS
     "admin_incorrect_version_deposited": "",
     "admin_notes": "",
+    "confidential_report": "",
     "deposit_note": "",
     "depositor_contacted": "",
     "depositor_contact_email_template": "",
     "has_public_url": "",
+    "record_deposit_date": "",
     "record_embargo_end_date": "",
     "record_embargo_reason": "",
     "record_embargo_release_method": "",

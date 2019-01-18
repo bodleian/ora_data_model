@@ -515,6 +515,7 @@
     
     <mods:recordInfo>
         <mods:recordCreationDate>field:record_created_date</mods:recordCreationDate>
+        <mods:recordCreationDate>field:record_deposit_date</mods:recordCreationDate>
         <mods:recordContentSource>field:record_content_source</mods:recordContentSource>
         <mods:recordInfoNote type="accept_updates">field:record_accept_updates</mods:recordInfoNote>
         <mods:recordInfoNote type="admin_notes">field:admin_notes</mods:recordInfoNote>
