@@ -55,6 +55,15 @@
     
     People fields (last name, etc.)
     Depositor and impersonator information
+    Value mappings
+    
+    
+    Value mappings
+    ==============
+    Fields that will need value mappings:
+     - type_of_work
+     - review_status
+    
     
     
     ORA identifiers for a work
@@ -365,18 +374,20 @@
         ===========================
         SAMPLE SYMPLECTIC-ATOM FEED
         ===========================
+        
+        In what follows, ORA values are contained within {} and indicated with a 'field' prefix
     -->
     <feed xmlns="http://www.w3.org/2005/Atom" xmlns:api="http://www.symplectic.co.uk/publications/api">
         <api:schema-version>5.5</api:schema-version>
         <category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/feeds/" term="item"/>
-        <id>tag:elements@oxford,5.13:/secure-api/v5.5/feeds/publications/647987</id>
+        <id>tag:elements@oxford,5.13:/secure-api/v5.5/feeds/publications/{field:identifiers_pubs_identifier}</id>
         <updated>2019-01-21T08:00:35.89+00:00</updated>
         <generator uri="https://oxris.ox.ac.uk/" version="5.13">Symplectic Elements</generator>
         <icon>https://oxris.ox.ac.uk:8091/secure-api/v5.5/symplectic.ico</icon>
         <rights>This data is the property of the Organisation, and can only be used with permission.</rights>
         <subtitle>This feed represents a single publication.</subtitle>
         <link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" rel="self" type="application/atom+xml"/>
-        <title>The weather@home regional climate modelling project for Australia and New Zealand</title>
+        <title>{field:title}</title>
         <author>
             <name>Symplectic Elements at Oxford PROD</name>
         </author>
@@ -385,7 +396,7 @@
             <category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/entries/" term="item"/>
             <updated>2019-01-21T08:00:35.89+00:00</updated>
             <link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" rel="alternate" type="application/atom+xml"/>
-            <title>The weather@home regional climate modelling project for Australia and New Zealand</title>
+            <title>{field:title}</title>
             <content type="xhtml">
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Publication (journal article)</p>
@@ -393,7 +404,7 @@
                         <a href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987/relationships">Relationships</a>with other data</p>
                 </div>
             </content>
-            <api:object category="publication" created-when="2016-10-05T15:47:18.57+01:00" href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" id="647987" last-affected-when="2019-01-21T08:00:35.89+00:00" last-modified-when="2019-01-19T15:51:15.88+00:00" type="journal-article" type-id="5">
+            <api:object category="publication" created-when="2016-10-05T15:47:18.57+01:00" href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" id="647987" last-affected-when="2019-01-21T08:00:35.89+00:00" last-modified-when="2019-01-19T15:51:15.88+00:00" type="{field:type_of_work}" type-id="5">
                 <!--Publication type 5 is "journal article"-->
                 <api:ever-approved>true</api:ever-approved>
                 <api:reporting-date-1>2016-09-15</api:reporting-date-1>

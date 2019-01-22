@@ -96,18 +96,18 @@ ORA_Data_Model_Object = {
     "depositor_contacted": "",
     "depositor_contact_email_template": "",
     "has_public_url": "",
+    "history": [{
+        "action_date": "",
+        "action_description": "",
+        "action_duration": "",
+        "action_responsibility": ""
+    }],
     "record_deposit_date": "",
     "record_embargo_end_date": "",
     "record_embargo_reason": "",
     "record_embargo_release_method": "",
     "record_embargo_status": "",
     "record_first_reviewed_by": "",
-    "record_history": [{
-        "action_date": "",
-        "action_description": "",
-        "action_duration": "",
-        "action_responsibility": ""
-    }],
     "record_accept_updates": "",
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
