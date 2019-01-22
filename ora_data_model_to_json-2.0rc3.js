@@ -67,12 +67,6 @@ ORA_Data_Model_Object = {
         "funder_identifier": "",
         "funder_name": ""
     }],
-    "history": [{
-        "action_date": "",
-        "action_description": "",
-        "action_duration": "",
-        "action_responsibility": ""
-    }],
     "language": "",
     "keyword": "",
     "pid": "",
@@ -108,7 +102,12 @@ ORA_Data_Model_Object = {
     "record_embargo_release_method": "",
     "record_embargo_status": "",
     "record_first_reviewed_by": "",
-    "record_history": "",
+    "record_history": [{
+        "action_date": "",
+        "action_description": "",
+        "action_duration": "",
+        "action_responsibility": ""
+    }],
     "record_accept_updates": "",
     "record_ora_deposit_licence": "",
     "record_requires_review": "",

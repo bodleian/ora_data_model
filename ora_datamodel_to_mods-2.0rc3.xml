@@ -545,14 +545,14 @@
             <ora_admin:rights_third_party_copyright_material>field:rights_third_party_copyright_material</ora_admin:rights_third_party_copyright_material>
             <ora_admin:rights_third_party_copyright_permission_received>field:rights_third_party_copyright_permission_received</ora_admin:rights_third_party_copyright_permission_received>
             <ora_admin:rt_ticket_number>field:rt_ticket_number</ora_admin:rt_ticket_number>
-            <ora_admin:history>
+            <ora_admin:record_history>
                 <ora_admin:history_action>
                     <dc:date>field:action_date</dc:date>
                     <dc:description>field:action_description</dc:description>
                     <dcterms:temporal>field:action_duration</dcterms:temporal>
                     <dc:contributor>field:action_responsibility</dc:contributor>
                 </ora_admin:history_action>
-            </ora_admin:history>
+            </ora_admin:record_history>
         </ora_admin:admin>
     </mods:extension>
     
