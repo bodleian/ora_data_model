@@ -380,7 +380,7 @@
     <feed xmlns="http://www.w3.org/2005/Atom" xmlns:api="http://www.symplectic.co.uk/publications/api">
         <api:schema-version>5.5</api:schema-version>
         <category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/feeds/" term="item"/>
-        <id>tag:elements@oxford,5.13:/secure-api/v5.5/feeds/publications/{field:identifiers_pubs_identifier}</id>
+        <id>tag:elements@oxford,5.13:/secure-api/v5.5/feeds/publications/647987</id>
         <updated>2019-01-21T08:00:35.89+00:00</updated>
         <generator uri="https://oxris.ox.ac.uk/" version="5.13">Symplectic Elements</generator>
         <icon>https://oxris.ox.ac.uk:8091/secure-api/v5.5/symplectic.ico</icon>
@@ -404,32 +404,25 @@
                         <a href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987/relationships">Relationships</a>with other data</p>
                 </div>
             </content>
-            <api:object category="publication" created-when="2016-10-05T15:47:18.57+01:00" href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" id="647987" last-affected-when="2019-01-21T08:00:35.89+00:00" last-modified-when="2019-01-19T15:51:15.88+00:00" type="{field:type_of_work}" type-id="5">
+            <api:object category="publication" created-when="2016-10-05T15:47:18.57+01:00" href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" id="{field:identifiers_pubs_identifier}" last-affected-when="2019-01-21T08:00:35.89+00:00" last-modified-when="2019-01-19T15:51:15.88+00:00" type="{field:type_of_work}" type-id="5">
                 <!--Publication type 5 is "journal article"-->
                 <api:ever-approved>true</api:ever-approved>
                 <api:reporting-date-1>2016-09-15</api:reporting-date-1>
                 <api:is-public>true</api:is-public>
                 <api:repository-items>
                     <api:repository-item repository-id="1" repository-name="ORA">
-                        <api:public-url>https://ora-prd-public.bodleian.ox.ac.uk/objects/uuid:d3efe938-dacf-46ad-bb54-ca624a75de37</api:public-url>
+                        <api:public-url>{field:has_public_url}</api:public-url>
                         <api:content-file-count>2</api:content-file-count>
-                        <api:licence-file-count>1</api:licence-file-count>
+                        <api:licence-file-count>{field:record_deposit_licence}</api:licence-file-count>
                         <api:first-file-uploaded-when>2016-11-01T12:51:06.613+00:00</api:first-file-uploaded-when>
                         <api:first-licence-granted-when>2016-11-01T12:51:52.05+00:00</api:first-licence-granted-when>
                         <api:status>accepted</api:status>
                         <api:repository-files>
                             <api:repository-file last-modified-when="2019-01-20T04:27:54+00:00" type="content">
-                                <api:name>The weatherathome regional climate modelling project for Australia and New Zealand.pdf</api:name>
-                                <api:public-url>http://ora.ox.ac.uk/objects/uuid:d3efe938-dacf-46ad-bb54-ca624a75de37/datastreams/ATTACHMENT01</api:public-url>
+                                <api:name>{field:binary_files__file_name}</api:name>
+                                <api:public-url>{field:binary_files__file_public_url}</api:public-url>
                                 <api:mime-type>application/pdf</api:mime-type>
-                                <api:version>VoR</api:version>
-                                <api:is-publicly-available>true</api:is-publicly-available>
-                            </api:repository-file>
-                            <api:repository-file last-modified-when="2019-01-20T04:27:54+00:00" type="content">
-                                <api:name>gmd-2016-100-typeset_manuscript-version2.pdf</api:name>
-                                <api:public-url>http://ora.ox.ac.uk/objects/uuid:d3efe938-dacf-46ad-bb54-ca624a75de37/datastreams/bin7f3e003d-5920-48b1-a79e-a3170c20795f</api:public-url>
-                                <api:mime-type>text/php</api:mime-type>
-                                <api:version>VoR</api:version>
+                                <api:version>{field:binary_files__file_rioxx_file_version}</api:version>
                                 <api:is-publicly-available>true</api:is-publicly-available>
                             </api:repository-file>
                         </api:repository-files>
@@ -442,88 +435,27 @@
                             <api:field display-name="Authors" name="authors" type="person-list">
                                 <api:people>
                                     <api:person>
-                                        <api:last-name>Black</api:last-name>
-                                        <api:initials>MT</api:initials>
-                                        <api:first-names>Mitchell T</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Karoly</api:last-name>
-                                        <api:initials>DJ</api:initials>
-                                        <api:first-names>David J</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Rosier</api:last-name>
-                                        <api:initials>SM</api:initials>
-                                        <api:first-names>Suzanne M</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Dean</api:last-name>
-                                        <api:initials>SM</api:initials>
-                                        <api:first-names>Sam M</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>King</api:last-name>
-                                        <api:initials>AD</api:initials>
-                                        <api:first-names>Andrew D</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Massey</api:last-name>
-                                        <api:initials>NR</api:initials>
-                                        <api:first-names>Neil R</api:first-names>
-                                    </api:person>
-                                    <api:person>
                                         <api:links>
-                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" id="12717" type="elements/user"/>
+                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" id="{field:contributors__contributor_identifiers__contributor_identifier, field:contributors__contributor_identifier__contributor_identifier_scheme='pubs_person_identifier'}" type="elements/user"/>
                                         </api:links>
-                                        <api:last-name>Sparrow</api:last-name>
-                                        <api:initials>SN</api:initials>
-                                        <api:first-names>Sarah N</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Bowery</api:last-name>
-                                        <api:initials>A</api:initials>
-                                        <api:first-names>Andy</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:links>
-                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/7567" id="7567" type="elements/user"/>
-                                        </api:links>
-                                        <api:last-name>Wallom</api:last-name>
-                                        <api:initials>D</api:initials>
-                                        <api:first-names>David</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Jones</api:last-name>
-                                        <api:initials>RG</api:initials>
-                                        <api:first-names>Richard G</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:links>
-                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/6143" id="6143" type="elements/user"/>
-                                        </api:links>
-                                        <api:last-name>Otto</api:last-name>
-                                        <api:initials>FEL</api:initials>
-                                        <api:first-names>Friederike EL</api:first-names>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Allen</api:last-name>
-                                        <api:initials>MR</api:initials>
-                                        <api:first-names>Myles R</api:first-names>
+                                        <api:last-name>{field:contributors__last_name}</api:last-name>
+                                        <api:initials>{field:contributors__initials}</api:initials>
+                                        <api:first-names>{field:contributors__given_names}</api:first-names>
                                     </api:person>
                                 </api:people>
                             </api:field>
                             <api:field display-name="Author URL" name="author-url" type="text">
-                                <api:text>http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=LinksAMR&amp;KeyUT=WOS:000384319800001&amp;DestLinkType=FullRecord&amp;DestApp=ALL_WOS&amp;UsrCustomerID=4fd6f7d59a501f9b8bac2be37914c43e</api:text>
+                                <api:text>{field:contributors__contributor_website_url}<!-- Note, this would have to be linked to a given contributor --></api:text>
                             </api:field>
                             <api:field display-name="DOI" name="doi" type="text">
-                                <api:text>10.5194/gmd-9-3161-2016</api:text>
+                                <api:text>{field:identifiers_doi}</api:text>
                                 <api:links>
                                     <api:link href="http://doi.org/10.5194/gmd-9-3161-2016" type="doi"/>
                                     <api:link href="http://www.altmetric.com/details.php?doi=10.5194/gmd-9-3161-2016" type="altmetric"/>
                                 </api:links>
                             </api:field>
                             <api:field display-name="eISSN" name="eissn" type="text">
-                                <api:text>1991-9603</api:text>
+                                <api:text>{field:identifiers__eissn}</api:text>
                                 <api:links>
                                     <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
                                 </api:links>
@@ -534,38 +466,38 @@
                                 </api:identifiers>
                             </api:field>
                             <api:field display-name="ISSN" name="issn" type="text">
-                                <api:text>1991-959X</api:text>
+                                <api:text>{field:identifiers_issn}</api:text>
                                 <api:links>
                                     <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
                                 </api:links>
                             </api:field>
                             <api:field display-name="Issue" name="issue" type="text">
-                                <api:text>9</api:text>
+                                <api:text>{field:issue}</api:text>
                             </api:field>
                             <api:field display-name="Journal" name="journal" type="text">
-                                <api:text>GEOSCIENTIFIC MODEL DEVELOPMENT</api:text>
+                                <api:text>{field:journal_title}</api:text>
                             </api:field>
                             <api:field display-name="Pagination" name="pagination" type="pagination">
                                 <api:pagination>
-                                    <api:begin-page>3161</api:begin-page>
-                                    <api:end-page>3176</api:end-page>
+                                    <api:begin-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:begin-page>
+                                    <api:end-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:end-page>
                                 </api:pagination>
                             </api:field>
                             <api:field display-name="Publication date" name="publication-date" type="date">
                                 <api:date>
-                                    <api:day>15</api:day>
-                                    <api:month>9</api:month>
-                                    <api:year>2016</api:year>
+                                    <api:day>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
                                 </api:date>
                             </api:field>
                             <api:field display-name="Status" name="publication-status" type="text">
-                                <api:text>Published</api:text>
+                                <api:text>{field:citation_publication_status}</api:text>
                             </api:field>
                             <api:field display-name="Title" name="title" type="text">
-                                <api:text>The weather@home regional climate modelling project for Australia and New Zealand</api:text>
+                                <api:text>{field:title}</api:text>
                             </api:field>
                             <api:field display-name="Volume" name="volume" type="text">
-                                <api:text>9</api:text>
+                                <api:text>{field:volume}</api:text>
                             </api:field>
                         </api:native>
                     </api:record>
@@ -573,167 +505,81 @@
                         <api:citation-count>8</api:citation-count>
                         <api:native>
                             <api:field display-name="Abstract" name="abstract" type="text">
-                                <api:text>Â© Author(s) 2016. A new climate modelling project has been developed for regional climate simulation and the attribution of weather and climate extremes over Australia and New Zealand. The project, known as weather@home Australia-New Zealand, uses public volunteers' home computers to run a moderate-resolution global atmospheric model with a nested regional model over the Australasian region. By harnessing the aggregated computing power of home computers, weather@home is able to generate an unprecedented number of simulations of possible weather under various climate scenarios. This combination of large ensemble sizes with high spatial resolution allows extreme events to be examined with well-constrained estimates of sampling uncertainty. This paper provides an overview of the weather@home Australia-New Zealand project, including initial evaluation of the regional model performance. The model is seen to be capable of resolving many climate features that are important for the Australian and New Zealand regions, including the influence of El NiÃ±o-Southern Oscillation on driving natural climate variability. To date, 75 model simulations of the historical climate have been successfully integrated over the period 1985-2014 in a time-slice manner. In addition, multi-thousand member ensembles have also been generated for the years 2013, 2014 and 2015 under climate scenarios with and without the effect of human influences. All data generated by the project are freely available to the broader research community.</api:text>
+                                <api:text>{field:abstract}</api:text>
                             </api:field>
                             <api:field display-name="Authors" name="authors" type="person-list">
                                 <api:people>
                                     <api:person>
                                         <api:links>
-                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" id="12717" type="elements/user"/>
+                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" id="{field:contributors__contributor_identifiers__contributor_identifier, field:contributors__contributor_identifier__contributor_identifier_scheme='pubs_person_identifier'}" type="elements/user"/>
                                         </api:links>
-                                        <api:last-name>Sparrow</api:last-name>
-                                        <api:initials>SN</api:initials>
-                                        <api:first-names>SN</api:first-names>
+                                        <api:last-name>{field:contributors__last_name}</api:last-name>
+                                        <api:initials>{field:contributors__initials}</api:initials>
+                                        <api:first-names>{field:contributors__given_names}</api:first-names>
                                         <api:addresses>
                                             <api:address iso-country-code="GB">
-                                                <api:line type="organisation">University of Oxford</api:line>
+                                                <api:line type="organisation">{field:contributors__institution}</api:line>
                                                 <api:line type="city">Oxford</api:line>
                                                 <api:line type="country">United Kingdom</api:line>
                                             </api:address>
                                         </api:addresses>
                                         <api:identifiers>
-                                            <api:identifier scheme="scopus-author-id">56487336100</api:identifier>
-                                        </api:identifiers>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Bowery</api:last-name>
-                                        <api:initials>A</api:initials>
-                                        <api:first-names>A</api:first-names>
-                                        <api:addresses>
-                                            <api:address iso-country-code="GB">
-                                                <api:line type="organisation">University of Oxford</api:line>
-                                                <api:line type="city">Oxford</api:line>
-                                                <api:line type="country">United Kingdom</api:line>
-                                            </api:address>
-                                        </api:addresses>
-                                        <api:identifiers>
-                                            <api:identifier scheme="scopus-author-id">53876838300</api:identifier>
-                                        </api:identifiers>
-                                    </api:person>
-                                    <api:person>
-                                        <api:links>
-                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/7567" id="7567" type="elements/user"/>
-                                        </api:links>
-                                        <api:last-name>Wallom</api:last-name>
-                                        <api:initials>D</api:initials>
-                                        <api:first-names>D</api:first-names>
-                                        <api:addresses>
-                                            <api:address iso-country-code="GB">
-                                                <api:line type="organisation">University of Oxford</api:line>
-                                                <api:line type="city">Oxford</api:line>
-                                                <api:line type="country">United Kingdom</api:line>
-                                            </api:address>
-                                        </api:addresses>
-                                        <api:identifiers>
-                                            <api:identifier scheme="scopus-author-id">6603062699</api:identifier>
-                                        </api:identifiers>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Jones</api:last-name>
-                                        <api:initials>RG</api:initials>
-                                        <api:first-names>RG</api:first-names>
-                                        <api:addresses>
-                                            <api:address iso-country-code="GB">
-                                                <api:line type="organisation">University of Oxford</api:line>
-                                                <api:line type="city">Oxford</api:line>
-                                                <api:line type="country">United Kingdom</api:line>
-                                            </api:address>
-                                            <api:address iso-country-code="GB">
-                                                <api:line type="organisation">Met Office</api:line>
-                                                <api:line type="city">Exeter</api:line>
-                                                <api:line type="country">United Kingdom</api:line>
-                                            </api:address>
-                                        </api:addresses>
-                                        <api:identifiers>
-                                            <api:identifier scheme="scopus-author-id">55722586400</api:identifier>
-                                        </api:identifiers>
-                                    </api:person>
-                                    <api:person>
-                                        <api:links>
-                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/6143" id="6143" type="elements/user"/>
-                                        </api:links>
-                                        <api:last-name>Otto</api:last-name>
-                                        <api:initials>FEL</api:initials>
-                                        <api:first-names>FEL</api:first-names>
-                                        <api:addresses>
-                                            <api:address iso-country-code="GB">
-                                                <api:line type="organisation">University of Oxford</api:line>
-                                                <api:line type="city">Oxford</api:line>
-                                                <api:line type="country">United Kingdom</api:line>
-                                            </api:address>
-                                        </api:addresses>
-                                        <api:identifiers>
-                                            <api:identifier scheme="scopus-author-id">55278121100</api:identifier>
-                                        </api:identifiers>
-                                    </api:person>
-                                    <api:person>
-                                        <api:last-name>Allen</api:last-name>
-                                        <api:initials>MR</api:initials>
-                                        <api:first-names>MR</api:first-names>
-                                        <api:addresses>
-                                            <api:address iso-country-code="GB">
-                                                <api:line type="organisation">University of Oxford</api:line>
-                                                <api:line type="city">Oxford</api:line>
-                                                <api:line type="country">United Kingdom</api:line>
-                                            </api:address>
-                                        </api:addresses>
-                                        <api:identifiers>
-                                            <api:identifier scheme="scopus-author-id">7404105326</api:identifier>
+                                            <api:identifier scheme="{field:contributors__contributor_identifier__contributor_identifier_scheme}">field:contributors__contributor_identifiers__contributor_identifier<!-- ORCIDs and SSOs are mapped to different values --></api:identifier>
                                         </api:identifiers>
                                     </api:person>
                                 </api:people>
                             </api:field>
                             <api:field display-name="DOI" name="doi" type="text">
-                                <api:text>10.5194/gmd-9-3161-2016</api:text>
+                                <api:text>{field:identifiers_doi}</api:text>
                                 <api:links>
                                     <api:link href="http://doi.org/10.5194/gmd-9-3161-2016" type="doi"/>
                                     <api:link href="http://www.altmetric.com/details.php?doi=10.5194/gmd-9-3161-2016" type="altmetric"/>
                                 </api:links>
                             </api:field>
                             <api:field display-name="eISSN" name="eissn" type="text">
-                                <api:text>1991-9603</api:text>
+                                <api:text>{field:identifiers_eissn}</api:text>
                                 <api:links>
                                     <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
                                 </api:links>
                             </api:field>
                             <api:field display-name="ISSN" name="issn" type="text">
-                                <api:text>1991-959X</api:text>
+                                <api:text>{field:identifiers_issn}</api:text>
                                 <api:links>
                                     <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
                                 </api:links>
                             </api:field>
                             <api:field display-name="Issue" name="issue" type="text">
-                                <api:text>9</api:text>
+                                <api:text>{field:issue}</api:text>
                             </api:field>
                             <api:field display-name="Journal" name="journal" type="text">
-                                <api:text>Geoscientific Model Development</api:text>
+                                <api:text>{field:journal_title}</api:text>
                             </api:field>
                             <api:field display-name="Pagination" name="pagination" type="pagination">
                                 <api:pagination>
-                                    <api:begin-page>3161</api:begin-page>
-                                    <api:end-page>3176</api:end-page>
+                                    <api:begin-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:begin-page>
+                                    <api:end-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:end-page>
                                 </api:pagination>
                             </api:field>
                             <api:field display-name="Publication date" name="publication-date" type="date">
                                 <api:date>
-                                    <api:day>15</api:day>
-                                    <api:month>9</api:month>
-                                    <api:year>2016</api:year>
+                                    <api:day>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
                                 </api:date>
                             </api:field>
                             <api:field display-name="Status" name="publication-status" type="text">
-                                <api:text>Published</api:text>
+                                <api:text>{field:host_publication_status}</api:text>
                             </api:field>
                             <api:field display-name="Title" name="title" type="text">
-                                <api:text>The weather@home regional climate modelling project for Australia and New Zealand</api:text>
+                                <api:text>{field:title}</api:text>
                             </api:field>
                             <api:field display-name="Sub types" name="types" type="list">
                                 <api:items>
-                                    <api:item>Journal Article</api:item>
+                                    <api:item>{field:type_of_work}</api:item>
                                 </api:items>
                             </api:field>
                             <api:field display-name="Volume" name="volume" type="text">
-                                <api:text>9</api:text>
+                                <api:text>{field:volume}</api:text>
                             </api:field>
                         </api:native>
                     </api:record>
