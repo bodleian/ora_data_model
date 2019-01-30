@@ -50,12 +50,12 @@ ORA_Data_Model_Object = {
         "research_group": "",
         "roles": [{
             "role_title": "",
-            "role_order": ""
+            "role_order": "",
+            "et_al": ""
         }],
         "sub_department": "",
         "sub_unit": ""
     },
-    "contributors_et_al": "",
     "commissioning_body": "",
     "funding": [{
         "funder_compliance_met": "",

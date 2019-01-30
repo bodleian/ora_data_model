@@ -572,7 +572,7 @@
                                     <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
                                 </api:date>
                             </api:field>
-                            <api:field display-name="Status" name="publication-status" type="text">
+                            <api:field display-name="Status" name="publication-status" type="text">e
                                 <api:text>{field:host_publication_status}</api:text>
                             </api:field>
                             <api:field display-name="Title" name="title" type="text">

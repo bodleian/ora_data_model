@@ -99,8 +99,8 @@
     
     In almost all cases, ORA field values are output either as element content, or as a field value.
     
-    The only exception is the field contributors_et_al, which (if true) will generate the XML content:
-        <mods:name type="personal"><mods:etal /></mods:name>
+    The only exception is the field contributors__roles___et_al, which (if boolean true) will generate the XML content:
+        <mods:name type="personal"><mods:etal /><mods:role>contributors__roles__role_title</mods:role></mods:name>
         
     
     METADATA SECTIONS
@@ -311,6 +311,15 @@
             <mods:roleTerm type="text">field:contributors__roles__role_title</mods:roleTerm>
         </mods:role>
     </mods:name>
+    
+    <!-- IF A CONTRIBUTOR HAS A ROLE WHERE ET_AL IS TRUE (field:contributors__roles__et_al) -->
+    <mods:name type="personal">
+        <mods:etal />
+        <mods:role>
+            <mods:roleTerm>contributors__roles__role_title</mods:roleTerm>
+        </mods:role>
+    </mods:name>
+    
        
     <!-- COPYRIGHT HOLDER -->
     <mods:name type="corporate">
