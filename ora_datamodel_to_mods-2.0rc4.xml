@@ -283,13 +283,10 @@
         
         <!-- Affiliations 
             
-             For multiple affiliations, repeat ora:affiliation for each one
+             For multiple affiliations, create a separate ora:affiliation for each affiliation
         -->
         <mods:extension>
-            <!-- 
-                    We're in discussion with the MODS community in order to try to encode complex affiliations within MODS itself
-            -->
-            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/" type="complex">
+            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
                 <ora:affiliationComponent type="institution" institution_id="field:contributors__institution_identifier">field:contributors__institution</ora:affiliationComponent>
                 <ora:affiliationComponent type="division">field:contributors__division</ora:affiliationComponent>
                 <ora:affiliationComponent type="department">field:contributors__department</ora:affiliationComponent>
@@ -302,7 +299,7 @@
 
         <!-- Contributor roles
             
-             For multiple roles, repeat mods:role/mods:roleterm for each role 
+             For multiple roles, create a mods:role for each role 
         -->
         <mods:role>
             <mods:extension>
@@ -312,7 +309,7 @@
         </mods:role>
     </mods:name>
     
-    <!-- IF A CONTRIBUTOR HAS A ROLE WHERE ET_AL IS TRUE (field:contributors__roles__et_al) -->
+    <!-- IF A CONTRIBUTOR HAS A ROLE WHERE ET_AL IS TRUE (field:contributors__roles__et_al) generate the following additional mods:name -->
     <mods:name type="personal">
         <mods:etal />
         <mods:role>
