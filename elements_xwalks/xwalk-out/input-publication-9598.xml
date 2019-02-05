@@ -210,11 +210,11 @@
     <api:relationships href="http://tempuri.org/publications/9598/relationships?view=default" />
     <api:neighbourhood>
       <api:relationships>
-        <api:relationship id="9667" type-id="8" type="publication-user-authorship" last-modified-when="2019-01-29T14:48:51.723+00:00" href="http://tempuri.org/relationships/9667?detail=ref&amp;view=default">
+        <api:relationship id="9667" type-id="8" type="publication-user-authorship" last-modified-when="2019-02-05T17:18:14.243+00:00" href="http://tempuri.org/relationships/9667?detail=ref&amp;view=default">
           <api:is-visible>true</api:is-visible>
           <api:is-favourite>false</api:is-favourite>
           <api:related direction="to" category="user" id="30">
-            <api:object category="user" id="30" proprietary-id="dwh" authenticating-authority="Internal" username="dwh" last-affected-when="2019-01-30T11:39:02.643+00:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/30?view=default" created-when="2012-07-11T14:41:28.037+01:00" type-id="1" type="person">
+            <api:object category="user" id="30" proprietary-id="dwh" authenticating-authority="Internal" username="dwh" last-affected-when="2018-10-12T23:30:03.193+01:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/30?view=default" created-when="2012-07-11T14:41:28.037+01:00" type-id="1" type="person">
               <!--User type 1 is "person"-->
               <api:ever-approved>true</api:ever-approved>
               <api:is-public>false</api:is-public>
@@ -267,7 +267,7 @@
             </api:object>
           </api:related>
         </api:relationship>
-        <api:relationship id="9682" type-id="8" type="publication-user-authorship" last-modified-when="2019-01-29T14:48:51.723+00:00" href="http://tempuri.org/relationships/9682?detail=ref&amp;view=default">
+        <api:relationship id="9682" type-id="8" type="publication-user-authorship" last-modified-when="2019-02-05T17:18:14.243+00:00" href="http://tempuri.org/relationships/9682?detail=ref&amp;view=default">
           <api:is-visible>true</api:is-visible>
           <api:is-favourite>false</api:is-favourite>
           <api:related direction="to" category="user" id="36">
@@ -335,21 +335,6 @@
         <api:primary-group-descriptor>Digital Science</api:primary-group-descriptor>
         <api:is-academic>true</api:is-academic>
       </api:depositor>
-      <api:oa-location-info>
-        <api:url>http://www.symplectic.co.uk/test-oa-location</api:url>
-        <api:file-version>Published Version</api:file-version>
-      </api:oa-location-info>
-      <api:requested-embargo-info>
-        <api:embargo-id>1</api:embargo-id>
-        <api:embargo-display-name>Unknown</api:embargo-display-name>
-        <api:comment>Embargo comment here</api:comment>
-      </api:requested-embargo-info>
-      <api:requested-reuse-licence-info>
-        <api:id>1</api:id>
-        <api:name>Unknown</api:name>
-        <api:short-name>Unknown</api:short-name>
-        <api:comment>Test comment for reuse licence.</api:comment>
-      </api:requested-reuse-licence-info>
       <api:files-info>
         <api:file-info>
           <api:name>test-file.txt</api:name>
