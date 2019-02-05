@@ -1,0 +1,91 @@
+﻿<xwalkout:consolidated-maps xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:ora="http://ora/terms/">
+  <xwalk:file-metadata-map>
+    <xwalk:field-mapping to="ora:repository_file">
+      <xwalk:field-source subfield="dc:title" from="file.name" />
+      <xwalk:field-source subfield="rioxxterms:version" from="file.version" />
+    </xwalk:field-mapping>
+  </xwalk:file-metadata-map>
+  <!-- Defines available field-map(s) -->
+  <xwalk:field-maps>
+    <xwalk:field-map name="deposit-sample">
+      <xwalk:field-mapping to="titleInfo">
+        <xwalk:field-source subfield="title" from="title" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source attribute-name="type" value="personal" />
+        <xwalk:field-source from="authors">
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source attribute-name="type" value="given" />
+            <xwalk:field-source data-part="person:firstnames" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source attribute-name="type" value="family" />
+            <xwalk:field-source data-part="person:lastname" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source attribute-name="type" value="initials" />
+            <xwalk:field-source data-part="person:initials" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="displayForm" format-delimiter=", " format="person:lastname-firstnames" />
+          <xwalk:field-source subfield="affiliation" data-part="person:address">
+            <xwalk:field-source attribute-name="type" value="institution" />
+            <xwalk:field-source data-part="address:organisation" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="affiliation" data-part="person:address">
+            <xwalk:field-source attribute-name="type" value="department" />
+            <xwalk:field-source data-part="address:suborganisation" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="extension" data-part="person:resolved-user">
+            <xwalk:field-source subfield="identifier">
+              <xwalk:field-source attribute-name="type" value="sso" />
+              <xwalk:field-source from="user.proprietary-id" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="physicalDescription">
+        <xwalk:field-source subfield="form">
+          <xwalk:field-source attribute-name="type" value="status" />
+          <xwalk:field-source from="publication-status" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="location">
+        <xwalk:field-source subfield="physicalLocation" from="location" />
+      </xwalk:field-mapping>
+      <!-- Identifiers -->
+      <xwalk:field-mapping to="identifier">
+        <xwalk:field-source attribute-name="type" value="doi" />
+        <xwalk:field-source from="doi" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="identifier">
+        <xwalk:field-source attribute-name="type" value="issn" />
+        <xwalk:field-source from="issn" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="identifier">
+        <xwalk:field-source attribute-name="type" value="pii" />
+        <xwalk:field-source from="pii" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="identifier">
+        <xwalk:field-source attribute-name="type" value="pubs-id" />
+        <xwalk:field-source prefix="pubs:" from="object.id" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="genre">
+        <xwalk:field-source attribute-name="type" value="typeofwork" />
+        <xwalk:field-source from="object.type" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="subject">
+        <xwalk:field-source subfield="genre" from="object.keywords" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="originInfo">
+        <xwalk:field-source subfield="dateIssued" from="publication-date" />
+        <xwalk:field-source subfield="dateOther">
+          <xwalk:field-source attribute-name="dateOfAcceptance" from="acceptance-date" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+    </xwalk:field-map>
+  </xwalk:field-maps>
+  <!-- Selects which field map to use -->
+  <xwalkout:field-map-selector>
+    <xwalk:field-map-selection field-map="deposit-sample" />
+  </xwalkout:field-map-selector>
+</xwalkout:consolidated-maps>

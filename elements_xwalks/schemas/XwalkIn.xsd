@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.4" 
+		xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin" 
+		attributeFormDefault="unqualified" 
+		elementFormDefault="qualified" 
+		targetNamespace="http://www.symplectic.co.uk/elements/xwalkin" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" >
+	
+	<xs:import schemaLocation="XwalkCommon.xsd" namespace="http://www.symplectic.co.uk/elements/xwalkcommon"/>
+
+	<xs:element name="consolidated-maps" type="xwalkin:consolidated-maps">
+		<xs:annotation>
+			<xs:documentation>Defines all the required info to crosswalk data from a source into Elements.</xs:documentation>
+		</xs:annotation>
+		<xs:key name="field-map-name-key">
+			<xs:annotation>
+				<xs:documentation>The name attribute of a xwalk:field-map is a key that can be used for keyref (foreign key) validation.</xs:documentation>
+			</xs:annotation>
+			<xs:selector xpath="xwalk:field-maps/xwalk:field-map"/>
+			<xs:field xpath ="@name"/>
+		</xs:key>
+		<xs:key name="value-map-name-key">
+			<xs:annotation>
+				<xs:documentation>The name attribute of a xwalk:value-map is a key that can be used for keyref (foreign key) validation.</xs:documentation>
+			</xs:annotation>
+			<xs:selector xpath="xwalk:value-maps/xwalk:value-map"/>
+			<xs:field xpath ="@name"/>
+		</xs:key>
+		<xs:keyref name ="object-type-selection-field-map-keyref" refer ="xwalkin:field-map-name-key">
+			<xs:annotation>
+				<xs:documentation>The field-map attribute of any xwalk:object-type-selection element must reference a field-map with the same name attribute.</xs:documentation>
+			</xs:annotation>
+			<xs:selector xpath=".//xwalkin:object-type-selection"/>
+			<xs:field xpath ="@field-map"/>
+		</xs:keyref>
+		<xs:keyref name ="field-source-value-map-keyref" refer ="xwalkin:value-map-name-key">
+			<xs:annotation>
+				<xs:documentation>The value-map attribute of any xwalk:field-source element must reference a value-map with the same name attribute.</xs:documentation>
+			</xs:annotation>
+			<xs:selector xpath=".//xwalk:field-source"/>
+			<xs:field xpath ="@value-map"/>
+		</xs:keyref>
+		<xs:keyref name ="field-map-include-field-map-keyref" refer ="xwalkin:field-map-name-key">
+			<xs:annotation>
+				<xs:documentation>The name attribute of any xwalk:include-field-map element must reference a field-map with the same name attribute.</xs:documentation>
+			</xs:annotation>
+			<xs:selector xpath=".//xwalk:include-field-map"/>
+			<xs:field xpath ="@name"/>
+		</xs:keyref>
+	</xs:element>
+
+	<xs:complexType name="consolidated-maps">
+		<xs:annotation>
+			<xs:documentation>Type used to define all the required info to crosswalk data from a source into Elements.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xwalk:consolidated-xwalk">
+				<xs:sequence minOccurs="1">
+					<xs:element name="object-type-selector" type="xwalkin:object-type-selector" minOccurs="1" maxOccurs="1"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="object-type-selector">
+		<xs:annotation>
+			<xs:documentation>Type used to select how source data is mapped to an Elements object type and field map.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xwalk:logic-expression">
+				<xs:sequence minOccurs="0" maxOccurs ="unbounded">
+					<xs:element name="object-type-selection" type="xwalkin:object-type-selection"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:element name="object-type-selection" type="xwalkin:object-type-selection">
+		<xs:annotation>
+			<xs:documentation>Defines an object type selection.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="object-type-selection">
+		<xs:annotation>
+			<xs:documentation>Type used to define how source data is mapped to an Elements object type and field map.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="object-type" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies the Elements object type that is to be used.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="category" type="xwalk:category" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies the Elements category that the object type belongs to.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="field-map" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies name of the field map to be used when crosswalking source data into Elements.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+</xs:schema>

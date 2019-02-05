@@ -1,0 +1,361 @@
+<api:push-object xmlns:api="http://www.symplectic.co.uk/publications/api">
+  <api:object category="publication" id="9598" last-affected-when="2018-08-28T10:19:08.763+01:00" last-modified-when="2018-08-28T10:19:08.763+01:00" href="http://tempuri.org/publications/9598?view=default" created-when="2012-07-19T16:03:40.007+01:00" type-id="5" type="journal-article">
+    <!--Publication type 5 is "journal article"-->
+    <api:ever-approved>true</api:ever-approved>
+    <api:reporting-date-1>2012-05-20</api:reporting-date-1>
+    <api:is-public>true</api:is-public>
+    <api:view name="default">
+      <api:field name="abstract" type="text" display-name="Abstract">
+        <api:text>The PT-symmetric Hamiltonian H=p2+x2                         (ix                         ) ( real) exhibits a phase transition at =0. When ≥0, the eigenvalues are all real, positive, discrete, and grow as increases. However, when &lt;0 there are only a finite number of real eigenvalues. As approaches -1 from above, the number of real eigenvalues decreases to 1, and this eigenvalue becomes infinite at =-1. In this paper it is shown that these qualitative spectral behaviors are generic and that they are exhibited by the eigenvalues of the general class of Hamiltonians H                         (2n                         )=p2n+x2                         (ix                         ) ( real, n=1,2,3,..). The complex classical behaviors of these Hamiltonians are also examined. © 2012 American Physical Society.</api:text>
+      </api:field>
+      <api:field name="authors" type="person-list" display-name="Authors">
+        <api:people>
+          <api:person>
+            <api:links>
+              <api:link type="elements/user" id="36" href="http://tempuri.org/users/36" />
+            </api:links>
+            <api:last-name>Bender</api:last-name>
+            <api:initials>CM</api:initials>
+            <api:first-names>Carl M</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Carl</api:first-name>
+              <api:first-name>M</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:links>
+              <api:link type="elements/user" id="30" href="http://tempuri.org/users/30" />
+            </api:links>
+            <api:last-name>Hook</api:last-name>
+            <api:initials>DW</api:initials>
+            <api:first-names>Daniel W</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Daniel</api:first-name>
+              <api:first-name>W</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+        </api:people>
+      </api:field>
+      <api:field name="author-url" type="text" display-name="URL">
+        <api:text>http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=LinksAMR&amp;KeyUT=WOS:000307717000002&amp;DestLinkType=FullRecord&amp;DestApp=ALL_WOS&amp;UsrCustomerID=a2bf6146997ec60c407a63945d4e92bb</api:text>
+      </api:field>
+      <api:field name="doi" type="text" display-name="DOI">
+        <api:text>10.1103/PhysRevA.86.022113</api:text>
+        <api:links>
+          <api:link type="doi" href="http://doi.org/10.1103/PhysRevA.86.022113" />
+          <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1103/PhysRevA.86.022113" />
+        </api:links>
+      </api:field>
+      <api:field name="eissn" type="text" display-name="eISSN">
+        <api:text>1094-1622</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/45839" />
+        </api:links>
+      </api:field>
+      <api:field name="external-identifiers" type="identifier-list" display-name="External identifiers">
+        <api:identifiers>
+          <api:identifier scheme="isidoc">991QT</api:identifier>
+        </api:identifiers>
+      </api:field>
+      <api:field name="funding-acknowledgements" type="funding-acknowledgements" display-name="Funding">
+        <api:funding-acknowledgements>
+          <api:acknowledgement-text>C.M.B. thanks the U.K. Leverhulme Foundation and the US Department of Energy for financial support. MATHEMATICA was used to perform numerical calculations.</api:acknowledgement-text>
+          <api:grants>
+            <api:grant>
+              <api:organisation>U.K. Leverhulme Foundation</api:organisation>
+            </api:grant>
+            <api:grant>
+              <api:organisation>US Department of Energy</api:organisation>
+            </api:grant>
+          </api:grants>
+        </api:funding-acknowledgements>
+      </api:field>
+      <api:field name="issn" type="text" display-name="ISSN">
+        <api:text>1050-2947</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/45839" />
+        </api:links>
+      </api:field>
+      <api:field name="issue" type="text" display-name="Issue">
+        <api:text>2</api:text>
+      </api:field>
+      <api:field name="journal" type="text" display-name="Journal">
+        <api:text>Physical Review A</api:text>
+      </api:field>
+      <api:field name="keywords" type="keyword-list" display-name="Keywords">
+        <api:keywords>
+          <api:keyword>Science &amp; Technology</api:keyword>
+          <api:keyword>Physical Sciences</api:keyword>
+          <api:keyword>Optics</api:keyword>
+          <api:keyword>Physics, Atomic, Molecular &amp; Chemical</api:keyword>
+          <api:keyword>Physics</api:keyword>
+          <api:keyword>NON-HERMITIAN HAMILTONIANS</api:keyword>
+          <api:keyword>SYMMETRY</api:keyword>
+        </api:keywords>
+      </api:field>
+      <api:field name="language" type="text" display-name="Language">
+        <api:text>English</api:text>
+      </api:field>
+      <api:field name="notes" type="text" display-name="Notes">
+        <api:text>8 pages, 7 figures</api:text>
+      </api:field>
+      <api:field name="number" type="text" display-name="Article number">
+        <api:text>ARTN 022113</api:text>
+      </api:field>
+      <api:field name="online-publication-date" type="date" display-name="Online publication date">
+        <api:date>
+          <api:day>17</api:day>
+          <api:month>8</api:month>
+          <api:year>2012</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="pagination" type="pagination" display-name="Pagination">
+        <api:pagination>
+          <api:page-count>7</api:page-count>
+        </api:pagination>
+      </api:field>
+      <api:field name="publication-date" type="date" display-name="Publication date">
+        <api:date>
+          <api:month>8</api:month>
+          <api:year>2012</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="publication-status" type="text" display-name="Status">
+        <api:text>Published</api:text>
+      </api:field>
+      <api:field name="publisher" type="text" display-name="Publisher">
+        <api:text>AMER PHYSICAL SOC</api:text>
+      </api:field>
+      <api:field name="publisher-url" type="text" display-name="Publisher URL">
+        <api:text>http://dx.doi.org/10.1103/PhysRevA.86.022113</api:text>
+      </api:field>
+      <api:field name="record-created-at-source-date" type="date" display-name="Record created at source">
+        <api:date>
+          <api:day>20</api:day>
+          <api:month>5</api:month>
+          <api:year>2012</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="record-made-public-at-source-date" type="date" display-name="Record made publicly available">
+        <api:date>
+          <api:day>20</api:day>
+          <api:month>5</api:month>
+          <api:year>2012</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="title" type="text" display-name="Title">
+        <api:text>Universal spectral behavior of potentials</api:text>
+      </api:field>
+      <api:field name="types" type="list" display-name="Sub type(s)">
+        <api:items>
+          <api:item>Journal Article</api:item>
+        </api:items>
+      </api:field>
+      <api:field name="volume" type="text" display-name="Volume">
+        <api:text>86</api:text>
+      </api:field>
+    </api:view>
+    <api:fields />
+    <api:all-labels type="keyword-list">
+      <api:keywords>
+        <api:keyword origin="record-data" source="wos">Science &amp; Technology</api:keyword>
+        <api:keyword origin="record-data" source="wos">Physical Sciences</api:keyword>
+        <api:keyword origin="record-data" source="wos">Optics</api:keyword>
+        <api:keyword origin="record-data" source="wos">Physics, Atomic, Molecular &amp; Chemical</api:keyword>
+        <api:keyword origin="record-data" source="wos">Physics</api:keyword>
+        <api:keyword origin="record-data" source="wos">NON-HERMITIAN HAMILTONIANS</api:keyword>
+        <api:keyword origin="record-data" source="wos">SYMMETRY</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">hep-th</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">hep-th</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">math-ph</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">math.MP</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">quant-ph</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">02 Physical Sciences</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">01 Mathematical Sciences</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">03 Chemical Sciences</api:keyword>
+        <api:keyword scheme="science-metrix" origin="issn-inferred">General Physics</api:keyword>
+      </api:keywords>
+    </api:all-labels>
+    <api:journal issn="1050-2947" href="http://tempuri.org/journals/45839">
+      <api:records>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Physical Review A</api:title>
+        </api:record>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Physical Review A</api:title>
+        </api:record>
+        <api:record source-name="jcr">
+          <api:title>Physical Review A: Atomic, Molecular and Optical Physics</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Physical Review A - Atomic, Molecular, and Optical Physics</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Physical Review A - Atomic, Molecular, and Optical Physics</api:title>
+        </api:record>
+        <api:record source-name="science-metrix">
+          <api:title>Physical Review A - Atomic, Molecular, and Optical Physics</api:title>
+        </api:record>
+        <api:record source-name="era-2010">
+          <api:title>Physical Review A (Atomic, Molecular and Optical Physics)</api:title>
+        </api:record>
+        <api:record source-name="snip">
+          <api:title>Physical Review A - Atomic, Molecular, and Optical Physics</api:title>
+        </api:record>
+        <api:record source-name="era-2012">
+          <api:title>Physical Review A: Atomic, Molecular and Optical Physics</api:title>
+        </api:record>
+      </api:records>
+    </api:journal>
+    <api:relationships href="http://tempuri.org/publications/9598/relationships?view=default" />
+    <api:neighbourhood>
+      <api:relationships>
+        <api:relationship id="9667" type-id="8" type="publication-user-authorship" last-modified-when="2019-01-29T14:48:51.723+00:00" href="http://tempuri.org/relationships/9667?detail=ref&amp;view=default">
+          <api:is-visible>true</api:is-visible>
+          <api:is-favourite>false</api:is-favourite>
+          <api:related direction="to" category="user" id="30">
+            <api:object category="user" id="30" proprietary-id="dwh" authenticating-authority="Internal" username="dwh" last-affected-when="2019-01-30T11:39:02.643+00:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/30?view=default" created-when="2012-07-11T14:41:28.037+01:00" type-id="1" type="person">
+              <!--User type 1 is "person"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:is-public>false</api:is-public>
+              <api:is-current-staff>true</api:is-current-staff>
+              <api:photo href="http://tempuri.org/users/30/photo?type=profile" />
+              <api:is-academic>true</api:is-academic>
+              <api:is-login-allowed>true</api:is-login-allowed>
+              <api:title>Professor</api:title>
+              <api:initials>DW</api:initials>
+              <api:last-name>Hook</api:last-name>
+              <api:first-name>Daniel</api:first-name>
+              <api:email-address>d.hook@lilliput.edu</api:email-address>
+              <api:primary-group-descriptor>Digital Science</api:primary-group-descriptor>
+              <api:position>Visiting Professor</api:position>
+              <api:department>Theoretical physics</api:department>
+              <api:institutional-email-is-public>true</api:institutional-email-is-public>
+              <api:claimed>true</api:claimed>
+              <api:organisation-defined-data field-number="1" field-name="Organisational Unit">Theory Group</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="2" field-name="Group">TRUE</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="3" field-name="REF Category of staff">YES</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="4" field-name="Eligible for REF" />
+              <api:organisation-defined-data field-number="5" field-name="Return to REF" />
+              <api:organisation-defined-data field-number="6" field-name="Test Autogroup ID" />
+              <api:organisation-defined-data field-number="7" field-name="sync (me)" />
+              <api:organisation-defined-data field-number="8" field-name="Assessment Eligibility">TRUE</api:organisation-defined-data>
+              <api:view name="default" />
+              <api:fields>
+                <api:field name="labels" type="keyword-list" display-name="labels">
+                  <api:keywords>
+                    <api:keyword scheme="c-research-area">Mathematical Aspects of Classical Mechanics, Quantum Mechanics and Quantum Information Theory</api:keyword>
+                    <api:keyword scheme="c-research-area">Quantum Physics</api:keyword>
+                  </api:keywords>
+                </api:field>
+              </api:fields>
+              <api:all-labels type="keyword-list">
+                <api:keywords>
+                  <api:keyword scheme="c-research-area" origin="object-data">Mathematical Aspects of Classical Mechanics, Quantum Mechanics and Quantum Information Theory</api:keyword>
+                  <api:keyword scheme="c-research-area" origin="object-data">Quantum Physics</api:keyword>
+                </api:keywords>
+              </api:all-labels>
+              <api:relationships href="http://tempuri.org/users/30/relationships?view=default" />
+              <api:user-identifier-associations user-id="30">
+                <api:user-identifier-association scheme="email-address" status="claimed" decision="always-me">d.hook@lilliput.edu</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-account-id" status="claimed" decision="always-me">dwh</api:user-identifier-association>
+                <api:user-identifier-association scheme="researcherid" status="claimed" decision="always-me">C-4764-2008</api:user-identifier-association>
+                <api:user-identifier-association scheme="orcid" status="claimed" decision="always-me">0000-0001-9746-1193</api:user-identifier-association>
+                <api:user-identifier-association scheme="arxiv-author-id" status="claimed" decision="always-me">http://arxiv.org/a/hook_d_1</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-id" status="claimed" decision="always-me">1640221</api:user-identifier-association>
+              </api:user-identifier-associations>
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="9682" type-id="8" type="publication-user-authorship" last-modified-when="2019-01-29T14:48:51.723+00:00" href="http://tempuri.org/relationships/9682?detail=ref&amp;view=default">
+          <api:is-visible>true</api:is-visible>
+          <api:is-favourite>false</api:is-favourite>
+          <api:related direction="to" category="user" id="36">
+            <api:object category="user" id="36" proprietary-id="cbender" authenticating-authority="Internal" username="cbender" last-affected-when="2018-10-12T23:30:03.193+01:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/36?view=default" created-when="2012-07-19T16:11:24.423+01:00" type-id="1" type="person">
+              <!--User type 1 is "person"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:is-public>false</api:is-public>
+              <api:is-current-staff>true</api:is-current-staff>
+              <api:photo href="http://tempuri.org/users/36/photo?type=profile" />
+              <api:is-academic>true</api:is-academic>
+              <api:is-login-allowed>true</api:is-login-allowed>
+              <api:title>Professor</api:title>
+              <api:initials>CM</api:initials>
+              <api:last-name>Bender</api:last-name>
+              <api:first-name>Carl</api:first-name>
+              <api:email-address>c.bender@lilliput.edu</api:email-address>
+              <api:primary-group-descriptor>School of Natural Sciences</api:primary-group-descriptor>
+              <api:institutional-email-is-public>true</api:institutional-email-is-public>
+              <api:claimed>false</api:claimed>
+              <api:organisation-defined-data field-number="1" field-name="Organisational Unit">Department of Physics</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="2" field-name="Group">Theory Group</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="3" field-name="REF Category of staff">TRUE</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="4" field-name="Eligible for REF">YES</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="5" field-name="Return to REF" />
+              <api:organisation-defined-data field-number="6" field-name="Test Autogroup ID" />
+              <api:organisation-defined-data field-number="7" field-name="sync (me)" />
+              <api:organisation-defined-data field-number="8" field-name="Assessment Eligibility" />
+              <api:view name="default" />
+              <api:fields />
+              <api:relationships href="http://tempuri.org/users/36/relationships?view=default" />
+              <api:user-identifier-associations user-id="36">
+                <api:user-identifier-association scheme="email-address" status="claimed" decision="always-me">c.bender@lilliput.edu</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-account-id" status="claimed" decision="always-me">cbender</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-id" status="claimed" decision="always-me">1640192</api:user-identifier-association>
+              </api:user-identifier-associations>
+            </api:object>
+          </api:related>
+        </api:relationship>
+      </api:relationships>
+      <api:related-groups>
+        <api:related-group id="27" parent-id="11" full-name="|Lilliput University|Symplectic|Example Manual Group" membership-type="explicit">Example Manual Group</api:related-group>
+        <api:related-group id="11" parent-id="1" full-name="|Lilliput University|Symplectic" membership-type="implicit">Symplectic</api:related-group>
+        <api:related-group id="1" full-name="|Lilliput University" membership-type="implicit">Lilliput University</api:related-group>
+        <api:related-group id="54" parent-id="11" full-name="|Lilliput University|Symplectic|Digital Science" membership-type="explicit">Digital Science</api:related-group>
+        <api:related-group id="31" parent-id="28" full-name="|Lilliput University|School of Natural Sciences|Department of Physics|Theoretical Physics|PT" membership-type="explicit">PT</api:related-group>
+        <api:related-group id="28" parent-id="15" full-name="|Lilliput University|School of Natural Sciences|Department of Physics|Theoretical Physics" membership-type="explicit">Theoretical Physics</api:related-group>
+        <api:related-group id="15" parent-id="14" full-name="|Lilliput University|School of Natural Sciences|Department of Physics" membership-type="explicit">Department of Physics</api:related-group>
+        <api:related-group id="14" parent-id="1" full-name="|Lilliput University|School of Natural Sciences" membership-type="explicit">School of Natural Sciences</api:related-group>
+      </api:related-groups>
+    </api:neighbourhood>
+  </api:object>
+  <api:push-supplementary-info>
+    <api:deposit-info type="initial">
+      <api:date>
+        <api:day>5</api:day>
+        <api:month>2</api:month>
+        <api:year>2019</api:year>
+      </api:date>
+      <api:depositor id="30" proprietary-id="dwh" username="dwh">
+        <api:initials>DW</api:initials>
+        <api:first-name>Daniel</api:first-name>
+        <api:last-name>Hook</api:last-name>
+        <api:full-name>Professor Daniel Hook</api:full-name>
+        <api:email-address>d.hook@lilliput.edu</api:email-address>
+        <api:primary-group-descriptor>Digital Science</api:primary-group-descriptor>
+        <api:is-academic>true</api:is-academic>
+      </api:depositor>
+      <api:oa-location-info>
+        <api:url>http://www.symplectic.co.uk/test-oa-location</api:url>
+        <api:file-version>Published Version</api:file-version>
+      </api:oa-location-info>
+      <api:requested-embargo-info>
+        <api:embargo-id>1</api:embargo-id>
+        <api:embargo-display-name>Unknown</api:embargo-display-name>
+        <api:comment>Embargo comment here</api:comment>
+      </api:requested-embargo-info>
+      <api:requested-reuse-licence-info>
+        <api:id>1</api:id>
+        <api:name>Unknown</api:name>
+        <api:short-name>Unknown</api:short-name>
+        <api:comment>Test comment for reuse licence.</api:comment>
+      </api:requested-reuse-licence-info>
+      <api:files-info>
+        <api:file-info>
+          <api:name>test-file.txt</api:name>
+          <api:version>Accepted Version</api:version>
+        </api:file-info>
+      </api:files-info>
+    </api:deposit-info>
+  </api:push-supplementary-info>
+</api:push-object>

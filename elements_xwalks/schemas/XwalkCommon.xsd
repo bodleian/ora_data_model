@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.5" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="choose" type="xwalk:choose">
+		<xs:annotation>
+			<xs:documentation>Defines a choose statement</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="if" type="xwalk:if">
+		<xs:annotation>
+			<xs:documentation>Defines an if statement</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:simpleType name="attribute-context-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="epdcx:valueString"/>
+			<xs:enumeration value="epdcx:statement"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="category">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="activity"/>
+			<xs:enumeration value="equipment"/>
+			<xs:enumeration value="funding-body"/>
+			<xs:enumeration value="grant"/>
+			<xs:enumeration value="impact"/>
+			<xs:enumeration value="journal"/>
+			<xs:enumeration value="org-structure"/>
+			<xs:enumeration value="project"/>
+			<xs:enumeration value="publication"/>
+			<xs:enumeration value="teaching-activity"/>
+			<xs:enumeration value="user"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="elements-data-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text"/>
+			<xs:enumeration value="date"/>
+			<xs:enumeration value="choice"/>
+			<xs:enumeration value="integer"/>
+			<xs:enumeration value="boolean"/>
+			<xs:enumeration value="number"/>
+			<xs:enumeration value="list"/>
+			<xs:enumeration value="isbn-10"/>
+			<xs:enumeration value="isbn-13"/>
+			<xs:enumeration value="issn"/>
+			<xs:enumeration value="person-list"/>
+			<xs:enumeration value="person"/>
+			<xs:enumeration value="url"/>
+			<xs:enumeration value="keyword-list"/>
+			<xs:enumeration value="doi"/>
+			<xs:enumeration value="pagination"/>
+			<xs:enumeration value="address-list"/>
+			<xs:enumeration value="funding-acknowledgements"/>
+			<xs:enumeration value="identifier-list"/>
+			<xs:enumeration value="money"/>
+			<xs:enumeration value="academic-appointment-list"/>
+			<xs:enumeration value="non-academic-employment-list"/>
+			<xs:enumeration value="degree-list"/>
+			<xs:enumeration value="certification-list"/>
+			<xs:enumeration value="phone-number-list"/>
+			<xs:enumeration value="email-address-list"/>
+			<xs:enumeration value="web-address-list"/>
+			<xs:enumeration value="language-competency-list"/>
+			<xs:enumeration value="postgraduate-training-list"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="elements-data-part">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="date:day"/>
+			<xs:enumeration value="date:month"/>
+			<xs:enumeration value="date:year"/>
+			<xs:enumeration value="person:lastname"/>
+			<xs:enumeration value="person:initials"/>
+			<xs:enumeration value="person:firstnames"/>
+			<xs:enumeration value="person:email-address"/>
+			<xs:enumeration value="person:address"/>
+			<xs:enumeration value="person:id"/>
+			<xs:enumeration value="person:identifier"/>
+			<xs:enumeration value="person:resolved-user"/>
+			<xs:enumeration value="person:role"/>
+			<xs:enumeration value="person-role:type"/>
+			<xs:enumeration value="person-role:value"/>
+			<xs:enumeration value="address:name"/>
+			<xs:enumeration value="address:organisation"/>
+			<xs:enumeration value="address:suborganisation"/>
+			<xs:enumeration value="address:streetaddress"/>
+			<xs:enumeration value="address:city"/>
+			<xs:enumeration value="address:state"/>
+			<xs:enumeration value="address:zipcode"/>
+			<xs:enumeration value="address:country"/>
+			<xs:enumeration value="address:full"/>
+			<xs:enumeration value="address:type"/>
+			<xs:enumeration value="address:iso-country-code"/>
+			<xs:enumeration value="money:amount"/>
+			<xs:enumeration value="money:currency"/>
+			<xs:enumeration value="pagination:begin-page"/>
+			<xs:enumeration value="pagination:end-page"/>
+			<xs:enumeration value="pagination:page-count"/>
+			<xs:enumeration value="identifier:value"/>
+			<xs:enumeration value="identifier:scheme"/>
+			<xs:enumeration value="identifier:status"/>
+			<xs:enumeration value="identifier:decision"/>
+			<xs:enumeration value="keyword:value"/>
+			<xs:enumeration value="keyword:scheme"/>
+			<xs:enumeration value="keyword:percent"/>
+			<xs:enumeration value="keyword:source"/>
+			<xs:enumeration value="keyword:origin"/>
+			<xs:enumeration value="funding-acknowledgements:acknowledgement-text"/>
+			<xs:enumeration value="funding-acknowledgements:grant"/>
+			<xs:enumeration value="funding-acknowledgements-grant:id"/>
+			<xs:enumeration value="funding-acknowledgements-grant:org"/>
+			<xs:enumeration value="relationship:id"/>
+			<xs:enumeration value="relationship:type"/>
+			<xs:enumeration value="relationship:type-id"/>
+			<xs:enumeration value="relationship:is-visible"/>
+			<xs:enumeration value="relationship:is-favourite"/>
+			<xs:enumeration value="relationship:other-object-category"/>
+			<xs:enumeration value="relationship:other-object-id"/>
+			<xs:enumeration value="relationship:direction"/>
+			<xs:enumeration value="relationship:other-object"/>
+			<xs:enumeration value="group:id"/>
+			<xs:enumeration value="group:parent-id"/>
+			<xs:enumeration value="group:full-name"/>
+			<xs:enumeration value="group:membership-type"/>
+			<xs:enumeration value="group:name"/>
+			<xs:enumeration value="temp:value1"/>
+			<xs:enumeration value="temp:value2"/>
+			<xs:enumeration value="temp:value3"/>
+			<xs:enumeration value="degree:name"/>
+			<xs:enumeration value="degree:institution"/>
+			<xs:enumeration value="degree:start-date"/>
+			<xs:enumeration value="degree:end-date"/>
+			<xs:enumeration value="degree:field-of-study"/>
+			<xs:enumeration value="degree:supervisors"/>
+			<xs:enumeration value="degree:thesis"/>
+			<xs:enumeration value="web-address:url"/>
+			<xs:enumeration value="web-address:label"/>
+			<xs:enumeration value="web-address:type"/>
+			<xs:enumeration value="certification:title"/>
+			<xs:enumeration value="certification:institution"/>
+			<xs:enumeration value="certification:effective-date"/>
+			<xs:enumeration value="certification:expiry-date"/>
+			<xs:enumeration value="certification:description"/>
+			<xs:enumeration value="academic-appointment:institution"/>
+			<xs:enumeration value="academic-appointment:position"/>
+			<xs:enumeration value="academic-appointment:start-date"/>
+			<xs:enumeration value="academic-appointment:end-date"/>
+			<xs:enumeration value="non-academic-employment:employer"/>
+			<xs:enumeration value="non-academic-employment:position"/>
+			<xs:enumeration value="non-academic-employment:start-date"/>
+			<xs:enumeration value="non-academic-employment:end-date"/>
+			<xs:enumeration value="postgraduate-training:title"/>
+			<xs:enumeration value="postgraduate-training:institution"/>
+			<xs:enumeration value="postgraduate-training:type"/>
+			<xs:enumeration value="postgraduate-training:start-date"/>
+			<xs:enumeration value="postgraduate-training:end-date"/>
+			<xs:enumeration value="postgraduate-training:specialisation"/>
+			<xs:enumeration value="postgraduate-training:supervisors"/>
+			<xs:enumeration value="phone-number:number"/>
+			<xs:enumeration value="phone-number:type"/>
+			<xs:enumeration value="phone-number:extension"/>
+			<xs:enumeration value="email-address:address"/>
+			<xs:enumeration value="email-address:type"/>
+			<xs:enumeration value="language-competency:iso-language-code"/>
+			<xs:enumeration value="language-competency:language"/>
+			<xs:enumeration value="language-competency:can-read"/>
+			<xs:enumeration value="language-competency:can-write"/>
+			<xs:enumeration value="language-competency:can-speak"/>
+			<xs:enumeration value="language-competency:can-understand-spoken"/>
+			<xs:enumeration value="language-competency:can-peer-review"/>
+			<xs:enumeration value="file:proprietary-id"/>
+			<xs:enumeration value="file:name"/>
+			<xs:enumeration value="file:url"/>
+			<xs:enumeration value="file:extension"/>
+			<xs:enumeration value="file:size"/>
+			<xs:enumeration value="file:mime-type"/>
+			<xs:enumeration value="file:md5-checksum"/>
+			<xs:enumeration value="file:sha1-checksum"/>
+			<xs:enumeration value="file:description"/>
+			<xs:enumeration value="file:embargo-release-date"/>
+			<xs:enumeration value="file:embargo-description"/>
+			<xs:enumeration value="file:version"/>
+			<xs:enumeration value="file:is-held-at-source"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="data-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="json:string"/>
+			<xs:enumeration value="json:number"/>
+			<xs:enumeration value="json:boolean"/>
+			<xs:enumeration value="elements:address-list"/>
+			<xs:enumeration value="elements:boolean"/>
+			<xs:enumeration value="elements:choice"/>
+			<xs:enumeration value="elements:date"/>
+			<xs:enumeration value="elements:doi"/>
+			<xs:enumeration value="elements:funding-acknowledgements"/>
+			<xs:enumeration value="elements:identifier-list"/>
+			<xs:enumeration value="elements:integer"/>
+			<xs:enumeration value="elements:isbn-10"/>
+			<xs:enumeration value="elements:isbn-13"/>
+			<xs:enumeration value="elements:issn"/>
+			<xs:enumeration value="elements:keyword-list"/>
+			<xs:enumeration value="elements:list"/>
+			<xs:enumeration value="elements:money"/>
+			<xs:enumeration value="elements:number"/>
+			<xs:enumeration value="elements:pagination"/>
+			<xs:enumeration value="elements:person-list"/>
+			<xs:enumeration value="elements:person"/>
+			<xs:enumeration value="elements:text"/>
+			<xs:enumeration value="elements:url"/>
+			<xs:enumeration value="elements:certification-list"/>
+			<xs:enumeration value="elements:degree-list"/>
+			<xs:enumeration value="elements:web-address-list"/>
+			<xs:enumeration value="elements:academic-appointment-list"/>
+			<xs:enumeration value="elements:non-academic-employment-list"/>
+			<xs:enumeration value="elements:postgraduate-training-list"/>
+			<xs:enumeration value="elements:phone-number-list"/>
+			<xs:enumeration value="elements:email-address-list"/>
+			<xs:enumeration value="elements:language-competency-list"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="data-format">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="date:YYYY-MM-DD">
+				<xs:annotation>
+					<xs:documentation>Default date format</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="date:DMY"/>
+			<xs:enumeration value="date:MDY"/>
+			<xs:enumeration value="date:YMD"/>
+			<xs:enumeration value="date:YM"/>
+			<xs:enumeration value="date:MY"/>
+			<xs:enumeration value="date:Y"/>
+			<xs:enumeration value="person:lastname-initials">
+				<xs:annotation>
+					<xs:documentation>The field value has lastname before initials</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="person:initials-lastname">
+				<xs:annotation>
+					<xs:documentation>The field value has initials before lastname</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="person:lastname-firstnames">
+				<xs:annotation>
+					<xs:documentation>The field value has lastname before firstname</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="person:firstnames-lastname">
+				<xs:annotation>
+					<xs:documentation>The field value has firstname before lastname</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="pagination:start-end">
+				<xs:annotation>
+					<xs:documentation>The field value has start and end pages, with a separator</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="pagination:start"/>
+			<xs:enumeration value="pagination:end"/>
+			<xs:enumeration value="pagination:page-count"/>
+			<xs:enumeration value="identifier:arxiv"/>
+			<xs:enumeration value="identifier:arxiv-author-id"/>
+			<xs:enumeration value="identifier:cinii-article-id"/>
+			<xs:enumeration value="identifier:crossref-article-id"/>
+			<xs:enumeration value="identifier:dais"/>
+			<xs:enumeration value="identifier:dimensions-for-universities-grant-id"/>
+			<xs:enumeration value="identifier:dimensions-for-universities-publication-id"/>
+			<xs:enumeration value="identifier:dimensions-grant-id"/>
+			<xs:enumeration value="identifier:dimensions-publication-id"/>
+			<xs:enumeration value="identifier:dimensions-researcher-id"/>
+			<xs:enumeration value="identifier:doi"/>
+			<xs:enumeration value="identifier:email-address"/>
+			<xs:enumeration value="identifier:epmc-article-id"/>
+			<xs:enumeration value="identifier:figshare-for-institutions-user-account-id"/>
+			<xs:enumeration value="identifier:figshare-for-institutions-user-id"/>
+			<xs:enumeration value="identifier:fundref-id"/>
+			<xs:enumeration value="identifier:google-books-id"/>
+			<xs:enumeration value="identifier:isidoc"/>
+			<xs:enumeration value="identifier:local-scival-expert-id"/>
+			<xs:enumeration value="identifier:mla-record-id"/>
+			<xs:enumeration value="identifier:nihms"/>
+			<xs:enumeration value="identifier:orcid"/>
+			<xs:enumeration value="identifier:pmc"/>
+			<xs:enumeration value="identifier:proprietary-id"/>
+			<xs:enumeration value="identifier:pubmed"/>
+			<xs:enumeration value="identifier:repec-article-id"/>
+			<xs:enumeration value="identifier:researcherid"/>
+			<xs:enumeration value="identifier:scopus-author-id"/>
+			<xs:enumeration value="identifier:ssrn-article-id"/>
+			<xs:enumeration value="identifier:ssrn-author-id"/>
+			<xs:enumeration value="money:gbp"/>
+			<xs:enumeration value="money:usd"/>
+			<xs:enumeration value="money:aud"/>
+			<xs:enumeration value="money:nzd"/>
+			<xs:enumeration value="money:cad"/>
+			<xs:enumeration value="money:eur"/>
+			<xs:enumeration value="money:jpy"/>
+			<xs:enumeration value="money:sgd"/>
+			<xs:enumeration value="money:currency-amount"/>
+			<xs:enumeration value="money:amount-currency"/>
+			<xs:enumeration value="money:amount"/>
+			<xs:enumeration value="money:currency"/>
+			<xs:enumeration value="funding-acknowledgements:full"/>
+			<xs:enumeration value="funding-acknowledgements:acknowledgement-text"/>
+			<xs:enumeration value="funding-acknowledgements-grant:id"/>
+			<xs:enumeration value="funding-acknowledgements-grant:org"/>
+			<xs:enumeration value="funding-acknowledgements-grant:id-org"/>
+			<xs:enumeration value="funding-acknowledgements-grant:org-id"/>
+			<xs:enumeration value="keyword:value"/>
+			<xs:enumeration value="keyword:scheme"/>
+			<xs:enumeration value="keyword:percent"/>
+			<xs:enumeration value="keyword:source"/>
+			<xs:enumeration value="keyword:origin"/>
+			<xs:enumeration value="keyword:with-scheme"/>
+			<xs:enumeration value="keyword:with-percent"/>
+			<xs:enumeration value="keyword:with-scheme-percent"/>
+			<xs:enumeration value="identifier:value-with-scheme"/>
+			<xs:enumeration value="identifier:value"/>
+			<xs:enumeration value="identifier:scheme"/>
+			<xs:enumeration value="address:name"/>
+			<xs:enumeration value="address:organisation"/>
+			<xs:enumeration value="address:suborganisation"/>
+			<xs:enumeration value="address:streetaddress"/>
+			<xs:enumeration value="address:city"/>
+			<xs:enumeration value="address:state"/>
+			<xs:enumeration value="address:zipcode"/>
+			<xs:enumeration value="address:country"/>
+			<xs:enumeration value="address:type"/>
+			<xs:enumeration value="address:iso-country-code"/>
+			<xs:enumeration value="address:full-single-line"/>
+			<xs:enumeration value="address:full-multi-line"/>
+			<xs:enumeration value="degree:summary-single-line"/>
+			<xs:enumeration value="web-address:summary-single-line"/>
+			<xs:enumeration value="certification:summary-single-line"/>
+			<xs:enumeration value="academic-appointment:summary-single-line"/>
+			<xs:enumeration value="non-academic-employment:summary-single-line"/>
+			<xs:enumeration value="postgraduate-training:summary-single-line"/>
+			<xs:enumeration value="phone-number:summary-single-line"/>
+			<xs:enumeration value="email-address:summary-single-line"/>
+			<xs:enumeration value="language-competency:summary-single-line"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="select-using">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="source-default">
+				<xs:annotation>
+					<xs:documentation>Data is selected using the default format for the current source.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="xpath">
+				<xs:annotation>
+					<xs:documentation>Data is selected using an xpath query.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="condition-operator">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="equals"/>
+			<xs:enumeration value="contains"/>
+			<xs:enumeration value="has-value"/>
+			<xs:enumeration value="not"/>
+			<xs:enumeration value="and"/>
+			<xs:enumeration value="or"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="match-mode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="full">
+				<xs:annotation>
+					<xs:documentation>A match occurs if the supplied string matches a reference string</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="startsWith">
+				<xs:annotation>
+					<xs:documentation>A match occurs if the supplied string starts with a reference string</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="endsWith">
+				<xs:annotation>
+					<xs:documentation>A match occurs if the supplied string ends with a reference string</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="anyPosition">
+				<xs:annotation>
+					<xs:documentation>A match occurs for all substrings within the supplied string which match a reference string</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="regex">
+				<xs:annotation>
+					<xs:documentation>A match occurs if the reference string, interpretted as a regex pattern, matches the supplied string</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="value-map-action">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="continue">
+				<xs:annotation>
+					<xs:documentation>If a match occurs, the input value continues to be processed. If a 'to' value has been specified it will replace the match. This is the default action if none is specified.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ignore-this-value">
+				<xs:annotation>
+					<xs:documentation>If a match occurs, the input value will be ignored (i.e. treated as if it were not present).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="logic-expression">
+		<xs:annotation>
+			<xs:documentation>Defines a logic expression that returns zero, one or many elements.</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="choose" type="xwalk:choose"/>
+			<xs:element name="if" type="xwalk:if"/>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="choose">
+		<xs:annotation>
+			<xs:documentation>Defines a choose definition, enabling a choice based on a succession of conditions to be evaluated</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="when">
+				<xs:annotation>
+					<xs:documentation>Defines a single condition to be evaluated</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="condition" type ="xwalk:condition" minOccurs ="1" maxOccurs="1" />
+						<xs:element name="result" type="xwalk:result" minOccurs ="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="otherwise" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines behaviour if none of the when statements are true</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="result" type="xwalk:result" minOccurs ="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="result">
+		<xs:annotation>
+			<xs:documentation>A sequence of elements to be returned for when a condition is met. These may contain xwalk:if and xwalk:choose elements which will be evaluated.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:any minOccurs ="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="if">
+		<xs:annotation>
+			<xs:documentation>If statement</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="condition" type ="xwalk:condition"/>
+			<xs:element name="result" type="xwalk:result" minOccurs ="1" maxOccurs="1" />
+			<xs:element name="else" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="result" type="xwalk:result" minOccurs ="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="else">
+		<xs:sequence>
+			<xs:any minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Any elements here will be returned if the else condition is true</xs:documentation>
+				</xs:annotation>
+			</xs:any>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="condition" mixed="true">
+		<xs:annotation>
+			<xs:documentation>Defines a condition, which can be evaluated as true or false</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element maxOccurs="unbounded" name="condition" type ="xwalk:condition"/>
+		</xs:sequence>
+		<xs:attribute name="operator" type="xwalk:condition-operator" use="required">
+			<xs:annotation>
+				<xs:documentation>Operator that applies to this condition</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="argument-field" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional reference to an input field identifier, whose value is to be used when evaluating the condition</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="select-using" type="xwalk:select-using" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Optionally specifies how data is selected using the argument-field identifier (e.g. source-default, xpath).
+					If no value is specified source-default is used.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="xwalk-definition">
+		<xs:annotation>
+			<xs:documentation>Defines all the required info to crosswalk data from Elements into a destination.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="elements-metadata" type="xwalk:elements-metadata" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="field-maps" type="xwalk:field-maps" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="value-maps" type="xwalk:value-maps" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="parameters">
+		<xs:annotation>
+			<xs:documentation>
+				Defines parameter values that may be used by the xwalk.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="parameter">
+				<xs:annotation>
+					<xs:documentation>Defines a parameter that may be used by the crosswalk.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any processContents="skip" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Any elements may optinally be added here.</xs:documentation>
+							</xs:annotation>
+						</xs:any>
+					</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required">
+							<xs:annotation>
+								<xs:documentation>Name of the parameter.</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					<xs:attribute name="value" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Value of the parameter. This is optional - elements may be specified within the paramete element.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="elements-metadata">
+		<xs:annotation>
+			<xs:documentation>
+				Defines the Elements metadata structure. This is optional (at run time this information
+				is provided by the Elements infrastructure), but can be helpful when defining and debugging stylesheets.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="category" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Lists all the underlying fields for the given category</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="field">
+							<xs:annotation>
+								<xs:documentation>The definition of an underlying field in Elements</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="name" type="xs:string" use="required">
+									<xs:annotation>
+										<xs:documentation>Name of the underlying field in Elements</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="type" type="xwalk:elements-data-type" use="required">
+									<xs:annotation>
+										<xs:documentation>Type of the underlying field in Elements</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="name" type="xwalk:category" use="required">
+						<xs:annotation>
+							<xs:documentation>Name of an Elements category</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="file-metadata-map">
+		<xs:annotation>
+			<xs:documentation>Defines the file-level metadata mapping, for supported repositories.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="field-mapping" type="xwalk:field-mapping" />
+			<!-- TODO: This form is probably only necessary for Xwalk In. Perhaps a different xwalk-in file-metadata-map could be defined?-->
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="field-source" type="xwalk:field-source" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="field-maps">
+		<xs:annotation>
+			<xs:documentation>Defines the available field maps.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="field-map" type="xwalk:field-map">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="field-map">
+		<xs:annotation>
+			<xs:documentation>Defines how Elements fields are mapped from source data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="include-field-map" type ="xwalk:include-field-map"/>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="field-mapping" type ="xwalk:field-mapping"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the field map. This is matched from the field-map attribute of an object-type-map.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="include-field-map">
+		<xs:annotation>
+			<xs:documentation>Specifies a field-map to be included as part of the current field map</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="exclude-field-mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies a field-mapping from the included field-map that is not to be processed.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="to" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>The identifier of a field whose field-mapping is to be excluded.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the field map to be included.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:element name="field-map" type="xwalk:field-map"/>
+
+	<xs:element name="field-source" type="xwalk:field-source"/>
+
+	<xs:complexType name="consolidated-xwalk">
+		<xs:annotation>
+			<xs:documentation>Defines the common elements that should be present for any crosswalk, inbound or outbound.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="parameters" type="xwalk:parameters" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="elements-metadata" type="xwalk:elements-metadata" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="file-metadata-map" type="xwalk:file-metadata-map" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="field-maps" type="xwalk:field-maps" minOccurs="1" maxOccurs="1">
+				<xs:unique name="field-map-name-unique">
+					<xs:annotation>
+						<xs:documentation>Specifies that each field-map name attribute must be unique.</xs:documentation>
+					</xs:annotation>
+					<xs:selector xpath="xwalk:field-map"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+			</xs:element>
+			<xs:element name="value-maps" type="xwalk:value-maps" minOccurs="0" maxOccurs="1">
+				<xs:unique name="value-map-name-unique">
+					<xs:annotation>
+						<xs:documentation>Specifies that each value-map name attribute must be unique.</xs:documentation>
+					</xs:annotation>
+					<xs:selector xpath="xwalk:value-map"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="field-mapping">
+		<xs:annotation>
+			<xs:documentation>Defines how Elements fields are mapped from source data</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xwalk:logic-expression">
+				<xs:sequence minOccurs="0" maxOccurs ="unbounded">
+					<xs:element name="field-source" type="xwalk:field-source"/>
+				</xs:sequence>
+				<xs:attribute name="to" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Specifies the Elements field that this field-mapping applies to</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="separator" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>Optional separator string used when text values from multiple source fields are concatenated to form a single aggregate value</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="resource-id" use="optional">
+					<xs:annotation>
+						<xs:documentation>If this attribute is present it indicates that the field is part of the specified resource id. This is used with SWAP/epdcx data to specify which epdcx:description element a field belongs to.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="identifier" use="optional">
+					<xs:annotation>
+						<xs:documentation>If this attribute is present it indicates that the field can be used to identify the item. This may be used following deposit of an item to read the item from the repository it has been deposited into.
+						If the name of the field that contains the identifier is not the same as the 'to' attribute value, it should be specified as the value for this attribute, otherwise the value is not required.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="is-list" use="optional">
+					<xs:annotation>
+						<xs:documentation>
+							When depositing data from Elements to EPrints, this attribute can be used to explicitly specify whether the destination field is a list field or not.
+							If not specified, will be inferred by the number of results returned by the contained field-sources. When mapping to a repository field which is a list,
+							from an Elements list field, it is appropriate to set is-list='true', so that the destination field will be rendered as a list even if the Elements field
+							contains only one item. If false, but multiple values are supplied, only the first value will be used.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="data-type" type="xwalk:data-type" use="optional">
+					<xs:annotation>
+						<xs:documentation>
+							When depositing data from Elements to a repository which has data-type specific field value formats, this attribute can be used to specify the data-type to be used.
+							For a JSON-accepting repository (e.g. Figshare), this attribute can be used to specify a data-type of "json:number" or "json:boolean", to result in an un-quoted value, or
+							"json:string" to result in a quoted value. If not supplied, a value will be inferred based on the input value. If set to a data-type which does not match the value being
+							processed, an error will occur.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="field-source">
+		<xs:annotation>
+			<xs:documentation>
+				Specifies a source field to be used in mapping to an Elements field. If an element value is specified this represents a constant value.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="field-source" type="xwalk:field-source" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="value" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a constant value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="from" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifier for source field</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value-map" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies the name of a value map to be used to look up / translate a text value.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="split-using-delimiter" type ="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies that the input data string should be split into multiple strings using the specified delimiter</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="concatenate-with-separator" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional separator string used when a single source field has multiple text values to be concatenated to form a single aggregate value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="prefix" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies prefix to be added to a text value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="suffix" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies suffix to be added to a text value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="tag" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies a tag attribute to be added values from this field source. Can be used when rendering complex data types.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="data-part" type="xwalk:elements-data-part" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies an attribute to be added values from this field source, identifying what this value represents.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="format" type="xwalk:data-format" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					When bringing data into Elements, optionally specifies the format of data from a source.
+					When depositing data from Elements, optionally specifies the format to be used when depositing into a repository.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="format-delimiter" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optionally specifies a delimiter used with some formatted data values (e.g. dates, pagination).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="select-using" type="xwalk:select-using" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Optionally specifies the format of the from identifier (e.g. source-default, xpath).
+					If no value is specified source-default is used.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="attribute-name" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Optionally specifies that the source value should be used as the value for the specified attribute. For example, when using SWAP/epdcx, can be used to specify an attribute within an epdcx:valueString (e.g.  &lt;epdcx:valueString epdcx:sesURI="http://purl.org/dc/terms/W3CDTF"&gt;2014-01-06&lt;/epdcx:valueString&gt;).
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="attribute-context" type="xwalk:attribute-context-type" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Optionally specifies the context in which an attribute should be applied. For example, when using SWAP/epdcx, this can be used to specify an attribute within an epdcx:valueString (default) or an epdcx:statement (e.g. epdcx:vesURI="http://purl.org/dc/terms/RFC3066").
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="subfield" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					When depositing data from Elements to EPrints, this attribute can be used to specify the name of a subfield to be created within the enclosing field.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="is-list" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					When depositing data from Elements to a repository which supports list fields, this attribute can be used to explicitly specify whether the destination field is a list field or not.
+					If not specified, will be inferred by the number of results returned by the contained field-sources. When mapping to a repository field which is a list,
+					from an Elements list field, it is appropriate to set is-list='true', so that the destination field will be rendered as a list even if the Elements field
+					contains only one item. If false, but multiple values are supplied, only the first value will be used.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="evaluate-children-first" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					By default, when depositing data from Elements to a repository, field-source processing (split, concatenate, value-map, prefix, suffix, etc.) is usually done on the current
+					data context prior to evaluating any inner field sources (an exception is if there is no current data context). If this attribute is set, the default behaviour is overridden.
+					Setting this to 'true' will cause the inner field-sources to be evaluated using the current data context prior to the evaluating the processing options specified on this field-source.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="data-type" type="xwalk:data-type" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					When depositing data from Elements to a repository which has data-type specific field value formats, this attribute can be used to specify the data-type to be used.
+					For a JSON-accepting repository (e.g. Figshare), this attribute can be used to specify a data-type of "json:number" or "json:boolean", to result in an un-quoted value, or
+					"json:string" to result in a quoted value. If not supplied, a value will be inferred based on the input value. If set to a data-type which does not match the value being
+					processed, an error will occur.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:element name="field-map-selection" type="xwalk:field-map-selection">
+		<xs:annotation>
+			<xs:documentation>Defines a field map to be used when crosswalking data from Elements to a destination</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="field-map-selector">
+		<xs:annotation>
+			<xs:documentation>Defines how a field map is selected when crosswalking data from Elements to a destination</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xwalk:logic-expression">
+				<xs:sequence minOccurs="0" maxOccurs ="unbounded">
+					<xs:element name="field-map-selection" type="xwalk:field-map-selection"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="field-map-selection">
+		<xs:annotation>
+			<xs:documentation>Defines a field map to be used when crosswalking data from Elements to a destination</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="field-map" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of a field map to be used when crosswalking data from Elements to a destination</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="value-maps">
+		<xs:annotation>
+			<xs:documentation>Defines the available value maps.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="value-map" type="xwalk:value-map" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Defines a lookup table of text values, mapping/translating an input value to an output value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="value-map">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="value-mapping">
+				<xs:annotation>
+					<xs:documentation>Defines a lookup table of text values, mapping/translating an input value to an output value.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="from" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Defines the text value to match from.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="to" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Optionally defines the text value to match to. This value is used if no 'action' is specified or if the 'action' is 'continue'.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="action" type="xwalk:value-map-action" use="optional">
+						<xs:annotation>
+							<xs:documentation>Defines the action that is performed when a match occurs. This defaults to 'continue', but can also be used to ignore a value.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="otherwise-mapping" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>Defines the mapping to apply when none of the value-mappings match.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="to" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Optionally defines the text value to output when none of the value-mappings match. This value is used if no 'action' is specified or if the 'action' is 'continue'.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="action" type="xwalk:value-map-action" use="optional">
+						<xs:annotation>
+							<xs:documentation>Defines the action that is performed when an otherwise match occurs. This defaults to 'continue', but can also be used to ignore a value.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the value map - this is referenced from a field-source value-map attribute.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="matchMode" type="xwalk:match-mode">
+			<xs:annotation>
+				<xs:documentation>Defines how a match is performed. If no value is defined, a full match is assumed.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="foreach" type="xwalk:elements-data-part">
+			<xs:annotation>
+				<xs:documentation>Specifies the data-part of child elements that are to be inspected. If this attribute is not specified, the input value is inspected. </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="data-part" type="xwalk:elements-data-part">
+			<xs:annotation>
+				<xs:documentation>Specifies the data-part to be inspected. If this attribute is not specified, the string representation of the input value is inspected. </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+</xs:schema>
