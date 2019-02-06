@@ -17,3 +17,7 @@ These schemas ensure that the map files are in a form which is compatable with t
 ## Xwalk Out
 
 This directory contains example input Elements API XML representation files, and the resulting output produced when running the crosswalk using the xwalk out map from the `Maps` directory.
+
+## Xwalk In
+
+This directory contains example input Hyrax XML files, and the resulting Elements API format output produced when running the crosswalk using the xwalk in map from the `Maps` directory.

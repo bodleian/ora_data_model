@@ -1,0 +1,54 @@
+<api:import-sync-record category="publication" type-name="journal-article" id-at-source="" xmlns:api="http://www.symplectic.co.uk/publications/api">
+  <api:native>
+    <api:field name="repository-status">
+      <api:text>Public</api:text>
+    </api:field>
+    <api:field name="public-url">
+      <api:text>https://ora4-dev-symp.bodleian.ox.ac.uk/concern/journal_articles/cz30ps65n</api:text>
+    </api:field>
+    <api:field name="abstract">
+      <api:text>field:abstract</api:text>
+    </api:field>
+    <api:field name="title">
+      <api:text>field:title</api:text>
+    </api:field>
+    <api:field name="authors">
+      <api:people>
+        <api:person>
+          <api:last-name>field:comissioning_body</api:last-name>
+        </api:person>
+        <api:person>
+          <api:last-name>field:contributors__display_name</api:last-name>
+        </api:person>
+        <api:person>
+          <api:last-name>field:rights_holders</api:last-name>
+        </api:person>
+        <api:person>
+          <api:last-name>field:funders__funder_name</api:last-name>
+        </api:person>
+        <api:person>
+          <api:last-name>field:publisher_name</api:last-name>
+        </api:person>
+      </api:people>
+    </api:field>
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: issn-->
+    <api:field name="doi">
+      <api:text>field:identifiers_doi</api:text>
+    </api:field>
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: doi-->
+    <api:field name="language">
+      <api:text>field:language</api:text>
+    </api:field>
+    <api:field name="journal">
+      <api:text>field:host_title</api:text>
+      <!--[WARNING] Record  [from Xsl]: Multiple source values present for field 'journal' - value [2] ignored: field:journal_title-->
+    </api:field>
+    <api:files>
+      <api:file proprietary-id="6969z076v">
+        <api:filename>lilliputlogo1 (1).png</api:filename>
+        <api:file-url>https://ora4-dev-symp.bodleian.ox.ac.uk/downloads/6969z076v</api:file-url>
+        <api:file-size>12842</api:file-size>
+      </api:file>
+    </api:files>
+  </api:native>
+</api:import-sync-record>

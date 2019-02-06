@@ -1,0 +1,51 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Infinite Class of -Symmetric Theories from One Timelike Liouville Lagrangian</title>
+  <content rel="src" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n" />
+  <link rel="edit" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n" />
+  <link rel="edit" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n/file_sets" />
+  <entry>
+    <content rel="src" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n/file_sets/6969z076v">
+      <ora:repository_file xmlns="http://ora.ox.ac.uk/terms/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+        <ora:content rel="src" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n/file_sets/6969z076v" />
+        <ora:link rel="edit" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n/file_sets/6969z076v" />
+        <ora:link rel="download" href="https://ora4-dev-symp.bodleian.ox.ac.uk/downloads/6969z076v" />
+        <dc:title>lilliputlogo1 (1).png</dc:title>
+        <dcterms:extent>12842</dcterms:extent>
+      </ora:repository_file>
+    </content>
+    <link rel="edit" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n/file_sets/6969z076v" />
+  </entry>
+  <mods xmlns:xlink="http://www.w3.org/1999/xlink" version="3.7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" xmlns:dc="http://purl.org/dc/terms/">
+    <type>string-tests</type>
+    <identifier type="source_identifiers">pubs:pubs-18930</identifier>
+    <identifier type="doi">10.1103/PhysRevLett.113.231605</identifier>
+    <identifier type="issn">0031-9007</identifier>
+    <name>
+      <displayForm>Bender CM</displayForm>
+    </name>
+    <name>
+      <displayForm>Hook DW</displayForm>
+    </name>
+    <name>
+      <displayForm>Mavromatos NE</displayForm>
+    </name>
+    <name>
+      <displayForm>Sarkar S</displayForm>
+    </name>
+    <OriginInfo>
+      <dateIssued>2014-12</dateIssued>
+    </OriginInfo>
+    <physicalDescription>
+      <form type="status">Published</form>
+    </physicalDescription>
+    <recordInfo></recordInfo>
+    <subject>
+      <genre>journal-article</genre>
+    </subject>
+    <titleInfo>
+      <title>Infinite Class of -Symmetric Theories from One Timelike Liouville Lagrangian</title>
+    </titleInfo>
+    <mods_field>Test mods field</mods_field>
+    <dc:dc_field>Test DC field</dc:dc_field>
+  </mods>
+</feed>

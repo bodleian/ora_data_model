@@ -1,0 +1,48 @@
+<api:import-sync-record category="publication" type-name="journal-article" id-at-source="" xmlns:api="http://www.symplectic.co.uk/publications/api">
+  <api:native>
+    <api:field name="repository-status">
+      <api:text>Public</api:text>
+    </api:field>
+    <api:field name="public-url">
+      <api:text>https://ora4-dev-symp.bodleian.ox.ac.uk/concern/journal_articles/cz30ps65n</api:text>
+    </api:field>
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: abstract-->
+    <api:field name="title">
+      <api:text>Infinite Class of -Symmetric Theories from One Timelike Liouville Lagrangian</api:text>
+    </api:field>
+    <api:field name="authors">
+      <api:people>
+        <api:person>
+          <api:last-name>Bender</api:last-name>
+          <api:first-names>CM</api:first-names>
+        </api:person>
+        <api:person>
+          <api:last-name>Hook</api:last-name>
+          <api:first-names>DW</api:first-names>
+        </api:person>
+        <api:person>
+          <api:last-name>Mavromatos</api:last-name>
+          <api:first-names>NE</api:first-names>
+        </api:person>
+        <api:person>
+          <api:last-name>Sarkar</api:last-name>
+          <api:first-names>S</api:first-names>
+        </api:person>
+      </api:people>
+    </api:field>
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: issn-->
+    <api:field name="doi">
+      <api:text>10.1103/PhysRevLett.113.231605</api:text>
+    </api:field>
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: doi-->
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: language-->
+    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: journal-->
+    <api:files>
+      <api:file proprietary-id="6969z076v">
+        <api:filename>lilliputlogo1 (1).png</api:filename>
+        <api:file-url>https://ora4-dev-symp.bodleian.ox.ac.uk/downloads/6969z076v</api:file-url>
+        <api:file-size>12842</api:file-size>
+      </api:file>
+    </api:files>
+  </api:native>
+</api:import-sync-record>
