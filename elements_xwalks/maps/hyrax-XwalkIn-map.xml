@@ -1,0 +1,78 @@
+﻿<xwalkin:consolidated-maps xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin" 
+													xmlns:mods="http://www.loc.gov/mods/v3" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" 
+													xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/">
+  <xwalk:file-metadata-map>
+    <xwalk:field-source from="ora:repository_file">
+      <xwalk:field-source from="substring-after(/ora:repository_file/ora:content/@href, '/file_sets/')" select-using="xpath" data-part="file:proprietary-id" />
+      <xwalk:field-source from="dc:title" data-part="file:name" />
+      <xwalk:field-source from="string(/ora:repository_file/ora:link[@rel='download']/@href)" select-using="xpath" data-part="file:url" />
+      <xwalk:field-source from="dcterms:extent" data-part="file:size" />
+			<xwalk:field-source from="rioxxterms:version" data-part="file:version" />
+    </xwalk:field-source>
+  </xwalk:file-metadata-map>
+  <xwalk:field-maps>
+    <xwalk:field-map name="import-sample">
+      <xwalk:field-mapping to="public-url">
+				<xwalk:field-source from="concat('https://ora4-dev-symp.bodleian.ox.ac.uk/concern/journal_articles/', substring-after(string(atom:feed/atom:content/@href), '/works/'))" select-using="xpath"/>
+			</xwalk:field-mapping>
+			<xwalk:field-mapping to="abstract">
+        <xwalk:field-source from="abstract" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="title">
+        <xwalk:field-source from="titleInfo/title" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="authors">
+        <xwalk:field-source from="name">
+          <xwalk:field-source from="displayForm" format="person:lastname-initials" />
+          <xwalk:field-source data-part="person:address">
+            <xwalk:field-source data-part="person:address">
+              <xwalk:field-source from="string(/mods:name/mods:affiliation[@type = 'suborganisation'])" select-using="xpath" data-part="address:organisation" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="issn">
+        <xwalk:field-source from="identifier" value-map="issn-identifier-only">
+          <xwalk:field-source attribute-name="type" data-part="temp:value1" />
+          <xwalk:field-source from="." />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="doi">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'doi']" select-using="xpath" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="doi">
+        <xwalk:field-source from="identifier" value-map="doi-identifier-only">
+          <xwalk:field-source attribute-name="type" data-part="temp:value1" />
+          <xwalk:field-source from="." />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="language">
+        <xwalk:field-source from="language/languageTerm" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="journal">
+        <xwalk:field-source select-using="xpath" from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title" />
+      </xwalk:field-mapping>
+    </xwalk:field-map>
+  </xwalk:field-maps>
+  <xwalk:value-maps>
+    <xwalk:value-map name="issn-identifier-only" data-part="temp:value1">
+      <xwalk:value-mapping from="issn" action="continue" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="doi-identifier-only" data-part="temp:value1">
+      <xwalk:value-mapping from="doi" action="continue" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="organisation" data-part="temp:value1">
+      <xwalk:value-mapping from="institution" action="continue" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="suborganisation" data-part="temp:value1">
+      <xwalk:value-mapping from="department" action="continue" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+  </xwalk:value-maps>
+  <xwalkin:object-type-selector>
+    <xwalkin:object-type-selection object-type="journal-article" category="publication" field-map="import-sample" />
+  </xwalkin:object-type-selector>
+</xwalkin:consolidated-maps>

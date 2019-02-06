@@ -1,0 +1,56 @@
+<xwalk-out>
+  <source-info>
+    <category>publication</category>
+    <id>9598</id>
+  </source-info>
+  <destination-info />
+  <metadata-info>
+    <mods:modsCollection xmlns:mods="http://www.loc.gov/mods/v3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:ora="http://ora/terms/">
+      <mods:mods version="3.2">
+        <mods:titleInfo>
+          <mods:title>Universal spectral behavior of potentials</mods:title>
+        </mods:titleInfo>
+        <mods:name type="personal">
+          <mods:namePart type="given">Carl M</mods:namePart>
+          <mods:namePart type="family">Bender</mods:namePart>
+          <mods:namePart type="initials">CM</mods:namePart>
+          <mods:displayForm>Bender, Carl M</mods:displayForm>
+          <mods:affiliation type="institution" />
+          <mods:affiliation type="department" />
+          <mods:extension>
+            <mods:identifier type="sso">cbender</mods:identifier>
+          </mods:extension>
+        </mods:name>
+        <mods:name type="personal">
+          <mods:namePart type="given">Daniel W</mods:namePart>
+          <mods:namePart type="family">Hook</mods:namePart>
+          <mods:namePart type="initials">DW</mods:namePart>
+          <mods:displayForm>Hook, Daniel W</mods:displayForm>
+          <mods:affiliation type="institution" />
+          <mods:affiliation type="department" />
+          <mods:extension>
+            <mods:identifier type="sso">dwh</mods:identifier>
+          </mods:extension>
+        </mods:name>
+        <mods:physicalDescription>
+          <mods:form type="status">Published</mods:form>
+        </mods:physicalDescription>
+        <mods:identifier type="doi">10.1103/PhysRevA.86.022113</mods:identifier>
+        <mods:identifier type="issn">1050-2947</mods:identifier>
+        <mods:identifier type="pii" />
+        <mods:identifier type="pubs-id">pubs:9598</mods:identifier>
+        <mods:genre type="typeofwork">journal-article</mods:genre>
+        <mods:originInfo>
+          <mods:dateIssued>2012-08</mods:dateIssued>
+        </mods:originInfo>
+      </mods:mods>
+    </mods:modsCollection>
+  </metadata-info>
+  <identifier-info />
+  <files-info>
+    <ora:repository_file xmlns:ora="http://ora/terms/">
+      <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">test-file.txt</dc:title>
+      <rioxxterms:version xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/">Accepted Version</rioxxterms:version>
+    </ora:repository_file>
+  </files-info>
+</xwalk-out>
