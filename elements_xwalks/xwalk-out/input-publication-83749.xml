@@ -1,0 +1,312 @@
+<api:push-object xmlns:api="http://www.symplectic.co.uk/publications/api">
+  <api:object category="publication" id="83749" last-affected-when="2019-02-06T17:28:13.74+00:00" last-modified-when="2019-02-06T17:26:49.237+00:00" href="http://tempuri.org/publications/83749?view=default" created-when="2016-10-28T15:44:07.337+01:00" type-id="5" type="journal-article">
+    <!--Publication type 5 is "journal article"-->
+    <api:ever-approved>true</api:ever-approved>
+    <api:is-public>true</api:is-public>
+    <api:view name="default">
+      <api:field name="abstract" type="text" display-name="Abstract">
+        <api:text>© 2017 American Physical Society. We propose and construct a two-parameter perturbative expansion around a Friedmann-Lemaître-Robertson-Walker geometry that can be used to model high-order gravitational effects in the presence of nonlinear structure. This framework reduces to the weak-field and slow-motion post-Newtonian treatment of gravity in the appropriate limits, but also includes the low-amplitude large-scale fluctuations that are important for cosmological modeling. We derive a set of field equations that can be applied to the late Universe, where nonlinear structure exists on supercluster scales, and perform a detailed investigation of the associated gauge problem. This allows us to identify a consistent set of perturbed quantities in both the gravitational and matter sectors, and to construct a set of gauge-invariant quantities that correspond to each of them. The field equations, written in terms of these quantities, take on a relatively simple form, and allow the effects of small-scale structure on the large-scale properties of the Universe to be clearly identified. We find that inhomogeneous structures source the global expansion, that there exist new field equations at new orders, and that there is vector gravitational potential that is a hundred times larger than one might naively expect from cosmological perturbation theory. Finally, we expect our formalism to be of use for calculating relativistic effects in upcoming ultralarge-scale surveys, as the form of the gravitational coupling between small and large scales depends on the nonlinearity of Einstein's equations, and occurs at what is normally thought of as first order in cosmological perturbations.</api:text>
+      </api:field>
+      <api:field name="authors" type="person-list" display-name="Authors">
+        <api:people>
+          <api:person>
+            <api:links>
+              <api:link type="elements/user" id="204" href="http://tempuri.org/users/204" />
+            </api:links>
+            <api:last-name>Goldberg</api:last-name>
+            <api:initials>SR</api:initials>
+            <api:first-names>Sophia R</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Sophia</api:first-name>
+              <api:first-name>R</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Clifton</api:last-name>
+            <api:initials>T</api:initials>
+            <api:first-names>Timothy</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Timothy</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Malik</api:last-name>
+            <api:initials>KA</api:initials>
+            <api:first-names>Karim A</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Karim</api:first-name>
+              <api:first-name>A</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+        </api:people>
+      </api:field>
+      <api:field name="author-url" type="text" display-name="URL">
+        <api:text>http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=LinksAMR&amp;KeyUT=WOS:000393509700001&amp;DestLinkType=FullRecord&amp;DestApp=ALL_WOS&amp;UsrCustomerID=a2bf6146997ec60c407a63945d4e92bb</api:text>
+      </api:field>
+      <api:field name="doi" type="text" display-name="DOI">
+        <api:text>10.1103/PhysRevD.95.043503</api:text>
+        <api:links>
+          <api:link type="doi" href="http://doi.org/10.1103/PhysRevD.95.043503" />
+          <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1103/PhysRevD.95.043503" />
+        </api:links>
+      </api:field>
+      <api:field name="eissn" type="text" display-name="eISSN">
+        <api:text>2470-0029</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/85916" />
+        </api:links>
+      </api:field>
+      <api:field name="funding-acknowledgements" type="funding-acknowledgements" display-name="Funding">
+        <api:funding-acknowledgements>
+          <api:grants>
+            <api:grant>
+              <api:organisation>Science and Technology Facilities Council</api:organisation>
+            </api:grant>
+          </api:grants>
+        </api:funding-acknowledgements>
+      </api:field>
+      <api:field name="issn" type="text" display-name="ISSN">
+        <api:text>2470-0010</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/85915" />
+        </api:links>
+      </api:field>
+      <api:field name="issue" type="text" display-name="Issue">
+        <api:text>4</api:text>
+      </api:field>
+      <api:field name="journal" type="text" display-name="Journal">
+        <api:text>Physical Review D</api:text>
+      </api:field>
+      <api:field name="keywords" type="keyword-list" display-name="Keywords">
+        <api:keywords>
+          <api:keyword>Science &amp; Technology</api:keyword>
+          <api:keyword>Physical Sciences</api:keyword>
+          <api:keyword>Astronomy &amp; Astrophysics</api:keyword>
+          <api:keyword>Physics, Particles &amp; Fields</api:keyword>
+          <api:keyword>Physics</api:keyword>
+          <api:keyword>COSMIC STRUCTURE FORMATION</api:keyword>
+          <api:keyword>N-BODY SIMULATIONS</api:keyword>
+          <api:keyword>GENERAL-RELATIVITY</api:keyword>
+          <api:keyword>INHOMOGENEOUS FLUIDS</api:keyword>
+          <api:keyword>AVERAGE PROPERTIES</api:keyword>
+          <api:keyword>POLARIZATION</api:keyword>
+        </api:keywords>
+      </api:field>
+      <api:field name="language" type="text" display-name="Language">
+        <api:text>English</api:text>
+      </api:field>
+      <api:field name="notes" type="text" display-name="Notes">
+        <api:text>34 pages, 2 figures, typos corrected, references added</api:text>
+      </api:field>
+      <api:field name="number" type="text" display-name="Article number">
+        <api:text>ARTN 043503</api:text>
+      </api:field>
+      <api:field name="online-publication-date" type="date" display-name="Online publication date">
+        <api:date>
+          <api:day>6</api:day>
+          <api:month>2</api:month>
+          <api:year>2017</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="pagination" type="pagination" display-name="Pagination">
+        <api:pagination>
+          <api:page-count>32</api:page-count>
+        </api:pagination>
+      </api:field>
+      <api:field name="publication-date" type="date" display-name="Publication date">
+        <api:date>
+          <api:month>2</api:month>
+          <api:year>2017</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="publication-status" type="text" display-name="Status">
+        <api:text>Published</api:text>
+      </api:field>
+      <api:field name="publisher" type="text" display-name="Publisher">
+        <api:text>AMER PHYSICAL SOC</api:text>
+      </api:field>
+      <api:field name="publisher-url" type="text" display-name="Publisher URL">
+        <api:text>http://dx.doi.org/10.1103/PhysRevD.95.043503</api:text>
+      </api:field>
+      <api:field name="record-created-at-source-date" type="date" display-name="Record created at source">
+        <api:date>
+          <api:day>27</api:day>
+          <api:month>10</api:month>
+          <api:year>2016</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="record-made-public-at-source-date" type="date" display-name="Record made publicly available">
+        <api:date>
+          <api:day>27</api:day>
+          <api:month>10</api:month>
+          <api:year>2016</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="title" type="text" display-name="Title">
+        <api:text>Cosmology on all scales: A two-parameter perturbation expansion</api:text>
+      </api:field>
+      <api:field name="types" type="list" display-name="Sub type(s)">
+        <api:items>
+          <api:item>Journal Article</api:item>
+        </api:items>
+      </api:field>
+      <api:field name="volume" type="text" display-name="Volume">
+        <api:text>95</api:text>
+      </api:field>
+    </api:view>
+    <api:fields />
+    <api:all-labels type="keyword-list">
+      <api:keywords>
+        <api:keyword origin="record-data" source="wos">Science &amp; Technology</api:keyword>
+        <api:keyword origin="record-data" source="wos">Physical Sciences</api:keyword>
+        <api:keyword origin="record-data" source="wos">Astronomy &amp; Astrophysics</api:keyword>
+        <api:keyword origin="record-data" source="wos">Physics, Particles &amp; Fields</api:keyword>
+        <api:keyword origin="record-data" source="wos">Physics</api:keyword>
+        <api:keyword origin="record-data" source="wos">COSMIC STRUCTURE FORMATION</api:keyword>
+        <api:keyword origin="record-data" source="wos">N-BODY SIMULATIONS</api:keyword>
+        <api:keyword origin="record-data" source="wos">GENERAL-RELATIVITY</api:keyword>
+        <api:keyword origin="record-data" source="wos">INHOMOGENEOUS FLUIDS</api:keyword>
+        <api:keyword origin="record-data" source="wos">AVERAGE PROPERTIES</api:keyword>
+        <api:keyword origin="record-data" source="wos">POLARIZATION</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">astro-ph.CO</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">astro-ph.CO</api:keyword>
+        <api:keyword origin="record-data" source="arxiv">gr-qc</api:keyword>
+      </api:keywords>
+    </api:all-labels>
+    <api:journal issn="2470-0010" href="http://tempuri.org/journals/85915">
+      <api:records>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Physical Review D</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Physical Review D</api:title>
+        </api:record>
+        <api:record source-name="snip">
+          <api:title>Physical Review D</api:title>
+        </api:record>
+      </api:records>
+    </api:journal>
+    <api:relationships href="http://tempuri.org/publications/83749/relationships?view=default" />
+    <api:neighbourhood>
+      <api:relationships>
+        <api:relationship id="33783" type-id="8" type="publication-user-authorship" last-modified-when="2019-02-05T17:18:24.177+00:00" href="http://tempuri.org/relationships/33783?detail=ref&amp;view=default">
+          <api:is-visible>true</api:is-visible>
+          <api:is-favourite>false</api:is-favourite>
+          <api:related direction="to" category="user" id="204">
+            <api:object category="user" id="204" proprietary-id="s.goldberg" authenticating-authority="Internal" username="s.goldberg" last-affected-when="2019-02-06T17:26:49.293+00:00" last-modified-when="2018-08-28T10:22:14.713+01:00" href="http://tempuri.org/users/204?view=default" created-when="2016-10-28T15:12:55.73+01:00" type-id="1" type="person">
+              <!--User type 1 is "person"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:is-public>false</api:is-public>
+              <api:is-current-staff>true</api:is-current-staff>
+              <api:is-academic>true</api:is-academic>
+              <api:is-login-allowed>true</api:is-login-allowed>
+              <api:title>Ms</api:title>
+              <api:initials>SR</api:initials>
+              <api:last-name>Goldberg</api:last-name>
+              <api:first-name>Sophia</api:first-name>
+              <api:email-address>s.r.goldberg@lilliput.ac.uk</api:email-address>
+              <api:primary-group-descriptor>School of Natural Sciences</api:primary-group-descriptor>
+              <api:position>PhD Student</api:position>
+              <api:department>Astronomy Unit</api:department>
+              <api:institutional-email-is-public>true</api:institutional-email-is-public>
+              <api:claimed>true</api:claimed>
+              <api:organisation-defined-data field-number="1" field-name="Organisational Unit" />
+              <api:organisation-defined-data field-number="2" field-name="Group" />
+              <api:organisation-defined-data field-number="3" field-name="REF Category of staff" />
+              <api:organisation-defined-data field-number="4" field-name="Eligible for REF" />
+              <api:organisation-defined-data field-number="5" field-name="Return to REF" />
+              <api:organisation-defined-data field-number="6" field-name="Test Autogroup ID" />
+              <api:organisation-defined-data field-number="7" field-name="sync (me)" />
+              <api:organisation-defined-data field-number="8" field-name="Assessment Eligibility" />
+              <api:view name="default" />
+              <api:fields />
+              <api:relationships href="http://tempuri.org/users/204/relationships?view=default" />
+              <api:user-identifier-associations user-id="204">
+                <api:user-identifier-association scheme="email-address" status="claimed" decision="always-me">s.r.goldberg@lilliput.ac.uk</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-account-id" status="claimed" decision="always-me">s.goldberg</api:user-identifier-association>
+                <api:user-identifier-association scheme="scopus-author-id" status="claimed" decision="always-me">56818429500</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-id" status="claimed" decision="always-me">1640214</api:user-identifier-association>
+              </api:user-identifier-associations>
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46452" type-id="2" type="publication-grant-funded" last-modified-when="2019-02-06T17:26:49.16+00:00" href="http://tempuri.org/relationships/46452?detail=ref&amp;view=default">
+          <api:related direction="to" category="grant" id="12628">
+            <api:object category="grant" id="12628" last-affected-when="2019-02-06T17:26:49.293+00:00" last-modified-when="2018-08-28T10:22:12.957+01:00" href="http://tempuri.org/grants/12628?view=default" created-when="2012-10-03T16:13:25.333+01:00" type-id="1" type="grant">
+              <!--Grant type 1 is "grant"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2012-04-01</api:reporting-date-1>
+              <api:reporting-date-2>2015-03-19</api:reporting-date-2>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="funder-name" type="text" display-name="Funder name">
+                  <api:text>EPSRC</api:text>
+                </api:field>
+                <api:field name="funder-reference" type="text" display-name="Funder reference">
+                  <api:text>EP/F03606X/1</api:text>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>A NEW METHOD FOR DYNAMIC ANALYSIS OF PLATES AND PLATE ASSEMBILES</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:relationships href="http://tempuri.org/grants/12628/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46453" type-id="2" type="publication-grant-funded" last-modified-when="2019-02-06T17:26:49.297+00:00" href="http://tempuri.org/relationships/46453?detail=ref&amp;view=default">
+          <api:related direction="to" category="grant" id="12663">
+            <api:object category="grant" id="12663" last-affected-when="2019-02-06T17:26:49.297+00:00" last-modified-when="2018-08-28T10:22:12.957+01:00" href="http://tempuri.org/grants/12663?view=default" created-when="2012-10-03T16:13:40.567+01:00" type-id="1" type="grant">
+              <!--Grant type 1 is "grant"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2011-06-01</api:reporting-date-1>
+              <api:reporting-date-2>2013-05-19</api:reporting-date-2>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="funder-name" type="text" display-name="Funder name">
+                  <api:text>BBSRC</api:text>
+                </api:field>
+                <api:field name="funder-reference" type="text" display-name="Funder reference">
+                  <api:text>BB/H009795/1</api:text>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>A fundamental study to determine the difference in barrier properties of healthy and diseased nail in order to facilitate drug delivery</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:relationships href="http://tempuri.org/grants/12663/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+      </api:relationships>
+      <api:related-groups>
+        <api:related-group id="14" parent-id="1" full-name="|Lilliput University|School of Natural Sciences" membership-type="explicit">School of Natural Sciences</api:related-group>
+        <api:related-group id="1" full-name="|Lilliput University" membership-type="implicit">Lilliput University</api:related-group>
+      </api:related-groups>
+    </api:neighbourhood>
+  </api:object>
+  <api:push-supplementary-info>
+    <api:deposit-info type="initial">
+      <api:date>
+        <api:day>6</api:day>
+        <api:month>2</api:month>
+        <api:year>2019</api:year>
+      </api:date>
+      <api:depositor id="29" proprietary-id="JB" username="JB">
+        <api:initials>JB</api:initials>
+        <api:first-name>Jonathan</api:first-name>
+        <api:last-name>Breeze</api:last-name>
+        <api:full-name>Mr Jonathan Breeze</api:full-name>
+        <api:email-address>jonathan@lilliput.edu</api:email-address>
+        <api:primary-group-descriptor>Lilliput Centre for Research Excellence</api:primary-group-descriptor>
+        <api:is-academic>false</api:is-academic>
+      </api:depositor>
+      <api:files-info>
+        <api:file-info>
+          <api:name>test-file.txt</api:name>
+          <api:version>Accepted Version</api:version>
+        </api:file-info>
+      </api:files-info>
+    </api:deposit-info>
+  </api:push-supplementary-info>
+</api:push-object>

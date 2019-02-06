@@ -1,5 +1,5 @@
 <api:push-object xmlns:api="http://www.symplectic.co.uk/publications/api">
-  <api:object category="publication" id="9598" last-affected-when="2018-08-28T10:19:08.763+01:00" last-modified-when="2018-08-28T10:19:08.763+01:00" href="http://tempuri.org/publications/9598?view=default" created-when="2012-07-19T16:03:40.007+01:00" type-id="5" type="journal-article">
+  <api:object category="publication" id="9598" last-affected-when="2019-02-06T17:01:58.59+00:00" last-modified-when="2019-02-06T17:01:58.59+00:00" href="http://tempuri.org/publications/9598?view=default" created-when="2012-07-19T16:03:40.007+01:00" type-id="5" type="journal-article">
     <!--Publication type 5 is "journal article"-->
     <api:ever-approved>true</api:ever-approved>
     <api:reporting-date-1>2012-05-20</api:reporting-date-1>
@@ -208,13 +208,28 @@
       </api:records>
     </api:journal>
     <api:relationships href="http://tempuri.org/publications/9598/relationships?view=default" />
+    <api:oa>
+      <api:oa-policy-exception-type>Tech3</api:oa-policy-exception-type>
+      <api:oa-policy-exception-comment>Hyrax deposit has not yet been developed!</api:oa-policy-exception-comment>
+      <api:oa-policy-exceptions>
+        <api:oa-policy-exception>
+          <api:type>Tech3</api:type>
+          <api:comment>Hyrax deposit has not yet been developed!</api:comment>
+        </api:oa-policy-exception>
+      </api:oa-policy-exceptions>
+      <api:library-status status="full-text-received" status-display-name="Full text received">
+        <api:last-updated-when>2019-02-06T17:01:58.59+00:00</api:last-updated-when>
+        <api:note>Library status changed to 'Full text received' on 06/02/2019 by Daniel Hook.
+</api:note>
+      </api:library-status>
+    </api:oa>
     <api:neighbourhood>
       <api:relationships>
         <api:relationship id="9667" type-id="8" type="publication-user-authorship" last-modified-when="2019-02-05T17:18:14.243+00:00" href="http://tempuri.org/relationships/9667?detail=ref&amp;view=default">
           <api:is-visible>true</api:is-visible>
           <api:is-favourite>false</api:is-favourite>
           <api:related direction="to" category="user" id="30">
-            <api:object category="user" id="30" proprietary-id="dwh" authenticating-authority="Internal" username="dwh" last-affected-when="2018-10-12T23:30:03.193+01:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/30?view=default" created-when="2012-07-11T14:41:28.037+01:00" type-id="1" type="person">
+            <api:object category="user" id="30" proprietary-id="dwh" authenticating-authority="Internal" username="dwh" last-affected-when="2019-02-06T17:13:26.687+00:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/30?view=default" created-when="2012-07-11T14:41:28.037+01:00" type-id="1" type="person">
               <!--User type 1 is "person"-->
               <api:ever-approved>true</api:ever-approved>
               <api:is-public>false</api:is-public>
@@ -271,7 +286,7 @@
           <api:is-visible>true</api:is-visible>
           <api:is-favourite>false</api:is-favourite>
           <api:related direction="to" category="user" id="36">
-            <api:object category="user" id="36" proprietary-id="cbender" authenticating-authority="Internal" username="cbender" last-affected-when="2018-10-12T23:30:03.193+01:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/36?view=default" created-when="2012-07-19T16:11:24.423+01:00" type-id="1" type="person">
+            <api:object category="user" id="36" proprietary-id="cbender" authenticating-authority="Internal" username="cbender" last-affected-when="2019-02-06T17:01:58.59+00:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/36?view=default" created-when="2012-07-19T16:11:24.423+01:00" type-id="1" type="person">
               <!--User type 1 is "person"-->
               <api:ever-approved>true</api:ever-approved>
               <api:is-public>false</api:is-public>
@@ -322,7 +337,7 @@
   <api:push-supplementary-info>
     <api:deposit-info type="initial">
       <api:date>
-        <api:day>5</api:day>
+        <api:day>6</api:day>
         <api:month>2</api:month>
         <api:year>2019</api:year>
       </api:date>

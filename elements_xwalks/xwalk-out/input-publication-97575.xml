@@ -1,0 +1,383 @@
+<api:push-object xmlns:api="http://www.symplectic.co.uk/publications/api">
+  <api:object category="publication" id="97575" last-affected-when="2019-02-06T17:35:24.473+00:00" last-modified-when="2019-02-06T17:35:24.473+00:00" href="http://tempuri.org/publications/97575?view=default" created-when="2019-02-06T17:33:40.48+00:00" type-id="5" type="journal-article">
+    <!--Publication type 5 is "journal article"-->
+    <api:ever-approved>true</api:ever-approved>
+    <api:reporting-date-1>2019-02-06</api:reporting-date-1>
+    <api:is-public>true</api:is-public>
+    <api:view name="default">
+      <api:field name="abstract" type="text" display-name="Abstract">
+        <api:text>This is a test journal article with a large amount of manually filled in metadata.</api:text>
+      </api:field>
+      <api:field name="acceptance-date" type="date" display-name="Date of acceptance">
+        <api:date>
+          <api:day>3</api:day>
+          <api:month>2</api:month>
+          <api:year>2019</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="addresses" type="address-list" display-name="Addresses">
+        <api:addresses>
+          <api:address type="correspondence" iso-country-code="GB">
+            <api:line type="name">Andrew Bennet</api:line>
+            <api:line type="organisation">Digital Science</api:line>
+            <api:line type="suborganisation">Hyrax Division</api:line>
+            <api:line type="street-address">York Way</api:line>
+            <api:line type="city">London</api:line>
+          </api:address>
+        </api:addresses>
+      </api:field>
+      <api:field name="authors" type="person-list" display-name="Authors">
+        <api:people>
+          <api:person>
+            <api:links>
+              <api:link type="elements/user" id="29" href="http://tempuri.org/users/29" />
+            </api:links>
+            <api:last-name>Breeze</api:last-name>
+            <api:initials>J</api:initials>
+            <api:first-names>Jonathan</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Jonathan</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Bennet</api:last-name>
+            <api:initials>A</api:initials>
+            <api:first-names>Andrew</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Andrew</api:first-name>
+            </api:separate-first-names>
+            <api:addresses>
+              <api:address iso-country-code="GB">
+                <api:line type="organisation">Digital Science (United Kingdom)</api:line>
+                <api:line type="suborganisation">Symplectic</api:line>
+                <api:line type="city">London</api:line>
+                <api:line type="country">United Kingdom</api:line>
+              </api:address>
+            </api:addresses>
+          </api:person>
+        </api:people>
+      </api:field>
+      <api:field name="author-url" type="text" display-name="URL">
+        <api:text>http://symplectic.co.uk/</api:text>
+      </api:field>
+      <api:field name="c-nominate-for-annual-collection" type="boolean" display-name="Annual Collection">
+        <api:boolean>false</api:boolean>
+      </api:field>
+      <api:field name="doi" type="text" display-name="DOI">
+        <api:text>10.1234/56789</api:text>
+        <api:links>
+          <api:link type="doi" href="http://doi.org/10.1234/56789" />
+          <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1234/56789" />
+        </api:links>
+      </api:field>
+      <api:field name="edition" type="text" display-name="Edition">
+        <api:text>1st</api:text>
+      </api:field>
+      <api:field name="editors" type="person-list" display-name="Editors">
+        <api:people>
+          <api:person>
+            <api:last-name>Bennet</api:last-name>
+            <api:initials>A</api:initials>
+            <api:first-names>Andrew</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>Andrew</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+        </api:people>
+      </api:field>
+      <api:field name="eissn" type="text" display-name="eISSN">
+        <api:text>1011-1212</api:text>
+      </api:field>
+      <api:field name="funding-acknowledgements" type="funding-acknowledgements" display-name="Funding">
+        <api:funding-acknowledgements>
+          <api:grants>
+            <api:grant>
+              <api:grant-id>DS_1234</api:grant-id>
+              <api:organisation>National Science Digital Library</api:organisation>
+            </api:grant>
+            <api:grant>
+              <api:grant-id>ABC123</api:grant-id>
+              <api:organisation>Cancer Research Institute</api:organisation>
+            </api:grant>
+          </api:grants>
+        </api:funding-acknowledgements>
+      </api:field>
+      <api:field name="issn" type="text" display-name="ISSN">
+        <api:text>1045-6007</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/50260" />
+        </api:links>
+      </api:field>
+      <api:field name="issue" type="text" display-name="Issue">
+        <api:text>7</api:text>
+      </api:field>
+      <api:field name="journal" type="text" display-name="Journal">
+        <api:text>Journal of Hyrax</api:text>
+      </api:field>
+      <api:field name="keywords" type="keyword-list" display-name="Keywords">
+        <api:keywords>
+          <api:keyword>Hyrax</api:keyword>
+          <api:keyword>Development</api:keyword>
+          <api:keyword>Xwalks</api:keyword>
+          <api:keyword scheme="for">010103 Category Theory, K Theory, Homological Algebra</api:keyword>
+          <api:keyword scheme="for">02 Physical Sciences</api:keyword>
+          <api:keyword scheme="mesh">Software Design</api:keyword>
+          <api:keyword scheme="science-metrix">Software Engineering</api:keyword>
+          <api:keyword scheme="mesh">Metadata</api:keyword>
+        </api:keywords>
+      </api:field>
+      <api:field name="language" type="text" display-name="Language">
+        <api:text>English</api:text>
+      </api:field>
+      <api:field name="location" type="text" display-name="Country">
+        <api:text>United Kingdom</api:text>
+      </api:field>
+      <api:field name="medium" type="text" display-name="Medium">
+        <api:text>Printed journal</api:text>
+      </api:field>
+      <api:field name="notes" type="text" display-name="Notes">
+        <api:text>Any notes here.</api:text>
+      </api:field>
+      <api:field name="number" type="text" display-name="Article number">
+        <api:text>XXI</api:text>
+      </api:field>
+      <api:field name="online-publication-date" type="date" display-name="Online publication date">
+        <api:date>
+          <api:day>5</api:day>
+          <api:month>2</api:month>
+          <api:year>2019</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="pagination" type="pagination" display-name="Pagination">
+        <api:pagination>
+          <api:begin-page>45</api:begin-page>
+          <api:end-page>48</api:end-page>
+          <api:page-count>3</api:page-count>
+        </api:pagination>
+      </api:field>
+      <api:field name="publication-date" type="date" display-name="Publication date">
+        <api:date>
+          <api:day>6</api:day>
+          <api:month>2</api:month>
+          <api:year>2019</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="publication-status" type="text" display-name="Status">
+        <api:text>Published</api:text>
+      </api:field>
+      <api:field name="publisher" type="text" display-name="Publisher">
+        <api:text>University of Hawaii Press</api:text>
+      </api:field>
+      <api:field name="publisher-licence" type="text" display-name="Publisher licence">
+        <api:text>CC BY-NC-SA</api:text>
+      </api:field>
+      <api:field name="publisher-url" type="text" display-name="Publisher URL">
+        <api:text>http://symplectic.co.uk/publisher</api:text>
+      </api:field>
+      <api:field name="record-created-at-source-date" type="date" display-name="Record created at source">
+        <api:date>
+          <api:day>6</api:day>
+          <api:month>2</api:month>
+          <api:year>2019</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="title" type="text" display-name="Title">
+        <api:text>My test journal article for Hyrax xwalk development</api:text>
+      </api:field>
+      <api:field name="types" type="list" display-name="Sub type(s)">
+        <api:items>
+          <api:item>Article</api:item>
+        </api:items>
+      </api:field>
+      <api:field name="volume" type="text" display-name="Volume">
+        <api:text>42</api:text>
+      </api:field>
+    </api:view>
+    <api:fields />
+    <api:all-labels type="keyword-list">
+      <api:keywords>
+        <api:keyword origin="record-data" source="manual">Hyrax</api:keyword>
+        <api:keyword origin="record-data" source="manual">Development</api:keyword>
+        <api:keyword origin="record-data" source="manual">Xwalks</api:keyword>
+        <api:keyword scheme="for" origin="record-data" source="manual">010103 Category Theory, K Theory, Homological Algebra</api:keyword>
+        <api:keyword scheme="for" origin="record-data" source="manual">02 Physical Sciences</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="manual">Software Design</api:keyword>
+        <api:keyword scheme="science-metrix" origin="record-data" source="manual">Software Engineering</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="manual">Metadata</api:keyword>
+        <api:keyword scheme="science-metrix" origin="issn-inferred">History</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">2103 Historical Studies</api:keyword>
+      </api:keywords>
+    </api:all-labels>
+    <api:journal issn="1045-6007" href="http://tempuri.org/journals/50260">
+      <api:records>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Journal of World History</api:title>
+        </api:record>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Journal of World History</api:title>
+        </api:record>
+        <api:record source-name="jcr">
+          <api:title>Journal of World History: official journal of the World History Association</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Journal of World History</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Journal of World History</api:title>
+        </api:record>
+        <api:record source-name="science-metrix">
+          <api:title>Journal of world history : official journal of the World History Association</api:title>
+        </api:record>
+        <api:record source-name="era-2010">
+          <api:title>Journal of World History: official journal of the World History Association</api:title>
+        </api:record>
+        <api:record source-name="snip">
+          <api:title>Journal of World History</api:title>
+        </api:record>
+        <api:record source-name="era-2012">
+          <api:title>Journal of World History: official journal of the World History Association</api:title>
+        </api:record>
+      </api:records>
+    </api:journal>
+    <api:relationships href="http://tempuri.org/publications/97575/relationships?view=default" />
+    <api:neighbourhood>
+      <api:relationships>
+        <api:relationship id="46454" type-id="8" type="publication-user-authorship" last-modified-when="2019-02-06T17:33:40.897+00:00" href="http://tempuri.org/relationships/46454?detail=ref&amp;view=default">
+          <api:is-visible>true</api:is-visible>
+          <api:is-favourite>false</api:is-favourite>
+          <api:related direction="to" category="user" id="29">
+            <api:object category="user" id="29" proprietary-id="JB" authenticating-authority="Internal" username="JB" last-affected-when="2019-02-06T17:35:24.54+00:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/29?view=default" created-when="2012-07-11T14:41:28.007+01:00" type-id="1" type="person">
+              <!--User type 1 is "person"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:is-public>false</api:is-public>
+              <api:is-current-staff>true</api:is-current-staff>
+              <api:photo href="http://tempuri.org/users/29/photo?type=profile" />
+              <api:is-academic>false</api:is-academic>
+              <api:is-login-allowed>true</api:is-login-allowed>
+              <api:title>Mr</api:title>
+              <api:initials>JB</api:initials>
+              <api:last-name>Breeze</api:last-name>
+              <api:first-name>Jonathan</api:first-name>
+              <api:email-address>jonathan@lilliput.edu</api:email-address>
+              <api:primary-group-descriptor>Lilliput Centre for Research Excellence</api:primary-group-descriptor>
+              <api:position>Chief Executive Officer</api:position>
+              <api:institutional-email-is-public>true</api:institutional-email-is-public>
+              <api:claimed>true</api:claimed>
+              <api:organisation-defined-data field-number="1" field-name="Organisational Unit" />
+              <api:organisation-defined-data field-number="2" field-name="Group" />
+              <api:organisation-defined-data field-number="3" field-name="REF Category of staff" />
+              <api:organisation-defined-data field-number="4" field-name="Eligible for REF" />
+              <api:organisation-defined-data field-number="5" field-name="Return to REF" />
+              <api:organisation-defined-data field-number="6" field-name="Test Autogroup ID" />
+              <api:organisation-defined-data field-number="7" field-name="sync (me)" />
+              <api:organisation-defined-data field-number="8" field-name="Assessment Eligibility" />
+              <api:view name="default" />
+              <api:fields>
+                <api:field name="labels" type="keyword-list" display-name="labels">
+                  <api:keywords>
+                    <api:keyword scheme="c-research-area">Business Information Systems</api:keyword>
+                    <api:keyword scheme="c-research-area">Open Software</api:keyword>
+                    <api:keyword scheme="c-research-area">Research, Science and Technology Policy</api:keyword>
+                    <api:keyword scheme="c-research-area">Software Engineering</api:keyword>
+                  </api:keywords>
+                </api:field>
+              </api:fields>
+              <api:all-labels type="keyword-list">
+                <api:keywords>
+                  <api:keyword scheme="c-research-area" origin="object-data">Business Information Systems</api:keyword>
+                  <api:keyword scheme="c-research-area" origin="object-data">Open Software</api:keyword>
+                  <api:keyword scheme="c-research-area" origin="object-data">Research, Science and Technology Policy</api:keyword>
+                  <api:keyword scheme="c-research-area" origin="object-data">Software Engineering</api:keyword>
+                </api:keywords>
+              </api:all-labels>
+              <api:relationships href="http://tempuri.org/users/29/relationships?view=default" />
+              <api:user-identifier-associations user-id="29">
+                <api:user-identifier-association scheme="email-address" status="claimed" decision="always-me">jonathan@lilliput.edu</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-account-id" status="claimed" decision="always-me">JB</api:user-identifier-association>
+                <api:user-identifier-association scheme="orcid" status="claimed" decision="always-me">0000-0002-2173-229X</api:user-identifier-association>
+              </api:user-identifier-associations>
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46457" type-id="2" type="publication-grant-funded" last-modified-when="2019-02-06T17:33:54.86+00:00" href="http://tempuri.org/relationships/46457?detail=ref&amp;view=default">
+          <api:related direction="to" category="grant" id="12629">
+            <api:object category="grant" id="12629" last-affected-when="2019-02-06T17:35:24.54+00:00" last-modified-when="2018-08-28T10:22:12.957+01:00" href="http://tempuri.org/grants/12629?view=default" created-when="2012-10-03T16:13:26.47+01:00" type-id="1" type="grant">
+              <!--Grant type 1 is "grant"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2010-08-01</api:reporting-date-1>
+              <api:reporting-date-2>2012-07-19</api:reporting-date-2>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="funder-name" type="text" display-name="Funder name">
+                  <api:text>EPSRC</api:text>
+                </api:field>
+                <api:field name="funder-reference" type="text" display-name="Funder reference">
+                  <api:text>EP/H019669/1</api:text>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>A nonlinear plasmonic antenna switch as building block for ultracompact photonic devices.</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:relationships href="http://tempuri.org/grants/12629/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46458" type-id="2" type="publication-grant-funded" last-modified-when="2019-02-06T17:33:54.923+00:00" href="http://tempuri.org/relationships/46458?detail=ref&amp;view=default">
+          <api:related direction="to" category="grant" id="12632">
+            <api:object category="grant" id="12632" last-affected-when="2019-02-06T17:35:24.54+00:00" last-modified-when="2018-08-28T10:22:12.957+01:00" href="http://tempuri.org/grants/12632?view=default" created-when="2012-10-03T16:13:27.843+01:00" type-id="1" type="grant">
+              <!--Grant type 1 is "grant"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2011-07-01</api:reporting-date-1>
+              <api:reporting-date-2>2013-04-30</api:reporting-date-2>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="funder-name" type="text" display-name="Funder name">
+                  <api:text>EPSRC</api:text>
+                </api:field>
+                <api:field name="funder-reference" type="text" display-name="Funder reference">
+                  <api:text>EP/E00573X/2</api:text>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>A novel process:solution-Heat-treatment, Forming and cold-die Quenching (HFQ)</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:relationships href="http://tempuri.org/grants/12632/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+      </api:relationships>
+      <api:related-groups>
+        <api:related-group id="48" parent-id="1" full-name="|Lilliput University|Lilliput Centre for Research Excellence" membership-type="explicit">Lilliput Centre for Research Excellence</api:related-group>
+        <api:related-group id="1" full-name="|Lilliput University" membership-type="implicit">Lilliput University</api:related-group>
+        <api:related-group id="27" parent-id="11" full-name="|Lilliput University|Symplectic|Example Manual Group" membership-type="explicit">Example Manual Group</api:related-group>
+        <api:related-group id="11" parent-id="1" full-name="|Lilliput University|Symplectic" membership-type="implicit">Symplectic</api:related-group>
+      </api:related-groups>
+    </api:neighbourhood>
+  </api:object>
+  <api:push-supplementary-info>
+    <api:deposit-info type="initial">
+      <api:date>
+        <api:day>6</api:day>
+        <api:month>2</api:month>
+        <api:year>2019</api:year>
+      </api:date>
+      <api:depositor id="29" proprietary-id="JB" username="JB">
+        <api:initials>JB</api:initials>
+        <api:first-name>Jonathan</api:first-name>
+        <api:last-name>Breeze</api:last-name>
+        <api:full-name>Mr Jonathan Breeze</api:full-name>
+        <api:email-address>jonathan@lilliput.edu</api:email-address>
+        <api:primary-group-descriptor>Lilliput Centre for Research Excellence</api:primary-group-descriptor>
+        <api:is-academic>false</api:is-academic>
+      </api:depositor>
+      <api:files-info>
+        <api:file-info>
+          <api:name>test-file.txt</api:name>
+          <api:version>Accepted Version</api:version>
+        </api:file-info>
+      </api:files-info>
+    </api:deposit-info>
+  </api:push-supplementary-info>
+</api:push-object>
