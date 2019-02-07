@@ -8,16 +8,19 @@
     
     This document describes how to mark up an ORA Data Model v2.0rc4 object in MODS
     
-    It is conformant to MODS 3.7, with two exceptions (both mods:extension elements).
+    It is conformant to an expected MODS 3.8*, with one exception (a mods:extension element).
     
     In addition, the document contains an appendix with an example METS skeleton which contains
     the same metadata sections (i.e. the same metadata, but in METS).
     
+    * We've been in consultation with the MODS committee, and they're making an addition to the
+    schema to allow for complex affiliations.
+    
     Tom Wrobel <thomas.wrobel@bodleian.ox.ac.uk>, January 2019
     
     
-    ADDITIONS TO MODS 3.7 SCHEMA
-    ===============================
+    ADDITIONS TO MODS 3.8 SCHEMA
+    ============================
     
     This MODS format validates against MODS 3.7 (https://www.loc.gov/standards/mods/mods-3-7.xsd) 
     with the following additions:
@@ -25,9 +28,11 @@
         mods:extension allowed within mods:name
         mods:extension allowed within mods:role
     
-    A custom MODS schema with these additions is the companion file ora_mods-3.7.xsd, against which
+    In anticipation of the MODS 3.8 schema, the companion xsd file for this document is ora_mods-3.8.xsd.
+    
+    A custom MODS schema with these additions is the companion file ora_mods-3.8.xsd, against which
     this document should validate. The custom schema also has the following additions to allow this
-    file itself to validate:
+    sample file itself to validate:
     
         mods:name/@type the value 'field:contributors__contributor_type' is an allowed value
         
@@ -139,11 +144,11 @@
     ========
     Appendix: conversion from MODS to METS
 -->
-<mods:mods version="3.7"         
+<mods:mods version="3.8"         
         xmlns:mods="http://www.loc.gov/mods/v3"
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.loc.gov/mods/v3 ora_mods-3.7.xsd">
+        xsi:schemaLocation="http://www.loc.gov/mods/v3 ora_mods-3.8.xsd">
  
     <!--
         RECORD METADATA
@@ -333,7 +338,7 @@
             <mods:roleTerm type="text">Funder</mods:roleTerm>
         </mods:role>
         <mods:nameIdentifier type="funder_identifier">field:funders__funder_identifier</mods:nameIdentifier>
-        <mods:extension>
+        <mods:affiliation>  <!-- We encode an act of funding as an affiliation, even though it is a stretch. This is partly for MODS validation purposes -->
             <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
                 <!-- For multiple grants, create one ora_admin:funding element for each grant -->
                 <ora_admin:funding_programme>field:funders__funder_funding_programme</ora_admin:funding_programme>
@@ -343,7 +348,7 @@
                     <ora_admin:grant_identifier>field:funders__funder_grant__grant_identifier</ora_admin:grant_identifier>
                 </ora_admin:funder_grant>                        
             </ora_admin:funding>
-        </mods:extension>  
+        </mods:affiliation>  
     </mods:name>
     
     <!-- PUBLISHER -->

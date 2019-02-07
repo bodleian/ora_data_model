@@ -59,6 +59,7 @@ The schema has three parts:
 		<xs:attribute name="version">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
+					<xs:enumeration value="3.8"/>
 					<xs:enumeration value="3.7"/>
 					<xs:enumeration value="3.6"/>
 					<xs:enumeration value="3.5"/>
@@ -477,7 +478,7 @@ Choice one. WITHOUT <etal>.
 				<xs:element ref="nameIdentifier"/>
 				<!-- 
 				The following,alternativeName, is new in 3.7-->
-				<xs:element ref="alternativeName"/>			    
+				<xs:element ref="alternativeName"/>
 			</xs:choice>
 			<!-- 
 Choice two.	With <etal>.
