@@ -482,8 +482,9 @@ Choice one. WITHOUT <etal>.
 		            ============
 		            ORA ADDITION
 		            ============
+		            
+		            <xs:element ref="extension" />
 		        -->
-			    <xs:element ref="extension" />
 			</xs:choice>
 			<!-- 
 Choice two.	With <etal>.
@@ -564,12 +565,20 @@ Choice two.	With <etal>.
 	</xs:complexType>
 	<!-- displayForm, affiliation, description, alternativeName -->
 	<xs:element name="displayForm" type="stringPlusLanguage"/>
-	<xs:element name="affiliation" type="stringPlusLanguage"/>
+	<xs:element name="affiliation" type="affiliationDefinition"/>
 	<xs:element name="description" type="stringPlusLanguage"/>
 	<xs:element name="nameIdentifier" type="identifierDefinition"/>
 	<!-- the following element, alternativeName, is new in 3.7 -->
 	<xs:element name="alternativeName" type="alternativeNameDefinition"/>
 
+	<!--  
+******** affiliaition *********************
+    -->
+	<xs:complexType name="affiliationDefinition" mixed="true">
+			<xs:complexContent>
+				<xs:extension base="extensionDefinition"/>
+			</xs:complexContent>
+	</xs:complexType>
 	<!--  
 ******** role *********************
     -->

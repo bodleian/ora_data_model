@@ -283,9 +283,9 @@
         
         <!-- Affiliations 
             
-             For multiple affiliations, create a separate ora:affiliation for each affiliation
+             For multiple affiliations, create a separate mods:affiliation/ora:affiliation for each affiliation
         -->
-        <mods:extension>
+        <mods:affiliation>
             <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
                 <ora:affiliationComponent type="institution" institution_id="field:contributors__institution_identifier">field:contributors__institution</ora:affiliationComponent>
                 <ora:affiliationComponent type="division">field:contributors__division</ora:affiliationComponent>
@@ -295,7 +295,7 @@
                 <ora:affiliationComponent type="sub_unit">field:contributors__sub_unit</ora:affiliationComponent>
                 <ora:affiliationComponent type="oxford_college">field:contributors__oxford_college</ora:affiliationComponent>
             </ora:affiliation>
-        </mods:extension>      
+        </mods:affiliation>      
 
         <!-- Contributor roles
             
