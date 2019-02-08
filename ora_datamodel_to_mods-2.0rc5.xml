@@ -292,7 +292,7 @@
         <mods:nameIdentifier type="contributor_record_identifier">field:contributors__contributor_record_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="sso">field:contributors__contributor_institutional_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
-        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_f">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
+        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
         <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
         
         <!-- Affiliations 
