@@ -11,32 +11,46 @@
           <mods:title>Cosmology on all scales: A two-parameter perturbation expansion</mods:title>
         </mods:titleInfo>
         <mods:name type="personal">
+          <mods:displayForm>Goldberg, Sophia R</mods:displayForm>
           <mods:namePart type="given">Sophia R</mods:namePart>
           <mods:namePart type="family">Goldberg</mods:namePart>
-          <mods:namePart type="initials">SR</mods:namePart>
-          <mods:displayForm>Goldberg, Sophia R</mods:displayForm>
-          <mods:affiliation type="institution" />
-          <mods:affiliation type="department" />
-          <mods:extension>
-            <mods:identifier type="sso">s.goldberg</mods:identifier>
-          </mods:extension>
+          <mods:nameIdentifier type="email_address">s.r.goldberg@lilliput.ac.uk</mods:nameIdentifier>
+          <mods:nameIdentifier type="orcid_identifier" />
+          <mods:alternativeName altType="initials">
+            <mods:namePart>SR</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso">s.goldberg</mods:nameIdentifier>
         </mods:name>
         <mods:name type="personal">
+          <mods:displayForm>Clifton, Timothy</mods:displayForm>
           <mods:namePart type="given">Timothy</mods:namePart>
           <mods:namePart type="family">Clifton</mods:namePart>
-          <mods:namePart type="initials">T</mods:namePart>
-          <mods:displayForm>Clifton, Timothy</mods:displayForm>
-          <mods:affiliation type="institution" />
-          <mods:affiliation type="department" />
+          <mods:nameIdentifier type="email_address" />
+          <mods:nameIdentifier type="orcid_identifier" />
+          <mods:alternativeName altType="initials">
+            <mods:namePart>T</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso" />
         </mods:name>
         <mods:name type="personal">
+          <mods:displayForm>Malik, Karim A</mods:displayForm>
           <mods:namePart type="given">Karim A</mods:namePart>
           <mods:namePart type="family">Malik</mods:namePart>
-          <mods:namePart type="initials">KA</mods:namePart>
-          <mods:displayForm>Malik, Karim A</mods:displayForm>
-          <mods:affiliation type="institution" />
-          <mods:affiliation type="department" />
+          <mods:nameIdentifier type="email_address" />
+          <mods:nameIdentifier type="orcid_identifier" />
+          <mods:alternativeName altType="initials">
+            <mods:namePart>KA</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso" />
         </mods:name>
+        <mods:name type="corporate">
+          <mods:displayForm>AMER PHYSICAL SOC</mods:displayForm>
+          <mods:role>
+            <mods:roleTerm type="text">Publisher</mods:roleTerm>
+          </mods:role>
+          <mods:nameIdentifier type="website">http://dx.doi.org/10.1103/PhysRevD.95.043503</mods:nameIdentifier>
+        </mods:name>
+        <mods:relatedItem type="host" />
         <mods:physicalDescription>
           <mods:form type="status">Published</mods:form>
         </mods:physicalDescription>
@@ -46,7 +60,8 @@
         <mods:identifier type="pubs-id">pubs:83749</mods:identifier>
         <mods:genre type="typeofwork">journal-article</mods:genre>
         <mods:originInfo>
-          <mods:dateIssued>2017-02</mods:dateIssued>
+          <mods:dateOther type="date_of_acceptance" encoding="iso8601" />
+          <mods:dateIssued encoding="iso8601">2017-02-01</mods:dateIssued>
         </mods:originInfo>
       </mods:mods>
     </mods:modsCollection>

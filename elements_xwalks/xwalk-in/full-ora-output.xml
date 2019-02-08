@@ -1,4 +1,4 @@
-<api:import-sync-record category="publication" type-name="journal-article" id-at-source="" xmlns:api="http://www.symplectic.co.uk/publications/api">
+<api:import-sync-record category="publication" type-name="journal-article" id-at-source="cz30ps65n" xmlns:api="http://www.symplectic.co.uk/publications/api">
   <api:native>
     <api:field name="repository-status">
       <api:text>Public</api:text>
@@ -6,42 +6,102 @@
     <api:field name="public-url">
       <api:text>https://ora4-dev-symp.bodleian.ox.ac.uk/concern/journal_articles/cz30ps65n</api:text>
     </api:field>
-    <api:field name="abstract">
-      <api:text>field:abstract</api:text>
-    </api:field>
     <api:field name="title">
       <api:text>field:title</api:text>
+    </api:field>
+    <api:field name="abstract">
+      <api:text>field:abstract</api:text>
     </api:field>
     <api:field name="authors">
       <api:people>
         <api:person>
-          <api:last-name>field:comissioning_body</api:last-name>
-        </api:person>
-        <api:person>
           <api:last-name>field:contributors__display_name</api:last-name>
-        </api:person>
-        <api:person>
-          <api:last-name>field:rights_holders</api:last-name>
-        </api:person>
-        <api:person>
-          <api:last-name>field:funders__funder_name</api:last-name>
-        </api:person>
-        <api:person>
-          <api:last-name>field:publisher_name</api:last-name>
+          <api:email-address>field:contributors__contributor_email</api:email-address>
+          <api:addresses>
+            <api:address>
+              <api:line type="organisation">field:contributors__institution</api:line>
+              <api:line type="suborganisation">field:contributors__division</api:line>
+            </api:address>
+          </api:addresses>
+          <api:identifiers>
+            <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+            <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+            <api:identifier scheme="proprietary-id">field:contributors__contributor_institutional_identifier</api:identifier>
+            <api:identifier scheme="orcid">field:contributors__orcid_identifier</api:identifier>
+            <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+            <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+          </api:identifiers>
         </api:person>
       </api:people>
     </api:field>
-    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: issn-->
+    <api:field name="issn">
+      <api:text>field:identifiers_issn</api:text>
+    </api:field>
+    <api:field name="eissn">
+      <api:text>field:identifiers_eissn</api:text>
+    </api:field>
+    <api:field name="isbn-13">
+      <api:text>field:identifiers_isbn_13</api:text>
+    </api:field>
+    <api:field name="isbn-10">
+      <api:text>field:identifiers_isbn_10</api:text>
+    </api:field>
     <api:field name="doi">
       <api:text>field:identifiers_doi</api:text>
     </api:field>
-    <!--[INFO] Record  [from Xsl]: No value found for mapping to field: doi-->
+    <api:field name="pii">
+      <api:text>field:identifiers_pii</api:text>
+    </api:field>
+    <api:field name="external-identifiers">
+      <api:identifiers>
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <api:identifier scheme="pubmed">field:identifiers_pmid</api:identifier>
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+        <!--[WARNING] Record cz30ps65n [from Xsl]: No identifier scheme specified-->
+      </api:identifiers>
+    </api:field>
+    <api:field name="acceptance-date">
+      <!--[WARNING] Record cz30ps65n [from Xsl]: Year part of date must be numeric (field:acceptance_datefield:citation_publication_datefield:rights_copyright_datefield:citation_place_of_publicationfield:publication_url)-->
+    </api:field>
+    <api:field name="publication-date">
+      <!--[WARNING] Record cz30ps65n [from Xsl]: Year part of date must be numeric (field:citation_publication_date)-->
+    </api:field>
     <api:field name="language">
       <api:text>field:language</api:text>
     </api:field>
     <api:field name="journal">
       <api:text>field:host_title</api:text>
-      <!--[WARNING] Record  [from Xsl]: Multiple source values present for field 'journal' - value [2] ignored: field:journal_title-->
+    </api:field>
+    <api:field name="issue">
+      <api:text>field:issue_number</api:text>
+    </api:field>
+    <api:field name="publisher-url">
+      <api:text>field:journal_website_url</api:text>
+    </api:field>
+    <api:field name="edition">
+      <api:text>field:edition</api:text>
+    </api:field>
+    <api:field name="pagination">
+      <api:pagination>
+        <api:page-count>field:pagination</api:page-count>
+      </api:pagination>
+      <!--[WARNING] Record cz30ps65n [from Xsl]: More than 1 pagination field found (field:pagination)-->
+    </api:field>
+    <api:field name="volume">
+      <api:text>field:volume</api:text>
+      <!--[WARNING] Record cz30ps65n [from Xsl]: Multiple source values present for field 'volume' - value [2] ignored: field:volume-->
     </api:field>
     <api:files>
       <api:file proprietary-id="6969z076v">
