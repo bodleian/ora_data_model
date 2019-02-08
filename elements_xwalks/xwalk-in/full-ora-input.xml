@@ -15,12 +15,7 @@
     </content>
     <link rel="edit" href="https://ora4-dev-symp.bodleian.ox.ac.uk/sword/collections/default/works/cz30ps65n/file_sets/6969z076v" />
   </entry>
-  <mods:mods version="3.7" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 ora_mods-3.7.xsd">
-    <!--
-        RECORD METADATA
-        ===============
-    -->
-    <!-- DEFAULT FIELDS -->
+  <mods:mods version="3.8" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 ora_mods-3.8.xsd">
     <mods:titleInfo>
       <mods:title>field:title</mods:title>
       <mods:subTitle>field:alternative_title</mods:subTitle>
@@ -73,6 +68,7 @@
     <mods:identifier type="tinypid">field:tinypid</mods:identifier>
     <mods:identifier type="tombstone">field:identifiers_tombstone_record_identifier</mods:identifier>
     <mods:identifier type="uuid">field:identifiers_uuid</mods:identifier>
+    <mods:identifier type="field:record_identifiers__record_identifier_scheme">field:record_identifiers__record_identifier_scheme</mods:identifier>
     <!-- ORIGIN INFO significant dates and place of publication of 'original' published work -->
     <mods:originInfo>
       <mods:dateOther type="date_of_acceptance" encoding="iso8601">field:acceptance_date</mods:dateOther>
@@ -139,13 +135,13 @@
       <mods:nameIdentifier type="contributor_record_identifier">field:contributors__contributor_record_identifier</mods:nameIdentifier>
       <mods:nameIdentifier type="sso">field:contributors__contributor_institutional_identifier</mods:nameIdentifier>
       <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
-      <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
+      <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_f">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
       <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
       <!-- Affiliations 
             
-             For multiple affiliations, create a separate ora:affiliation for each affiliation
+             For multiple affiliations, create a separate mods:affiliation/ora:affiliation for each affiliation
         -->
-      <mods:extension>
+      <mods:affiliation>
         <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
           <ora:affiliationComponent type="institution" institution_id="field:contributors__institution_identifier">field:contributors__institution</ora:affiliationComponent>
           <ora:affiliationComponent type="division">field:contributors__division</ora:affiliationComponent>
@@ -155,7 +151,7 @@
           <ora:affiliationComponent type="sub_unit">field:contributors__sub_unit</ora:affiliationComponent>
           <ora:affiliationComponent type="oxford_college">field:contributors__oxford_college</ora:affiliationComponent>
         </ora:affiliation>
-      </mods:extension>
+      </mods:affiliation>
       <!-- Contributor roles
             
              For multiple roles, create a mods:role for each role 
@@ -188,7 +184,8 @@
         <mods:roleTerm type="text">Funder</mods:roleTerm>
       </mods:role>
       <mods:nameIdentifier type="funder_identifier">field:funders__funder_identifier</mods:nameIdentifier>
-      <mods:extension>
+      <mods:affiliation>
+        <!-- We encode an act of funding as an affiliation, even though it is a stretch. This is partly for MODS validation purposes -->
         <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
           <!-- For multiple grants, create one ora_admin:funding element for each grant -->
           <ora_admin:funding_programme>field:funders__funder_funding_programme</ora_admin:funding_programme>
@@ -199,7 +196,7 @@
             <ora_admin:grant_identifier>field:funders__funder_grant__grant_identifier</ora_admin:grant_identifier>
           </ora_admin:funder_grant>
         </ora_admin:funding>
-      </mods:extension>
+      </mods:affiliation>
     </mods:name>
     <!-- PUBLISHER -->
     <mods:name type="corporate">
@@ -438,48 +435,12 @@
         <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
         <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
         <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
+        <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
         <ora:accessConditionAtDeposit>field:binary_files__file_admin_access_condition_at_deposit</ora:accessConditionAtDeposit>
         <ora:fileAndRecordDoNotMatch>field:binary_files__file_admin_file_and_record_do_not_match</ora:fileAndRecordDoNotMatch>
         <symp:hasPublicUrl>field:binary_files__file_public_url</symp:hasPublicUrl>
       </ora:repository_file>
     </mods:extension>
-    <!-- /BINARY FILE METADATA -->
-    <!-- 
-        ================================================
-        APPENDIX: CONVERSION OF THIS MODS FORMAT TO METS
-        ================================================
-        
-        This appendix contains a sample METS skeleton file as an example of how the above MODS code would be
-        converted into METS. This is an example only, and is included in this file for convenience.
-        
-        The METS file has placed in a <mods:extension>. This is purely to allow for syntax highlighting and
-        validation in an XML editor. 
-        
-        An actual ORA object encoded in MODS would not contain this <mods:extension> element.
-        
-        Each metadata section is as defined in METADATA SECTIONS in the introduction to this document.
-        
-        In order to convert from MODS to METS:
-        
-            1) A METS skeleton will be created, with structural map and file sections 
-               representing the base object and its binary files (if present)
-               
-            2) The METS skeleton will have a creation date of the file creation date, and an AGENT
-               NAME of the creating agency, e.g. Hyrax/Sword2 or Symplectic in mets:metsHdr/mets:agent/mets:name. 
-               Any RECORD CREATION NOTES should go into a mets:metsHdr/mets:agent/mets:note
-            
-            3) Record metadata, contributions and roles, and work-type specific metadata 
-               will stay within a MODS element in a dmdSec
-            
-            4) Each binary file will receive its own dmdSec containing binary file metadata
-            
-            5) Admin metadata will go in a MODS element in amdSec
-            
-            6) (Under consideration) one field from the main record metadata, the ORA deposit 
-               licence URI (field:ora_deposit_licence) should move from the main 
-               record dmdSec into a amdSec/rightsMD section.
-        
-    -->
     <mods:extension>
       <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
         <!-- 

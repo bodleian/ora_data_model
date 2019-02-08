@@ -1,74 +1,118 @@
-﻿<xwalkin:consolidated-maps xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin" 
-													xmlns:mods="http://www.loc.gov/mods/v3" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" 
-													xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/">
+﻿<xwalkin:consolidated-maps xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/">
   <xwalk:file-metadata-map>
     <xwalk:field-source from="ora:repository_file">
       <xwalk:field-source from="substring-after(/ora:repository_file/ora:content/@href, '/file_sets/')" select-using="xpath" data-part="file:proprietary-id" />
       <xwalk:field-source from="dc:title" data-part="file:name" />
       <xwalk:field-source from="string(/ora:repository_file/ora:link[@rel='download']/@href)" select-using="xpath" data-part="file:url" />
       <xwalk:field-source from="dcterms:extent" data-part="file:size" />
-			<xwalk:field-source from="rioxxterms:version" data-part="file:version" />
+      <xwalk:field-source from="rioxxterms:version" data-part="file:version" />
     </xwalk:field-source>
   </xwalk:file-metadata-map>
   <xwalk:field-maps>
     <xwalk:field-map name="import-sample">
       <xwalk:field-mapping to="public-url">
-				<xwalk:field-source from="concat('https://ora4-dev-symp.bodleian.ox.ac.uk/concern/journal_articles/', substring-after(string(atom:feed/atom:content/@href), '/works/'))" select-using="xpath"/>
-			</xwalk:field-mapping>
-			<xwalk:field-mapping to="abstract">
-        <xwalk:field-source from="abstract" />
+        <xwalk:field-source from="concat('https://ora4-dev-symp.bodleian.ox.ac.uk/concern/journal_articles/', substring-after(string(atom:feed/atom:content/@href), '/works/'))" select-using="xpath" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="title">
         <xwalk:field-source from="titleInfo/title" />
       </xwalk:field-mapping>
+      <xwalk:field-mapping to="abstract">
+        <xwalk:field-source from="abstract" />
+      </xwalk:field-mapping>
       <xwalk:field-mapping to="authors">
-        <xwalk:field-source from="name">
-          <xwalk:field-source from="displayForm" format="person:lastname-initials" />
-          <xwalk:field-source data-part="person:address">
-            <xwalk:field-source data-part="person:address">
-              <xwalk:field-source from="string(/mods:name/mods:affiliation[@type = 'suborganisation'])" select-using="xpath" data-part="address:organisation" />
-            </xwalk:field-source>
+        <xwalk:field-source from="name" value-map="author-name-types-only">
+          <!-- Capture the name type, only used for filtering in the above value-map -->
+          <xwalk:field-source attribute-name="type" data-part="temp:value1" />
+          <xwalk:field-source from="displayForm" format="person:lastname-firstnames" />
+          <xwalk:field-source from="/mods:name/mods:nameIdentifier[@type = 'email_address']" select-using="xpath" data-part="person:email-address" />
+          <!-- Map all nameIdentifier elements. Apply a value-mapping to the type attribute. If we don't -->
+          <!-- recognise the scheme, we will output nothing. The framework will ignore schemeless identifiers. -->
+          <xwalk:field-source from="nameIdentifier" data-part="person:identifier">
+            <xwalk:field-source attribute-name="type" value-map="identifier-mapping" data-part="identifier:scheme" />
+            <xwalk:field-source from="." data-part="identifier:value" />
+          </xwalk:field-source>
+          <!-- Addresses -->
+          <xwalk:field-source from="/mods:name/mods:affiliation/ora:affiliation" select-using="xpath" data-part="person:address">
+            <xwalk:field-source from="/ora:affiliation/ora:affiliationComponent[@type = 'institution']" select-using="xpath" data-part="address:organisation" />
+            <xwalk:field-source from="/ora:affiliation/ora:affiliationComponent[@type = 'division']" select-using="xpath" data-part="address:suborganisation" />
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
+      <!-- Field level identifiers -->
       <xwalk:field-mapping to="issn">
-        <xwalk:field-source from="identifier" value-map="issn-identifier-only">
-          <xwalk:field-source attribute-name="type" data-part="temp:value1" />
-          <xwalk:field-source from="." />
-        </xwalk:field-source>
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'issn']" select-using="xpath" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="eissn">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'eissn']" select-using="xpath" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="isbn-13">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'isbn13']" select-using="xpath" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="isbn-10">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'isbn']" select-using="xpath" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="doi">
         <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'doi']" select-using="xpath" />
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="doi">
-        <xwalk:field-source from="identifier" value-map="doi-identifier-only">
-          <xwalk:field-source attribute-name="type" data-part="temp:value1" />
-          <xwalk:field-source from="." />
+      <xwalk:field-mapping to="pii">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:identifier[@type = 'pii']" select-using="xpath" />
+      </xwalk:field-mapping>
+      
+      <!-- External identifiers -->
+      <xwalk:field-mapping to="external-identifiers">
+        <xwalk:field-source from="identifier">
+          <xwalk:field-source attribute-name="type" data-part="identifier:scheme" value-map="identifier-mapping"/>
+          <xwalk:field-source from="." data-part="identifier:value"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
+      
+      <xwalk:field-mapping to="acceptance-date">
+        <xwalk:field-source from="originInfo">
+          <xwalk:field-source from="/mods:originInfo/mods:dateOther[@type = 'date_of_acceptance']" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      
+      <xwalk:field-mapping to="publication-date">
+        <xwalk:field-source from="originInfo/dateIssued"/>
+      </xwalk:field-mapping>
+      
       <xwalk:field-mapping to="language">
         <xwalk:field-source from="language/languageTerm" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="journal">
-        <xwalk:field-source select-using="xpath" from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title" />
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:relatedItem[@type='host'][1]/mods:titleInfo/mods:title" select-using="xpath" />
       </xwalk:field-mapping>
+      
+      <xwalk:field-mapping to="issue">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']" select-using="xpath" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="publisher-url">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:location/mods:url" select-using="xpath" />
+      </xwalk:field-mapping>
+      
+      <!-- Book related fields -->
+      <xwalk:field-mapping to="edition">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='edition']" select-using="xpath" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="pagination">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:part/mods:extent[@unit='pages']" select-using="xpath" format="pagination:page-count" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="volume">
+        <xwalk:field-source from="/atom:feed/mods:mods/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']" select-using="xpath" />
+      </xwalk:field-mapping>
+      
     </xwalk:field-map>
   </xwalk:field-maps>
   <xwalk:value-maps>
-    <xwalk:value-map name="issn-identifier-only" data-part="temp:value1">
-      <xwalk:value-mapping from="issn" action="continue" />
+    <xwalk:value-map name="author-name-types-only" data-part="temp:value1">
+      <xwalk:value-mapping from="personal" action="continue" />
+      <xwalk:value-mapping from="field:contributors__contributor_type" action="continue" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
-    <xwalk:value-map name="doi-identifier-only" data-part="temp:value1">
-      <xwalk:value-mapping from="doi" action="continue" />
-      <xwalk:otherwise-mapping action="ignore-this-value" />
-    </xwalk:value-map>
-    <xwalk:value-map name="organisation" data-part="temp:value1">
-      <xwalk:value-mapping from="institution" action="continue" />
-      <xwalk:otherwise-mapping action="ignore-this-value" />
-    </xwalk:value-map>
-    <xwalk:value-map name="suborganisation" data-part="temp:value1">
-      <xwalk:value-mapping from="department" action="continue" />
+    <xwalk:value-map name="identifier-mapping">
+      <xwalk:value-mapping from="pmid" to="pubmed" />
+      <xwalk:value-mapping from="orcid_identifier" to="orcid" />
+      <xwalk:value-mapping from="sso" to="proprietary-id" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
   </xwalk:value-maps>

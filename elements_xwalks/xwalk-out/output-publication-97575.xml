@@ -11,24 +11,49 @@
           <mods:title>My test journal article for Hyrax xwalk development</mods:title>
         </mods:titleInfo>
         <mods:name type="personal">
+          <mods:displayForm>Breeze, Jonathan</mods:displayForm>
           <mods:namePart type="given">Jonathan</mods:namePart>
           <mods:namePart type="family">Breeze</mods:namePart>
-          <mods:namePart type="initials">J</mods:namePart>
-          <mods:displayForm>Breeze, Jonathan</mods:displayForm>
-          <mods:affiliation type="institution" />
-          <mods:affiliation type="department" />
-          <mods:extension>
-            <mods:identifier type="sso">JB</mods:identifier>
-          </mods:extension>
+          <mods:nameIdentifier type="email_address">jonathan@lilliput.edu</mods:nameIdentifier>
+          <mods:nameIdentifier type="orcid_identifier">0000-0002-2173-229X</mods:nameIdentifier>
+          <mods:alternativeName altType="initials">
+            <mods:namePart>J</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso">JB</mods:nameIdentifier>
         </mods:name>
         <mods:name type="personal">
+          <mods:displayForm>Bennet, Andrew</mods:displayForm>
           <mods:namePart type="given">Andrew</mods:namePart>
           <mods:namePart type="family">Bennet</mods:namePart>
-          <mods:namePart type="initials">A</mods:namePart>
-          <mods:displayForm>Bennet, Andrew</mods:displayForm>
-          <mods:affiliation type="institution">Digital Science (United Kingdom)</mods:affiliation>
-          <mods:affiliation type="department">Symplectic</mods:affiliation>
+          <mods:nameIdentifier type="email_address" />
+          <mods:nameIdentifier type="orcid_identifier" />
+          <mods:alternativeName altType="initials">
+            <mods:namePart>A</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso" />
+          <mods:affiliation>
+            <ora:affiliation>
+              <ora:affiliationComponent type="insitution">Digital Science (United Kingdom)</ora:affiliationComponent>
+            </ora:affiliation>
+          </mods:affiliation>
         </mods:name>
+        <mods:name type="corporate">
+          <mods:displayForm>University of Hawaii Press</mods:displayForm>
+          <mods:role>
+            <mods:roleTerm type="text">Publisher</mods:roleTerm>
+          </mods:role>
+          <mods:nameIdentifier type="website">http://symplectic.co.uk/publisher</mods:nameIdentifier>
+        </mods:name>
+        <mods:relatedItem type="host">
+          <mods:part>
+            <mods:detail type="edition">
+              <mods:number>1st</mods:number>
+            </mods:detail>
+            <mods:extent unit="pages">
+              <mods:list>45-48</mods:list>
+            </mods:extent>
+          </mods:part>
+        </mods:relatedItem>
         <mods:physicalDescription>
           <mods:form type="status">Published</mods:form>
         </mods:physicalDescription>
@@ -41,8 +66,8 @@
         <mods:identifier type="pubs-id">pubs:97575</mods:identifier>
         <mods:genre type="typeofwork">journal-article</mods:genre>
         <mods:originInfo>
-          <mods:dateIssued>2019-02-06</mods:dateIssued>
-          <mods:dateOther dateOfAcceptance="2019-02-03" />
+          <mods:dateOther type="date_of_acceptance" encoding="iso8601">2019-02-03</mods:dateOther>
+          <mods:dateIssued encoding="iso8601">2019-02-06</mods:dateIssued>
         </mods:originInfo>
       </mods:mods>
     </mods:modsCollection>

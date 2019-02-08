@@ -11,27 +11,35 @@
           <mods:title>Universal spectral behavior of potentials</mods:title>
         </mods:titleInfo>
         <mods:name type="personal">
+          <mods:displayForm>Bender, Carl M</mods:displayForm>
           <mods:namePart type="given">Carl M</mods:namePart>
           <mods:namePart type="family">Bender</mods:namePart>
-          <mods:namePart type="initials">CM</mods:namePart>
-          <mods:displayForm>Bender, Carl M</mods:displayForm>
-          <mods:affiliation type="institution" />
-          <mods:affiliation type="department" />
-          <mods:extension>
-            <mods:identifier type="sso">cbender</mods:identifier>
-          </mods:extension>
+          <mods:nameIdentifier type="email_address">c.bender@lilliput.edu</mods:nameIdentifier>
+          <mods:nameIdentifier type="orcid_identifier" />
+          <mods:alternativeName altType="initials">
+            <mods:namePart>CM</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso">cbender</mods:nameIdentifier>
         </mods:name>
         <mods:name type="personal">
+          <mods:displayForm>Hook, Daniel W</mods:displayForm>
           <mods:namePart type="given">Daniel W</mods:namePart>
           <mods:namePart type="family">Hook</mods:namePart>
-          <mods:namePart type="initials">DW</mods:namePart>
-          <mods:displayForm>Hook, Daniel W</mods:displayForm>
-          <mods:affiliation type="institution" />
-          <mods:affiliation type="department" />
-          <mods:extension>
-            <mods:identifier type="sso">dwh</mods:identifier>
-          </mods:extension>
+          <mods:nameIdentifier type="email_address">d.hook@lilliput.edu</mods:nameIdentifier>
+          <mods:nameIdentifier type="orcid_identifier">0000-0001-9746-1193</mods:nameIdentifier>
+          <mods:alternativeName altType="initials">
+            <mods:namePart>DW</mods:namePart>
+          </mods:alternativeName>
+          <mods:nameIdentifier type="sso">dwh</mods:nameIdentifier>
         </mods:name>
+        <mods:name type="corporate">
+          <mods:displayForm>AMER PHYSICAL SOC</mods:displayForm>
+          <mods:role>
+            <mods:roleTerm type="text">Publisher</mods:roleTerm>
+          </mods:role>
+          <mods:nameIdentifier type="website">http://dx.doi.org/10.1103/PhysRevA.86.022113</mods:nameIdentifier>
+        </mods:name>
+        <mods:relatedItem type="host" />
         <mods:physicalDescription>
           <mods:form type="status">Published</mods:form>
         </mods:physicalDescription>
@@ -39,9 +47,11 @@
         <mods:identifier type="issn">1050-2947</mods:identifier>
         <mods:identifier type="pii" />
         <mods:identifier type="pubs-id">pubs:9598</mods:identifier>
+        <mods:identifier type="isidoc">991QT</mods:identifier>
         <mods:genre type="typeofwork">journal-article</mods:genre>
         <mods:originInfo>
-          <mods:dateIssued>2012-08</mods:dateIssued>
+          <mods:dateOther type="date_of_acceptance" encoding="iso8601" />
+          <mods:dateIssued encoding="iso8601">2012-08-01</mods:dateIssued>
         </mods:originInfo>
       </mods:mods>
     </mods:modsCollection>

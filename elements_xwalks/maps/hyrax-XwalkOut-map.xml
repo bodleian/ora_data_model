@@ -1,4 +1,8 @@
 ﻿<xwalkout:consolidated-maps xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:ora="http://ora/terms/">
+  <xwalk:parameters>
+    <xwalk:parameter name="use-default-values-for-missing-date-components" value="true"/>
+  </xwalk:parameters>
+  
   <xwalk:file-metadata-map>
     <xwalk:field-mapping to="ora:repository_file">
       <xwalk:field-source subfield="dc:title" from="file.name" />
@@ -7,13 +11,14 @@
   </xwalk:file-metadata-map>
   <!-- Defines available field-map(s) -->
   <xwalk:field-maps>
-    <xwalk:field-map name="deposit-sample">
+    <xwalk:field-map name="default-map">
       <xwalk:field-mapping to="titleInfo">
         <xwalk:field-source subfield="title" from="title" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="name">
         <xwalk:field-source attribute-name="type" value="personal" />
         <xwalk:field-source from="authors">
+          <xwalk:field-source subfield="displayForm" format-delimiter=", " format="person:lastname-firstnames" />
           <xwalk:field-source subfield="namePart">
             <xwalk:field-source attribute-name="type" value="given" />
             <xwalk:field-source data-part="person:firstnames" />
@@ -22,27 +27,85 @@
             <xwalk:field-source attribute-name="type" value="family" />
             <xwalk:field-source data-part="person:lastname" />
           </xwalk:field-source>
-          <xwalk:field-source subfield="namePart">
-            <xwalk:field-source attribute-name="type" value="initials" />
-            <xwalk:field-source data-part="person:initials" />
+          <xwalk:field-source subfield="nameIdentifier">
+            <xwalk:field-source attribute-name="type" value="email_address"/>
+            <!-- There are a few email address sources we could use, but we only want to use one. -->
+            <!-- So, build a list, but state that the output is not a list -->
+            <xwalk:field-source is-list="false">
+              <xwalk:field-source data-part="person:email-address"/>
+              <xwalk:field-source data-part="person:resolved-user">
+                <xwalk:field-source from="user.email-address" />
+              </xwalk:field-source>
+            </xwalk:field-source>
           </xwalk:field-source>
-          <xwalk:field-source subfield="displayForm" format-delimiter=", " format="person:lastname-firstnames" />
+            
+          <xwalk:field-source subfield="nameIdentifier">
+            <xwalk:field-source attribute-name="type" value="orcid_identifier"/>
+            <!-- There are a few email address sources we could use, but we only want to use one. -->
+            <!-- So, build a list, but state that the output is not a list -->
+            <xwalk:field-source is-list="false">
+              <xwalk:field-source data-part="person:identifier" value-map="orcid-identifiers-only">
+                <xwalk:field-source data-part="identifier:value"/>
+              </xwalk:field-source>
+              <xwalk:field-source data-part="person:resolved-user">
+                <xwalk:field-source from="user.identifiers" value-map="orcid-identifiers-only">
+                  <xwalk:field-source data-part="identifier:value"/>
+                </xwalk:field-source>
+              </xwalk:field-source>
+            </xwalk:field-source>
+          </xwalk:field-source>
+          
+          <xwalk:field-source subfield="alternativeName">
+            <xwalk:field-source attribute-name="altType" value="initials"/>
+            <xwalk:field-source subfield="namePart" data-part="person:initials"/>
+          </xwalk:field-source>
+          <xwalk:field-source subfield="nameIdentifier" data-part="person:resolved-user">
+            <xwalk:field-source attribute-name="type" value="sso"/>
+            <xwalk:field-source from="user.proprietary-id" />
+          </xwalk:field-source>
           <xwalk:field-source subfield="affiliation" data-part="person:address">
-            <xwalk:field-source attribute-name="type" value="institution" />
-            <xwalk:field-source data-part="address:organisation" />
-          </xwalk:field-source>
-          <xwalk:field-source subfield="affiliation" data-part="person:address">
-            <xwalk:field-source attribute-name="type" value="department" />
-            <xwalk:field-source data-part="address:suborganisation" />
-          </xwalk:field-source>
-          <xwalk:field-source subfield="extension" data-part="person:resolved-user">
-            <xwalk:field-source subfield="identifier">
-              <xwalk:field-source attribute-name="type" value="sso" />
-              <xwalk:field-source from="user.proprietary-id" />
+            <xwalk:field-source subfield="ora:affiliation">
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source attribute-name="type" value="insitution"/>
+                <xwalk:field-source data-part="address:organisation"/>
+              </xwalk:field-source>
             </xwalk:field-source>
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
+      
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source attribute-name="type" value="corporate" />
+        <xwalk:field-source subfield="displayForm" from="publisher" />
+        
+        <xwalk:field-source subfield="role">
+          <xwalk:field-source subfield="roleTerm">
+            <xwalk:field-source attribute-name="type" value="text"/>
+            <xwalk:field-source value="Publisher" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+        
+        <xwalk:field-source subfield="nameIdentifier">
+          <xwalk:field-source attribute-name="type" value="website"/>
+          <xwalk:field-source from="publisher-url" />
+        </xwalk:field-source>
+        
+      </xwalk:field-mapping>
+      
+      <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source attribute-name="type" value="host" />
+        <xwalk:field-source subfield="part">
+          <xwalk:field-source subfield="detail">
+            <xwalk:field-source attribute-name="type" value="edition" />
+            <xwalk:field-source subfield="number" from="edition" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="extent">
+            <xwalk:field-source attribute-name="unit" value="pages" />
+            <xwalk:field-source subfield="list" from="pagination" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      
       <xwalk:field-mapping to="physicalDescription">
         <xwalk:field-source subfield="form">
           <xwalk:field-source attribute-name="type" value="status" />
@@ -69,6 +132,14 @@
         <xwalk:field-source attribute-name="type" value="pubs-id" />
         <xwalk:field-source prefix="pubs:" from="object.id" />
       </xwalk:field-mapping>
+      <xwalk:field-mapping to="identifier">
+        <xwalk:field-source from="external-identifiers">
+          <xwalk:field-source attribute-name="type">
+            <xwalk:field-source data-part="identifier:scheme" value-map="identifier-type"/>
+          </xwalk:field-source>
+          <xwalk:field-source data-part="identifier:value" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
       <xwalk:field-mapping to="genre">
         <xwalk:field-source attribute-name="type" value="typeofwork" />
         <xwalk:field-source from="object.type" />
@@ -77,15 +148,32 @@
         <xwalk:field-source subfield="genre" from="object.keywords" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="originInfo">
-        <xwalk:field-source subfield="dateIssued" from="publication-date" />
         <xwalk:field-source subfield="dateOther">
-          <xwalk:field-source attribute-name="dateOfAcceptance" from="acceptance-date" />
+          <xwalk:field-source attribute-name="type" value="date_of_acceptance"/>
+          <xwalk:field-source attribute-name="encoding" value="iso8601" />
+          <xwalk:field-source from="acceptance-date" />
         </xwalk:field-source>
+        <xwalk:field-source subfield="dateIssued">
+          <xwalk:field-source attribute-name="encoding" value="iso8601" />
+          <xwalk:field-source from="publication-date" format="date:YYYY-MM-DD"/>
+        </xwalk:field-source>        
       </xwalk:field-mapping>
     </xwalk:field-map>
   </xwalk:field-maps>
+  
+  <xwalk:value-maps>
+    <xwalk:value-map name="identifier-type">
+      <xwalk:value-mapping from="pubmed" to="pmid" />
+      <xwalk:otherwise-mapping action="continue"/>
+    </xwalk:value-map>
+    <xwalk:value-map name="orcid-identifiers-only" data-part="identifier:scheme">
+      <xwalk:value-mapping from="orcid" action="continue"/>
+      <xwalk:otherwise-mapping action="ignore-this-value"/>
+    </xwalk:value-map>
+  </xwalk:value-maps>
+  
   <!-- Selects which field map to use -->
   <xwalkout:field-map-selector>
-    <xwalk:field-map-selection field-map="deposit-sample" />
+    <xwalk:field-map-selection field-map="default-map" />
   </xwalkout:field-map-selector>
 </xwalkout:consolidated-maps>
