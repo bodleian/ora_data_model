@@ -11,6 +11,11 @@
     The second set of mappings is provided by a sample Symplectic Pubs-Atom XML file within a <feed/> element with ORA field names in place of values.
     
     
+    Changelog
+    =========
+    2019-02-13 - Update following specific example markup
+    - Updated with contributor, funder, deposit, and implicit values fields
+    
     Symplectic fields
     =================
     
@@ -63,6 +68,8 @@
     Fields that will need value mappings:
      - type_of_work
      - review_status
+     - article number
+     - pagination
     
     
     
@@ -191,7 +198,7 @@
         
         <symplectic_field name="number">
             <if test="record is a Book Chapter"><ora_field>chapter_number</ora_field></if>
-            <if test="record is a Journal Article"><ora_field>article_number</ora_field></if>
+            <if test="record is a Journal Article"><ora_field>article_number</ora_field><note>The text "ARTN" should be removed from the front of an article number</note></if>
             <if test="record is a Patent"><ora_field>patent_application_number</ora_field></if>
             <if test="record is a Working paper"><ora_field>paper_number</ora_field></if>
         </symplectic_field>
@@ -207,7 +214,10 @@
             <if test="describing a binary file">binary_files__file_made_available_date</if>
         </symplectic_field>
         
-        <symplectic_field name="pagination"><ora-field>pagination</ora-field></symplectic_field>
+        <symplectic_field name="pagination">
+            <if test="pagination is given in page-count"><ora-field>pagination</ora-field><notes>Append " pages" to value, e.g. "32 pages"</notes></if>
+            <if test="pagination is a range"><ora-field>pagination</ora-field><notes>Output as a range, separated by a '-', e.g '22-33'</notes></if>
+        </symplectic_field>
         
         <symplectic_field name="parent-title"><ora_field>host_title</ora_field></symplectic_field>
         
@@ -221,7 +231,7 @@
         
         <symplectic_field name="public-url"><ora_field>has_public_url</ora_field></symplectic_field>
         
-        <symplectic_field name="publication-date"><ora_field>citation_publication_date</ora_field></symplectic_field>
+        <symplectic_field name="publication-date"><ora_field>citation_publication_date</ora_field><note>In the absence of any other information, the year component of this value should also become rights_copyright_date</note></symplectic_field>
         
         <symplectic_field name="publication-status"><ora_field>host_publication_status</ora_field></symplectic_field>
         
@@ -261,6 +271,7 @@
         </symplectic_field>
         
         <symplectic_field name="volume"><ora_field>volume</ora_field></symplectic_field>
+        
         
         <!-- 
             Oxford custom fields
@@ -368,7 +379,98 @@
         <oxford_symplectic_field number="49" name="Student [Original]"><no_mapping /></oxford_symplectic_field>
         
         <oxford_symplectic_field number="50" name="Source [Original]"><no_mapping /></oxford_symplectic_field>
+    
+    <!-- 
+        ===========================
+        CONTRIBUTOR FIELDS
+        ===========================
+        
+        All of these field names are found within api:people/api:person or api:depositor elements in Symplectic atom feeds.
+        
+        For each contributor, create a <mods:person @type="personal"><mods:nameIdentifier type="contributor_record_identifier">contributors__contributor_record_identifier</mods:nameIdentifier></mods:person>
+        
+        Contributors with multiple roles should be recorded only once, with multiple roles created for that person.
+    -->
+        <symplectic_field name="last-name"><ora_field>contributors__family_name</ora_field><note>Additionally: first names and last name should be added together to create the compound contributors__display_name field in the format "{first-names} {last-name}"</note></symplectic_field>
+        <symplectic_field name="first-names"><ora_field>contributors__given_names</ora_field><note>See note for last-name</note></symplectic_field>
+        <symplectic_field xpath="api:links/api:link[@type='elements/user']/@id"><ora_field>contributors__contributor_identifiers__contributor_identifier</ora_field><ora_field>contributors__contributor_identifiers__contributor_identifier_scheme="pubs_person_id"</ora_field></symplectic_field>
+        <symplectic_field name="initials"><ora_field>contributors__initials</ora_field></symplectic_field>
+
+   <!-- 
+        ===========================
+        CONTRIBUTOR ROLES
+        ===========================
+        
+        How to determine a contributor's role from the PUBS:API xml
+    -->
+        <symplectic_field xpath="api:object/api:view[name='default']/api:field[@name='authors']"><ora_field>contributors__role__role_title="Author"</ora_field><note>Additionally: the role_order should follow the order in which an api:person appears in the api:people element</note></symplectic_field>
+        <symplectic_field xpath="api:object/api:push-supplementary-info/api:depositor"><ora_field>contributors__role__role_title="Depositor"</ora_field><note>Additionally: the role_order should follow the order in which an api:person appears in the api:people element</note></symplectic_field>
+        
+        
+    <!-- 
+        ===========================================
+        CONTRIBUTOR FIELDS FROM API RELATIONSHIPS
+        ===========================================
+        
+        All of these field names are found within an api:relationship[@type='publication-user-authorship']/api:object['@category=user'] 
+        with an @id corresponding to the api:links/api:link[@type='elements/user']/@id of a pubs:person or the @id of an api:depositor.
+    -->
+        <symplectic_field name="email-address"><ora_field>contributors__contributor_email</ora_field></symplectic_field>
+        <symplectic_field xpath="api:organisation-defined-data[@field-number]='1']"><ora_field>contributors__division</ora_field></symplectic_field>
+        <symplectic_field xpath="api:organisation-defined-data[@field-number]='2']"><ora_field>contributors__group</ora_field></symplectic_field>
+        <symplectic_field name="primary-group-descriptor"><ora_field>contributors__department</ora_field><note>If this field is set, then contributors__institution should be set to "University of Oxford"</note></symplectic_field>
+        <symplectic_field name="department"><ora_field>contributors__sub_department</ora_field></symplectic_field>
+        <symplectic_field xpath="@proprietary-id"><ora_field>contributors__sso</ora_field></symplectic_field>
+        <symplectic_field xpath="api:user-identifier-associations/api:user-identifier-association"><ora_field>contributors__contributor__identifiers__contributor_identifier_scheme="@scheme"</ora_field><ora_field>contributors__contributor__identifiers__contributor_identifier</ora_field><note>The scheme for the user-identifier-association should become the value of the contributor_identifiers_scheme. However email-address should not be mapped</note></symplectic_field>
+        <symplectic_field xpath="api:neighbourhood/api:related-groups/api:related-group[@id='1'][@membership_type='implicit']"><if test="Another personal affiliation is set, but no value is set for contributors__institution">
+            <ora_field>contributors__institution</ora_field>
+        </if></symplectic_field>
+        
+ 
+
+    <!-- 
+        =================================
+        FUNDERS WITHOUT CONTRIBUTOR LINKS
+        =================================
+        
+        For each funder, create a <mods:person @type="corporate"><mods:role><mods:roleTerm type='text'>Funder</mods:roleTerm></mods:role></mods:person>
+        
+        Funders without links to contributors are identified either by an <api:grant> or an api:relationship[@type='publication-grant-funded']
+    -->
+        <symplectic_field xpath="api:field[@name='funding-acknowledgements']/api:funding-acknowledgements/api:grants/api:grant/api:organisation"><ora_field>funders__funder_name</ora_field></symplectic_field>
+        <symplectic_field name="funder-name"><ora_field>funders__funder_name</ora_field></symplectic_field>
+        <symplectic_field name="funder-reference"><ora_field>funders__funder_grant__grant_identifier</ora_field></symplectic_field>
+        <symplectic_field name="title"><ora_field>funders__funder_funding_programme</ora_field></symplectic_field>
+        
+        
+        
+        
+    <!-- 
+        ===========================
+        DEPOSIT INFO
+        ===========================
+        
+        Information related to record deposit
+        
+    -->
+        <symplectic_field xpath="api:deposit-info[@type='initial']/api:date"><ora_field>record_deposit_date</ora_field></symplectic_field>        
+    <!-- 
+        ===========================
+        Implied values fields
+        ===========================
+        
+        Fields that can be populated from implied values
+    -->
+        <symplectic_field><ora_field>record_content_source="Symplectic Elements"</ora_field></symplectic_field>
+        <symplectic_field><ora_field>ora_data_model_version="2.0"</ora_field></symplectic_field>
+        <symplectic_field><ora_field>requires_review="true"</ora_field></symplectic_field>
+        <symplectic_field><ora_field>record_embargo_end_date="9999-12-31"</ora_field></symplectic_field>
+        
+        
+    
+    
     </ora_symplectic_field_mappings>
+    
     
     <!-- 
         ===========================

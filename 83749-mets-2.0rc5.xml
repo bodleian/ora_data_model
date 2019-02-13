@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    =========================================
+    =========================================
+    PUBS:83749 in METS to datamodel 2.0rc5
+    =========================================
+    =========================================
+    
+    The record PUBS:83749 as recorded in /elements_xwalks/xwalk-out/input-publication-83749.xml
+    marked up by hand in METS
+-->
+<mets:mets 
+    xmlns:mets="http://www.loc.gov/METS/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+    <mets:metsHdr CREATEDATE="2016-10-28T15:44:07.337+01:00">
+        <mets:agent OTHERTYPE="SOFTWARE" ROLE="CREATOR" TYPE="OTHER">
+            <mets:name>
+                Symplectic Elements
+            </mets:name>
+            <mets:note>
+                Created from Symplectic Elements Publications API
+            </mets:note>
+        </mets:agent>
+    </mets:metsHdr>
+    <mets:dmdSec ID="DMDLOG_0000">
+        <mets:mdWrap MDTYPE="MODS">
+            <mets:xmlData>
+                <mods:mods version="3.8"         
+                        xmlns:mods="http://www.loc.gov/mods/v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://www.loc.gov/mods/v3 ora_mods-3.8.xsd">
+                 
+                    <!--
+                        RECORD METADATA
+                        ===============
+                    -->
+                    
+                    <!-- DEFAULT FIELDS -->
+                    <mods:titleInfo>
+                        <mods:title>Cosmology on all scales: A two-parameter perturbation expansion</mods:title>
+                    </mods:titleInfo>
+                        
+                    <mods:genre type="type_of_work">Journal article</mods:genre>
+                    
+                    <mods:subject>
+                        <mods:genre>Science &amp; Technology</mods:genre>
+                        <mods:genre>Physical Sciences</mods:genre>
+                        <mods:genre>Astronomy &amp; Astrophysics</mods:genre>
+                        <mods:genre>Physics, Particles &amp; Fields</mods:genre>
+                        <mods:genre>Physics</mods:genre>
+                        <mods:genre>COSMIC STRUCTURE FORMATION</mods:genre>
+                        <mods:genre>N-BODY SIMULATIONS</mods:genre>
+                        <mods:genre>GENERAL-RELATIVITY</mods:genre>
+                        <mods:genre>INHOMOGENEOUS FLUIDS</mods:genre>
+                        <mods:genre>AVERAGE PROPERTIES</mods:genre>
+                        <mods:genre>POLARIZATION</mods:genre>
+                        <mods:genre>astro-ph.CO</mods:genre>
+                        <mods:genre>gr-qc</mods:genre>
+                    </mods:subject>
+                    
+                    <mods:language>   
+                        <mods:languageTerm authority="iso639-2b" type="text">English</mods:languageTerm>
+                    </mods:language>
+                            
+                    <mods:abstract>© 2017 American Physical Society. We propose and construct a two-parameter perturbative 
+                        expansion around a Friedmann-Lemaître-Robertson-Walker geometry that can be used to model 
+                        high-order gravitational effects in the presence of nonlinear structure. This framework 
+                        reduces to the weak-field and slow-motion post-Newtonian treatment of gravity in the appropriate
+                        limits, but also includes the low-amplitude large-scale fluctuations that are important for 
+                        cosmological modeling. We derive a set of field equations that can be applied to the late 
+                        Universe, where nonlinear structure exists on supercluster scales, and perform a detailed 
+                        investigation of the associated gauge problem. This allows us to identify a consistent set 
+                        of perturbed quantities in both the gravitational and matter sectors, and to construct a set 
+                        of gauge-invariant quantities that correspond to each of them. The field equations, written 
+                        in terms of these quantities, take on a relatively simple form, and allow the effects of 
+                        small-scale structure on the large-scale properties of the Universe to be clearly identified. 
+                        We find that inhomogeneous structures source the global expansion, that there exist new field 
+                        equations at new orders, and that there is vector gravitational potential that is a hundred times 
+                        larger than one might naively expect from cosmological perturbation theory. Finally, we expect our 
+                        formalism to be of use for calculating relativistic effects in upcoming ultralarge-scale surveys, 
+                        as the form of the gravitational coupling between small and large scales depends on the 
+                        nonlinearity of Einstein's equations, and occurs at what is normally thought of as first order 
+                        in cosmological perturbations.</mods:abstract>
+                    
+                    <mods:note displayLabel="additional_information">34 pages, 2 figures, typos corrected, references added</mods:note>
+                                           
+                 
+                    <!-- IDENTIFIERS -->
+                    <mods:identifier type="doi">10.1103/PhysRevD.95.043503</mods:identifier>
+                    <mods:identifier type="eissn">2470-0029</mods:identifier>
+                    <mods:identifier type="issn">2470-0010</mods:identifier>
+                    <mods:identifier type="pubs_id">83749</mods:identifier>
+                    <mods:identifier type="tinypid">pubs:83749</mods:identifier>
+                   
+                    <!-- ORIGIN INFO significant dates and place of publication of 'original' published work -->        
+                    <mods:originInfo>
+                        <mods:dateIssued encoding="iso8601">2017-02-01</mods:dateIssued>
+                        <mods:copyrightDate encoding="iso8601">2017</mods:copyrightDate>
+                        <mods:place>
+                            <mods:placeTerm type="code">http://dx.doi.org/10.1103/PhysRevD.95.043503</mods:placeTerm>    
+                        </mods:place>
+                    </mods:originInfo>
+
+                    <!-- /RECORD METADATA -->
+                    
+                    <!-- CONTRIBUTORS -->
+                    <mods:name type="personal">
+                        <mods:displayForm>Sophia R Goldberg</mods:displayForm>
+                        <mods:namePart type="given">Sohpia R</mods:namePart>
+                        <mods:namePart type="family">Goldberg</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>SR</mods:namePart></mods:alternativeName>
+                        
+                        <mods:nameIdentifier type="email_address">s.r.goldberg@lilliput.ac.uk</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_12345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:nameIdentifier type="sso">s.goldberg</mods:nameIdentifier>
+                        <mods:nameIdentifier type="pubs_person_id">204</mods:nameIdentifier>
+                        <mods:nameIdentifier type="figshare-for-institutions-user-account-id">s.goldberg</mods:nameIdentifier>
+                        <mods:nameIdentifier type="scopus-author-id">56818429500</mods:nameIdentifier>
+                        <mods:nameIdentifier type="figshare-for-institutions-user-id">1640214</mods:nameIdentifier>
+                                                
+                        <mods:affiliation>
+                            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
+                                <ora:affiliationComponent type="institution">Lilliput University</ora:affiliationComponent>
+                                <ora:affiliationComponent type="department">School of Natural Sciences</ora:affiliationComponent>
+                                <ora:affiliationComponent type="sub_department">Astronomy Unit</ora:affiliationComponent>
+                            </ora:affiliation>
+                        </mods:affiliation>      
+                
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">1</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="personal">
+                        <mods:displayForm>Timothy Clifton</mods:displayForm>
+                        
+                        <mods:namePart type="given">Timothy</mods:namePart>
+                        <mods:namePart type="family">Clifton</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>T</mods:namePart></mods:alternativeName>
+                        
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22222222-2222-2222-2222-222222222222</mods:nameIdentifier>
+                        
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">2</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="personal">
+                        <mods:displayForm>Karim A Malik</mods:displayForm>
+                        
+                        <mods:namePart type="given">Karim A</mods:namePart>
+                        <mods:namePart type="family">Malik</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>KA</mods:namePart></mods:alternativeName>
+                        
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_33333333-3333-3333-3333-333333333333</mods:nameIdentifier>
+                        
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">3</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="personal">
+                        <mods:displayForm>Jonathan Breeze</mods:displayForm>
+                        
+                        <mods:namePart type="given">Jonathan</mods:namePart>
+                        <mods:namePart type="family">Breeze</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>J</mods:namePart></mods:alternativeName>
+                        
+                        <mods:nameIdentifier type="email_address">jonathan@lilliput.edu</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_44444444-4444-4444-4444-444444444444</mods:nameIdentifier>
+                        
+                        <mods:affiliation>
+                            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
+                                <ora:affiliationComponent type="institution">Lilliput University</ora:affiliationComponent>
+                                <ora:affiliationComponent type="department">Lilliput Centre for Research Excellence</ora:affiliationComponent>
+                            </ora:affiliation>
+                        </mods:affiliation>    
+                        
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">1</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Depositor</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+
+                    <!-- FUNDERS -->
+                    
+                    <mods:name type="corporate">
+                        <mods:displayForm>Science and Technology Facilities Council</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="corporate">
+                        <mods:displayForm>EPSRC</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                        <mods:affiliation>
+                            <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
+                                <ora_admin:funding_programme>A NEW METHOD FOR DYNAMIC ANALYSIS OF PLATES AND PLATE ASSEMBILES</ora_admin:funding_programme>
+                                <ora_admin:funder_grant>
+                                    <ora_admin:grant_identifier>EP/F03606X/1</ora_admin:grant_identifier>
+                                </ora_admin:funder_grant>
+                            </ora_admin:funding>
+                        </mods:affiliation>
+                    </mods:name>
+
+                    <mods:name type="corporate">
+                        <mods:displayForm>BBSRC</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                        <mods:affiliation>
+                            <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
+                                <ora_admin:funding_programme>A fundamental study to determine the difference in barrier properties of healthy and diseased nail in order to facilitate drug delivery</ora_admin:funding_programme>
+                                    <ora_admin:funder_grant>
+                                        <ora_admin:grant_identifier>BB/H009795/1</ora_admin:grant_identifier>
+                                    </ora_admin:funder_grant>
+                            </ora_admin:funding>
+                        </mods:affiliation>
+                    </mods:name>
+                    
+                    <!-- PUBLISHER -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>AMER PHYSICAL SOC</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Publisher</mods:roleTerm>
+                        </mods:role>
+                        <mods:nameIdentifier type="website">http://dx.doi.org/10.1103/PhysRevD.95.043503</mods:nameIdentifier>
+                    </mods:name>
+                    <!-- /CONTRIBUTIONS AND ROLES -->
+                 
+                
+                    <!-- 
+                        WORK-TYPE SPECIFIC METADATA
+                        ===========================
+                    -->
+                    
+                    <mods:relatedItem type="host">
+                        <mods:titleInfo>
+                            <mods:title>Physical Review D</mods:title>
+                        </mods:titleInfo>
+                        <mods:part>
+                            <mods:detail type="article">
+                                <mods:number>043503</mods:number>
+                            </mods:detail>
+                            <mods:detail type="issue">
+                                <mods:number>4</mods:number>
+                            </mods:detail>
+                            <mods:extent unit="pages">
+                                <mods:list>32 pages</mods:list>
+                            </mods:extent>
+                            <mods:detail type="volume">
+                                <mods:number>95</mods:number>
+                            </mods:detail>
+                        </mods:part>
+                        <mods:physicalDescription>
+                            <mods:form type="status">Published</mods:form>
+                            <mods:form type="peer_reviewed">Peer reviewed</mods:form>
+                        </mods:physicalDescription>
+                    </mods:relatedItem>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DMDFILE001">
+        <mets:mdWrap MDTYPE="OTHER">
+            <mets:xmlData>
+                <!-- 
+                    BINARY FILE METADATA
+                    ====================
+                -->
+                <ora:repository_file xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:dcterms="http://purl.org/dc/terms/"
+                    xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/"
+                    xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+                    xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
+                    xmlns:ora="http://ora.ox.ac.uk/terms/"
+                    xmlns:symp="http://symplectic/symplectic-elements:def/model#"
+                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+                    <dc:title>test-file.txt</dc:title>
+                    <rioxxterms:version>Accepted Version</rioxxterms:version>
+                </ora:repository_file>
+                <!-- /BINARY FILE METADATA -->
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:amdSec ID="AMDLOG_0000">
+        <mets:sourceMD ID="SOURCEMD_01">
+            <mets:mdWrap MDTYPE="MODS">
+                <mets:xmlData>
+                    <mods:mods version="3.8" xmlns:mods="http://www.loc.gov/mods/v3">
+                       <!-- GENERAL ADMIN -->
+                       
+                       <mods:recordInfo>
+                           <mods:recordCreationDate>2016-10-27</mods:recordCreationDate>
+                           <mods:recordContentSource>Symplectic Elements</mods:recordContentSource>
+                           <mods:recordInfoNote type="ora_data_model_version">2.0</mods:recordInfoNote>
+                           <mods:recordInfoNote type="requires_review">true</mods:recordInfoNote>
+                       </mods:recordInfo>
+                       
+                       <mods:extension>
+                           <ora_admin:admin 
+                               xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin"
+                               xmlns:dc="http://purl.org/dc/elements/1.1/"
+                               xmlns:dcterms="http://purl.org/dc/terms/"
+                               xmlns:mods="http://www.loc.gov/mods/v3">
+                               <ora_admin:record_deposit_date>2019-02-06</ora_admin:record_deposit_date>
+                               <ora_admin:record_publication_date>2016-10-27</ora_admin:record_publication_date>
+                           </ora_admin:admin>
+                       </mods:extension>
+
+                       <!-- EMBARGO information -->
+                       <mods:accessCondition type="record_embargo_end_date">9999-12-31</mods:accessCondition>
+                    </mods:mods>
+                </mets:xmlData>
+            </mets:mdWrap>
+        </mets:sourceMD>
+    </mets:amdSec>
+    <mets:fileSec>
+        <mets:fileGrp>
+            <mets:file ID="FILENAME1" MIMETYPE="mimetype" />
+        </mets:fileGrp>
+    </mets:fileSec>
+    <mets:structMap TYPE="LOGICAL">
+        <mets:div DMDID="DMDLOG_0000" ADMID="AMDLOG_0000" ID="LOG_0000" LABEL="Object ID" TYPE="Repository object">
+            <mets:div DMDID="DMDFILE001" LABEL="test-file.txt" TYPE="Repository file">
+                <mets:fptr FILEID="FILENAME1"/>
+            </mets:div>
+        </mets:div>
+    </mets:structMap>
+</mets:mets>
