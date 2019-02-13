@@ -14,7 +14,11 @@
     Changelog
     =========
     2019-02-13 - Update following specific example markup
-    - Updated with contributor, funder, deposit, and implicit values fields
+    - Contributor fields from 'People data feed'
+    - Funder and grant fields
+    - Deposit related fields
+    - Open Access Monitoring fields
+    - Implicit values
     
     Symplectic fields
     =================
@@ -453,7 +457,20 @@
         Information related to record deposit
         
     -->
-        <symplectic_field xpath="api:deposit-info[@type='initial']/api:date"><ora_field>record_deposit_date</ora_field></symplectic_field>        
+        <symplectic_field xpath="api:deposit-info[@type='initial']/api:date"><ora_field>record_deposit_date</ora_field></symplectic_field>    
+        
+        
+    <!--
+        ==========================
+        OPEN ACCESS MONITORING
+        ==========================
+        
+        Information contained within api:oa elements
+    -->
+        <symplectic_field name="oa-policy-exception-type"><ora_field>ref_exception_required</ora_field></symplectic_field>
+        <symplectic_field name="oa-policy-exception-comment"><ora_field>ref_other_exception_note</ora_field></symplectic_field>
+ 
+        
     <!-- 
         ===========================
         Implied values fields

@@ -213,7 +213,6 @@
                         </mods:role>
                         <mods:affiliation>
                             <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
-                                <ora_admin:funding_programme>A NEW METHOD FOR DYNAMIC ANALYSIS OF PLATES AND PLATE ASSEMBILES</ora_admin:funding_programme>
                                 <ora_admin:funder_grant>
                                     <ora_admin:grant_identifier>EP/F03606X/1</ora_admin:grant_identifier>
                                 </ora_admin:funder_grant>
@@ -228,10 +227,9 @@
                         </mods:role>
                         <mods:affiliation>
                             <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
-                                <ora_admin:funding_programme>A fundamental study to determine the difference in barrier properties of healthy and diseased nail in order to facilitate drug delivery</ora_admin:funding_programme>
-                                    <ora_admin:funder_grant>
-                                        <ora_admin:grant_identifier>BB/H009795/1</ora_admin:grant_identifier>
-                                    </ora_admin:funder_grant>
+                                <ora_admin:funder_grant>
+                                    <ora_admin:grant_identifier>BB/H009795/1</ora_admin:grant_identifier>
+                                </ora_admin:funder_grant>
                             </ora_admin:funding>
                         </mods:affiliation>
                     </mods:name>
@@ -258,7 +256,7 @@
                         </mods:titleInfo>
                         <mods:part>
                             <mods:detail type="article">
-                                <mods:number>043503</mods:number>
+                                <mods:number>43503</mods:number>
                             </mods:detail>
                             <mods:detail type="issue">
                                 <mods:number>4</mods:number>

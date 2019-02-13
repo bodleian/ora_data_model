@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    Symplectic -> ORA Data Model data mapping
+    =========================================
+    
+    This set of mappings is written against the ORA Data Model 2.0rc5.
+    
+    The first set of mappings is provided by a <symplectic_field_mappings/> element, which contains field-field relationships.
+    
+    The second set of mappings is provided by a sample Symplectic Pubs-Atom XML file within a <feed/> element with ORA field names in place of values.
+    
+    
+    Changelog
+    =========
+    2019-02-13 - Update following specific example markup
+    - Contributor fields from 'People data feed'
+    - Funder and grant fields
+    - Deposit related fields
+    - Open Access Monitoring fields
+    - Implicit values
+    
+    Symplectic fields
+    =================
+    
+    The Symplectic field is given first in a <symplectic_field name="" /> element. All mappings related to this field will be children of this element.
+    
+    If the field is a custom field in Oxford's Oxris Symplectic installation, then an <oxford_symplectic_field name="" number=""> 
+    element is used. The number corresponds to the generic field number in the Symplectic installation.
+    
+    Where a Symplectic field contains child fields (e.g. funding-acknowledgements) these are contained within a 
+    <symplectic_child_field/> element. This will have the same contents as a <symplectic_field/> element.
+    
+    
+    ORA field mappings
+    ==================
+    
+    A corresponding ORA field is given in a <ora_field /> child element to the Symplectic field.
+    
+    If a field needs to be mapped into two fields (or if it has a companion value), more than one <ora_field /> is given.
+    
+    Mandatory values are indicated by an equals sign, followed by the value.
+    
+    ORA field names are given in their extended form (see Ora Data Model to MODS document): parent/ancestor fields
+    are indicated by a prefix to the field name followed by two double underscores, e.g. 'contributors__last_name'
+    
+    Where there is no corresponding ORA field, a <no_mapping/> element is used.
+    
+    Where a field in Symplectic can be inferred from a combination of ORA fields, a <computed/> element is used.
+    
+    Fields that require attention are marked with a <to_do /> element.
+    
+    
+    Other elements
+    ==============
+    
+    If a field can be mapped to more than one value, an <if test=""/> element is used to define the possible mappings.
+    
+    Notes are in a child <note/> element.
+    
+    
+    TODOS
+    =====
+    
+    People fields (last name, etc.)
+    Depositor and impersonator information
+    Value mappings
+    
+    
+    Value mappings
+    ==============
+    Fields that will need value mappings:
+     - type_of_work
+     - review_status
+     - article number
+     - pagination
+    
+    
+    
+    ORA identifiers for a work
+    ==========================
+    doi
+    eisbn
+    eissn
+    isbn_10
+    isbn_13
+    issn
+    pii
+    pmid
+    pubs_id
+    
+    ORA identifiers for an individual
+    =================================
+    orcid
+    sso (Oxford Single-Sign-On id)
+-->
+<mappings>
+    <!-- 
+        =====================================
+        SYMPLECTIC FIELD-> ORA FIELD MAPPINGS
+        =====================================
+    -->
+    <ora_symplectic_field_mappings>
+        <symplectic_field name="abstract"><ora_field>abstract</ora_field></symplectic_field>
+        
+        <symplectic_field name="are-files-confidential"><computed /><note>We assuming this means ANY binary file is embargoed</note></symplectic_field>
+        
+        <symplectic_field name="author-licence"><ora_field>record_ora_deposit_licence</ora_field></symplectic_field>
+        
+        <symplectic_field name="acceptance-date"><ora_field>acceptance_date</ora_field></symplectic_field>
+        
+        <symplectic_field name="associated-authors">
+            <ora_field>contributors</ora_field>
+            <ora_note>In ORA, associated contributors would have a role attribute, with role_title="contributor" and role_order denoting their position in the 'contributor' role order. Translators would have the role 'translator'</ora_note>
+        </symplectic_field>    
+        
+        <symplectic_field name="addresses"><no_mapping /></symplectic_field>
+        
+        <symplectic_field name="associated-identifiers"><no_mapping /><ora_note>identifiers are mapped individually</ora_note></symplectic_field>
+        
+        <symplectic_field name="authors">
+            <ora_field>contributors</ora_field>
+            <ora_note>In ORA authors would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+        </symplectic_field>
+        
+        <symplectic_field name="author-url"><ora_field>contributors__contributor_website_url</ora_field></symplectic_field>
+        
+        <symplectic_field name="c-apc2"><no_mapping/><note>Deprecated field</note></symplectic_field>
+        
+        <symplectic_field name="c-apc"><no_mapping/><note>Deprecated field</note></symplectic_field>
+        
+        <symplectic_field name="collections"><no_mapping /></symplectic_field>
+        
+        <symplectic_field name="commissioning-body"><ora_field>comissioning_body</ora_field></symplectic_field>
+        
+        <symplectic_field name="confidential"><ora_field>confidential_report</ora_field></symplectic_field>
+        
+        <symplectic_field name="confidential-files-reason"><ora_field>binary_files__file_embargo_reason</ora_field></symplectic_field>
+        
+        <symplectic_field name="doi"><ora_field>identifiers_doi</ora_field></symplectic_field>
+        
+        <symplectic_field name="edition"><ora_field>edition</ora_field></symplectic_field>
+        
+        <symplectic_field name="editors">
+            <ora_field>contributors</ora_field>
+            <ora_note>In ORA, editors would have a role attribute, with role_title="editor" and role_order denoting their position in the editor order. If the record was a Thesis, they would have the role_title of 'Supervisor'</ora_note>
+        </symplectic_field>  
+        
+        <symplectic_field name="eissn"><ora_field>identifiers_eissn</ora_field></symplectic_field>
+        
+        <symplectic_field name="embargo-release-date"><ora_field>binary_files__file_embargo_end_date</ora_field><note>A file which is embargoed but with no specified end date will have the end date 9999-12-31</note></symplectic_field>
+        
+        <symplectic_field name="external-identifiers">source_identifier<ora_note>Identifiers with a mapping specified in the ORA Data Model should be mapped using those fields. Source identifiers for works should include a prefix identifiying the identifying scheme.</ora_note></symplectic_field>
+        
+        <symplectic_field name="filed-date">
+            <if test="record is a Patent"><ora_field>patent_filed_date</ora_field></if>
+            <if test="record is a Thesis"><no_mapping/></if>
+        </symplectic_field>
+        
+        <symplectic_field name="finish-date"><ora_field>field:event_finish_date</ora_field></symplectic_field>
+        
+        <symplectic_field name="funding-acknowledgements">
+            <symplectic_child_field name="organisation"><ora_field>funders__funder_name</ora_field></symplectic_child_field>
+            <symplectic_child_field name="grant-id"><ora_field>funders__funder_grant__grant_identifier</ora_field></symplectic_child_field>
+        </symplectic_field>
+        <symplectic_field name="isbn-10"><ora_field>identifiers_isbn_10</ora_field></symplectic_field>
+        
+        <symplectic_field name="isbn-13"><ora_field>identifiers_isbn_13</ora_field></symplectic_field>
+        
+        <symplectic_field name="issn"><ora_field>identifiers_issn</ora_field></symplectic_field>
+        
+        <symplectic_field name="is-compliant-with-inst-policy"><ora_field>ref_compliant_at_deposit</ora_field></symplectic_field>
+        
+        <symplectic_field name="is-open-access"><no_mapping /><note>TODO: we may map this to licence_url</note></symplectic_field>
+        
+        <symplectic_field name="is-embargoed"><computed /><note>A file with ANY binary_files__file_embargo_end_date is embargoed.</note></symplectic_field>
+        
+        <symplectic_field name="issue"><ora_field>issue_number</ora_field></symplectic_field>
+        
+        <symplectic_field name="journal"><ora_field>journal_title</ora_field></symplectic_field>
+        
+        <symplectic_field name="keywords"><ora_field>keyword</ora_field></symplectic_field>
+        
+        <symplectic_field name="language"><ora_field>language</ora_field></symplectic_field>
+        
+        <symplectic_field name="location">
+            <if test="record is a Conference, Exhibition, Performance, Presentation, etc."><ora_field>event_location</ora_field></if>
+            <if test="record is a Physical item"><ora_field>physical_location</ora_field></if>
+            <if test="record is a Journal Article"><ora_field>citation_place_of_publication</ora_field></if>
+            <if test="record is a Patent">patent_territory</if>
+        </symplectic_field>
+        
+        <symplectic_field name="medium"><no_mapping/></symplectic_field>
+        
+        <symplectic_field name="name-of-conference">
+            <if test="record is a Conference"><ora_field>title</ora_field></if>
+            <if test="record is a Conference paper, or Conference poster"><ora_field>event_title</ora_field></if>
+            <if test="record is a Conference proceedings or Event proceedings"><ora_field>host_title</ora_field></if>
+        </symplectic_field>
+        
+        <symplectic_field name="notes"><ora_field>additional_information</ora_field></symplectic_field>
+        
+        <symplectic_field name="number">
+            <if test="record is a Book Chapter"><ora_field>chapter_number</ora_field></if>
+            <if test="record is a Journal Article"><ora_field>article_number</ora_field><note>The text "ARTN" should be removed from the front of an article number, leading zeros should also be removed</note></if>
+            <if test="record is a Patent"><ora_field>patent_application_number</ora_field></if>
+            <if test="record is a Working paper"><ora_field>paper_number</ora_field></if>
+        </symplectic_field>
+        
+        <symplectic_field name="number-of-pieces"><no_mapping/></symplectic_field>
+        
+        <symplectic_field name="oa-location-url"><ora_field>binary_files__file_public_url</ora_field></symplectic_field>
+        
+        <symplectic_field name="oa-location-file-version"><ora_field>binary_files__file_rioxx_file_version</ora_field></symplectic_field>
+        
+        <symplectic_field name="online-publication-date">
+            <if test="describing a record">record_publication_date</if>
+            <if test="describing a binary file">binary_files__file_made_available_date</if>
+        </symplectic_field>
+        
+        <symplectic_field name="pagination">
+            <if test="pagination is given in page-count"><ora-field>pagination</ora-field><notes>Append " pages" to value, e.g. "32 pages"</notes></if>
+            <if test="pagination is a range"><ora-field>pagination</ora-field><notes>Output as a range, separated by a '-', e.g '22-33'</notes></if>
+        </symplectic_field>
+        
+        <symplectic_field name="parent-title"><ora_field>host_title</ora_field></symplectic_field>
+        
+        <symplectic_field name="patent-number"><ora_field>patent_number</ora_field></symplectic_field>
+        
+        <symplectic_field name="patent-status"><ora_field>patent_status</ora_field></symplectic_field>
+        
+        <symplectic_field name="pii"><ora_field>identifiers_pii</ora_field></symplectic_field>
+        
+        <symplectic_field name="place-of-publication"><ora_field>citation_place_of_publication</ora_field></symplectic_field>
+        
+        <symplectic_field name="public-url"><ora_field>has_public_url</ora_field></symplectic_field>
+        
+        <symplectic_field name="publication-date"><ora_field>citation_publication_date</ora_field><note>In the absence of any other information, the year component of this value should also become rights_copyright_date</note></symplectic_field>
+        
+        <symplectic_field name="publication-status"><ora_field>host_publication_status</ora_field></symplectic_field>
+        
+        <symplectic_field name="publisher"><ora_field>publisher_name</ora_field></symplectic_field>
+        
+        <symplectic_field name="publisher-licence"><ora_field>licence_url</ora_field></symplectic_field>
+        
+        <symplectic_field name="publisher-url"><ora_field>publisher_website_url</ora_field></symplectic_field>
+        
+        <symplectic_field name="record-made-public-at-source-date"><ora_field>record_publication_date</ora_field></symplectic_field>
+        
+        <symplectic_field name="record-created-at-source-date"><ora_field>field:record_created_date</ora_field></symplectic_field>
+        
+        <symplectic_field name="relative-citation-ratio"><no_mapping/></symplectic_field>
+        
+        <symplectic_field name="references"><no_mapping/></symplectic_field>
+        
+        <symplectic_field name="repository-status"><computed /><note>Computed from ora_field:record_review_status</note></symplectic_field>
+        
+        <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
+        
+        <symplectic_field name="start-date">
+            <if test="record is a Patent"><ora_field>patent_awarded_date</ora_field></if>
+            <if test="record is not a Patent"><ora_field>event_start_date</ora_field></if>
+        </symplectic_field>
+        
+        <symplectic_field name="thesis-type"><ora_field>degree_level</ora_field></symplectic_field>
+        
+        <symplectic_field name="title"><ora_field>title</ora_field></symplectic_field>
+        
+        <symplectic_field name="types"><ora_field>type_of_work</ora_field></symplectic_field>
+        
+        <symplectic_field name="version">
+            <if test="describing a record"><ora_field>record_version</ora_field></if>
+            <if test="describing a binary file"><ora_field>binary_files__file_version</ora_field></if>
+            <if test="describing a binary file's Rioxx/Open access status, e.g. Version of Record"><ora_field>binary_files__file_rioxx_file_version</ora_field></if>
+        </symplectic_field>
+        
+        <symplectic_field name="volume"><ora_field>volume</ora_field></symplectic_field>
+        
+        
+    <!-- 
+        ===========================
+        CONTRIBUTOR FIELDS
+        ===========================
+        
+        All of these field names are found within api:people/api:person or api:depositor elements in Symplectic atom feeds.
+        
+        For each contributor, create a <mods:person @type="personal"><mods:nameIdentifier type="contributor_record_identifier">contributors__contributor_record_identifier</mods:nameIdentifier></mods:person>
+        
+        Contributors with multiple roles should be recorded only once, with multiple roles created for that person.
+    -->
+        <symplectic_field name="last-name"><ora_field>contributors__family_name</ora_field><note>Additionally: first names and last name should be added together to create the compound contributors__display_name field in the format "{first-names} {last-name}"</note></symplectic_field>
+        <symplectic_field name="first-names"><ora_field>contributors__given_names</ora_field><note>See note for last-name</note></symplectic_field>
+        <symplectic_field xpath="api:links/api:link[@type='elements/user']/@id"><ora_field>contributors__contributor_identifiers__contributor_identifier</ora_field><ora_field>contributors__contributor_identifiers__contributor_identifier_scheme="pubs_person_id"</ora_field></symplectic_field>
+        <symplectic_field name="initials"><ora_field>contributors__initials</ora_field></symplectic_field>
+
+   <!-- 
+        ===========================
+        CONTRIBUTOR ROLES
+        ===========================
+        
+        How to determine a contributor's role from the PUBS:API xml
+    -->
+        <symplectic_field xpath="api:object/api:view[name='default']/api:field[@name='authors']"><ora_field>contributors__role__role_title="Author"</ora_field><note>Additionally: the role_order should follow the order in which an api:person appears in the api:people element</note></symplectic_field>
+        <symplectic_field xpath="api:object/api:push-supplementary-info/api:depositor"><ora_field>contributors__role__role_title="Depositor"</ora_field><note>Additionally: the role_order should follow the order in which an api:person appears in the api:people element</note></symplectic_field>
+        
+        
+    <!-- 
+        ===========================================
+        CONTRIBUTOR FIELDS FROM API RELATIONSHIPS
+        ===========================================
+        
+        All of these field names are found within an api:relationship[@type='publication-user-authorship']/api:object['@category=user'] 
+        with an @id corresponding to the api:links/api:link[@type='elements/user']/@id of a pubs:person or the @id of an api:depositor.
+    -->
+        <symplectic_field name="email-address"><ora_field>contributors__contributor_email</ora_field></symplectic_field>
+        <symplectic_field xpath="api:organisation-defined-data[@field-number]='1']"><ora_field>contributors__division</ora_field></symplectic_field>
+        <symplectic_field xpath="api:organisation-defined-data[@field-number]='2']"><ora_field>contributors__group</ora_field></symplectic_field>
+        <symplectic_field name="primary-group-descriptor"><ora_field>contributors__department</ora_field><note>If this field is set, then contributors__institution should be set to "University of Oxford"</note></symplectic_field>
+        <symplectic_field name="department"><ora_field>contributors__sub_department</ora_field></symplectic_field>
+        <symplectic_field xpath="@proprietary-id"><ora_field>contributors__sso</ora_field></symplectic_field>
+        <symplectic_field xpath="api:user-identifier-associations/api:user-identifier-association"><ora_field>contributors__contributor__identifiers__contributor_identifier_scheme="@scheme"</ora_field><ora_field>contributors__contributor__identifiers__contributor_identifier</ora_field><note>The scheme for the user-identifier-association should become the value of the contributor_identifiers_scheme. However email-address should not be mapped</note></symplectic_field>
+        <symplectic_field xpath="api:neighbourhood/api:related-groups/api:related-group[@id='1'][@membership_type='implicit']"><if test="Another personal affiliation is set, but no value is set for contributors__institution">
+            <ora_field>contributors__institution</ora_field>
+        </if></symplectic_field>
+
+    <!-- 
+        =================================
+        FUNDERS WITHOUT CONTRIBUTOR LINKS
+        =================================
+        
+        For each funder, create a <mods:person @type="corporate"><mods:role><mods:roleTerm type='text'>Funder</mods:roleTerm></mods:role></mods:person>
+        
+        Funders without links to contributors are identified either by an <api:grant> or an api:relationship[@type='publication-grant-funded']
+    -->
+        <symplectic_field xpath="api:field[@name='funding-acknowledgements']/api:funding-acknowledgements/api:grants/api:grant/api:organisation"><ora_field>funders__funder_name</ora_field></symplectic_field>
+        <symplectic_field name="funder-name"><ora_field>funders__funder_name</ora_field></symplectic_field>
+        <symplectic_field name="funder-reference"><ora_field>funders__funder_grant__grant_identifier</ora_field></symplectic_field>        
+
+    <!-- 
+        ===========================
+        DEPOSIT INFO
+        ===========================
+        
+        Information related to record deposit
+        
+    -->
+        <symplectic_field xpath="api:deposit-info[@type='initial']/api:date"><ora_field>record_deposit_date</ora_field></symplectic_field>    
+        
+        
+    <!--
+        ==========================
+        OPEN ACCESS MONITORING
+        ==========================
+        
+        Information contained within api:oa elements
+    -->
+        <symplectic_field name="oa-policy-exception-type"><ora_field>ref_exception_required</ora_field></symplectic_field>
+        <symplectic_field name="oa-policy-exception-comment"><ora_field>ref_other_exception_note</ora_field></symplectic_field>
+ 
+        
+    <!-- 
+        ===========================
+        Implied values fields
+        ===========================
+        
+        Fields that can be populated from implied values
+    -->
+        <symplectic_field><ora_field>record_content_source="Symplectic Elements"</ora_field></symplectic_field>
+        <symplectic_field><ora_field>ora_data_model_version="2.0"</ora_field></symplectic_field>
+        <symplectic_field><ora_field>requires_review="true"</ora_field></symplectic_field>
+        <symplectic_field><ora_field>record_embargo_end_date="9999-12-31"</ora_field></symplectic_field>
+        
+        <!-- 
+            Oxford custom fields
+            ====================
+        -->
+        
+        <oxford_symplectic_field number="01" name="division-affiliation"><ora_field>contributors__division</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="02" name="Academic Affiliations"><ora_field>contributors__institution</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="03" name="College Affiliation"><ora_field>contributors__oxford_college</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="04" name="Job Description"><ora_field>contributors__roles__role_title</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="06" name="Department Affiliation"><ora_field>contributors__department</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="07" name="Sub Unit Affiliation"><ora_field>contributors__sub_unit</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="09" name="Student"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="10" name="Source"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="11" name="HESA Staff ID"><ora_field>contributors__contributor_identifiers__contributor_identifier</ora_field><ora_field>contributors__contributor_identifier__contributor_identifier_scheme="HESA"</ora_field><to_do>Which institutional identifier field is right?</to_do></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="12" name="Employee No"><ora_field>contributors__contributor_identifiers__contributor_identifier</ora_field><ora_field>contributors__contributor_identifier__contributor_identifier_scheme="EmployeeNumber"</ora_field></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="13" name="UOA"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="14" name="REFCat14"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="15" name="Eligible"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="16" name="Return"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="17" name="REF Module User"><no_mapping /><to_do /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="18" name="Employee No [BizTalk]"><ora_field>contributors__contributor_identifiers__contributor_identifier</ora_field><ora_field>contributors__contributor_identifier__contributor_identifier_scheme="HESA"</ora_field><to_do>Which institutional identifier field is right?</to_do></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="19" name="Date Modified [BizTalk]"><no_mapping /><ora_field></ora_field></oxford_symplectic_field>
+        
+        <!-- Fields 20-22 are notes fields used by the Symplectic team and will not be mapped -->
+        
+        <oxford_symplectic_field number="20" name="Generic20"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="21" name="Generic21"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="22" name="Generic22"><no_mapping /></oxford_symplectic_field>
+        
+        <!-- Fields 23+ are deprecated and will not be mapped -->
+        
+        <oxford_symplectic_field number="23" name="Local [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="24" name="User table ID [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="25" name="Title [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="26" name="Initials [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="27" name="First Name [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="28" name="Last Name [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="29" name="Known as [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="30" name="Suffix [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="31" name="Email [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="32" name="ProprietaryID [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="33" name="Username [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="34" name="Authenticating Authority [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="35" name="IsAcademic [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="36" name="IsCurrent [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="37" name="Login Allowed [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="38" name="Primary Group Descriptor [Original]"><no_mapping /><to_do/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="39" name="Arrive Date [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="40" name="Leave Date [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="41" name="Division [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="42" name="Academic Affiliation [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="43" name="College Affiliation [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="44" name="Job Description [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="45" name="ORCiD [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="46" name="SSO [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="47" name="Employee ID [Original]"><no_mapping/></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="48" name="Generic08"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="49" name="Student [Original]"><no_mapping /></oxford_symplectic_field>
+        
+        <oxford_symplectic_field number="50" name="Source [Original]"><no_mapping /></oxford_symplectic_field>
+        
+    
+    
+    </ora_symplectic_field_mappings>
+    
+    
+    <!-- 
+        ===========================
+        SAMPLE SYMPLECTIC-ATOM FEED
+        ===========================
+        
+        In what follows, ORA values are contained within {} and indicated with a 'field' prefix
+    -->
+    <feed xmlns="http://www.w3.org/2005/Atom" xmlns:api="http://www.symplectic.co.uk/publications/api">
+        <api:schema-version>5.5</api:schema-version>
+        <category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/feeds/" term="item"/>
+        <id>tag:elements@oxford,5.13:/secure-api/v5.5/feeds/publications/647987</id>
+        <updated>2019-01-21T08:00:35.89+00:00</updated>
+        <generator uri="https://oxris.ox.ac.uk/" version="5.13">Symplectic Elements</generator>
+        <icon>https://oxris.ox.ac.uk:8091/secure-api/v5.5/symplectic.ico</icon>
+        <rights>This data is the property of the Organisation, and can only be used with permission.</rights>
+        <subtitle>This feed represents a single publication.</subtitle>
+        <link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" rel="self" type="application/atom+xml"/>
+        <title>{field:title}</title>
+        <author>
+            <name>Symplectic Elements at Oxford PROD</name>
+        </author>
+        <entry>
+            <id>tag:elements@oxford,5.13:/secure-api/v5.5/publications/647987</id>
+            <category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/entries/" term="item"/>
+            <updated>2019-01-21T08:00:35.89+00:00</updated>
+            <link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" rel="alternate" type="application/atom+xml"/>
+            <title>{field:title}</title>
+            <content type="xhtml">
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Publication (journal article)</p>
+                    <p>
+                        <a href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987/relationships">Relationships</a>with other data</p>
+                </div>
+            </content>
+            <api:object category="publication" created-when="2016-10-05T15:47:18.57+01:00" href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987" id="{field:identifiers_pubs_identifier}" last-affected-when="2019-01-21T08:00:35.89+00:00" last-modified-when="2019-01-19T15:51:15.88+00:00" type="{field:type_of_work}" type-id="5">
+                <!--Publication type 5 is "journal article"-->
+                <api:ever-approved>true</api:ever-approved>
+                <api:reporting-date-1>2016-09-15</api:reporting-date-1>
+                <api:is-public>true</api:is-public>
+                <api:repository-items>
+                    <api:repository-item repository-id="1" repository-name="ORA">
+                        <api:public-url>{field:has_public_url}</api:public-url>
+                        <api:content-file-count>2</api:content-file-count>
+                        <api:licence-file-count>1</api:licence-file-count>
+                        <api:first-file-uploaded-when>2016-11-01T12:51:06.613+00:00</api:first-file-uploaded-when>
+                        <api:first-licence-granted-when>2016-11-01T12:51:52.05+00:00</api:first-licence-granted-when>
+                        <api:status>accepted</api:status>
+                        <api:repository-files>
+                            <api:repository-file last-modified-when="2019-01-20T04:27:54+00:00" type="content">
+                                <api:name>{field:binary_files__file_name}</api:name>
+                                <api:public-url>{field:binary_files__file_public_url}</api:public-url>
+                                <api:mime-type>application/pdf</api:mime-type>
+                                <api:version>{field:binary_files__file_rioxx_file_version}</api:version>
+                                <api:is-publicly-available>true</api:is-publicly-available>
+                            </api:repository-file>
+                        </api:repository-files>
+                    </api:repository-item>
+                </api:repository-items>
+                <api:records>
+                    <api:record format="native" id="1943511" id-at-source="WOS:000384319800001" source-display-name="Web of Science (Lite)" source-id="11" source-name="wos-lite">
+                        <api:citation-count>9</api:citation-count>
+                        <api:native>
+                            <api:field display-name="Authors" name="authors" type="person-list">
+                                <api:people>
+                                    <api:person>
+                                        <api:links>
+                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" 
+                                                id="{field:contributors__contributor_identifiers__contributor_identifier, field:contributors__contributor_identifier__contributor_identifier_scheme='pubs_person_identifier'}" 
+                                                type="elements/user"/>
+                                        </api:links>
+                                        <api:last-name>{field:contributors__last_name}</api:last-name>
+                                        <api:initials>{field:contributors__initials}</api:initials>
+                                        <api:first-names>{field:contributors__given_names}</api:first-names>
+                                    </api:person>
+                                </api:people>
+                            </api:field>
+                            <api:field display-name="Author URL" name="author-url" type="text">
+                                <api:text>{field:contributors__contributor_website_url}<!-- Note, this would have to be assigned to the correct author --></api:text>
+                            </api:field>
+                            <api:field display-name="DOI" name="doi" type="text">
+                                <api:text>{field:identifiers_doi}</api:text>
+                                <api:links>
+                                    <api:link href="http://doi.org/10.5194/gmd-9-3161-2016" type="doi"/>
+                                    <api:link href="http://www.altmetric.com/details.php?doi=10.5194/gmd-9-3161-2016" type="altmetric"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="eISSN" name="eissn" type="text">
+                                <api:text>{field:identifiers__eissn}</api:text>
+                                <api:links>
+                                    <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="External identifiers" name="external-identifiers" type="identifier-list">
+                                <api:identifiers>
+                                    <api:identifier scheme="isidoc">DX4AJ</api:identifier>
+                                </api:identifiers>
+                            </api:field>
+                            <api:field display-name="ISSN" name="issn" type="text">
+                                <api:text>{field:identifiers_issn}</api:text>
+                                <api:links>
+                                    <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="Issue" name="issue" type="text">
+                                <api:text>{field:issue}</api:text>
+                            </api:field>
+                            <api:field display-name="Journal" name="journal" type="text">
+                                <api:text>{field:journal_title}</api:text>
+                            </api:field>
+                            <api:field display-name="Pagination" name="pagination" type="pagination">
+                                <api:pagination>
+                                    <api:begin-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:begin-page>
+                                    <api:end-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:end-page>
+                                </api:pagination>
+                            </api:field>
+                            <api:field display-name="Publication date" name="publication-date" type="date">
+                                <api:date>
+                                    <api:day>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Status" name="publication-status" type="text">
+                                <api:text>{field:citation_publication_status}</api:text>
+                            </api:field>
+                            <api:field display-name="Title" name="title" type="text">
+                                <api:text>{field:title}</api:text>
+                            </api:field>
+                            <api:field display-name="Volume" name="volume" type="text">
+                                <api:text>{field:volume}</api:text>
+                            </api:field>
+                        </api:native>
+                    </api:record>
+                    <api:record format="native" id="1752883" id-at-source="2-s2.0-84988504392" source-display-name="Scopus" source-id="7" source-name="scopus">
+                        <api:citation-count>8</api:citation-count>
+                        <api:native>
+                            <api:field display-name="Abstract" name="abstract" type="text">
+                                <api:text>{field:abstract}</api:text>
+                            </api:field>
+                            <api:field display-name="Authors" name="authors" type="person-list">
+                                <api:people>
+                                    <api:person>
+                                        <api:links>
+                                            <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" 
+                                                id="{field:contributors__contributor_identifiers__contributor_identifier, field:contributors__contributor_identifier__contributor_identifier_scheme='pubs_person_identifier'}" 
+                                                type="elements/user"/>
+                                        </api:links>
+                                        <api:last-name>{field:contributors__last_name}</api:last-name>
+                                        <api:initials>{field:contributors__initials}</api:initials>
+                                        <api:first-names>{field:contributors__given_names}</api:first-names>
+                                        <api:addresses>
+                                            <api:address iso-country-code="GB">
+                                                <api:line type="organisation">{field:contributors__institution}</api:line>
+                                                <api:line type="city">Oxford</api:line>
+                                                <api:line type="country">United Kingdom</api:line>
+                                            </api:address>
+                                        </api:addresses>
+                                        <api:identifiers>
+                                            <api:identifier 
+                                                scheme="{field:contributors__contributor_identifier__contributor_identifier_scheme}">field:contributors__contributor_identifiers__contributor_identifier<!-- ORCIDs and SSOs are mapped to different values --></api:identifier>
+                                        </api:identifiers>
+                                    </api:person>
+                                </api:people>
+                            </api:field>
+                            <api:field display-name="DOI" name="doi" type="text">
+                                <api:text>{field:identifiers_doi}</api:text>
+                                <api:links>
+                                    <api:link href="http://doi.org/10.5194/gmd-9-3161-2016" type="doi"/>
+                                    <api:link href="http://www.altmetric.com/details.php?doi=10.5194/gmd-9-3161-2016" type="altmetric"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="eISSN" name="eissn" type="text">
+                                <api:text>{field:identifiers_eissn}</api:text>
+                                <api:links>
+                                    <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="ISSN" name="issn" type="text">
+                                <api:text>{field:identifiers_issn}</api:text>
+                                <api:links>
+                                    <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="Issue" name="issue" type="text">
+                                <api:text>{field:issue}</api:text>
+                            </api:field>
+                            <api:field display-name="Journal" name="journal" type="text">
+                                <api:text>{field:journal_title}</api:text>
+                            </api:field>
+                            <api:field display-name="Pagination" name="pagination" type="pagination">
+                                <api:pagination>
+                                    <api:begin-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:begin-page>
+                                    <api:end-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:end-page>
+                                </api:pagination>
+                            </api:field>
+                            <api:field display-name="Publication date" name="publication-date" type="date">
+                                <api:date>
+                                    <api:day>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Status" name="publication-status" type="text">e
+                                <api:text>{field:host_publication_status}</api:text>
+                            </api:field>
+                            <api:field display-name="Title" name="title" type="text">
+                                <api:text>{field:title}</api:text>
+                            </api:field>
+                            <api:field display-name="Sub types" name="types" type="list">
+                                <api:items>
+                                    <api:item>{field:type_of_work}</api:item>
+                                </api:items>
+                            </api:field>
+                            <api:field display-name="Volume" name="volume" type="text">
+                                <api:text>{field:volume}</api:text>
+                            </api:field>
+                        </api:native>
+                    </api:record>
+                    <api:record format="native" id="1824087" id-at-source="10.5194/gmd-9-3161-2016" source-display-name="Crossref" source-id="13" source-name="crossref">
+                        <api:native>
+                            <api:field display-name="Abstract" name="abstract" type="text">
+                                <api:text>{field:abstract}</api:text>
+                            </api:field>
+                            <api:field display-name="Authors" name="authors" type="person-list">
+                                <api:people>
+                                    <api:person>
+                                        <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" 
+                                            id="{field:contributors__contributor_identifiers__contributor_identifier, field:contributors__contributor_identifier__contributor_identifier_scheme='pubs_person_identifier'}" 
+                                            type="elements/user"/>
+                                        <api:last-name>{field:contributors__last_name}</api:last-name>
+                                        <api:initials>{field:contributors__initials}</api:initials>
+                                        <api:first-names>{field:contributors__given_names}</api:first-names>
+                                        <api:identifiers>
+                                            <api:identifier scheme="orcid">{field:contributors__orcid}</api:identifier>
+                                        </api:identifiers>
+                                    </api:person>
+                                </api:people>
+                            </api:field>
+                            <api:field display-name="DOI" name="doi" type="text">
+                                <api:text>{field:identifiers_doi}</api:text>
+                                <api:links>
+                                    <api:link href="http://doi.org/10.5194/gmd-9-3161-2016" type="doi"/>
+                                    <api:link href="http://www.altmetric.com/details.php?doi=10.5194/gmd-9-3161-2016" type="altmetric"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="eISSN" name="eissn" type="text">
+                                <api:text>{field:identifiers_eissn}</api:text>
+                                <api:links>
+                                    <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="Issue" name="issue" type="text">
+                                <api:text>{field:issue}</api:text>
+                            </api:field>
+                            <api:field display-name="Journal" name="journal" type="text">
+                                <api:text>{field:journal_title}</api:text>
+                            </api:field>
+                            <api:field display-name="Language" name="language" type="text">
+                                <api:text>{field:language}</api:text>
+                            </api:field>
+                            <api:field display-name="Online publication date" name="online-publication-date" type="date">
+                                <api:date>
+                                    <api:day>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Pagination" name="pagination" type="pagination">
+                                <api:pagination>
+                                    <api:begin-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:begin-page>
+                                    <api:end-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:end-page>
+                                </api:pagination>
+                            </api:field>
+                            <api:field display-name="Status" name="publication-status" type="text">
+                                <api:text>{field:host_publication_status}</api:text>
+                            </api:field>
+                            <api:field display-name="Publisher" name="publisher" type="text">
+                                <api:text>{field:publisher_name}</api:text>
+                            </api:field>
+                            <api:field display-name="Record created at source" name="record-created-at-source-date" type="date">
+                                <api:date>
+                                    <api:day>15</api:day>
+                                    <api:month>9</api:month>
+                                    <api:year>2016</api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Title" name="title" type="text">
+                                <api:text>{field:title}</api:text>
+                            </api:field>
+                            <api:field display-name="Volume" name="volume" type="text">
+                                <api:text>{field:volume}</api:text>
+                            </api:field>
+                        </api:native>
+                    </api:record>
+                    <api:record format="native" id="2030354" id-at-source="EC1C7B2E-73F2-4634-B344-1820B9A4A3D7" source-display-name="Manual" source-id="1" source-name="manual">
+                        <api:verification-status>unverified</api:verification-status>
+                        <api:native>
+                            <api:field display-name="Date of acceptance" name="acceptance-date" type="date">
+                                <api:date>
+                                    <api:day>{field:acceptance_date}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:acceptance_date}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:acceptance_date}<!-- day month and year will need to be combined into an ISO date--></api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Authors" name="authors" type="person-list">
+                                <api:people>
+                                    <api:person>
+                                        <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/users/12717" 
+                                            id="{field:contributors__contributor_identifiers__contributor_identifier, field:contributors__contributor_identifier__contributor_identifier_scheme='pubs_person_identifier'}" 
+                                            type="elements/user"/>
+                                        <api:last-name>{field:contributors__last_name}</api:last-name>
+                                        <api:initials>{field:contributors__initials}</api:initials>
+                                        <api:first-names>{field:contributors__given_names}</api:first-names>
+                                    </api:person>
+                                </api:people>
+                            </api:field>
+                            <api:field display-name="Author URL" name="author-url" type="text">
+                                <api:text>{field:contributors__contributor_website_url}<!-- Note, this would have to be assigned to the correct author --></api:text>
+                            </api:field>
+                            <api:field display-name="DOI" name="doi" type="text">
+                                <api:text>{field:doi}</api:text>
+                                <api:links>
+                                    <api:link href="http://doi.org/10.5194/gmd-9-3161-2016" type="doi"/>
+                                    <api:link href="http://www.altmetric.com/details.php?doi=10.5194/gmd-9-3161-2016" type="altmetric"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="ISSN" name="issn" type="text">
+                                <api:text>{field:identifiers_issn}</api:text>
+                                <api:links>
+                                    <api:link href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" type="elements/journal"/>
+                                </api:links>
+                            </api:field>
+                            <api:field display-name="Issue" name="issue" type="text">
+                                <api:text>{field:issue}</api:text>
+                            </api:field>
+                            <api:field display-name="Journal" name="journal" type="text">
+                                <api:text>{field:journal_title}</api:text>
+                            </api:field>
+                            <api:field display-name="Pagination" name="pagination" type="pagination">
+                                <api:pagination>
+                                    <api:begin-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:begin-page>
+                                    <api:end-page>{field:pagination}<!-- Join begin-page and end-page to produce ORA pagination value--></api:end-page>
+                                </api:pagination>
+                            </api:field>
+                            <api:field display-name="Publication date" name="publication-date" type="date">
+                                <api:date>
+                                    <api:day>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:day>
+                                    <api:month>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:month>
+                                    <api:year>{field:citation_date_of_publication}<!-- day month and year will need to be combined into an ISO date--></api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Status" name="publication-status" type="text">
+                                <api:text>{field:host_publication_status}</api:text>
+                            </api:field>
+                            <api:field display-name="Record created at source" name="record-created-at-source-date" type="date">
+                                <api:date>
+                                    <api:day>16</api:day>
+                                    <api:month>11</api:month>
+                                    <api:year>2017</api:year>
+                                </api:date>
+                            </api:field>
+                            <api:field display-name="Title" name="title" type="text">
+                                <api:text>{field:title}</api:text>
+                            </api:field>
+                            <api:field display-name="Volume" name="volume" type="text">
+                                <api:text>{field:volume}</api:text>
+                            </api:field>
+                        </api:native>
+                    </api:record>
+                </api:records>
+                <api:fields>
+                    <api:field display-name="repository-licence-id" name="repository-licence-id" type="integer">
+                        <api:integer>{field:record_deposit_licence}</api:integer>
+                    </api:field>
+                </api:fields>
+                <api:all-labels type="keyword-list">
+                    <api:keywords>
+                        <api:keyword origin="issn-inferred" scheme="for">{field:keyword}</api:keyword>
+                    </api:keywords>
+                </api:all-labels>
+                <api:journal href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/journals/753931" issn="1991-959X">
+                    <api:records>
+                        <api:record source-name="sherpa-romeo">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                        <api:record source-name="sherpa-romeo">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                        <api:record source-name="doaj">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                        <api:record source-name="snip">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                        <api:record source-name="sjr">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                        <api:record source-name="sjr">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                        <api:record source-name="era-2012">
+                            <api:title>{field:journal_title}</api:title>
+                        </api:record>
+                    </api:records>
+                </api:journal>
+                <api:relationships href="https://oxris.ox.ac.uk:8091/secure-api/v5.5/publications/647987/relationships"/>
+            </api:object>
+        </entry>
+    </feed>
+</mappings>
