@@ -229,5 +229,5 @@ ORA_Data_Model_Object = {
     // THESIS_FIELDS = {
     "thesis_degree_institution": "",
     "thesis_degree_level": "",
-    "thesis_degree_name": ""
+    "thesis_degree_name": "",
 };

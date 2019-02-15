@@ -221,6 +221,7 @@
         <symplectic_field name="pagination">
             <if test="pagination is given in page-count"><ora-field>pagination</ora-field><notes>Append " pages" to value, e.g. "32 pages"</notes></if>
             <if test="pagination is a range"><ora-field>pagination</ora-field><notes>Output as a range, separated by a '-', e.g '22-33'</notes></if>
+            <if test="pagination is given both as a range and a page count"><ora-field>pagination</ora-field><notes>Output as a range only, separated by a '-', e.g '22-33'</notes></if>
         </symplectic_field>
         
         <symplectic_field name="parent-title"><ora_field>host_title</ora_field></symplectic_field>

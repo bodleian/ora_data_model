@@ -3,7 +3,7 @@
 <!--
     =========================================
     =========================================
-    PUBS:83749 in METS to datamodel 2.0rc5
+    PUBS:83749 in METS to datamodel 2.0
     =========================================
     =========================================
     
@@ -14,7 +14,7 @@
     xmlns:mets="http://www.loc.gov/METS/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
-    <mets:metsHdr CREATEDATE="2016-10-28T15:44:07.337+01:00">
+    <mets:metsHdr CREATEDATE="2019-02-14T15:44:07.337+01:00">
         <mets:agent OTHERTYPE="SOFTWARE" ROLE="CREATOR" TYPE="OTHER">
             <mets:name>
                 Symplectic Elements
@@ -31,7 +31,7 @@
                         xmlns:mods="http://www.loc.gov/mods/v3"
                         xmlns:xs="http://www.w3.org/2001/XMLSchema"
                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                        xsi:schemaLocation="http://www.loc.gov/mods/v3 ora_mods-3.8.xsd">
+                        xsi:schemaLocation="http://www.loc.gov/mods/v3 https://raw.githubusercontent.com/tomwrobel/ora_data_model/master/ora_mods-3.8.xsd">
                  
                     <!--
                         RECORD METADATA
@@ -240,7 +240,6 @@
                         <mods:role>
                             <mods:roleTerm type="text">Publisher</mods:roleTerm>
                         </mods:role>
-                        <mods:nameIdentifier type="website">http://dx.doi.org/10.1103/PhysRevD.95.043503</mods:nameIdentifier>
                     </mods:name>
                     <!-- /CONTRIBUTIONS AND ROLES -->
                  
@@ -270,7 +269,6 @@
                         </mods:part>
                         <mods:physicalDescription>
                             <mods:form type="status">Published</mods:form>
-                            <mods:form type="peer_reviewed">Peer reviewed</mods:form>
                         </mods:physicalDescription>
                     </mods:relatedItem>
                 </mods:mods>

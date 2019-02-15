@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+su
 <!--
     =========================================
     =========================================
@@ -18,6 +18,8 @@
     
     CHANGELOG
     =========
+    14/02/2019: Datamodel v2.0 conformance
+    - Moved summary documentation out of dataset specific fields
     13/02/2019: Clean up fields
     - Removed duplicate record deposit date
     - Corrected record_identifiers markup
@@ -206,6 +208,7 @@
                     </mods:language>
                             
                     <mods:abstract>field:abstract</mods:abstract>
+                    <mods:abstract type="summary_documentation">field:summary_documentation</mods:abstract>
                     <mods:note displayLabel="additional_information">field:additional_information</mods:note>
                     
                     <mods:physicalDescription>
@@ -434,7 +437,6 @@
                                 xmlns:mods="http://www.loc.gov/mods/v3" 
                                 xmlns:dcterms="http://purl.org/dc/terms/"
                                 xmlns:dc="http://purl.org/dc/elements/1.1/">
-                            <dc:description>field:summary_documentation</dc:description>
                             <mods:dateOther point="start" type="data_collection">field:data_collection_start_date</mods:dateOther>
                             <mods:dateOther point="end" type="data_collection">field:data_collection_end_date</mods:dateOther>
                             <dcterms:spatial>field:data_coverage_spatial</dcterms:spatial>
