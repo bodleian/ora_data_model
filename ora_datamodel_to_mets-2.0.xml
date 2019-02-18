@@ -17,6 +17,8 @@
     
     CHANGELOG
     =========
+    19/02/2019: Minor additions to permitted elements
+    - Edition allowed in Journal article
     15/02/2019: Minor updates to METS headers
     - Changed the spec for the datetime field in metsHdr/@CREATEDATE
     14/02/2019: Datamodel v2.0 conformance
@@ -253,6 +255,8 @@
                     <mods:identifier type="tinypid">field:tinypid</mods:identifier>
                     <mods:identifier type="tombstone">field:identifier_tombstone_record_identifier</mods:identifier>
                     <mods:identifier type="uuid">field:identifier_uuid</mods:identifier>
+                    
+                    <!-- Identifiers without a mapped field in ORA will go into a holding 'record_identifiers' value for later processing -->
                     <mods:identifier type="field:record_identifiers__record_identifier_scheme">field:record_identifiers__record_identifier</mods:identifier>
                    
                     <!-- ORIGIN INFO significant dates and place of publication of 'original' published work -->        
@@ -264,7 +268,6 @@
                             <mods:placeTerm type="text">field:citation_place_of_publication</mods:placeTerm>
                         </mods:place>
                         <mods:place>
-                            <!-- Note to Jason: this field should be publication_url NOT url, as this is too ambiguous -->
                             <mods:placeTerm type="code">field:publication_url</mods:placeTerm>    
                         </mods:place>
                     </mods:originInfo>
@@ -319,12 +322,14 @@
                         <mods:alternativeName altType="preferred_initials"><mods:namePart>field:contributors__preferred_initials</mods:namePart></mods:alternativeName>
                         
                         <mods:nameIdentifier type="email_address">field:contributors__contributor_email</mods:nameIdentifier>
-                        <mods:nameIdentifier type="contributor_record_identifier">field:contributors__contributor_record_identifier</mods:nameIdentifier>
-                        <mods:nameIdentifier type="sso">field:contributors__institutional_identifier</mods:nameIdentifier>
-                        <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
-                        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
                         <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">field:contributors__contributor_record_identifier</mods:nameIdentifier>
+                        <mods:nameIdentifier type="sso">field:contributors__institutional_identifier</mods:nameIdentifier><!-- TODO v2.1: change to type="institutional_identifier" -->
+                        <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
                         
+                        <!-- Contributor identifiers without a mapped field in ORA will go into a holding 'contributor_identifiers' value for later processing -->
+                        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
+                                                
                         <!-- Affiliations 
                             
                              For multiple affiliations, create a separate mods:affiliation/ora:affiliation for each affiliation
@@ -470,6 +475,9 @@
                         <mods:part>
                             <mods:detail type="article">
                                 <mods:number>field:article_number</mods:number>
+                            </mods:detail>
+                            <mods:detail type="edition">
+                                <mods:number>field:edition</mods:number>
                             </mods:detail>
                             <mods:detail type="issue">
                                 <mods:number>field:issue_number</mods:number>

@@ -13,7 +13,12 @@
     
     Changelog
     =========
-    15/02/2019: Update following specific example markup
+    19/02/2019: Update following specific example markup pubs:97575
+    - funding-acknowledgments grant-id mapped to funders__funder_grant__grant_identifier
+    - publisher-licence to licence
+    - keyword: subject added to potential mappings
+    - sub-type-of-work
+    15/02/2019: Update following specific example markup pubs:9598
     - Funder acknowldgement text
     - publisher_url points to publication_url not to publisher_website_url
     - full-name is not mapped
@@ -21,7 +26,7 @@
     - tinypid
     14/02/2019: Datamodel v2.0 conformance
     - Fields starting with 'identifiers_' now start with 'identifier_'
-    13/02/2019 - Update following specific example markup
+    13/02/2019 - Update following specific example markup pubs:83749
     - Contributor fields from 'People data feed'
     - Funder and grant fields
     - Deposit related fields
@@ -187,7 +192,10 @@
         
         <symplectic_field name="journal"><ora_field>journal_title</ora_field></symplectic_field>
         
-        <symplectic_field name="keywords"><ora_field>keyword</ora_field></symplectic_field>
+        <symplectic_field name="keywords">
+            <if test="@scheme is equivalent to Library of Congress FAST headings"><ora_field>subject</ora_field></if>
+            <if test="@scheme is not equivalent to Library of Congress FAST headings"><ora_field>keyword</ora_field></if>
+        </symplectic_field>
         
         <symplectic_field name="language"><ora_field>language</ora_field></symplectic_field>
         
@@ -250,7 +258,7 @@
         
         <symplectic_field name="publisher"><ora_field>publisher_name</ora_field></symplectic_field>
         
-        <symplectic_field name="publisher-licence"><ora_field>licence_url</ora_field></symplectic_field>
+        <symplectic_field name="publisher-licence"><ora_field>licence</ora_field></symplectic_field>
         
         <symplectic_field name="publisher-url"><ora_field>publication_url</ora_field></symplectic_field>
         
@@ -275,7 +283,11 @@
         
         <symplectic_field name="title"><ora_field>title</ora_field></symplectic_field>
         
-        <symplectic_field name="types"><ora_field>type_of_work</ora_field></symplectic_field>
+        <symplectic_field name="types">
+            <if test="@display-name='Sub type(s)' AND api:item/text != ora_field:type_of_work"><ora_field>sub_type_of_work</ora_field>
+            <note>If the Symplectic sub type is the same as the ORA type of work, do not map</note></if>
+        </symplectic_field>
+        
         
         <symplectic_field name="version">
             <if test="describing a record"><ora_field>record_version</ora_field></if>
@@ -343,6 +355,7 @@
         Funders without links to contributors are identified either by an <api:grant> or an api:relationship[@type='publication-grant-funded']
     -->
         <symplectic_field xpath="api:field[@name='funding-acknowledgements']/api:funding-acknowledgements/api:grants/api:grant/api:organisation"><ora_field>funders__funder_name</ora_field></symplectic_field>
+        <symplectic_field xpath="api:field[@name='funding-acknowledgements']/api:funding-acknowledgements/api:grants/api:grant/api:grant-id"><ora_field>funders__funder_grant__grant_identifier</ora_field></symplectic_field>
         <symplectic_field xpath="api:field[@name='funding-acknowledgements']/api:funding-acknowledgements/api:acknowledgement-text"><ora_field>additional_information</ora_field>
             <note>As multiple values can be added to this field, this should append to existing values not a replace them</note></symplectic_field>
         <symplectic_field name="funder-name"><ora_field>funders__funder_name</ora_field></symplectic_field>
@@ -383,6 +396,7 @@
         <symplectic_field><ora_field>record_embargo_end_date="9999-12-31"</ora_field></symplectic_field>
         <symplectic_field xpath="api:object/@id"><ora_field>identifier_pubs_identifier</ora_field></symplectic_field>
         <symplectic_field xpath="api:object/@id"><ora_field>tinypid</ora_field><note>The value should be prefixed by the string "pubs:", e.g. "pubs:1234"</note></symplectic_field>
+        <symplectic_field xpath="api:object/@type"><ora_field>type_of_work</ora_field><note>TODO: a field mapping list will be required</note></symplectic_field>
         <!-- 
             Oxford custom fields
             ====================
