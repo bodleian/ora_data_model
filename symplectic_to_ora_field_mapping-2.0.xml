@@ -114,7 +114,10 @@
         =====================================
     -->
     <ora_symplectic_field_mappings>
-        <symplectic_field name="abstract"><ora_field>abstract</ora_field></symplectic_field>
+        <symplectic_field name="abstract">
+            <if test="object is a patent, physical object, or ephemera"><ora_field>summary_documentation</ora_field></if>
+            <if test="object is NOT patent, physical object, or ephemera"><ora_field>abstract</ora_field></if>
+        </symplectic_field>
         
         <symplectic_field name="are-files-confidential"><computed /><note>We assuming this means ANY binary file is embargoed</note></symplectic_field>
         
