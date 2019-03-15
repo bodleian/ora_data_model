@@ -1,0 +1,869 @@
+<api:push-object xmlns:api="http://www.symplectic.co.uk/publications/api">
+  <api:object category="publication" id="86457" last-affected-when="2019-03-15T17:30:06.63+00:00" last-modified-when="2018-08-28T11:10:02.64+01:00" href="http://tempuri.org/publications/86457?view=default" created-when="2017-04-28T14:04:40.223+01:00" type-id="5" type="journal-article">
+    <!--Publication type 5 is "journal article"-->
+    <api:ever-approved>true</api:ever-approved>
+    <api:reporting-date-1>2015-11-01</api:reporting-date-1>
+    <api:is-public>true</api:is-public>
+    <api:view name="default">
+      <api:field name="abstract" type="text" display-name="Abstract">
+        <api:text>The serine-threonine kinase ataxia-telangiectasia mutated (ATM) plays a central role in maintaining genomic integrity. In mice, ATM deficiency is exclusively associated with T-cell lymphoma development, whereas B-cell tumors predominate in human ataxia-telangiectasia patients. We demonstrate in this study that when T cells are removed as targets for lymphomagenesis and as mediators of immune surveillance, ATM-deficient mice exclusively develop early-onset immunoglobulin M(+) B-cell lymphomas that do not transplant to immunocompetent mice and that histologically and genetically resemble the activated B cell-like (ABC) subset of human diffuse large B-cell lymphoma (DLBCL). These B-cell lymphomas show considerable chromosomal instability and a recurrent genomic amplification of a 4.48-Mb region on chromosome 18 that contains Malt1 and is orthologous to a region similarly amplified in human ABC DLBCL. Of importance, amplification of Malt1 in these lymphomas correlates with their dependence on nuclear factor (NF)-κB, MALT1, and B-cell receptor (BCR) signaling for survival, paralleling human ABC DLBCL. Further, like some human ABC DLBCLs, these mouse B-cell lymphomas also exhibit constitutive BCR-dependent NF-κB activation. This study reveals that ATM protects against development of B-cell lymphomas that model human ABC DLBCL and identifies a potential role for T cells in preventing the emergence of these tumors.</api:text>
+      </api:field>
+      <api:field name="acceptance-date" type="date" display-name="Date of acceptance">
+        <api:date>
+          <api:day>19</api:day>
+          <api:month>9</api:month>
+          <api:year>2015</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="addresses" type="address-list" display-name="Addresses">
+        <api:addresses>
+          <api:address>
+            <api:line type="full">Experimental Immunology Branch.</api:line>
+          </api:address>
+        </api:addresses>
+      </api:field>
+      <api:field name="are-files-confidential" type="boolean" display-name="File(s) confidential">
+        <api:boolean>false</api:boolean>
+      </api:field>
+      <api:field name="author-licence" type="text" display-name="Author's licence">
+        <api:text>CC-BY</api:text>
+      </api:field>
+      <api:field name="authors" type="person-list" display-name="Authors">
+        <api:people>
+          <api:person>
+            <api:last-name>Hathcock</api:last-name>
+            <api:initials>KS</api:initials>
+            <api:first-names>KS</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>K</api:first-name>
+              <api:first-name>S</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Padilla-Nash</api:last-name>
+            <api:initials>HM</api:initials>
+            <api:first-names>HM</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>H</api:first-name>
+              <api:first-name>M</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Camps</api:last-name>
+            <api:initials>J</api:initials>
+            <api:first-names>J</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>J</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Shin</api:last-name>
+            <api:initials>D-M</api:initials>
+            <api:first-names>D-M</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>D-M</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Triner</api:last-name>
+            <api:initials>D</api:initials>
+            <api:first-names>D</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>D</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Shaffer</api:last-name>
+            <api:initials>AL</api:initials>
+            <api:first-names>AL</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>A</api:first-name>
+              <api:first-name>L</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Maul</api:last-name>
+            <api:initials>RW</api:initials>
+            <api:first-names>RW</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>R</api:first-name>
+              <api:first-name>W</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Steinberg</api:last-name>
+            <api:initials>SM</api:initials>
+            <api:first-names>SM</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>S</api:first-name>
+              <api:first-name>M</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Gearhart</api:last-name>
+            <api:initials>PJ</api:initials>
+            <api:first-names>PJ</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>P</api:first-name>
+              <api:first-name>J</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Staudt</api:last-name>
+            <api:initials>LM</api:initials>
+            <api:first-names>LM</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>L</api:first-name>
+              <api:first-name>M</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Morse</api:last-name>
+            <api:initials>HC</api:initials>
+            <api:first-names>HC</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>H</api:first-name>
+              <api:first-name>C</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Ried</api:last-name>
+            <api:initials>T</api:initials>
+            <api:first-names>T</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>T</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+          <api:person>
+            <api:last-name>Hodes</api:last-name>
+            <api:initials>RJ</api:initials>
+            <api:first-names>RJ</api:first-names>
+            <api:separate-first-names>
+              <api:first-name>R</api:first-name>
+              <api:first-name>J</api:first-name>
+            </api:separate-first-names>
+          </api:person>
+        </api:people>
+      </api:field>
+      <api:field name="author-url" type="text" display-name="URL">
+        <api:text>https://www.ncbi.nlm.nih.gov/pubmed/26400962</api:text>
+      </api:field>
+      <api:field name="doi" type="text" display-name="DOI">
+        <api:text>10.1182/blood-2015-06-654749</api:text>
+        <api:links>
+          <api:link type="doi" href="http://doi.org/10.1182/blood-2015-06-654749" />
+          <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1182/blood-2015-06-654749" />
+        </api:links>
+      </api:field>
+      <api:field name="eissn" type="text" display-name="eISSN">
+        <api:text>1528-0020</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/54730" />
+        </api:links>
+      </api:field>
+      <api:field name="external-identifiers" type="identifier-list" display-name="External identifiers">
+        <api:identifiers>
+          <api:identifier scheme="pubmed">26400962</api:identifier>
+        </api:identifiers>
+      </api:field>
+      <api:field name="funding-acknowledgements" type="funding-acknowledgements" display-name="Funding">
+        <api:funding-acknowledgements>
+          <api:grants>
+            <api:grant>
+              <api:organisation>National Cancer Institute</api:organisation>
+            </api:grant>
+            <api:grant>
+              <api:organisation>National Institute of Allergy and Infectious Diseases</api:organisation>
+            </api:grant>
+            <api:grant>
+              <api:organisation>National Institute of Diabetes and Digestive and Kidney Diseases</api:organisation>
+            </api:grant>
+          </api:grants>
+        </api:funding-acknowledgements>
+      </api:field>
+      <api:field name="is-open-access" type="boolean" display-name="Open access">
+        <api:boolean>false</api:boolean>
+      </api:field>
+      <api:field name="issn" type="text" display-name="ISSN">
+        <api:text>0006-4971</api:text>
+        <api:links>
+          <api:link type="elements/journal" href="http://tempuri.org/journals/54730" />
+        </api:links>
+      </api:field>
+      <api:field name="issue" type="text" display-name="Issue">
+        <api:text>20</api:text>
+      </api:field>
+      <api:field name="journal" type="text" display-name="Journal">
+        <api:text>Blood</api:text>
+      </api:field>
+      <api:field name="keywords" type="keyword-list" display-name="Keywords">
+        <api:keywords>
+          <api:keyword scheme="for">1107 Immunology</api:keyword>
+          <api:keyword>Biomedical</api:keyword>
+          <api:keyword>Basic Science</api:keyword>
+          <api:keyword>Hematology</api:keyword>
+          <api:keyword>Neurodegenerative</api:keyword>
+          <api:keyword>Genetics</api:keyword>
+          <api:keyword>Ataxia Telangiectasia</api:keyword>
+          <api:keyword>Cancer</api:keyword>
+          <api:keyword>Biotechnology</api:keyword>
+          <api:keyword>Lymphoma</api:keyword>
+          <api:keyword>Rare Diseases</api:keyword>
+          <api:keyword>Cancer</api:keyword>
+          <api:keyword>2.1 Biological and endogenous factors</api:keyword>
+        </api:keywords>
+      </api:field>
+      <api:field name="language" type="text" display-name="Language">
+        <api:text>eng</api:text>
+      </api:field>
+      <api:field name="location" type="text" display-name="Country">
+        <api:text>United States</api:text>
+      </api:field>
+      <api:field name="medium" type="text" display-name="Medium">
+        <api:text>Print-Electronic</api:text>
+      </api:field>
+      <api:field name="online-publication-date" type="date" display-name="Online publication date">
+        <api:date>
+          <api:day>23</api:day>
+          <api:month>9</api:month>
+          <api:year>2015</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="pagination" type="pagination" display-name="Pagination">
+        <api:pagination>
+          <api:begin-page>2291</api:begin-page>
+          <api:end-page>2301</api:end-page>
+        </api:pagination>
+      </api:field>
+      <api:field name="pii" type="text" display-name="PII">
+        <api:text>blood-2015-06-654749</api:text>
+      </api:field>
+      <api:field name="publication-date" type="date" display-name="Publication date">
+        <api:date>
+          <api:day>12</api:day>
+          <api:month>11</api:month>
+          <api:year>2015</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="publication-status" type="text" display-name="Status">
+        <api:text>Published</api:text>
+      </api:field>
+      <api:field name="public-url" type="text" display-name="Public URL">
+        <api:text>https://figsh.com/articles/ATM_deficiency_promotes_development_of_murine_B-cell_lymphomas_that_resemble_diffuse_large_B-cell_lymphoma_in_humans/5877537</api:text>
+      </api:field>
+      <api:field name="record-created-at-source-date" type="date" display-name="Record created at source">
+        <api:date>
+          <api:day>13</api:day>
+          <api:month>11</api:month>
+          <api:year>2015</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="record-made-public-at-source-date" type="date" display-name="Record made publicly available">
+        <api:date>
+          <api:day>22</api:day>
+          <api:month>2</api:month>
+          <api:year>2016</api:year>
+        </api:date>
+      </api:field>
+      <api:field name="relative-citation-ratio" type="decimal" display-name="Relative citation ratio">
+        <api:decimal>0.4377212</api:decimal>
+      </api:field>
+      <api:field name="repository-status" type="text" display-name="Availability">
+        <api:text>Public</api:text>
+      </api:field>
+      <api:field name="title" type="text" display-name="Title">
+        <api:text>ATM deficiency promotes development of murine B-cell lymphomas that resemble diffuse large B-cell lymphoma in humans</api:text>
+      </api:field>
+      <api:field name="types" type="list" display-name="Sub type(s)">
+        <api:items>
+          <api:item>Journal Article</api:item>
+        </api:items>
+      </api:field>
+      <api:field name="volume" type="text" display-name="Volume">
+        <api:text>126</api:text>
+      </api:field>
+    </api:view>
+    <api:fields />
+    <api:all-labels type="keyword-list">
+      <api:keywords>
+        <api:keyword scheme="for" origin="record-data" source="dimensions-for-universities">1107 Immunology</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Biomedical</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Basic Science</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Hematology</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Neurodegenerative</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Genetics</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Ataxia Telangiectasia</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Biotechnology</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Lymphoma</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Rare Diseases</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="dimensions-for-universities">2.1 Biological and endogenous factors</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">T-Lymphocytes</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Cell Line, Tumor</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Animals</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Mice, Knockout</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Humans</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Mice</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Chromosomal Instability</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Caspases</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">NF-kappa B</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Receptors, Antigen, B-Cell</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Neoplasm Proteins</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Tumor Suppressor Proteins</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Immunologic Surveillance</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Lymphoma, Large B-Cell, Diffuse</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Genetic Loci</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="epmc">Ataxia Telangiectasia Mutated Proteins</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Animals</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Ataxia Telangiectasia Mutated Proteins</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Caspases</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Cell Line, Tumor</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Chromosomal Instability</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Genetic Loci</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Humans</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Immunologic Surveillance</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Lymphoma, Large B-Cell, Diffuse</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Mice</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Mice, Knockout</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Mucosa-Associated Lymphoid Tissue Lymphoma Translocation 1 Protein</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">NF-kappa B</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Neoplasm Proteins</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Receptors, Antigen, B-Cell</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">T-Lymphocytes</api:keyword>
+        <api:keyword scheme="mesh" origin="record-data" source="pubmed">Tumor Suppressor Proteins</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">1107 Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biomedical</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Basic Science</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Lymphoma</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biotechnology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Ataxia Telangiectasia</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Genetics</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Neurodegenerative</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Hematology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Rare Diseases</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">2.1 Biological and endogenous factors</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">1107 Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biomedical</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Basic Science</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Lymphoma</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biotechnology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Ataxia Telangiectasia</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Genetics</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Neurodegenerative</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Hematology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Rare Diseases</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">2.1 Biological and endogenous factors</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">1107 Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biomedical</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Basic Science</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Lymphoma</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biotechnology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Ataxia Telangiectasia</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Genetics</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Neurodegenerative</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Hematology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Rare Diseases</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">2.1 Biological and endogenous factors</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">1107 Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biomedical</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Basic Science</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Lymphoma</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biotechnology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Ataxia Telangiectasia</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Genetics</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Neurodegenerative</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Hematology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Rare Diseases</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">2.1 Biological and endogenous factors</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">1107 Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biomedical</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Basic Science</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Lymphoma</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Biotechnology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Ataxia Telangiectasia</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Cancer</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Genetics</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Neurodegenerative</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Hematology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Rare Diseases</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">2.1 Biological and endogenous factors</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Immunology</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Animals</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Ataxia Telangiectasia Mutated Proteins</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Caspases</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Cell Line, Tumor</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Chromosomal Instability</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Genetic Loci</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Humans</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Immunologic Surveillance</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Lymphoma, Large B-Cell, Diffuse</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Mice</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Mice, Knockout</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">NF-kappa B</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Neoplasm Proteins</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Receptors, Antigen, B-Cell</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">T-Lymphocytes</api:keyword>
+        <api:keyword origin="record-data" source="figshare-for-institutions">Tumor Suppressor Proteins</api:keyword>
+        <api:keyword scheme="science-metrix" origin="issn-inferred">Immunology</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">1102 Cardiorespiratory Medicine and Haematology</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">1103 Clinical Sciences</api:keyword>
+        <api:keyword scheme="for" origin="issn-inferred">1114 Paediatrics and Reproductive Medicine</api:keyword>
+      </api:keywords>
+    </api:all-labels>
+    <api:journal issn="0006-4971" href="http://tempuri.org/journals/54730">
+      <api:records>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="sherpa-romeo">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="jcr">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="sjr">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="science-metrix">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="era-2010">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="snip">
+          <api:title>Blood</api:title>
+        </api:record>
+        <api:record source-name="era-2012">
+          <api:title>Blood</api:title>
+        </api:record>
+      </api:records>
+    </api:journal>
+    <api:relationships href="http://tempuri.org/publications/86457/relationships?view=default" />
+    <api:neighbourhood>
+      <api:relationships>
+        <api:relationship id="35857" type-id="8" type="publication-user-authorship" last-modified-when="2019-02-26T18:28:35.053+00:00" href="http://tempuri.org/relationships/35857?detail=ref&amp;view=default">
+          <api:is-visible>true</api:is-visible>
+          <api:is-favourite>true</api:is-favourite>
+          <api:related direction="to" category="user" id="30">
+            <api:object category="user" id="30" proprietary-id="dwh" authenticating-authority="Internal" username="dwh" last-affected-when="2018-10-12T23:30:03.193+01:00" last-modified-when="2018-08-28T10:22:14.497+01:00" href="http://tempuri.org/users/30?view=default" created-when="2012-07-11T14:41:28.037+01:00" type-id="1" type="person">
+              <!--User type 1 is "person"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:is-public>false</api:is-public>
+              <api:is-current-staff>true</api:is-current-staff>
+              <api:photo href="http://tempuri.org/users/30/photo?type=profile" />
+              <api:is-academic>true</api:is-academic>
+              <api:is-login-allowed>true</api:is-login-allowed>
+              <api:title>Professor</api:title>
+              <api:initials>DW</api:initials>
+              <api:last-name>Hook</api:last-name>
+              <api:first-name>Daniel</api:first-name>
+              <api:email-address>d.hook@lilliput.edu</api:email-address>
+              <api:primary-group-descriptor>Digital Science</api:primary-group-descriptor>
+              <api:position>Visiting Professor</api:position>
+              <api:department>Theoretical physics</api:department>
+              <api:institutional-email-is-public>true</api:institutional-email-is-public>
+              <api:claimed>true</api:claimed>
+              <api:organisation-defined-data field-number="1" field-name="Organisational Unit">Theory Group</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="2" field-name="Group">TRUE</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="3" field-name="REF Category of staff">YES</api:organisation-defined-data>
+              <api:organisation-defined-data field-number="4" field-name="Eligible for REF" />
+              <api:organisation-defined-data field-number="5" field-name="Return to REF" />
+              <api:organisation-defined-data field-number="6" field-name="Test Autogroup ID" />
+              <api:organisation-defined-data field-number="7" field-name="sync (me)" />
+              <api:organisation-defined-data field-number="8" field-name="Assessment Eligibility">TRUE</api:organisation-defined-data>
+              <api:view name="default" />
+              <api:fields>
+                <api:field name="labels" type="keyword-list" display-name="labels">
+                  <api:keywords>
+                    <api:keyword scheme="c-research-area">Mathematical Aspects of Classical Mechanics, Quantum Mechanics and Quantum Information Theory</api:keyword>
+                    <api:keyword scheme="c-research-area">Quantum Physics</api:keyword>
+                  </api:keywords>
+                </api:field>
+              </api:fields>
+              <api:all-labels type="keyword-list">
+                <api:keywords>
+                  <api:keyword scheme="c-research-area" origin="object-data">Mathematical Aspects of Classical Mechanics, Quantum Mechanics and Quantum Information Theory</api:keyword>
+                  <api:keyword scheme="c-research-area" origin="object-data">Quantum Physics</api:keyword>
+                </api:keywords>
+              </api:all-labels>
+              <api:relationships href="http://tempuri.org/users/30/relationships?view=default" />
+              <api:user-identifier-associations user-id="30" proprietary-id="dwh" username="dwh">
+                <api:user-identifier-association scheme="email-address" status="claimed" decision="always-me">d.hook@lilliput.edu</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-account-id" status="claimed" decision="always-me">dwh</api:user-identifier-association>
+                <api:user-identifier-association scheme="researcherid" status="claimed" decision="always-me">C-4764-2008</api:user-identifier-association>
+                <api:user-identifier-association scheme="orcid" status="claimed" decision="always-me">0000-0001-9746-1193</api:user-identifier-association>
+                <api:user-identifier-association scheme="arxiv-author-id" status="claimed" decision="always-me">http://arxiv.org/a/hook_d_1</api:user-identifier-association>
+                <api:user-identifier-association scheme="figshare-for-institutions-user-id" status="claimed" decision="always-me">1640221</api:user-identifier-association>
+              </api:user-identifier-associations>
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46450" type-id="1" type="publication-publication-derivative" last-modified-when="2019-03-15T17:29:57.687+00:00" href="http://tempuri.org/relationships/46450?detail=ref&amp;view=default">
+          <api:related direction="to" category="publication" id="95430">
+            <api:object category="publication" id="95430" last-affected-when="2019-03-15T17:29:57.71+00:00" last-modified-when="2018-08-28T11:10:02.86+01:00" href="http://tempuri.org/publications/95430?view=default" created-when="2017-11-21T14:08:51.933+00:00" type-id="4" type="conference">
+              <!--Publication type 4 is "conference"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2013-01-01</api:reporting-date-1>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="issn" type="text" display-name="ISSN">
+                  <api:text>2175-1935</api:text>
+                </api:field>
+                <api:field name="journal" type="text" display-name="Published proceedings">
+                  <api:text>Proceedings of ISSI 2013 - 14th International Society of Scientometrics and Informetrics Conference</api:text>
+                </api:field>
+                <api:field name="publication-date" type="date" display-name="Publication date">
+                  <api:date>
+                    <api:day>1</api:day>
+                    <api:month>12</api:month>
+                    <api:year>2013</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>Collaboration in Africa: Networks or clusters?</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:relationships href="http://tempuri.org/publications/95430/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46451" type-id="1" type="publication-publication-derivative" last-modified-when="2019-03-15T17:29:57.73+00:00" href="http://tempuri.org/relationships/46451?detail=ref&amp;view=default">
+          <api:related direction="to" category="publication" id="85313">
+            <api:object category="publication" id="85313" last-affected-when="2019-03-15T17:29:57.73+00:00" last-modified-when="2018-08-28T11:10:02.66+01:00" href="http://tempuri.org/publications/85313?view=default" created-when="2017-03-24T11:14:35.467+00:00" type-id="5" type="journal-article">
+              <!--Publication type 5 is "journal article"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="doi" type="text" display-name="DOI">
+                  <api:text>10.1103/PhysRevA.95.052113</api:text>
+                  <api:links>
+                    <api:link type="doi" href="http://doi.org/10.1103/PhysRevA.95.052113" />
+                    <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1103/PhysRevA.95.052113" />
+                  </api:links>
+                </api:field>
+                <api:field name="eissn" type="text" display-name="eISSN">
+                  <api:text>2469-9934</api:text>
+                  <api:links>
+                    <api:link type="elements/journal" href="http://tempuri.org/journals/69201" />
+                  </api:links>
+                </api:field>
+                <api:field name="issn" type="text" display-name="ISSN">
+                  <api:text>2469-9926</api:text>
+                  <api:links>
+                    <api:link type="elements/journal" href="http://tempuri.org/journals/69286" />
+                  </api:links>
+                </api:field>
+                <api:field name="journal" type="text" display-name="Journal">
+                  <api:text>Physical Review A</api:text>
+                </api:field>
+                <api:field name="online-publication-date" type="date" display-name="Online publication date">
+                  <api:date>
+                    <api:day>15</api:day>
+                    <api:month>5</api:month>
+                    <api:year>2017</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="publication-date" type="date" display-name="Publication date">
+                  <api:date>
+                    <api:month>5</api:month>
+                    <api:year>2017</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>Behavior of eigenvalues in a region of broken   symmetry</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:journal issn="2469-9926" href="http://tempuri.org/journals/69286">
+                <api:records>
+                  <api:record source-name="sherpa-romeo">
+                    <api:title>Physical Review A</api:title>
+                  </api:record>
+                </api:records>
+              </api:journal>
+              <api:relationships href="http://tempuri.org/publications/85313/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46452" type-id="1" type="publication-publication-derivative" last-modified-when="2019-03-15T17:30:06.613+00:00" href="http://tempuri.org/relationships/46452?detail=ref&amp;view=default">
+          <api:related direction="from" category="publication" id="18930">
+            <api:object category="publication" id="18930" last-affected-when="2019-03-15T17:30:06.617+00:00" last-modified-when="2018-08-28T11:10:02.643+01:00" href="http://tempuri.org/publications/18930?view=default" created-when="2014-08-16T01:00:29.153+01:00" type-id="5" type="journal-article">
+              <!--Publication type 5 is "journal article"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2014-08-11</api:reporting-date-1>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="doi" type="text" display-name="DOI">
+                  <api:text>10.1103/PhysRevLett.113.231605</api:text>
+                  <api:links>
+                    <api:link type="doi" href="http://doi.org/10.1103/PhysRevLett.113.231605" />
+                    <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1103/PhysRevLett.113.231605" />
+                  </api:links>
+                </api:field>
+                <api:field name="eissn" type="text" display-name="eISSN">
+                  <api:text>1079-7114</api:text>
+                  <api:links>
+                    <api:link type="elements/journal" href="http://tempuri.org/journals/45841" />
+                  </api:links>
+                </api:field>
+                <api:field name="issn" type="text" display-name="ISSN">
+                  <api:text>0031-9007</api:text>
+                  <api:links>
+                    <api:link type="elements/journal" href="http://tempuri.org/journals/45841" />
+                  </api:links>
+                </api:field>
+                <api:field name="journal" type="text" display-name="Journal">
+                  <api:text>Physical Review Letters</api:text>
+                </api:field>
+                <api:field name="online-publication-date" type="date" display-name="Online publication date">
+                  <api:date>
+                    <api:day>3</api:day>
+                    <api:month>12</api:month>
+                    <api:year>2014</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="publication-date" type="date" display-name="Publication date">
+                  <api:date>
+                    <api:month>12</api:month>
+                    <api:year>2014</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>Infinite Class of -Symmetric Theories from One Timelike Liouville Lagrangian</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:all-labels type="keyword-list">
+                <api:keywords>
+                  <api:keyword scheme="science-metrix" origin="issn-inferred">General Physics</api:keyword>
+                  <api:keyword scheme="for" origin="issn-inferred">02 Physical Sciences</api:keyword>
+                </api:keywords>
+              </api:all-labels>
+              <api:journal issn="0031-9007" href="http://tempuri.org/journals/45841">
+                <api:records>
+                  <api:record source-name="sherpa-romeo">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="sherpa-romeo">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="jcr">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="sjr">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="sjr">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="science-metrix">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="era-2010">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="snip">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                  <api:record source-name="era-2012">
+                    <api:title>Physical Review Letters</api:title>
+                  </api:record>
+                </api:records>
+              </api:journal>
+              <api:relationships href="http://tempuri.org/publications/18930/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46453" type-id="1" type="publication-publication-derivative" last-modified-when="2019-03-15T17:30:06.623+00:00" href="http://tempuri.org/relationships/46453?detail=ref&amp;view=default">
+          <api:related direction="from" category="publication" id="9599">
+            <api:object category="publication" id="9599" last-affected-when="2019-03-15T17:30:06.623+00:00" last-modified-when="2018-08-28T11:10:02.643+01:00" href="http://tempuri.org/publications/9599?view=default" created-when="2012-07-19T16:03:40.047+01:00" type-id="5" type="journal-article">
+              <!--Publication type 5 is "journal article"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2012-11-09</api:reporting-date-1>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="acceptance-date" type="date" display-name="Date of acceptance">
+                  <api:date>
+                    <api:day>1</api:day>
+                    <api:month>2</api:month>
+                    <api:year>2012</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="doi" type="text" display-name="DOI">
+                  <api:text>10.1088/1751-8113/45/44/444003</api:text>
+                  <api:links>
+                    <api:link type="doi" href="http://doi.org/10.1088/1751-8113/45/44/444003" />
+                    <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.1088/1751-8113/45/44/444003" />
+                  </api:links>
+                </api:field>
+                <api:field name="eissn" type="text" display-name="eISSN">
+                  <api:text>1751-8121</api:text>
+                  <api:links>
+                    <api:link type="elements/journal" href="http://tempuri.org/journals/45446" />
+                  </api:links>
+                </api:field>
+                <api:field name="issn" type="text" display-name="ISSN">
+                  <api:text>1751-8113</api:text>
+                  <api:links>
+                    <api:link type="elements/journal" href="http://tempuri.org/journals/45446" />
+                  </api:links>
+                </api:field>
+                <api:field name="journal" type="text" display-name="Journal">
+                  <api:text>Journal of Physics A: Mathematical and Theoretical</api:text>
+                </api:field>
+                <api:field name="online-publication-date" type="date" display-name="Online publication date">
+                  <api:date>
+                    <api:day>23</api:day>
+                    <api:month>10</api:month>
+                    <api:year>2012</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="publication-date" type="date" display-name="Publication date">
+                  <api:date>
+                    <api:day>9</api:day>
+                    <api:month>11</api:month>
+                    <api:year>2012</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>Negative-energy $\mathcal {P}\mathcal {T}$-symmetric Hamiltonians</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:all-labels type="keyword-list">
+                <api:keywords>
+                  <api:keyword scheme="science-metrix" origin="issn-inferred">Mathematical Physics</api:keyword>
+                  <api:keyword scheme="for" origin="issn-inferred">01 Mathematical Sciences</api:keyword>
+                  <api:keyword scheme="for" origin="issn-inferred">02 Physical Sciences</api:keyword>
+                </api:keywords>
+              </api:all-labels>
+              <api:journal issn="1751-8113" href="http://tempuri.org/journals/45446">
+                <api:records>
+                  <api:record source-name="sherpa-romeo">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="sherpa-romeo">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="sherpa-romeo">
+                    <api:title>Journal of Physics A: Mathematical and General</api:title>
+                  </api:record>
+                  <api:record source-name="jcr">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="sjr">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="sjr">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="science-metrix">
+                    <api:title>Journal of Physics A: Mathematical and General</api:title>
+                  </api:record>
+                  <api:record source-name="science-metrix">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="era-2010">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="snip">
+                    <api:title>Journal of Physics A: Mathematical and General</api:title>
+                  </api:record>
+                  <api:record source-name="snip">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                  <api:record source-name="era-2012">
+                    <api:title>Journal of Physics A: Mathematical and Theoretical</api:title>
+                  </api:record>
+                </api:records>
+              </api:journal>
+              <api:relationships href="http://tempuri.org/publications/9599/relationships?view=default" />
+              <api:oa>
+                <api:oa-location>https://arxiv.org/pdf/1203.6590v1.pdf</api:oa-location>
+                <api:oa-location-file-version>Submitted version</api:oa-location-file-version>
+              </api:oa>
+            </api:object>
+          </api:related>
+        </api:relationship>
+        <api:relationship id="46454" type-id="1" type="publication-publication-derivative" last-modified-when="2019-03-15T17:30:06.63+00:00" href="http://tempuri.org/relationships/46454?detail=ref&amp;view=default">
+          <api:related direction="from" category="publication" id="96231">
+            <api:object category="publication" id="96231" last-affected-when="2019-03-15T17:30:06.63+00:00" last-modified-when="2018-08-28T10:22:08.697+01:00" href="http://tempuri.org/publications/96231?view=default" created-when="2018-05-16T17:53:04.807+01:00" type-id="3" type="chapter">
+              <!--Publication type 3 is "book chapter"-->
+              <api:ever-approved>true</api:ever-approved>
+              <api:reporting-date-1>2013-07-31</api:reporting-date-1>
+              <api:is-public>true</api:is-public>
+              <api:view name="default">
+                <api:field name="doi" type="text" display-name="DOI">
+                  <api:text>10.4018/978-1-4666-4301-7.ch024</api:text>
+                  <api:links>
+                    <api:link type="doi" href="http://doi.org/10.4018/978-1-4666-4301-7.ch024" />
+                    <api:link type="altmetric" href="http://www.altmetric.com/details.php?doi=10.4018/978-1-4666-4301-7.ch024" />
+                  </api:links>
+                </api:field>
+                <api:field name="publication-date" type="date" display-name="Publication date">
+                  <api:date>
+                    <api:day>31</api:day>
+                    <api:month>7</api:month>
+                    <api:year>2013</api:year>
+                  </api:date>
+                </api:field>
+                <api:field name="title" type="text" display-name="Title">
+                  <api:text>A framework for testing code in computational applications</api:text>
+                </api:field>
+              </api:view>
+              <api:fields />
+              <api:relationships href="http://tempuri.org/publications/96231/relationships?view=default" />
+            </api:object>
+          </api:related>
+        </api:relationship>
+      </api:relationships>
+      <api:related-groups>
+        <api:related-group id="27" parent-id="11" full-name="|Lilliput University|Symplectic|Example Manual Group" membership-type="explicit">Example Manual Group</api:related-group>
+        <api:related-group id="11" parent-id="1" full-name="|Lilliput University|Symplectic" membership-type="implicit">Symplectic</api:related-group>
+        <api:related-group id="1" full-name="|Lilliput University" membership-type="implicit">Lilliput University</api:related-group>
+        <api:related-group id="54" parent-id="11" full-name="|Lilliput University|Symplectic|Digital Science" membership-type="explicit">Digital Science</api:related-group>
+        <api:related-group id="31" parent-id="28" full-name="|Lilliput University|School of Natural Sciences|Department of Physics|Theoretical Physics|PT" membership-type="explicit">PT</api:related-group>
+        <api:related-group id="28" parent-id="15" full-name="|Lilliput University|School of Natural Sciences|Department of Physics|Theoretical Physics" membership-type="implicit">Theoretical Physics</api:related-group>
+        <api:related-group id="15" parent-id="14" full-name="|Lilliput University|School of Natural Sciences|Department of Physics" membership-type="implicit">Department of Physics</api:related-group>
+        <api:related-group id="14" parent-id="1" full-name="|Lilliput University|School of Natural Sciences" membership-type="implicit">School of Natural Sciences</api:related-group>
+      </api:related-groups>
+    </api:neighbourhood>
+  </api:object>
+  <api:push-supplementary-info>
+    <api:deposit-info type="initial">
+      <api:date>
+        <api:day>15</api:day>
+        <api:month>3</api:month>
+        <api:year>2019</api:year>
+      </api:date>
+      <api:depositor id="30" proprietary-id="dwh" username="dwh">
+        <api:initials>DW</api:initials>
+        <api:first-name>Daniel</api:first-name>
+        <api:last-name>Hook</api:last-name>
+        <api:full-name>Professor Daniel Hook</api:full-name>
+        <api:email-address>d.hook@lilliput.edu</api:email-address>
+        <api:primary-group-descriptor>Digital Science</api:primary-group-descriptor>
+        <api:is-academic>true</api:is-academic>
+      </api:depositor>
+      <api:files-info>
+        <api:file-info>
+          <api:name>test-file.txt</api:name>
+          <api:version>Accepted Version</api:version>
+        </api:file-info>
+      </api:files-info>
+    </api:deposit-info>
+  </api:push-supplementary-info>
+</api:push-object>
