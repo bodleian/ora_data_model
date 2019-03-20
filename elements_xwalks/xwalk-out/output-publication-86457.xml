@@ -1,0 +1,149 @@
+<xwalk-out>
+  <source-info>
+    <category>publication</category>
+    <id>86457</id>
+  </source-info>
+  <destination-info />
+  <metadata-info>
+    <mods:modsCollection xmlns:mods="http://www.loc.gov/mods/v3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:ora="http://ora/terms/">
+      <mods:mods version="3.2">
+        <mods:name type="personal">
+          <mods:displayForm>KS Hathcock</mods:displayForm>
+          <mods:namePart type="given">KS</mods:namePart>
+          <mods:namePart type="family">Hathcock</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>KS</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>HM Padilla-Nash</mods:displayForm>
+          <mods:namePart type="given">HM</mods:namePart>
+          <mods:namePart type="family">Padilla-Nash</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>HM</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>J Camps</mods:displayForm>
+          <mods:namePart type="given">J</mods:namePart>
+          <mods:namePart type="family">Camps</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>J</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>D-M Shin</mods:displayForm>
+          <mods:namePart type="given">D-M</mods:namePart>
+          <mods:namePart type="family">Shin</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>D-M</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>D Triner</mods:displayForm>
+          <mods:namePart type="given">D</mods:namePart>
+          <mods:namePart type="family">Triner</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>D</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>AL Shaffer</mods:displayForm>
+          <mods:namePart type="given">AL</mods:namePart>
+          <mods:namePart type="family">Shaffer</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>AL</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>RW Maul</mods:displayForm>
+          <mods:namePart type="given">RW</mods:namePart>
+          <mods:namePart type="family">Maul</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>RW</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>SM Steinberg</mods:displayForm>
+          <mods:namePart type="given">SM</mods:namePart>
+          <mods:namePart type="family">Steinberg</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>SM</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>PJ Gearhart</mods:displayForm>
+          <mods:namePart type="given">PJ</mods:namePart>
+          <mods:namePart type="family">Gearhart</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>PJ</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>LM Staudt</mods:displayForm>
+          <mods:namePart type="given">LM</mods:namePart>
+          <mods:namePart type="family">Staudt</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>LM</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>HC Morse</mods:displayForm>
+          <mods:namePart type="given">HC</mods:namePart>
+          <mods:namePart type="family">Morse</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>HC</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>T Ried</mods:displayForm>
+          <mods:namePart type="given">T</mods:namePart>
+          <mods:namePart type="family">Ried</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>T</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:name>
+          <mods:displayForm>RJ Hodes</mods:displayForm>
+          <mods:namePart type="given">RJ</mods:namePart>
+          <mods:namePart type="family">Hodes</mods:namePart>
+          <mods:alternativeName>
+            <mods:namePart>RJ</mods:namePart>
+          </mods:alternativeName>
+        </mods:name>
+        <mods:identifier type="doi">10.1182/blood-2015-06-654749</mods:identifier>
+        <mods:identifier type="issn">0006-4971</mods:identifier>
+        <mods:identifier type="pii">blood-2015-06-654749</mods:identifier>
+        <mods:identifier type="pubs_id">86457</mods:identifier>
+        <mods:identifier type="tinypid">pubs:86457</mods:identifier>
+        <mods:identifier type="pmid">26400962</mods:identifier>
+        <mods:titleInfo>
+          <mods:title>ATM deficiency promotes development of murine B-cell lymphomas that resemble diffuse large B-cell lymphoma in humans</mods:title>
+        </mods:titleInfo>
+        <mods:name>
+          <mods:role>
+            <mods:roleTerm type="text">Publisher</mods:roleTerm>
+          </mods:role>
+        </mods:name>
+        <mods:physicalDescription>
+          <mods:form type="status">Published</mods:form>
+        </mods:physicalDescription>
+        <mods:location>
+          <mods:physicalLocation>United States</mods:physicalLocation>
+        </mods:location>
+        <mods:genre type="typeofwork">journal-article</mods:genre>
+        <mods:originInfo>
+          <mods:dateOther type="date_of_acceptance" encoding="iso8601">2015-09-19</mods:dateOther>
+          <mods:dateIssued encoding="iso8601">2015-11-12</mods:dateIssued>
+        </mods:originInfo>
+      </mods:mods>
+    </mods:modsCollection>
+  </metadata-info>
+  <identifier-info />
+  <files-info>
+    <ora:repository_file xmlns:ora="http://ora/terms/">
+      <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">test-file.txt</dc:title>
+      <rioxxterms:version xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/">Accepted Version</rioxxterms:version>
+    </ora:repository_file>
+  </files-info>
+</xwalk-out>
