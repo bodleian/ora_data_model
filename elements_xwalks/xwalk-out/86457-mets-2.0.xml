@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    =========================================
+    =========================================
+    PUBS:86457 in METS to datamodel 2.0
+    =========================================
+    =========================================
+    
+    The record PUBS:86457 as recorded in /elements_xwalks/xwalk-out/input-publication-83749.xml
+    marked up by hand in METS
+-->
+<mets:mets 
+    xmlns:mets="http://www.loc.gov/METS/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+    <mets:metsHdr CREATEDATE="2019-03-21T12:17:00.337+01:00">
+        <mets:agent OTHERTYPE="SOFTWARE" ROLE="CREATOR" TYPE="OTHER">
+            <mets:name>
+                Symplectic Elements
+            </mets:name>
+            <mets:note>
+                Created from Symplectic Elements Publications API
+            </mets:note>
+        </mets:agent>
+    </mets:metsHdr>
+    <mets:dmdSec ID="DMDLOG_0000">
+        <mets:mdWrap MDTYPE="MODS">
+            <mets:xmlData>
+                <mods:mods version="3.8"         
+                        xmlns:mods="http://www.loc.gov/mods/v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://www.loc.gov/mods/v3 https://raw.githubusercontent.com/tomwrobel/ora_data_model/master/ora_mods-3.8.xsd">                 
+                    <!--
+                        RECORD METADATA
+                        ===============
+                    -->
+                    
+                    <!-- DEFAULT FIELDS -->
+                    <mods:titleInfo>
+                        <mods:title>ATM deficiency promotes development of murine B-cell lymphomas that resemble diffuse large B-cell lymphoma in humans</mods:title>
+                    </mods:titleInfo>
+                        
+                    <mods:genre type="type_of_work">Journal article</mods:genre>
+                    
+                    <mods:subject>
+                        <mods:genre>1102 Cardiorespiratory Medicine and Haematology</mods:genre>
+                        <mods:genre>1103 Clinical Sciences</mods:genre>
+                        <mods:genre>1107 Immunology</mods:genre>
+                        <mods:genre>1114 Paediatrics and Reproductive Medicine</mods:genre>
+                        <mods:genre>2.1 Biological and endogenous factors</mods:genre>
+                        <mods:genre>Animals</mods:genre>
+                        <mods:genre>Ataxia Telangiectasia Mutated Proteins</mods:genre>
+                        <mods:genre>Ataxia Telangiectasia</mods:genre>
+                        <mods:genre>Basic Science</mods:genre>
+                        <mods:genre>Biomedical</mods:genre>
+                        <mods:genre>Biotechnology</mods:genre>
+                        <mods:genre>Cancer</mods:genre>
+                        <mods:genre>Caspases</mods:genre>
+                        <mods:genre>Cell Line, Tumor</mods:genre>
+                        <mods:genre>Chromosomal Instability</mods:genre>
+                        <mods:genre>Genetic Loci</mods:genre>
+                        <mods:genre>Genetics</mods:genre>
+                        <mods:genre>Hematology</mods:genre>
+                        <mods:genre>Humans</mods:genre>
+                        <mods:genre>Immunologic Surveillance</mods:genre>
+                        <mods:genre>Immunology</mods:genre>
+                        <mods:genre>Lymphoma, Large B-Cell, Diffuse</mods:genre>
+                        <mods:genre>Lymphoma</mods:genre>
+                        <mods:genre>Mice, Knockout</mods:genre>
+                        <mods:genre>Mice</mods:genre>
+                        <mods:genre>Mucosa-Associated Lymphoid Tissue Lymphoma Translocation 1 Protein</mods:genre>
+                        <mods:genre>Neoplasm Proteins</mods:genre>
+                        <mods:genre>Neurodegenerative</mods:genre>
+                        <mods:genre>NF-kappa B</mods:genre>
+                        <mods:genre>Rare Diseases</mods:genre>
+                        <mods:genre>Receptors, Antigen, B-Cell</mods:genre>
+                        <mods:genre>T-Lymphocytes</mods:genre>
+                        <mods:genre>Tumor Suppressor Proteins</mods:genre>
+                    </mods:subject>
+                    
+                    <mods:language>   
+                        <mods:languageTerm authority="iso639-2b" type="text">English</mods:languageTerm>
+                    </mods:language>
+                            
+                    <mods:abstract>The serine-threonine kinase ataxia-telangiectasia mutated (ATM) plays a central role in maintaining genomic integrity. In mice, ATM deficiency is exclusively associated with T-cell lymphoma development, whereas B-cell tumors predominate in human ataxia-telangiectasia patients. We demonstrate in this study that when T cells are removed as targets for lymphomagenesis and as mediators of immune surveillance, ATM-deficient mice exclusively develop early-onset immunoglobulin M(+) B-cell lymphomas that do not transplant to immunocompetent mice and that histologically and genetically resemble the activated B cell-like (ABC) subset of human diffuse large B-cell lymphoma (DLBCL). These B-cell lymphomas show considerable chromosomal instability and a recurrent genomic amplification of a 4.48-Mb region on chromosome 18 that contains Malt1 and is orthologous to a region similarly amplified in human ABC DLBCL. Of importance, amplification of Malt1 in these lymphomas correlates with their dependence on nuclear factor (NF)-κB, MALT1, and B-cell receptor (BCR) signaling for survival, paralleling human ABC DLBCL. Further, like some human ABC DLBCLs, these mouse B-cell lymphomas also exhibit constitutive BCR-dependent NF-κB activation. This study reveals that ATM protects against development of B-cell lymphomas that model human ABC DLBCL and identifies a potential role for T cells in preventing the emergence of these tumors.</mods:abstract>
+                                           
+                    <mods:location>
+                        <mods:url>https://figsh.com/articles/ATM_deficiency_promotes_development_of_murine_B-cell_lymphomas_that_resemble_diffuse_large_B-cell_lymphoma_in_humans/5877537</mods:url>
+                    </mods:location>
+                
+                 
+                    <!-- IDENTIFIERS -->
+                    <mods:identifier type="doi">10.1182/blood-2015-06-654749</mods:identifier>
+                    <mods:identifier type="eissn">1528-0020</mods:identifier>
+                    <mods:identifier type="issn">0006-4971</mods:identifier>
+                    <mods:identifier type="pii">blood-2015-06-654749</mods:identifier>
+                    <mods:identifier type="pmid">26400962</mods:identifier>   
+                    <mods:identifier type="pubs_id">86457</mods:identifier>
+                    <mods:identifier type="tinypid">pubs:86457</mods:identifier>
+                    
+                   
+                    <!-- ORIGIN INFO significant dates and place of publication of 'original' published work -->        
+                    <mods:originInfo>
+                        <mods:dateOther type="date_of_acceptance" encoding="iso8601">2015-09-19</mods:dateOther>
+                        <mods:dateIssued encoding="iso8601">2015-11-12</mods:dateIssued>
+                        <mods:copyrightDate encoding="iso8601">2015</mods:copyrightDate>
+                        <mods:place>
+                            <mods:placeTerm type="text">United States</mods:placeTerm>
+                        </mods:place>
+                    </mods:originInfo>
+                      
+                    <!-- RELATED ITEMS -->
+                    <mods:relatedItem otherType="related_item">
+                        <mods:titleInfo>
+                            <mods:title>Collaboration in Africa: Networks or clusters?</mods:title>
+                        </mods:titleInfo>
+                        <mods:note displayLabel="related_item_citation_text">Proceedings of ISSI 2013 - 14th International Society of Scientometrics and Informetrics Conference</mods:note>
+                    </mods:relatedItem>
+                    
+                    <mods:relatedItem otherType="related_item">
+                        <mods:titleInfo>
+                            <mods:title>Behavior of eigenvalues in a region of broken   symmetry</mods:title>
+                        </mods:titleInfo>
+                        <mods:location><mods:url>10.1103/PhysRevA.95.052113</mods:url></mods:location>
+                    </mods:relatedItem>
+                    
+                    <mods:relatedItem otherType="related_item">
+                        <mods:titleInfo>
+                            <mods:title>Infinite Class of -Symmetric Theories from One Timelike Liouville Lagrangian</mods:title>
+                        </mods:titleInfo>
+                        <mods:location><mods:url>10.1103/PhysRevLett.113.231605</mods:url></mods:location>        
+                    </mods:relatedItem>
+                               
+                    <mods:relatedItem otherType="related_item">
+                        <mods:titleInfo>
+                            <mods:title>Negative-energy $\mathcal {P}\mathcal {T}$-symmetric Hamiltonians</mods:title>
+                        </mods:titleInfo>
+                        <mods:location><mods:url>10.1088/1751-8113/45/44/444003</mods:url></mods:location>
+                    </mods:relatedItem>
+                    
+                    <mods:relatedItem otherType="related_item">
+                        <mods:titleInfo>
+                            <mods:title>A framework for testing code in computational applications</mods:title>
+                        </mods:titleInfo>
+                        <mods:location><mods:url>10.4018/978-1-4666-4301-7.ch024</mods:url></mods:location>
+                    </mods:relatedItem>
+                
+                    <!-- RIGHTS and LICENCES -->
+                    <!-- Includes ORA deposit licence. See also CONTRIBUTIONS AND ROLES: COPYRIGHT HOLDER -->
+                    <mods:accessCondition type="license">CC-BY</mods:accessCondition>
+                    <!-- /RECORD METADATA -->
+                
+                    <!-- 
+                        CONTRIBUTIONS AND ROLES
+                        =======================
+                        
+                        commissioning bodies, contributors, copyright_holders, funders, publishers 
+                    -->
+                    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>KS Hathcock</mods:displayForm>
+                        
+                        <mods:namePart type="given">KS</mods:namePart>
+                        <mods:namePart type="family">Hathcock</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>KS</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abc6</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">1</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>HM Padilla-Nash</mods:displayForm>
+                        
+                        <mods:namePart type="given">HM</mods:namePart>
+                        <mods:namePart type="family">Padilla-Nash</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>HM</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abc5</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">2</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>J Camps</mods:displayForm>
+                        
+                        <mods:namePart type="given">J</mods:namePart>
+                        <mods:namePart type="family">Camps</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>J</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abc4</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">3</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>D-M Shin</mods:displayForm>
+                        
+                        <mods:namePart type="given">D-M</mods:namePart>
+                        <mods:namePart type="family">Shin</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>JD-M</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abc3</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">4</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>D Triner</mods:displayForm>
+                        
+                        <mods:namePart type="given">D</mods:namePart>
+                        <mods:namePart type="family">Triner</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>J</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abc2</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">5</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>AL Shaffer</mods:displayForm>
+                        
+                        <mods:namePart type="given">AL</mods:namePart>
+                        <mods:namePart type="family">Shaffer</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>AL</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abc1</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">6</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>                    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>RW Maul</mods:displayForm>
+                        
+                        <mods:namePart type="given">RW</mods:namePart>
+                        <mods:namePart type="family">Maul</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>RW</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_92345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">7</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>                    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>SM Steinberg</mods:displayForm>
+                        
+                        <mods:namePart type="given">SM</mods:namePart>
+                        <mods:namePart type="family">Steinberg</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>SM</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_82345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">8</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>                    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>PJ Gearhart</mods:displayForm>
+                        
+                        <mods:namePart type="given">PJ</mods:namePart>
+                        <mods:namePart type="family">Gearhart</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>PJ</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_72345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">9</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>                    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>LM Staudt</mods:displayForm>
+                        
+                        <mods:namePart type="given">LM</mods:namePart>
+                        <mods:namePart type="family">Staudt</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>LM</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_62345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">10</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>HC Morse</mods:displayForm>
+                        
+                        <mods:namePart type="given">HC</mods:namePart>
+                        <mods:namePart type="family">Morse</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>HC</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_52345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">11</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>T Ried</mods:displayForm>
+                        
+                        <mods:namePart type="given">T</mods:namePart>
+                        <mods:namePart type="family">Ried</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>T</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_42345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">12</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>    
+                    
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>RJ Hodes</mods:displayForm>
+                        
+                        <mods:namePart type="given">RJ</mods:namePart>
+                        <mods:namePart type="family">Hodes</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>RJ</mods:namePart></mods:alternativeName>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_32345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">13</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Author</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>    
+                    
+                    <mods:name type="personal">
+                        <mods:displayForm>Daniel Hook</mods:displayForm>
+                        <mods:namePart type="given">Daniel</mods:namePart>
+                        <mods:namePart type="family">Hook</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>DW</mods:namePart></mods:alternativeName>
+                        
+                        <mods:nameIdentifier type="email_address">d.hook@lilliput.edu</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_22345678-1234-1234-1234-12345678abcd</mods:nameIdentifier>
+                        <mods:nameIdentifier type="sso">dwh</mods:nameIdentifier>
+                        <mods:nameIdentifier type="orcid_identifier">0000-0001-9746-1193</mods:nameIdentifier>
+                        <mods:nameIdentifier type="pubs_person_id">30</mods:nameIdentifier>
+                        <mods:nameIdentifier type="figshare-for-institutions-user-account-id">dwh</mods:nameIdentifier>
+                        <mods:nameIdentifier type="researcherid">C-4764-2008</mods:nameIdentifier>
+                        <mods:nameIdentifier type="arxiv-author-id">http://arxiv.org/a/hook_d_1</mods:nameIdentifier>
+                        <mods:nameIdentifier type="figshare-for-institutions-user-id">1640221</mods:nameIdentifier>
+                        
+                        <mods:affiliation>
+                            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
+                                <ora:affiliationComponent type="institution">Lilliput University</ora:affiliationComponent>
+                                <ora:affiliationComponent type="department">Digital Science</ora:affiliationComponent>
+                                <ora:affiliationComponent type="sub_department">Theoretical Physics</ora:affiliationComponent>
+                            </ora:affiliation>
+                        </mods:affiliation>      
+                        
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">1</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">Depositor</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+
+
+                    <!-- FUNDER -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>National Cancer Institute</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    <mods:name type="corporate">
+                        <mods:displayForm>National Institute of Allergy and Infectious Disease</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    <mods:name type="corporate">
+                        <mods:displayForm>National Institute of Diabetes and Digestive and Kidney Problems</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                           
+                
+                    <!-- 
+                        WORK-TYPE SPECIFIC METADATA
+                        ===========================
+                    -->
+                    
+                   
+                    <!-- JOURNAL ARTICLE related markup -->
+                    <mods:relatedItem type="host">
+                        <mods:titleInfo>
+                            <mods:title>Blood</mods:title>
+                        </mods:titleInfo>
+                        <mods:part>
+                            <mods:detail type="issue">
+                                <mods:number>20</mods:number>
+                            </mods:detail>
+                            <mods:extent unit="pages">
+                                <mods:list>2291-2301</mods:list>
+                            </mods:extent>
+                           
+                            <mods:detail type="volume">
+                                <mods:number>126</mods:number>
+                            </mods:detail>
+                        </mods:part>
+                        <mods:physicalDescription>
+                            <mods:form type="status">Published</mods:form>
+                        </mods:physicalDescription>
+                    </mods:relatedItem>
+                    <!-- /JOURNAL ARTICLE related markup -->
+                    
+                    
+                    <!-- /WORK-TYPE SPECIFIC METADATA -->
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DMDFILE001">
+        <mets:mdWrap MDTYPE="OTHER">
+            <mets:xmlData>
+                <!-- 
+                    BINARY FILE METADATA
+                    ====================
+                -->
+                <ora:repository_file xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:dcterms="http://purl.org/dc/terms/"
+                    xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/"
+                    xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+                    xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
+                    xmlns:ora="http://ora.ox.ac.uk/terms/"
+                    xmlns:symp="http://symplectic/symplectic-elements:def/model#"
+                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+                    <dc:title>test-file.txt</dc:title>
+                    <rioxxterms:version>Accepted Version</rioxxterms:version>
+                </ora:repository_file>
+                <!-- /BINARY FILE METADATA -->
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:amdSec ID="AMDLOG_0000">
+        <mets:rightsMD ID="RIGHTSMD_01">
+            <mets:mdWrap MDTYPE="METSRIGHTS">
+                <mets:xmlData>
+                    <metsrights:RightsDeclarationMD RIGHTSCATEGORY="LICENSED" xmlns:metsrights="http://http://cosimo.stanford.edu/sdr/metsrights/">
+                        <metsrights:RightsDeclaration><!-- field:record_ora_deposit_licence --></metsrights:RightsDeclaration>
+                    </metsrights:RightsDeclarationMD>
+                </mets:xmlData>
+            </mets:mdWrap>
+        </mets:rightsMD>
+        <mets:sourceMD ID="SOURCEMD_01">
+            <mets:mdWrap MDTYPE="MODS">
+                <mets:xmlData>
+                    <mods:mods version="3.8" xmlns:mods="http://www.loc.gov/mods/v3">
+                       <!-- 
+                           ADMIN METADATA
+                           ==============
+                           General admin
+                           Open access admin
+                           Thesis specific admin
+                           Embargo details
+                       -->
+                       
+                       <!-- GENERAL ADMIN -->
+                       
+                       <mods:recordInfo>
+                           <mods:recordCreationDate>2015-11-13</mods:recordCreationDate>
+                           <mods:recordContentSource>Symplectic Elements</mods:recordContentSource>
+                           <mods:recordInfoNote type="ora_data_model_version">2.0</mods:recordInfoNote>
+                           <mods:recordInfoNote type="requires_review">true</mods:recordInfoNote>
+                       </mods:recordInfo>
+                       
+                       <mods:extension>
+                           <ora_admin:admin 
+                               xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin"
+                               xmlns:dc="http://purl.org/dc/elements/1.1/"
+                               xmlns:dcterms="http://purl.org/dc/terms/"
+                               xmlns:mods="http://www.loc.gov/mods/v3">
+                               <ora_admin:record_deposit_date>2019-03-15</ora_admin:record_deposit_date>
+                               <ora_admin:record_publication_date>2015-09-23</ora_admin:record_publication_date>
+                               <ora_admin:record_review_status>Public</ora_admin:record_review_status>
+       
+                           </ora_admin:admin>
+                       </mods:extension>
+                       
+                       <!-- /ADMIN_METADTA -->
+                    </mods:mods>
+                </mets:xmlData>
+            </mets:mdWrap>
+        </mets:sourceMD>
+    </mets:amdSec>
+    <mets:fileSec>
+        <mets:fileGrp>
+            <mets:file ID="FILENAME1" MIMETYPE="mimetype">
+                <mets:FLocat xmlns:xlink="http://www.w3.org/1999/xlink" LOCTYPE="URL"
+                    xlink:href="file:///filepath"/>
+            </mets:file>
+        </mets:fileGrp>
+    </mets:fileSec>
+    <mets:structMap TYPE="LOGICAL">
+        <mets:div DMDID="DMDLOG_0000" ADMID="AMDLOG_0000" ID="LOG_0000" LABEL="Object ID" TYPE="Repository object">
+            <mets:div DMDID="DMDFILE001" LABEL="FILENAME1" TYPE="Repository file">
+                <mets:fptr FILEID="FILENAME1"/>
+            </mets:div>
+        </mets:div>
+    </mets:structMap>
+</mets:mets>
