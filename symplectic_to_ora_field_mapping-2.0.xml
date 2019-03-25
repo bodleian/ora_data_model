@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    25/03/2019: Added figshare mapping for sso/institutional identifier
     22/03/2019: Update following publication-publication example pubs 86457
     - publication-publication related item mappings added
     - author-licence maps to licence
@@ -349,6 +350,7 @@
         <symplectic_field xpath="api:neighbourhood/api:related-groups/api:related-group[@id='1'][@membership_type='implicit']"><if test="Another personal affiliation is set, but no value is set for contributors__institution">
             <ora_field>contributors__institution</ora_field>
         </if></symplectic_field>
+        <symplectic_field name="figshare-for-institutions-user-account-id"><ora_field>contributors__institutional_identifier</ora_field></symplectic_field>
 
     <!-- 
         =================================

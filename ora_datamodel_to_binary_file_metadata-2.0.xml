@@ -24,4 +24,6 @@
     <ora:accessConditionAtDeposit>field:binary_files__file_admin_access_condition_at_deposit</ora:accessConditionAtDeposit>
     <ora:fileAndRecordDoNotMatch>field:binary_files__file_admin_file_and_record_do_not_match</ora:fileAndRecordDoNotMatch>
     <symp:hasPublicUrl>field:binary_files__file_public_url</symp:hasPublicUrl>
+    <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
+    <ora:filesetId>field:binary_files__file_admin_hyrax_filesest_identifier</ora:filesetId>
 </ora:repository_file>
