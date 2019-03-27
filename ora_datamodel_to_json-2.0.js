@@ -4,7 +4,7 @@
   (Note that JSON does not allow comments, which are useful here, so this is actually
   a JavaScript file. The conversion to JSON is, thankfully, trivial!)
 
-  A Javascript Object representation of the ORA4 data model Written against ORA Data Model v2.0rc5.
+  A Javascript Object representation of the ORA4 data model Written against ORA Data Model v2.0
   
   For the changelog since v2.0rc4, see ora_datamodel_to_mods.xml
  */
@@ -29,7 +29,7 @@ ORA_Data_Model_Object = {
         "file_public_url": "",
         "file_size": ""
     }],
-    "contributors": {
+    "contributors": [{
         "contributor_email": "",
         "contributor_identifiers": [{
             "contributor_identifier": "",
@@ -59,7 +59,7 @@ ORA_Data_Model_Object = {
         }],
         "sub_department": "",
         "sub_unit": ""
-    },
+    }],
     "commissioning_body": "",
     "funding": [{
         "funder_compliance_met": "",
@@ -72,7 +72,7 @@ ORA_Data_Model_Object = {
         "funder_name": ""
     }],
     "language": "",
-    "keyword": "",
+    "keyword": [""],
     "pid": "",
     "ora_data_model_version": "",
     "pre_counter_downloads": "",
@@ -90,7 +90,7 @@ ORA_Data_Model_Object = {
         "related_item_title": "",
         "related_item_url": ""
     }],
-    "subject": "",
+    "subject": [""],
     "summary_documentation": "",
     "tinypid": "",
     "title": "",
