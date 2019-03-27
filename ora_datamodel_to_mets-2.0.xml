@@ -248,6 +248,7 @@
                     <mods:identifier type="isbn13">field:identifier_isbn_13</mods:identifier>
                     <mods:identifier type="issn">field:identifier_issn</mods:identifier>
                     <mods:identifier type="pii">field:identifier_pii</mods:identifier>
+                    <!-- pid will only be supplied on export, and will be ignored on import, to specify the pid via import, use Sword2 header 'Slug' -->
                     <mods:identifier type="pid">field:pid</mods:identifier>
                     <mods:identifier type="pmid">field:identifier_pmid</mods:identifier>   
                     <mods:identifier type="pubs_id">field:identifier_pubs_identifier</mods:identifier>
