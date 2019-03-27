@@ -2,11 +2,11 @@
 <!--
     =========================================
     =========================================
-    METS - THE ORA DATA MODEL 2.0rc5 IN METS
+    METS - THE ORA DATA MODEL 2.0 IN METS
     =========================================
     =========================================
     
-    This section describes how to mark up an ORA Data Model v2.0rc5 object in METS
+    This section describes how to mark up an ORA Data Model v2.0 object in METS
     
     MODS content is conformant to an expected MODS 3.8*, with one exception (a mods:extension element).
     
