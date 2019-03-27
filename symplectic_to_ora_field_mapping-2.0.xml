@@ -18,6 +18,7 @@
     - Updated sub types mapping instructions
     - Updated confidential_report mapping instructions
     - removed outdated MODS mapping example
+    - removed value and field mappings checklist: the only outstanding issues are being tracked in Gitlab issues
     25/03/2019: Added figshare mapping for sso/institutional identifier
     22/03/2019: Update following publication-publication example pubs 86457
     - publication-publication related item mappings added
@@ -81,34 +82,6 @@
     
     Notes are in a child <note/> element.
     
-    
-    
-    Value mappings
-    ==============
-    Fields that will need value mappings:
-     - type_of_work
-     - review_status
-     - article number
-     - pagination
-    
-    
-    
-    ORA identifiers for a work
-    ==========================
-    doi
-    eisbn
-    eissn
-    isbn_10
-    isbn_13
-    issn
-    pii
-    pmid
-    pubs_id
-    
-    ORA identifiers for an individual
-    =================================
-    orcid
-    institutional_identifier (Oxford Single-Sign-On id)
 -->
 <mappings>
     <!-- 
@@ -367,7 +340,16 @@
         <symplectic_field name="primary-group-descriptor"><ora_field>contributors__department</ora_field><note>If this field is set, then contributors__institution should be set to "University of Oxford"</note></symplectic_field>
         <symplectic_field name="department"><ora_field>contributors__sub_department</ora_field></symplectic_field>
         <symplectic_field xpath="@proprietary-id"><ora_field>contributors__institutional_identifier</ora_field></symplectic_field>
-        <symplectic_field xpath="api:user-identifier-associations/api:user-identifier-association"><ora_field>contributors__contributor__identifiers__contributor_identifier_scheme="@scheme"</ora_field><ora_field>contributors__contributor__identifiers__contributor_identifier</ora_field><note>The scheme for the user-identifier-association should become the value of the contributor_identifiers_scheme. However email-address should not be mapped</note></symplectic_field>
+        <symplectic_field xpath="api:user-identifier-associations/api:user-identifier-association">
+            <if test="@scheme='orcid'">
+                <ora_field>contributors__orcid_identifier</ora_field>
+            </if>
+            <else>
+                <ora_field>contributors__contributor_identifiers__contributor_identifier_scheme="@scheme"</ora_field>
+                <ora_field>contributors__contributor_identifiers__contributor_identifier</ora_field>
+                <note>The scheme for the user-identifier-association should become the value of the contributor_identifiers_scheme. However email-address should not be mapped</note>
+            </else>
+        </symplectic_field>
         <symplectic_field xpath="api:neighbourhood/api:related-groups/api:related-group[@id='1'][@membership_type='implicit']"><if test="Another personal affiliation is set, but no value is set for contributors__institution">
             <ora_field>contributors__institution</ora_field>
         </if></symplectic_field>
