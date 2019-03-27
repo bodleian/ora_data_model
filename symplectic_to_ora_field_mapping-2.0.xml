@@ -297,6 +297,7 @@
         <symplectic_field name="title"><ora_field>title</ora_field></symplectic_field>
         
         <symplectic_field name="types">
+            <note>If 'types' is the same as field:type_of_work it should be ignored</note>
             <if test="type_of_work == 'Journal article'">
                 <if test="@display-name='Sub type(s)' AND api:item/text != ora_field:type_of_work AND ./text() == 'editorial comment'">
                     <ora_field>sub_type_of_work='Editorial'</ora_field>
@@ -561,8 +562,13 @@
         This section details how to map work types, especially in the context of the Sword2 Hyrax-Work-Type header
         
         symplectic_work_type = name of Symplectic type of work
-        symplectic_sub_type = name of Symplectic sub type, corresponds to the value set at '//pubs:field[@name="types"][@display-name="Sub types']'
-        ora_work_type = name of ORA type of work (field:type_of_work), and name of Hyrax Work Type to be set in the Hyrax-Work-Type header
+        symplectic_sub_type = 
+          - name of Symplectic sub type, corresponds to the value set at '//pubs:field[@name="types"][@display-name="Sub types']'. 
+          - Note that if this is the same as symplectic_work_type ignore it. 
+          - If more than one sub type, take the first value
+        ora_work_type = 
+          - name of ORA type of work (field:type_of_work), AND
+          - name of Hyrax Work Type to be set in the Hyrax-Work-Type header in all cases
         ora_sub_type_of_work = name of ORA sub type of work (field:sub_type_of_work), see also the Symplectic 'types' field mapping instructions above
     -->
     
