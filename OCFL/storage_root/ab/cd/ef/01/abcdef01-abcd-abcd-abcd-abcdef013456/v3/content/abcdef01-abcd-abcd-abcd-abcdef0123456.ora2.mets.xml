@@ -260,6 +260,28 @@
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
+    <mets:dmdSec ID="DMDFILE002">
+        <mets:mdWrap MDTYPE="OTHER">
+            <mets:xmlData>
+                <!-- 
+                    BINARY FILE METADATA
+                    ====================
+                -->
+                <ora:repository_file xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:dcterms="http://purl.org/dc/terms/"
+                    xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/"
+                    xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+                    xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
+                    xmlns:ora="http://ora.ox.ac.uk/terms/"
+                    xmlns:symp="http://symplectic/symplectic-elements:def/model#"
+                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+                    <dc:title>test-file-3.txt</dc:title>
+                    <rioxxterms:version>Accepted Version</rioxxterms:version>
+                </ora:repository_file>
+                <!-- /BINARY FILE METADATA -->
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
     <mets:amdSec ID="AMDLOG_0000">
         <mets:rightsMD ID="RIGHTSMD_01">
             <mets:mdWrap MDTYPE="METSRIGHTS">
@@ -314,7 +336,13 @@
         <mets:fileGrp>
             <mets:file ID="FILENAME1" MIMETYPE="mimetype">
                 <mets:FLocat xmlns:xlink="http://www.w3.org/1999/xlink" LOCTYPE="URL"
-                xlink:href="file:///test-file.txt"/>
+                    xlink:href="file:///test-file.txt"/>
+            </mets:file>
+        </mets:fileGrp>
+        <mets:fileGrp>
+            <mets:file ID="FILENAME2" MIMETYPE="mimetype">
+                <mets:FLocat xmlns:xlink="http://www.w3.org/1999/xlink" LOCTYPE="URL"
+                    xlink:href="file:///test-file-3.txt"/>
             </mets:file>
         </mets:fileGrp>
     </mets:fileSec>
@@ -322,6 +350,9 @@
         <mets:div DMDID="DMDLOG_0000" ADMID="AMDLOG_0000" ID="LOG_0000" LABEL="Object ID" TYPE="Repository object">
             <mets:div DMDID="DMDFILE001" LABEL="test-file.txt" TYPE="Repository file">
                 <mets:fptr FILEID="FILENAME1"/>
+            </mets:div>
+            <mets:div DMDID="DMDFILE002" LABEL="test-file-3.txt" TYPE="Repository file">
+                <mets:fptr FILEID="FILENAME2"/>
             </mets:div>
         </mets:div>
     </mets:structMap>
