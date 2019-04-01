@@ -15,19 +15,23 @@ ORA_Data_Model_Object = {
     "additional_information": "",
     "alternative_title": "",
     "binary_files": [{
+        "file_admin_access_condition_at_deposit": "",
         "file_admin_file_and_record_do_not_match": "",
         "file_admin_fedora3_datastream_identifier": "",
         "file_embargo_comment": "",
-        "file_embargo_end": "",
+        "file_embargo_end_date": "",
         "file_embargo_reason": "",
         "file_embargo_release_method": "",
         "file_format": "",
+        "file_last_access_request_date": "",
         "file_made_available_date": "",
         "file_name": "",
         "file_order": "",
         "file_path": "",
         "file_public_url": "",
-        "file_size": ""
+        "file_rioxx_file_version": "",
+        "file_size": "",
+        "file_version": ""    
     }],
     "contributors": [{
         "contributor_email": "",
