@@ -613,7 +613,7 @@
             <mets:mdWrap MDTYPE="METSRIGHTS">
                 <mets:xmlData>
                     <metsrights:RightsDeclarationMD RIGHTSCATEGORY="LICENSED" xmlns:metsrights="http://http://cosimo.stanford.edu/sdr/metsrights/">
-                        <metsrights:RightsDeclaration><!-- field:record_ora_deposit_licence --></metsrights:RightsDeclaration>
+                        <metsrights:RightsDeclaration>field:record_ora_deposit_licence</metsrights:RightsDeclaration>
                     </metsrights:RightsDeclarationMD>
                 </mets:xmlData>
             </mets:mdWrap>

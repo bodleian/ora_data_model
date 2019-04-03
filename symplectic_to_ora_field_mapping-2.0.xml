@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    03/04/2019: Added deposit licence instructions
     27/03/2019: Added type of work mappings
     - Type of work mappings section added
     - Updated sub types mapping instructions
@@ -379,7 +380,8 @@
         Information related to record deposit
         
     -->
-        <symplectic_field xpath="api:deposit-info[@type='initial']/api:date"><ora_field>record_deposit_date</ora_field></symplectic_field>    
+        <symplectic_field xpath="api:deposit-info[@type='initial']/api:date"><ora_field>record_deposit_date</ora_field></symplectic_field>
+        <symplectic_field xpath="deposit-info/deposit-licence-info/identifier"><ora_field>record_ora_deposit_licence</ora_field><note>Note that this is set in two places, in the record dmdSec and in amdSec/rightsMD</note></symplectic_field>
         
         
     <!--
