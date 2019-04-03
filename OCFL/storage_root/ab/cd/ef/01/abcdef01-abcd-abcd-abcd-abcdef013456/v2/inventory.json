@@ -12,7 +12,7 @@
   "type": "https://ocfl.io/1.0/spec/#inventory",
   "versions": {
     "v1": {
-      "created": "2019-03-27T12:47:00+0:00Z",
+      "created": "2019-03-27T12:47:00Z",
       "message": "Original version",
       "state": {
         "11e9c12d6c600d6129fe0a3fb582cdf1c68a7c8b702b1f3433b5bb6967ea637d52ce6fb21e5a26832d07ad6cf6e4885de6d562278b8257809c0a3dbe5c539280": ["test-file.txt"],
@@ -24,7 +24,7 @@
       }    
     },
     "v2": {
-      "created": "2019-03-27T14:41:00+0:00Z",
+      "created": "2019-03-27T14:41:00Z",
       "message": "Added two files, updated metadata",
       "state": {
         "11e9c12d6c600d6129fe0a3fb582cdf1c68a7c8b702b1f3433b5bb6967ea637d52ce6fb21e5a26832d07ad6cf6e4885de6d562278b8257809c0a3dbe5c539280": ["test-file.txt"],
