@@ -81,7 +81,7 @@ ORA_Data_Model_Object = {
     "ora_data_model_version": "",
     "pre_counter_downloads": "",
     "pre_counter_views": "",
-    "record_content_source": "",
+    "record_content_source": [""],
     "record_created_date": "",
     "record_identifiers": [{
         "record_identifier_scheme": "",
@@ -191,8 +191,8 @@ ORA_Data_Model_Object = {
     "identifier_pii": "",
     "identifier_pubs_identifier": "",
     "identifier_uuid": "",
-    "identifier_source_identifier": "",
-    "identifier_tombstone_record_identifier": "",
+    "identifier_source_identifier": [""],
+    "identifier_tombstone_record_identifier": [""],
 
     // OPEN ACCESS ADMIN FIELDS
     "apc_admin_apc_review_status": "",
