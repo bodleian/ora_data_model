@@ -27,7 +27,7 @@ import uuid
 
 
 # Constants
-OBJECTS_TO_CREATE = 10
+OBJECTS_TO_CREATE = 250000
 OCFL_ROOT_PARENT_DIRECTORY = "/mnt/hard_disk/ocfl/test_roots"
 TEST_CONTENT_DIRECTORY = ("/home/lina0911/code/ora4/repos/ora_data_model"
                           "/OCFL/test_code/test_object_content")
@@ -63,7 +63,7 @@ def generate_object(uuid=None, ocfl_root=None):
     pair_tree_path = generate_path(uuid)
     content_directory = TEST_CONTENT_DIRECTORY
     new_object_directory = os.path.join(ocfl_root, uuid)
-    pair_tree_object_directory = os.path.join(ocfl_root, pair_tree_path, uuid)
+    pair_tree_object_directory = os.path.join(ocfl_root, pair_tree_path)
 
     create_object_command = [
         "ocfl", "--root", ocfl_root, "cp", "-r", content_directory, uuid]
