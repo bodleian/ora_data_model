@@ -27,10 +27,10 @@ import uuid
 
 
 # Constants
-OBJECTS_TO_CREATE = 250000
+OBJECTS_TO_CREATE = 2
 OCFL_ROOT_PARENT_DIRECTORY = "/mnt/hard_disk/ocfl/test_roots"
 TEST_CONTENT_DIRECTORY = ("/home/lina0911/code/ora4/repos/ora_data_model"
-                          "/OCFL/test_code/test_object_content")
+                          "/OCFL/test_code/test_object_content/")
 
 
 def generate_path(uuid):

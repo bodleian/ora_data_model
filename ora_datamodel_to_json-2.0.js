@@ -186,7 +186,7 @@ ORA_Data_Model_Object = {
     "identifier_eissn": "",
     "identifier_isbn10": "",
     "identifier_isbn13": "",
-    "identifier_issn": "",
+    "identifier_issn": [""],
     "identifier_pmid": "",
     "identifier_pii": "",
     "identifier_pubs_identifier": "",
