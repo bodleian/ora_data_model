@@ -241,7 +241,17 @@
         
         <symplectic_field name="publication-date"><ora_field>citation_publication_date</ora_field><note>In the absence of any other information, the year component of this value should also become rights_copyright_date</note></symplectic_field>
         
-        <symplectic_field name="publication-status"><ora_field>host_publication_status</ora_field></symplectic_field>
+        <symplectic_field name="publication-status"><ora_field>host_publication_status</ora_field>
+            <value_mappings>
+                <value_map><symp_value>Published</symp_value>published<ora_value></ora_value></value_map>
+                <value_map><symp_value>Unpublished</symp_value><ora_value>notpublished</ora_value></value_map>
+                <value_map><symp_value>Accepted</symp_value><ora_value>accepted</ora_value></value_map>
+                <value_map><symp_value>In preparation</symp_value><ora_value>inpress</ora_value></value_map>
+                <value_map><symp_value>Submitted</symp_value><ora_value>submitted</ora_value></value_map>
+                <value_map><symp_value>Published online</symp_value><ora_value>published</ora_value><notes>ORA does not distinguish between published online and published.</notes></value_map>
+            </value_mappings>
+            <note>See https://github.com/tomwrobel/ora_data_model/issues/70</note>
+        </symplectic_field>
         
         <symplectic_field name="publisher"><ora_field>publisher_name</ora_field></symplectic_field>
         
@@ -257,7 +267,9 @@
         
         <symplectic_field name="references"><no_mapping/></symplectic_field>
         
-        <symplectic_field name="repository-status"><computed /><note>Computed from ora_field:record_review_status</note></symplectic_field>
+        <symplectic_field name="repository-status">
+            <if test="has_public_url is set">fixed value: Public</if>
+            <if test="has_public_url is not set">record_review_status</if><note>As documented in https://github.com/tomwrobel/ora_data_model/issues/2#issuecomment-478963073</note></symplectic_field>
         
         <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
         
