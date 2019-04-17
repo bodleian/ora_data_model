@@ -27,11 +27,13 @@ import uuid
 
 
 # Constants
-OBJECTS_TO_CREATE = 2
+OBJECTS_TO_CREATE = 1
 OCFL_ROOT_PARENT_DIRECTORY = "/mnt/hard_disk/ocfl/test_roots"
 TEST_CONTENT_DIRECTORY = ("/home/lina0911/code/ora4/repos/ora_data_model"
                           "/OCFL/test_code/test_object_content/")
 
+OCFL_ROOT_PARENT_DIRECTORY = ("/home/lina0911/code/ora4/repos/ora_data_model"
+                          "/OCFL/storage_root/")
 
 def generate_path(uuid):
     """ Generate a pairtree path
