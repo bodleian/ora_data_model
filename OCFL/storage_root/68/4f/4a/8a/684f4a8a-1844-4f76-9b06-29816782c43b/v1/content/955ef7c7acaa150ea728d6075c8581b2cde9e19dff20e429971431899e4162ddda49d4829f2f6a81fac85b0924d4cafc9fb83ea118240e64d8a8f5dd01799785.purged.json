@@ -6,5 +6,6 @@
       "name": "Tom Wrobel",
       "address": "thomas.wrobel@bodleian.ox.ac.uk"
   },
-  "message": "Purged as a test file purge"
+  "message": "Purged as a test file purge",
+  "inventory_hash_at_purge": "a86b63147afc6c5284ba1e19f61879f45fbfc4561a222b88a78820a24b9201ac3bee712e5c507b53164d3ede2375768ee97190edf25bd3235864b56d7f9a920e"
 }
