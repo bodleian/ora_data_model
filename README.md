@@ -1,11 +1,11 @@
 # ORA Data Model
 
-Content relating to the ORA Data Model, in particular, the MODS 
-version of the data model and accompanying schema.
+Content relating to the ORA Data Model, in particular, the METS 
+version of the data model and accompanying customised MODS schema.
 
-The most recent ORA data model is 2.0rc5
+The most recent ORA data model is 2.0
 
-This project maintains three files relating to the ORA Data Model:
+This project maintains four files relating to the ORA Data Model:
 
 ## ORA Data Model to MODS
 
