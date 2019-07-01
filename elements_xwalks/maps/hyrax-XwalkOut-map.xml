@@ -354,12 +354,14 @@
               <xwalk:field-source subfield="@type" value="institutional_identifier" />
               <xwalk:field-source from="depositor.proprietary-id" />
             </xwalk:field-source>
-            <xwalk:field-source subfield="mods:extension">
-              <xwalk:field-source subfield="ora:role_order" value="1" />
-            </xwalk:field-source>
-            <xwalk:field-source subfield="roleTerm">
-              <xwalk:field-source subfield="@type" value="text" />
-              <xwalk:field-source from="depositor.is-impersonating" value-map="is-impersonating-to-role" />
+            <xwalk:field-source subfield="role">
+              <xwalk:field-source subfield="mods:extension">
+                <xwalk:field-source subfield="ora:role_order" value="1" />
+              </xwalk:field-source>
+              <xwalk:field-source subfield="roleTerm">
+                <xwalk:field-source subfield="@type" value="text" />
+                <xwalk:field-source from="depositor.is-impersonating" value-map="is-impersonating-to-role" />
+              </xwalk:field-source>            
             </xwalk:field-source>
           </xwalk:result>
         </xwalk:if>
@@ -395,12 +397,14 @@
               <xwalk:field-source subfield="@type" value="institutional_identifier" />
               <xwalk:field-source from="impersonated-depositor.proprietary-id" />
             </xwalk:field-source>
-            <xwalk:field-source subfield="mods:extension">
-              <xwalk:field-source subfield="ora:role_order" value="1" />
-            </xwalk:field-source>
-            <xwalk:field-source subfield="roleTerm">
-              <xwalk:field-source subfield="@type" value="text" />
-              <xwalk:field-source value="Depositor" />
+            <xwalk:field-source subfield="role">
+              <xwalk:field-source subfield="mods:extension">
+                <xwalk:field-source subfield="ora:role_order" value="1" />
+              </xwalk:field-source>
+              <xwalk:field-source subfield="roleTerm">
+                <xwalk:field-source subfield="@type" value="text" />
+                <xwalk:field-source from="depositor.is-impersonating" value-map="is-impersonating-to-role" />
+              </xwalk:field-source>            
             </xwalk:field-source>
           </xwalk:result>
         </xwalk:if>
