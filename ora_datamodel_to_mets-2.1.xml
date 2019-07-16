@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    =========================================
+    =========================================
+    METS - THE ORA DATA MODEL 2.1 IN METS
+    =========================================
+    =========================================
+    
+    This section describes how to mark up an ORA Data Model v2.1 object in METS
+    
+    MODS content is conformant to an expected MODS 3.8*, with one exception (a mods:extension element).
+    
+    * We've been in consultation with the MODS committee, and they're making an addition to the
+    schema to allow for complex affiliations.
+    
+    Tom Wrobel <thomas.wrobel@bodleian.ox.ac.uk>, Feb 2019
+    
+    CHANGELOG
+    =========
+    15/07/2019: Datamodel v2.1 conformance
+    - Physical item fields: added collection_name, manufacturer, manufacturer_website_url, production_date
+    - Binary file fields: added file_embargo_period, file_sha1
+    - Contributor fields: added ora3_affiliation
+    - History fields: added action_category
+    - Open access fields: added apc_admin_apc_requested
+    - Admin fields: added record_check_back_date
+    19/02/2019: Minor additions to permitted elements
+    - Edition allowed in Journal article
+    15/02/2019: Minor updates to METS headers
+    - Changed the spec for the datetime field in metsHdr/@CREATEDATE
+    14/02/2019: Datamodel v2.0 conformance
+    - Moved summary documentation out of dataset specific fields
+    - Fields starting with 'identifiers_' now start with 'identifier_'
+    - contributors__sso is now contributors__institutional_identifier
+    - use Github hosted MODS schema
+    13/02/2019: Clean up fields
+    - Removed duplicate record deposit date
+    - Corrected record_identifiers markup
+    09/02/2019: Add non datamodel info to METS
+    - Record created date mapping to pubs:api added
+    - mods:language changed from @type="code" to @type="text"
+    08/02/2019: Convert to METS format
+    - Convert principal format to METS
+    - Admin metadata moved from dmdSec to amdSec
+    - Binary file metadata moved to a dmdSec for that binary file
+    07/02/2019: Update to MODS 3.8, Update to 2.0rc5
+    - Changed to MODS 3.8 schema
+    - Changed mods:name/mods:extension/ora:affiliation to mods:name/mods:affiliation/ora:affiliation
+    - Added binary_files__file_order
+    - Added record_identifiers__record_identifier_scheme and record__identifiers__record_identifier
+    
+    
+    ADDITIONS TO MODS 3.8 SCHEMA
+    ============================
+    
+    This MODS format validates against MODS 3.7 (https://www.loc.gov/standards/mods/mods-3-7.xsd) 
+    with the following additions:
+    
+        mods:extension allowed within mods:name
+        mods:extension allowed within mods:role
+    
+    In anticipation of the MODS 3.8 schema, the companion xsd file for this document is ora_mods-3.8.xsd.
+    
+    A custom MODS schema with these additions is the companion file ora_mods-3.8.xsd, against which
+    this document should validate. The custom schema also has the following additions to allow this
+    sample file itself to validate:
+    
+        mods:name/@type the value 'field:contributors__contributor_type' is an allowed value
+        
+    These additions will not be found in ORA Data Model conformant MODS documents
+    
+    
+    ORA DATA MODEL FIELD NAMING CONVENTIONS
+    =======================================
+    
+    Field levels
+    ************
+    
+    ORA fields can be defined as first-level (properties of a record), second level (properties of a record property),
+    or third-level (properties of a second level property). In JSON:
+    
+    { "first-level-property":"value",
+      "another-first-level-property": 
+        [{  "second-level-property": "value"
+            "another-second-level-property": 
+              [{  "third-level-property": "value" }]
+        }]
+    }
+    
+    
+    An example from the ORA Data Model
+    
+    { 
+      "title":"Title of the work",
+      "contributors": 
+        [{  "display_name": "First Contributor"
+            "roles": 
+              [{  "role_title": "Author",
+                  "role_order": 1 
+              }]
+          },
+          { "display_name": "Second Contributor"
+            "roles": 
+              [{  "role_title": "Author",
+                  "role_order": 2 },
+                { "role_title": "Depositor",
+                  "role_order": 1
+        }]
+      }]
+    }
+    
+
+    Field names in extended format
+    ******************************
+    
+    In this document, ORA field names are given in extended format.
+    
+    Extended format allows for a field name to indicate it's parent and grandparent fields.
+    
+    Where a field is a second-level property, this is indicated by the parent first-level field,
+    a double underscore, and then the field name. For example, a contributor's last name
+    is indicated by the string 'field:contributors__last_name'.
+    
+    Third-level properties (i.e. properties of second level properties) have both
+    their ancestors separated by double underscores: 'field:contributors__roles__role_title'.
+    
+    The object properties themselves are specified in the data model.
+    
+    
+    FIELD OUTPUT IN XML
+    ===================
+    
+    Where a field from the ORA datamodel is to be encoded in XML, this is indicated
+    by the string field:{field_name} (e.g. 'field:title').
+    
+    In almost all cases, ORA field values are output either as element content, or as a field value.
+    
+    The only exception is the field contributors__roles___et_al, which (if boolean true) will generate the XML content:
+        <mods:name type="personal"><mods:etal /><mods:role>contributors__roles__role_title</mods:role></mods:name>
+-->
+<mets:mets 
+    xmlns:mets="http://www.loc.gov/METS/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+    <!-- 
+        CREATION DATE
+        The creation date for the METS object, this should be a datestamp of the time the XML was generated
+    -->
+    <mets:metsHdr CREATEDATE="1970-01-01T00:00:00">
+        <mets:agent OTHERTYPE="SOFTWARE" ROLE="CREATOR" TYPE="OTHER">
+            <mets:name>
+                <!--
+                    AGENT NAME
+                    Either Hyrax/Sword2 or Symplectic 
+                -->
+            </mets:name>
+            <mets:note>
+                <!--
+                    RECORD CREATION NOTES
+                    Not sure what would go in here!
+                -->
+            </mets:note>
+        </mets:agent>
+    </mets:metsHdr>
+    <mets:dmdSec ID="DMDLOG_0000">
+        <mets:mdWrap MDTYPE="MODS">
+            <mets:xmlData>
+                <mods:mods version="3.8"         
+                        xmlns:mods="http://www.loc.gov/mods/v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://www.loc.gov/mods/v3 https://raw.githubusercontent.com/tomwrobel/ora_data_model/master/ora_mods-3.8.xsd">
+                    <!-- 
+                        METADATA SECTIONS
+                        ==================
+                        
+                        Record metadata:
+                            Default fields
+                            Identifiers
+                            Event related metadata
+                            Origin Info (dates and place of publication of print item)
+                            Related Items
+                            Rights and licenses
+                        Contributions and roles:
+                            Commissioning bodies
+                            Contributors
+                            Contributors et al
+                            Copyright holders
+                            Funders
+                            Publishers
+                        Work-type specific metadata
+                            Book, book chapter, edited book, event proceedings
+                            Journal article
+                            Patent
+                            Series
+                            Thesis
+                            Working paper
+                    -->
+                 
+                    <!--
+                        RECORD METADATA
+                        ===============
+                    -->
+                    
+                    <!-- DEFAULT FIELDS -->
+                    <mods:titleInfo>
+                        <mods:title>field:title</mods:title>
+                        <mods:subTitle>field:alternative_title</mods:subTitle> 
+                    </mods:titleInfo>
+                        
+                    <mods:genre type="type_of_work">field:type_of_work</mods:genre>
+                    <mods:genre type="sub_type_of_work">field:sub_type_of_work</mods:genre>
+                    
+                    <mods:subject>
+                        <mods:genre>field:keyword</mods:genre>
+                        <mods:topic>field:subject</mods:topic>
+                    </mods:subject>
+                    
+                    <mods:language>   
+                        <mods:languageTerm authority="iso639-2b" type="text">field:language</mods:languageTerm>
+                    </mods:language>
+                            
+                    <mods:abstract>field:abstract</mods:abstract>
+                    <mods:abstract type="summary_documentation">field:summary_documentation</mods:abstract>
+                    <mods:note displayLabel="additional_information">field:additional_information</mods:note>
+                    
+                    <mods:physicalDescription>
+                        <mods:form type="collection_name">field:collection_name</mods:form>
+                        <mods:form type="physical_form">field:physical_form</mods:form>
+                        <mods:form type="physical_dimensions">field:physical_dimensions</mods:form>
+                    </mods:physicalDescription>
+                                           
+                    <mods:location>
+                        <mods:physicalLocation>field:physical_location</mods:physicalLocation>
+                        <mods:url>field:has_public_url</mods:url>
+                    </mods:location>
+                
+                    <!-- EVENT related metadata -->
+                    <mods:relatedItem otherType="event">
+                        <mods:titleInfo><mods:title>field:event_title</mods:title></mods:titleInfo>
+                        <mods:location>
+                            <mods:physicalLocation>field:event_location</mods:physicalLocation>
+                            <mods:url>field:event_website_url</mods:url>
+                        </mods:location>
+                        <mods:originInfo>
+                            <mods:dateOther point="start" type="event_date">field:event_start_date</mods:dateOther>
+                            <mods:dateOther point="end" type="event_date">field:event_end_date</mods:dateOther>
+                        </mods:originInfo>
+                    </mods:relatedItem>
+                 
+                    <!-- IDENTIFIERS -->
+                    <mods:identifier type="doi">field:identifier_doi</mods:identifier>
+                    <mods:identifier type="eisbn">field:identifier_eisbn</mods:identifier>
+                    <mods:identifier type="eissn">field:identifier_eissn</mods:identifier>
+                    <mods:identifier type="isbn">field:identifier_isbn_10</mods:identifier>
+                    <mods:identifier type="isbn13">field:identifier_isbn_13</mods:identifier>
+                    <mods:identifier type="issn">field:identifier_issn</mods:identifier>
+                    <mods:identifier type="pii">field:identifier_pii</mods:identifier>
+                    <!-- pid will only be supplied on export, and will be ignored on import, to specify the pid via import, use Sword2 header 'Slug' -->
+                    <mods:identifier type="pid">field:pid</mods:identifier>
+                    <mods:identifier type="pmid">field:identifier_pmid</mods:identifier>   
+                    <mods:identifier type="pubs_id">field:identifier_pubs_identifier</mods:identifier>
+                    <mods:identifier type="source_identifier">field:identifier_source_identifier</mods:identifier>
+                    <mods:identifier type="tinypid">field:tinypid</mods:identifier>
+                    <mods:identifier type="tombstone">field:identifier_tombstone_record_identifier</mods:identifier>
+                    <mods:identifier type="uuid">field:identifier_uuid</mods:identifier>
+                    
+                    <!-- Identifiers without a mapped field in ORA will go into a holding 'record_identifiers' value for later processing -->
+                    <mods:identifier type="field:record_identifiers__record_identifier_scheme">field:record_identifiers__record_identifier</mods:identifier>
+                   
+                    <!-- ORIGIN INFO significant dates and place of publication of 'original' published work -->        
+                    <mods:originInfo>
+                        <mods:dateOther type="date_of_acceptance" encoding="iso8601">field:acceptance_date</mods:dateOther>
+                        <mods:dateOther type="production_date" encoding="iso8601">field:production_date</mods:dateOther>
+                        <mods:dateIssued encoding="iso8601">field:citation_publication_date</mods:dateIssued>
+                        <mods:copyrightDate encoding="iso8601">field:rights_copyright_date</mods:copyrightDate>
+                        <mods:place>
+                            <mods:placeTerm type="text">field:citation_place_of_publication</mods:placeTerm>
+                        </mods:place>
+                        <mods:place>
+                            <mods:placeTerm type="code">field:publication_website_url</mods:placeTerm>    
+                        </mods:place>
+                    </mods:originInfo>
+                      
+                    <!-- RELATED ITEMS -->
+                    <mods:relatedItem otherType="related_item">
+                        <mods:titleInfo>
+                            <mods:title>field:related_items__related_item_title</mods:title>
+                        </mods:titleInfo>
+                        <mods:location><mods:url>field:related_items__related_item_url</mods:url></mods:location>
+                        <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
+                    </mods:relatedItem>
+                
+                    <!-- RIGHTS and LICENCES -->
+                    <!-- Includes ORA deposit licence. See also CONTRIBUTIONS AND ROLES: COPYRIGHT HOLDER -->
+                    <mods:accessCondition type="license">field:license</mods:accessCondition>
+                    <mods:accessCondition type="license_statement">field:license_statement</mods:accessCondition>
+                    <mods:accessCondition type="license_start_date">field:license_start_date</mods:accessCondition>
+                    <mods:accessCondition type="license_url">field:license_url</mods:accessCondition>
+                    <mods:accessCondition type="record_ora_deposit_licence">field:record_ora_deposit_licence</mods:accessCondition> 
+                    <mods:accessCondition type="rights_statement">field:rights_statement</mods:accessCondition>
+                    <!-- /RECORD METADATA -->
+                
+                    <!-- 
+                        CONTRIBUTIONS AND ROLES
+                        =======================
+                        
+                        commissioning bodies, contributors, copyright_holders, funders, publishers 
+                    -->
+                    
+                    <!-- COMISSIONING BODY -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>field:comissioning_body</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Commissioning body</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <!-- CONTRIBUTORS -->
+                    <mods:name type="field:contributors__contributor_type">  <!-- value can be 'corporate' or 'personal' -->
+                        <mods:displayForm>field:contributors__display_name</mods:displayForm>
+                        
+                        <mods:namePart type="given">field:contributors__given_names</mods:namePart>
+                        <mods:namePart type="family">field:contributors__family_name</mods:namePart>
+                        <mods:alternativeName altType="initials"><mods:namePart>field:contributors__initials</mods:namePart></mods:alternativeName>
+                        
+                        <mods:alternativeName altType="preferred_name">
+                            <mods:namePart type="given">field:contributors__preferred_given_names</mods:namePart>
+                            <mods:namePart type="family">field:contributors__preferred_family_name</mods:namePart>
+                            <mods:nameIdentifier type="preferred_email_address">field:contributors__preferred_contributor_email</mods:nameIdentifier>
+                        </mods:alternativeName>
+                        <mods:alternativeName altType="preferred_initials"><mods:namePart>field:contributors__preferred_initials</mods:namePart></mods:alternativeName>
+                        
+                        <mods:nameIdentifier type="email_address">field:contributors__contributor_email</mods:nameIdentifier>
+                        <mods:nameIdentifier type="website">field:contributors__contributor_website_url</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">field:contributors__contributor_record_identifier</mods:nameIdentifier>
+                        <mods:nameIdentifier type="sso">field:contributors__institutional_identifier</mods:nameIdentifier><!-- TODO v2.1: change to type="institutional_identifier" -->
+                        <mods:nameIdentifier type="orcid_identifier">field:contributors__orcid_identifier</mods:nameIdentifier>
+                        
+                        <!-- Contributor identifiers without a mapped field in ORA will go into a holding 'contributor_identifiers' value for later processing -->
+                        <mods:nameIdentifier type="field:contributors__contributor_identifiers__contributor_identifier_scheme">field:contributors__contributor_identifiers__contributor_identifier</mods:nameIdentifier>
+                                                
+                        <!-- Affiliations 
+                            
+                             For multiple affiliations, create a separate mods:affiliation/ora:affiliation for each affiliation
+                        -->
+                        <mods:affiliation>
+                            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
+                                <ora:affiliationComponent type="institution" institution_id="field:contributors__institution_identifier">field:contributors__institution</ora:affiliationComponent>
+                                <ora:affiliationComponent type="division">field:contributors__division</ora:affiliationComponent>
+                                <ora:affiliationComponent type="department">field:contributors__department</ora:affiliationComponent>
+                                <ora:affiliationComponent type="sub_department">field:contributors__sub_department</ora:affiliationComponent>
+                                <ora:affiliationComponent type="research_group">field:contributors__research_group</ora:affiliationComponent>
+                                <ora:affiliationComponent type="sub_unit">field:contributors__sub_unit</ora:affiliationComponent>
+                                <ora:affiliationComponent type="oxford_college">field:contributors__oxford_college</ora:affiliationComponent>
+                                <ora:affiliationComponent type="ora3_affiliation">field:contributors__ora3_affiliation</ora:affiliationComponent>
+                            </ora:affiliation>
+                        </mods:affiliation>      
+                
+                        <!-- Contributor roles
+                            
+                             For multiple roles, create a mods:role for each role 
+                        -->
+                        <mods:role>
+                            <mods:extension>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">field:contributors__roles__role_order</ora:role_order>
+                            </mods:extension>
+                            <mods:roleTerm type="text">field:contributors__roles__role_title</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <!-- IF A CONTRIBUTOR HAS A ROLE WHERE ET_AL IS TRUE (field:contributors__roles__et_al) generate the following additional mods:name -->
+                    <mods:name type="personal">
+                        <mods:etal />
+                        <mods:role>
+                            <mods:roleTerm>contributors__roles__role_title</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                       
+                    <!-- COPYRIGHT HOLDER -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>field:rights_holders</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Copyright holder</mods:roleTerm>
+                        </mods:role>
+                    </mods:name>
+                    
+                    <!-- FUNDER -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>field:funders__funder_name</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Funder</mods:roleTerm>
+                        </mods:role>
+                        <mods:nameIdentifier type="funder_identifier">field:funders__funder_identifier</mods:nameIdentifier>
+                        <mods:affiliation>  <!-- We encode an act of funding as an affiliation, even though it is a stretch. This is partly for MODS validation purposes -->
+                            <ora_admin:funding xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin">
+                                <!-- For multiple grants, create one ora_admin:funding element for each grant -->
+                                <ora_admin:funding_programme>field:funders__funder_funding_programme</ora_admin:funding_programme>
+                                <ora_admin:funder_compliance>field:funders__funder_compliance_met</ora_admin:funder_compliance>
+                                <ora_admin:funder_grant>
+                                    <ora_admin:is_funding_for>field:funders__funder_grant__is_funding_for</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
+                                    <ora_admin:grant_identifier>field:funders__funder_grant__grant_identifier</ora_admin:grant_identifier>
+                                </ora_admin:funder_grant>                        
+                            </ora_admin:funding>
+                        </mods:affiliation>  
+                    </mods:name>
+                    
+                    <!-- MANUFACTURER -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>field:manufacturer</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Manufacturer</mods:roleTerm>
+                        </mods:role>
+                        <mods:nameIdentifier type="website">field:manufactuer_website_url</mods:nameIdentifier>
+                    </mods:name>
+                    
+                    <!-- PUBLISHER -->
+                    <mods:name type="corporate">
+                        <mods:displayForm>field:publisher_name</mods:displayForm>
+                        <mods:role>
+                            <mods:roleTerm type="text">Publisher</mods:roleTerm>
+                        </mods:role>
+                        <mods:nameIdentifier type="website">field:publisher_website_url</mods:nameIdentifier>
+                    </mods:name>
+                    <!-- /CONTRIBUTIONS AND ROLES -->
+                 
+                
+                    <!-- 
+                        WORK-TYPE SPECIFIC METADATA
+                        ===========================
+                    -->
+                    
+                    <!-- BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
+                    <mods:relatedItem type="host">
+                        <mods:titleInfo>
+                            <mods:title>field:host_title</mods:title>
+                            <!-- To be used if a conference proceeding is published in a Journal -->
+                            <mods:subTitle>field:journal_title</mods:subTitle>
+                        </mods:titleInfo>
+                        <mods:part>
+                            <mods:detail type="chapter_number">
+                                <mods:number>field:chapter_number</mods:number>
+                            </mods:detail>
+                            <mods:detail type="edition">
+                                <mods:number>field:edition</mods:number>
+                            </mods:detail>
+                            <mods:extent unit="pages">
+                                <mods:list>field:pagination</mods:list>
+                            </mods:extent>
+                            <mods:detail type="volume">
+                                <mods:number>field:volume</mods:number>
+                            </mods:detail>
+                        </mods:part>
+                        <mods:physicalDescription>
+                            <mods:form type="status">field:host_publication_status</mods:form>
+                            <mods:form type="peer_reviewed">field:host_peer_review_status</mods:form>
+                        </mods:physicalDescription>
+                    </mods:relatedItem>
+                    <!-- /BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
+                    
+                    <!-- DATASET related markup -->
+                    <mods:extension>
+                        <ora_dataset:dataset 
+                                xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" 
+                                xmlns:mods="http://www.loc.gov/mods/v3" 
+                                xmlns:dcterms="http://purl.org/dc/terms/"
+                                xmlns:dc="http://purl.org/dc/elements/1.1/">
+                            <mods:dateOther point="start" type="data_collection">field:data_collection_start_date</mods:dateOther>
+                            <mods:dateOther point="end" type="data_collection">field:data_collection_end_date</mods:dateOther>
+                            <dcterms:spatial>field:data_coverage_spatial</dcterms:spatial>
+                            <mods:dateOther point="start" type="data_coverage">field:data_coverage_temporal_start</mods:dateOther>
+                            <mods:dateOther point="end" type="data_coverage">field:data_coverage_temporal_end</mods:dateOther>
+                            <dc:type>field:data_format</dc:type>
+                            <ora_dataset:digital_storage_location>field:data_digital_storage_location</ora_dataset:digital_storage_location>
+                            <dcterms:extent>field:data_digital_total_file_size</dcterms:extent>
+                            <dc:format>field:data_digital_data_format</dc:format>
+                            <dc:version>field:data_digital_data_version</dc:version>
+                            <ora_dataset:physical_storage_location>field:data_physical_storage_location</ora_dataset:physical_storage_location>
+                            <dcterms:references>field:data_management_plan_url</dcterms:references>
+                        </ora_dataset:dataset>
+                    </mods:extension>
+                    <mods:relatedItem type="host">
+                        <mods:physicalDescription>
+                            <mods:form type="status">field:host_publication_status</mods:form>
+                        </mods:physicalDescription>
+                    </mods:relatedItem>
+                    <!-- /DATASET related markup -->  
+                    
+                    <!-- JOURNAL ARTICLE related markup -->
+                    <mods:relatedItem type="host">
+                        <mods:titleInfo>
+                            <mods:title>field:journal_title</mods:title>
+                        </mods:titleInfo>
+                        <mods:part>
+                            <mods:detail type="article">
+                                <mods:number>field:article_number</mods:number>
+                            </mods:detail>
+                            <mods:detail type="edition">
+                                <mods:number>field:edition</mods:number>
+                            </mods:detail>
+                            <mods:detail type="issue">
+                                <mods:number>field:issue_number</mods:number>
+                            </mods:detail>
+                            <mods:extent unit="pages">
+                                <mods:list>field:pagination</mods:list>
+                            </mods:extent>
+                            <mods:detail type="series_number">
+                                <mods:number>field:series_number</mods:number>
+                            </mods:detail>
+                            <mods:detail type="volume">
+                                <mods:number>field:volume</mods:number>
+                            </mods:detail>
+                        </mods:part>
+                        <mods:location>
+                            <mods:url>field:journal_website_url</mods:url>
+                        </mods:location>
+                        <mods:physicalDescription>
+                            <mods:form type="status">field:host_publication_status</mods:form>
+                            <mods:form type="peer_reviewed">field:host_peer_review_status</mods:form>
+                        </mods:physicalDescription>
+                    </mods:relatedItem>
+                    <!-- /JOURNAL ARTICLE related markup -->
+                    
+                    <!-- PATENT related markup -->
+                    <mods:extension>
+                        <ora_patent:patent xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent">
+                            <!-- patent numbers -->
+                            <ora_patent:number>field:patent_number</ora_patent:number>
+                            <ora_patent:application_number>field:patent_application_number</ora_patent:application_number>
+                            <ora_patent:publication_number>field:patent_publication_number</ora_patent:publication_number>
+                            
+                            <!-- patent general metadata -->
+                            <ora_patent:awarded_date>field:patent_awarded_date</ora_patent:awarded_date>
+                            <ora_patent:filed_date>field:patent_filed_date</ora_patent:filed_date>
+                            <ora_patent:status>field:patent_status</ora_patent:status>
+                            <ora_patent:territory>field:patent_territory</ora_patent:territory>
+                            
+                            <!-- patent classifications -->
+                            <ora_patent:cooperative_classification>field:patent_cooperative_classification</ora_patent:cooperative_classification>
+                            <ora_patent:european_classification>field:patent_european_classification</ora_patent:european_classification>
+                            <ora_patent:international_classification>field:patent_international_classification</ora_patent:international_classification>
+                        </ora_patent:patent>
+                    </mods:extension>
+                    <!-- /PATENT -->
+                    
+                    <!-- POSTER -->
+                    <mods:relatedItem type="host">
+                        <mods:physicalDescription>
+                            <mods:form type="peer_reviewed">field:host_peer_review_status</mods:form>
+                            <mods:form type="status">field:host_publication_status</mods:form>
+                        </mods:physicalDescription>
+                    </mods:relatedItem>
+                    <!-- /POSTER -->
+                    
+                    <!-- SERIES -->
+                    <mods:relatedItem type="series">
+                        <mods:titleInfo>
+                            <mods:title>field:series_title</mods:title>
+                        </mods:titleInfo>
+                        <mods:part>
+                            <mods:detail type="series_number">
+                                <mods:number>field:series_number</mods:number>
+                            </mods:detail>
+                        </mods:part>
+                    </mods:relatedItem>
+                    <!-- /SERIES -->
+                    
+                    <!-- THESIS -->
+                    <mods:extension>
+                        <uketd_dc:uketddc 
+                                xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" 
+                                xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/"
+                                xmlns:dcterms="http://purl.org/dc/terms/">
+                            <uketdterms:institution>field:thesis_degree_institution</uketdterms:institution>
+                            <uketdterms:qualificationlevel>field:thesis_degree_level</uketdterms:qualificationlevel>                
+                            <uketdterms:qualificationname>field:thesis_degree_name</uketdterms:qualificationname>
+                            <dcterms:issued>field:thesis_leave_to_supplicate_date</dcterms:issued>
+                        </uketd_dc:uketddc>
+                    </mods:extension>
+                    <!-- /THESIS -->
+                    
+                    <!-- WORKING PAPER -->
+                    <mods:identifier type="paper_number">field:paper_number</mods:identifier>
+                    <!-- /WORKING PAPER -->
+                    <!-- /WORK-TYPE SPECIFIC METADATA -->
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DMDFILE001">
+        <mets:mdWrap MDTYPE="OTHER">
+            <mets:xmlData>
+                <!-- 
+                    BINARY FILE METADATA
+                    ====================
+                -->
+                <ora:repository_file xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:dcterms="http://purl.org/dc/terms/"
+                    xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/"
+                    xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+                    xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
+                    xmlns:ora="http://ora.ox.ac.uk/terms/"
+                    xmlns:symp="http://symplectic/symplectic-elements:def/model#"
+                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+                    <dc:title>field:binary_files__file_name</dc:title>
+                    <dc:format>field:binary_files__file_format</dc:format>
+                    <dcterms:extent>field:binary_files__file_size</dcterms:extent>
+                    <dcterms:hasVersion>field:binary_files__file_version</dcterms:hasVersion>
+                    <dcterms:location>field:binary_files__file_path</dcterms:location>
+                    <foxml:datastream>field:binary_files__file_admin_fedora3_datastream_identifier</foxml:datastream>
+                    <rioxxterms:version>field:binary_files__file_rioxx_file_version</rioxxterms:version>
+                    <oxds:embargoedUntil>field:binary_files__file_embargo_end_date</oxds:embargoedUntil>
+                    <ora:embargoComment>field:binary_files__file_embargo_comment</ora:embargoComment>
+                    <ora:embargoPeriod>field:binary_files__file_embargo_period</ora:embargoPeriod>
+                    <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
+                    <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
+                    <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
+                    <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
+                    <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
+                    <ora:fileSha1>field:binary_files__file_sha1</ora:fileSha1>
+                    <ora:accessConditionAtDeposit>field:binary_files__file_admin_access_condition_at_deposit</ora:accessConditionAtDeposit>
+                    <ora:fileAndRecordDoNotMatch>field:binary_files__file_admin_file_and_record_do_not_match</ora:fileAndRecordDoNotMatch>
+                    <symp:hasPublicUrl>field:binary_files__file_public_url</symp:hasPublicUrl>
+                    <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
+                    <ora:filesetId>field:binary_files__file_admin_hyrax_filesest_identifier</ora:filesetId>
+                </ora:repository_file>
+                <!-- /BINARY FILE METADATA -->
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:amdSec ID="AMDLOG_0000">
+        <mets:rightsMD ID="RIGHTSMD_01">
+            <mets:mdWrap MDTYPE="METSRIGHTS">
+                <mets:xmlData>
+                    <metsrights:RightsDeclarationMD RIGHTSCATEGORY="LICENSED" xmlns:metsrights="http://http://cosimo.stanford.edu/sdr/metsrights/">
+                        <metsrights:RightsDeclaration>field:record_ora_deposit_licence</metsrights:RightsDeclaration>
+                    </metsrights:RightsDeclarationMD>
+                </mets:xmlData>
+            </mets:mdWrap>
+        </mets:rightsMD>
+        <mets:sourceMD ID="SOURCEMD_01">
+            <mets:mdWrap MDTYPE="MODS">
+                <mets:xmlData>
+                    <mods:mods version="3.8" xmlns:mods="http://www.loc.gov/mods/v3">
+                       <!-- 
+                           ADMIN METADATA
+                           ==============
+                           General admin
+                           Open access admin
+                           Thesis specific admin
+                           Embargo details
+                       -->
+                       
+                       <!-- GENERAL ADMIN -->
+                       
+                       <mods:recordInfo>
+                           <mods:recordCreationDate>field:record_created_date</mods:recordCreationDate>
+                           <mods:recordContentSource>field:record_content_source</mods:recordContentSource>
+                           <mods:recordInfoNote type="accept_updates">field:record_accept_updates</mods:recordInfoNote>
+                           <mods:recordInfoNote type="admin_notes">field:admin_notes</mods:recordInfoNote>
+                           <mods:recordInfoNote type="confidential_report">field:confidential_report</mods:recordInfoNote>
+                           <mods:recordInfoNote type="deposit_note">field:deposit_note</mods:recordInfoNote>
+                           <mods:recordInfoNote type="ora_data_model_version">field:ora_data_model_version</mods:recordInfoNote>
+                           <mods:recordInfoNote type="pre_counter_downloads">field:pre_counter_downloads</mods:recordInfoNote>
+                           <mods:recordInfoNote type="pre_counter_views">field:pre_counter_views</mods:recordInfoNote>
+                           <mods:recordInfoNote type="requires_review">field:record_requires_review</mods:recordInfoNote>
+                       </mods:recordInfo>
+                       
+                       <mods:extension>
+                           <ora_admin:admin 
+                               xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin"
+                               xmlns:dc="http://purl.org/dc/elements/1.1/"
+                               xmlns:dcterms="http://purl.org/dc/terms/"
+                               xmlns:mods="http://www.loc.gov/mods/v3">
+                               <ora_admin:doi_requested>field:doi_requested</ora_admin:doi_requested>
+                               <ora_admin:depositor_contacted>field:depositor_contacted</ora_admin:depositor_contacted>
+                               <ora_admin:depositor_contact_email_template>field:depositor_contact_email_template</ora_admin:depositor_contact_email_template>
+                               <ora_admin:record_first_reviewed_by>field:record_first_reviewed_by</ora_admin:record_first_reviewed_by>
+                               <ora_admin:incorrect_version_deposited>field:admin_incorrect_version_deposited</ora_admin:incorrect_version_deposited>
+                               <ora_admin:record_check_back_date>field:record_check_back_date</ora_admin:record_check_back_date>
+                               <ora_admin:record_deposit_date>field:record_deposit_date</ora_admin:record_deposit_date>
+                               <ora_admin:record_publication_date>field:record_publication_date</ora_admin:record_publication_date>
+                               <ora_admin:record_review_status>field:record_review_status</ora_admin:record_review_status>
+                               <ora_admin:record_review_status_other>field:record_review_status_other</ora_admin:record_review_status_other>
+                               <ora_admin:record_version>field:record_version</ora_admin:record_version>
+                               <ora_admin:rights_third_party_copyright_material>field:rights_third_party_copyright_material</ora_admin:rights_third_party_copyright_material>
+                               <ora_admin:rights_third_party_copyright_permission_received>field:rights_third_party_copyright_permission_received</ora_admin:rights_third_party_copyright_permission_received>
+                               <ora_admin:rt_ticket_number>field:rt_ticket_number</ora_admin:rt_ticket_number>
+                               <ora_admin:history>
+                                   <ora_admin:history_action>
+                                       <dc:keyword>field:history__action_category</dc:keyword>
+                                       <mods:note>field:history__action_comment</mods:note>
+                                       <dc:date>field:history__action_date</dc:date>
+                                       <dc:description>field:history__action_description</dc:description>
+                                       <dcterms:temporal>field:history__action_duration</dcterms:temporal>
+                                       <dc:contributor>field:history__action_responsibility</dc:contributor>
+                                   </ora_admin:history_action>
+                               </ora_admin:history>
+                           </ora_admin:admin>
+                       </mods:extension>
+                       
+                       <!-- OPEN ACCESS ADMIN -->
+                       <mods:extension>
+                           <ora_open_access_admin:ref_admin xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin">
+                               <ora_open_access_admin:apc_admin_apc_number>field:apc_admin_apc_number</ora_open_access_admin:apc_admin_apc_number>
+                               <ora_open_access_admin:apc_admin_apc_requested>field:apc_admin_apc_requested</ora_open_access_admin:apc_admin_apc_requested>
+                               <ora_open_access_admin:apc_admin_review_status>field:apc_admin_review_status</ora_open_access_admin:apc_admin_review_status>
+                               <ora_open_access_admin:apc_admin_spreadsheet_identifier>field:apc_admin_spreadsheet_identifier</ora_open_access_admin:apc_admin_spreadsheet_identifier>
+                               <ora_open_access_admin:ref_compliant_at_deposit>field:ref_compliant_at_deposit</ora_open_access_admin:ref_compliant_at_deposit>
+                               <ora_open_access_admin:ref_compliant_avialability>field:ref_compliant_avialability</ora_open_access_admin:ref_compliant_avialability>
+                               <ora_open_access_admin:ref_exception_required>field:ref_exception_required</ora_open_access_admin:ref_exception_required>
+                               <ora_open_access_admin:ref_exception_note>field:ref_exception_note</ora_open_access_admin:ref_exception_note>
+                           </ora_open_access_admin:ref_admin>
+                       </mods:extension>
+                       
+                       <!-- THESIS SPECIFIC ADMIN -->
+                       <mods:extension>
+                           <ora_thesis:thesis_admin xmlns:ora_thesis="https://ora.ox.ac.uk/vocabs/thesis">
+                               <ora_thesis:thesis_archive_version_completed>field:thesis_archive_version_completed</ora_thesis:thesis_archive_version_completed>
+                               <ora_thesis:thesis_student_system_updated>field:thesis_student_system_updated</ora_thesis:thesis_student_system_updated>
+                               <ora_thesis:thesis_dispensation_from_consultation_granted>field:thesis_dispensation_from_consultation_granted</ora_thesis:thesis_dispensation_from_consultation_granted>
+                               <ora_thesis:thesis_voluntary_deposit>field:thesis_voluntary_deposit</ora_thesis:thesis_voluntary_deposit>
+                           </ora_thesis:thesis_admin>
+                       </mods:extension>
+                       
+                       <!-- EMBARGO information -->
+                       <mods:accessCondition type="record_embargo_end_date">field:record_embargo_end_date</mods:accessCondition>
+                       <mods:accessCondition type="record_embargo_reason">field:record_embargo_reason</mods:accessCondition>
+                       <mods:accessCondition type="record_embargo_release_method">field:record_embargo_release_method</mods:accessCondition>
+                       <!-- /ADMIN_METADTA -->
+                    </mods:mods>
+                </mets:xmlData>
+            </mets:mdWrap>
+        </mets:sourceMD>
+    </mets:amdSec>
+    <mets:fileSec>
+        <mets:fileGrp>
+            <mets:file ID="FILENAME1" MIMETYPE="mimetype">
+                <mets:FLocat xmlns:xlink="http://www.w3.org/1999/xlink" LOCTYPE="URL"
+                    xlink:href="file:///filepath"/>
+            </mets:file>
+        </mets:fileGrp>
+    </mets:fileSec>
+    <mets:structMap TYPE="LOGICAL">
+        <mets:div DMDID="DMDLOG_0000" ADMID="AMDLOG_0000" ID="LOG_0000" LABEL="Object ID" TYPE="Repository object">
+            <mets:div DMDID="DMDFILE001" LABEL="FILENAME1" TYPE="Repository file">
+                <mets:fptr FILEID="FILENAME1"/>
+            </mets:div>
+        </mets:div>
+    </mets:structMap>
+</mets:mets>
