@@ -1,13 +1,56 @@
 /*
-  ORA DATA MODEL IN JAVASCRIPT NOTATION
+    ORA DATA MODEL IN JAVASCRIPT NOTATION
 
-  (Note that JSON does not allow comments, which are useful here, so this is actually
-  a JavaScript file. The conversion to JSON is, thankfully, trivial!)
+    (Note that JSON does not allow comments, which are useful here, so this is actually
+    a JavaScript file. The conversion to JSON is, thankfully, trivial!)
 
-  A Javascript Object representation of the ORA4 data model Written against ORA Data Model v2.1
+    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.1
   
-  For the changelog since v2.0rc4, see ora_datamodel_to_mods.xml
- */
+    For the changelog since v2.0rc4, see ora_datamodel_to_mods.xml
+     
+    Guidelines for this document:
+    - single-valued fields are indicated by an empty string as the sample value
+    - multi-valued fields are indicated by an array as the sample value
+    -- allowed sub-values of multi-valued fields are strings "" or objects {}
+   
+    Rules for encoding:
+     - The only values allowed are strings, arrays, objects (hashes/dictionaries), and null 
+     - Boolean and integer primitives are not used
+     - A single valued field with no value should be set to null, e.g. `"key": null`
+     - A multiple valued field with no value should be set to an empty array, e.g. `"key": []`
+     - There should be no empty strings `""` or empty objects `{}` (use null or [] as appropriate for the parent value
+    
+    EXAMPLE OF BAD PRACTICE
+        "abstract": "This is an abstract",
+        "alternative_title": "",
+        "keyword": [""],
+        "binary_files": [{
+            "file_admin_access_condition_at_deposit": "",
+            "file_admin_file_and_record_do_not_match": "",
+            "file_admin_fedora3_datastream_identifier": "",
+            "file_embargo_comment": "",
+            "file_embargo_end_date": "",
+            "file_embargo_period": "",
+            "file_embargo_reason": "",
+            "file_embargo_release_method": "",
+            "file_format": "",
+            "file_last_access_request_date": "",
+            "file_made_available_date": "",
+            "file_name": "",
+            "file_order": "",
+            "file_path": "",
+            "file_public_url": "",
+            "file_rioxx_file_version": "",
+            "file_sha1": "",
+            "file_size": "",
+            "file_version": ""    
+        }], 
+    EXAMPLE OF BAD PRACTICE
+        "abstract": "This is an abstract",
+        "alternative_title": null,
+        "keyword": [],
+        "binary_files": [], 
+        */
 
 ORA_Data_Model_Object = {
     // DEFAULT FIELDS
