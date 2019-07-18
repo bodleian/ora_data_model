@@ -73,58 +73,7 @@
     ORA DATA MODEL FIELD NAMING CONVENTIONS
     =======================================
     
-    Field levels
-    ************
-    
-    ORA fields can be defined as first-level (properties of a record), second level (properties of a record property),
-    or third-level (properties of a second level property). In JSON:
-    
-    { "first-level-property":"value",
-      "another-first-level-property": 
-        [{  "second-level-property": "value"
-            "another-second-level-property": 
-              [{  "third-level-property": "value" }]
-        }]
-    }
-    
-    
-    An example from the ORA Data Model
-    
-    { 
-      "title":"Title of the work",
-      "contributors": 
-        [{  "display_name": "First Contributor"
-            "roles": 
-              [{  "role_title": "Author",
-                  "role_order": 1 
-              }]
-          },
-          { "display_name": "Second Contributor"
-            "roles": 
-              [{  "role_title": "Author",
-                  "role_order": 2 },
-                { "role_title": "Depositor",
-                  "role_order": 1
-        }]
-      }]
-    }
-    
-
-    Field names in extended format
-    ******************************
-    
-    In this document, ORA field names are given in extended format.
-    
-    Extended format allows for a field name to indicate it's parent and grandparent fields.
-    
-    Where a field is a second-level property, this is indicated by the parent first-level field,
-    a double underscore, and then the field name. For example, a contributor's last name
-    is indicated by the string 'field:contributors__last_name'.
-    
-    Third-level properties (i.e. properties of second level properties) have both
-    their ancestors separated by double underscores: 'field:contributors__roles__role_title'.
-    
-    The object properties themselves are specified in the data model.
+    This document uses the extended name format for ORA Data Model fields, as specified in data_model_conventions-2.1.md
     
     
     FIELD OUTPUT IN XML

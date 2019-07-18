@@ -13,12 +13,13 @@
     - multi-valued fields are indicated by an array as the sample value
     -- allowed sub-values of multi-valued fields are strings "" or objects {}
    
-    Rules for encoding:
-     - The only values allowed are strings, arrays, objects (hashes/dictionaries), and null 
-     - Boolean and integer primitives are not used
-     - A single valued field with no value should be set to null, e.g. `"key": null`
-     - A multiple valued field with no value should be set to an empty array, e.g. `"key": []`
-     - There should be no empty strings `""` or empty objects `{}` (use null or [] as appropriate for the parent value
+    Rules for encoding json:
+    - The only values allowed are strings, arrays, objects (hashes/dictionaries), and null 
+    - Boolean and integer primitives are not used
+    - A single valued field with no value should be set to null, e.g. `"key": null`
+    - A multiple valued field with no value should be set to an empty array, e.g. `"key": []`
+    - There should be no empty strings `""` or empty objects `{}` (use null or [] as appropriate for the parent value
+    - All keys within a given object shall be present
     
     EXAMPLE OF BAD PRACTICE
         "abstract": "This is an abstract",
@@ -44,13 +45,22 @@
             "file_sha1": "",
             "file_size": "",
             "file_version": ""    
+        }],
+        "related_items": [{
+            "related_item_url": "http://example.com"
         }], 
-    EXAMPLE OF BAD PRACTICE
+
+    EXAMPLE OF GOOD PRACTICE
         "abstract": "This is an abstract",
         "alternative_title": null,
         "keyword": [],
-        "binary_files": [], 
-        */
+        "binary_files": [],
+        "related_items": [{
+            "related_item_citation_text": null,
+            "related_item_title": null,
+            "related_item_url": "http://example.com"
+        }], 
+ */
 
 ORA_Data_Model_Object = {
     // DEFAULT FIELDS
