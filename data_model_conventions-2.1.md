@@ -119,9 +119,9 @@ Specific rules
 - `language` shall be stored and serialized as a string, which equate to the language name value in ISO 639-2 or 639-3, e.g. "English", "French, Old (842–ca. 1400)"
 - `subjects` shall be FAST subject headings stored and serialized as a string
 -- Validation of FAST subjects is a post migration task
-- Affiliation values (contributors__department, contributors__division, contributors__research_group, contributors__sub_division, contributors__sub_unit, contributors__oxford_college) shall be derived from BizTalk
+- Affiliation values (`contributors__department`, `contributors__division`, `contributors__research_group`, `contributors__sub_division`, `contributors__sub_unit`, `contributors__oxford_college`) shall be derived from BizTalk
 -- Affiliation values shall use the BizTalk UPPER CASE format, e.g. "CONTINUING EDUCATION"
--- College affiliations (contributors__oxford_college) shall use the BizTalk short form, e.g. "QUEENS" not "THE QUEEN'S COLLEGE"
+-- College affiliations (`contributors__oxford_college`) shall use the BizTalk short form, e.g. "QUEENS" not "THE QUEEN'S COLLEGE"
 
 ### URIs
 - URIs shall be stored and serialized as strings

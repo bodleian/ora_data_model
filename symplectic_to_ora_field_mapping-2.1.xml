@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    22/07/2019: Update ORA work type mappings to include Hyrax Model names
     16/07/2019: Datamodel 2.1 updates
     - added mapping for c-apc to apc_admin_apc_requested
     - publisher_url maps to publication_website_url not to publication_url
@@ -579,9 +580,8 @@
           - name of Symplectic sub type, corresponds to the value set at '//pubs:field[@name="types"][@display-name="Sub types']'. 
           - Note that if this is the same as symplectic_work_type ignore it. 
           - If more than one sub type, take the first value
-        ora_work_type = 
-          - name of ORA type of work (field:type_of_work), AND
-          - name of Hyrax Work Type to be set in the Hyrax-Work-Type header in all cases
+        ora_work_type =  name of ORA type of work (field:type_of_work) in the data model
+        hyrax_work_type = name of Hyrax Work Type to be set in the Hyrax-Work-Type header in all cases
         ora_sub_type_of_work = name of ORA sub type of work (field:sub_type_of_work), see also the Symplectic 'types' field mapping instructions above
     -->
     
@@ -589,18 +589,22 @@
         <!-- Books (book, scholarly edition, edited book, translation -->
         <symplectic_work_type>book
             <ora_work_type>Book</ora_work_type>
+            <hyrax_work_type>Book</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         <symplectic_work_type>scholarly edition
             <ora_work_type>Book</ora_work_type>
+            <hyrax_work_type>Book</hyrax_work_type>
             <ora_sub_type_of_work>Scholarly edition</ora_sub_type_of_work>
         </symplectic_work_type>
         <symplectic_work_type>edited book
             <ora_work_type>Book</ora_work_type>
+            <hyrax_work_type>Book</hyrax_work_type>
             <ora_sub_type_of_work>Edited book</ora_sub_type_of_work>
         </symplectic_work_type>
         <symplectic_work_type>translation
             <ora_work_type>Book</ora_work_type>
+            <hyrax_work_type>Book</hyrax_work_type>
             <ora_sub_type_of_work>Translation</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -608,6 +612,7 @@
         <!-- Book sections (chapter) -->
         <symplectic_work_type>chapter
             <ora_work_type>Book section</ora_work_type>
+            <hyrax_work_type>BookSection</hyrax_work_type>
             <ora_sub_type_of_work>Chapter</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -615,29 +620,35 @@
         <!-- Compositions (composition, performance)-->
         <symplectic_work_type>composition
             <ora_work_type>Composition</ora_work_type>
+            <hyrax_work_type>Composition</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         <symplectic_work_type>performance
             <ora_work_type>Composition</ora_work_type>
+            <hyrax_work_type>Composition</hyrax_work_type>
             <ora_sub_type_of_work>Performance</ora_sub_type_of_work>
         </symplectic_work_type>
         
         
-        <!-- Conference item (conference paper, exhibition, presentation, poster)-->
+        <!-- Conference item (conference paper, exhibition, presentation)-->
         <symplectic_work_type>conference paper
             <ora_work_type>Conference item</ora_work_type>
+            <hyrax_work_type>ConferenceItem</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         <symplectic_work_type>exhibition
             <ora_work_type>Conference item</ora_work_type>
+            <hyrax_work_type>ConferenceItem</hyrax_work_type>
             <ora_sub_type_of_work>Exhibition</ora_sub_type_of_work>
         </symplectic_work_type>
         <symplectic_work_type>presentation
             <ora_work_type>Conference item</ora_work_type>
+            <hyrax_work_type>ConferenceItem</hyrax_work_type>
             <ora_sub_type_of_work>Presentation</ora_sub_type_of_work>
         </symplectic_work_type>
-        <symplectic_work_type>poster
+       <symplectic_work_type>poster
             <ora_work_type>Conference item</ora_work_type>
+            <hyrax_work_type>ConferenceItem</hyrax_work_type>
             <ora_sub_type_of_work>Poster</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -645,22 +656,27 @@
         <!-- Dataset (fileset, media, figure, software/code, design -->
         <symplectic_work_type>fileset
             <ora_work_type>Dataset</ora_work_type>
+            <hyrax_work_type>Dataset</hyrax_work_type>
             <ora_sub_type_of_work>Fileset</ora_sub_type_of_work>
         </symplectic_work_type>
         <symplectic_work_type>media
             <ora_work_type>Dataset</ora_work_type>
+            <hyrax_work_type>Dataset</hyrax_work_type>
             <ora_sub_type_of_work>Media</ora_sub_type_of_work>
         </symplectic_work_type>
         <symplectic_work_type>figure
             <ora_work_type>Dataset</ora_work_type>
+            <hyrax_work_type>Dataset</hyrax_work_type>
             <ora_sub_type_of_work>Media</ora_sub_type_of_work>
         </symplectic_work_type>         
         <symplectic_work_type>software/code
             <ora_work_type>Dataset</ora_work_type>
+            <hyrax_work_type>Dataset</hyrax_work_type>
             <ora_sub_type_of_work>Software</ora_sub_type_of_work>
         </symplectic_work_type>        
         <symplectic_work_type>design
             <ora_work_type>Dataset</ora_work_type>
+            <hyrax_work_type>Dataset</hyrax_work_type>
             <ora_sub_type_of_work>Design</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -668,6 +684,7 @@
         <!-- Internet publication -->
         <symplectic_work_type>internet publication
             <ora_work_type>Internet publication</ora_work_type>
+            <hyrax_work_type>InternetPublication</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         
@@ -675,42 +692,49 @@
         <!-- Journal article (journal article, sub types: editorial comment, review, rapid communication, addendum, corrigendum, letter) -->
         <symplectic_work_type>journal article
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         
         <symplectic_work_type>journal article
             <symplectic_sub_type>editorial comment</symplectic_sub_type>
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work>Editorial</ora_sub_type_of_work>
         </symplectic_work_type>
         
         <symplectic_work_type>journal article
             <symplectic_sub_type>review</symplectic_sub_type>
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work>Review</ora_sub_type_of_work>
         </symplectic_work_type>
         
         <symplectic_work_type>journal article
             <symplectic_sub_type>rapid communication</symplectic_sub_type>
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work>Correspondence</ora_sub_type_of_work>
         </symplectic_work_type>
         
         <symplectic_work_type>journal article
             <symplectic_sub_type>addendum</symplectic_sub_type>
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work>Addendum</ora_sub_type_of_work>
         </symplectic_work_type>
         
         <symplectic_work_type>journal article
             <symplectic_sub_type>corrigendum</symplectic_sub_type>
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work>Corrigendum</ora_sub_type_of_work>
         </symplectic_work_type>
         
         <symplectic_work_type>journal article
             <symplectic_sub_type>letter</symplectic_sub_type>
             <ora_work_type>Journal article</ora_work_type>
+            <hyrax_work_type>JournalArticle</hyrax_work_type>
             <ora_sub_type_of_work>Letter</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -718,6 +742,7 @@
         <!-- Patent -->
         <symplectic_work_type>patent
             <ora_work_type>Patent</ora_work_type>
+            <hyrax_work_type>Patent</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         
@@ -725,11 +750,13 @@
         <!-- Physical object (artefact, device/product) -->
         <symplectic_work_type>artefact
             <ora_work_type>Pysical object</ora_work_type>
+            <hyrax_work_type>PhysicalObject</hyrax_work_type>
             <ora_sub_type_of_work>Artifact</ora_sub_type_of_work>
         </symplectic_work_type>
         
         <symplectic_work_type>device/product
             <ora_work_type>Pysical object</ora_work_type>
+            <hyrax_work_type>PhysicalObject</hyrax_work_type>
             <ora_sub_type_of_work>Device/product</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -737,12 +764,14 @@
         <!-- Report -->
         <symplectic_work_type>report
             <ora_work_type>Report</ora_work_type>
+            <hyrax_work_type>Report</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         
         <symplectic_work_type>report
             <note>Where SE field 'confidential' has been selected</note>
             <ora_work_type>Report</ora_work_type>
+            <hyrax_work_type>Report</hyrax_work_type>
             <ora_sub_type_of_work>Confidential report</ora_sub_type_of_work>
         </symplectic_work_type>
         
@@ -750,6 +779,7 @@
         <!-- Thesis -->
         <symplectic_work_type>thesis/dissertation
             <ora_work_type>Thesis</ora_work_type>
+            <hyrax_work_type>Thesis</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>
         
@@ -757,6 +787,7 @@
         <!-- Thesis -->
         <symplectic_work_type>working paper
             <ora_work_type>Working paper</ora_work_type>
+            <hyrax_work_type>WorkingPaper</hyrax_work_type>
             <ora_sub_type_of_work />
         </symplectic_work_type>      
     </work-type-mappings>
