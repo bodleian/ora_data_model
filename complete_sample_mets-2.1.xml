@@ -226,7 +226,7 @@
                     </mods:name>
 
 
-                    <mods:name type="field:contributors__contributor_type">  <!-- value can be 'corporate' or 'personal' -->
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
                         <mods:displayForm>Fake Author</mods:displayForm>
                         
                         <mods:namePart type="given">Fake</mods:namePart>
@@ -247,7 +247,7 @@
                         </mods:affiliation>
                     </mods:name>
                     
-                    <mods:name type="field:contributors__contributor_type">  <!-- value can be 'corporate' or 'personal' -->
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
                         <mods:displayForm>Fake Impersonator</mods:displayForm>
                         
                         <mods:namePart type="given">Fake</mods:namePart>
@@ -257,13 +257,13 @@
                         
                         <mods:role>
                             <mods:extension>
-                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">2</ora:role_order>
+                                <ora:role_order xmlns:ora="http://ora.ox.ac.uk/terms/">1</ora:role_order>
                             </mods:extension>
                             <mods:roleTerm type="text">Impersonator</mods:roleTerm>
                         </mods:role>
                     </mods:name>
                     
-                    <mods:name type="field:contributors__contributor_type">  <!-- value can be 'corporate' or 'personal' -->
+                    <mods:name type="personal">  <!-- value can be 'corporate' or 'personal' -->
                         <mods:displayForm>Fake Editor</mods:displayForm>
                         
                         <mods:namePart type="given">Fake</mods:namePart>
