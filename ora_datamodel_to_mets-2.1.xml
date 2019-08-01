@@ -292,6 +292,8 @@
                         <!-- Affiliations 
                             
                              For multiple affiliations, create a separate mods:affiliation/ora:affiliation for each affiliation
+                             
+                             Multiple affiliations are not yet part of datamodel 2
                         -->
                         <mods:affiliation>
                             <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">

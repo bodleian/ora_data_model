@@ -175,10 +175,6 @@
                         <!-- Contributor identifiers without a mapped field in ORA will go into a holding 'contributor_identifiers' value for later processing -->
                         <mods:nameIdentifier type="ACO-number">11378</mods:nameIdentifier>
                         
-                        <!-- Affiliations 
-                            
-                             For multiple affiliations, create a separate mods:affiliation/ora:affiliation for each affiliation
-                        -->
                         <mods:affiliation>
                             <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
                                 <ora:affiliationComponent type="institution" institution_id="oxford01">University of Oxford</ora:affiliationComponent>
@@ -189,15 +185,6 @@
                                 <ora:affiliationComponent type="sub_unit">ORA Developer Team</ora:affiliationComponent>
                                 <ora:affiliationComponent type="oxford_college">Linacre College</ora:affiliationComponent>
                                 <ora:affiliationComponent type="ora3_affiliation">Bodleian Libarries, BDLSS</ora:affiliationComponent>
-                            </ora:affiliation>
-                        </mods:affiliation>      
-
-                        <mods:affiliation>
-                            <ora:affiliation xmlns:ora="http://ora.ox.ac.uk/terms/">
-                                <ora:affiliationComponent type="institution" institution_id="ncl.ac.uk">University of Newcastle</ora:affiliationComponent>
-                                <ora:affiliationComponent type="division">Humanities</ora:affiliationComponent>
-                                <ora:affiliationComponent type="department">Classics</ora:affiliationComponent>
-                                <ora:affiliationComponent type="ora3_affiliation">Classics Faculty</ora:affiliationComponent>
                             </ora:affiliation>
                         </mods:affiliation>      
 
