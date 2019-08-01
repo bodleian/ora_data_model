@@ -60,7 +60,8 @@ The object properties themselves are specified in the data model spreadsheet.
 ## Field value conventions
 
 Contents:
-- Where a value is not set
+- Keys should always be set
+- Where a scalar value is not set
 - Boolean or trinary values
 - Date values
 - Date/time values
@@ -70,7 +71,58 @@ Contents:
 - URIs
 - URLs
 
-### Where a value is not set
+### Keys should always be set
+
+For any dictionary/hash object, e.g. a contributor, a funder, an ORA object, all the keys for that object shall be present in all output
+- If no value is present for that key, then the rules 'Where a scalar value is not set' or 'Where a list is empty' shall be followed.
+
+EXAMPLE OF BAD PRACTICE (JSON)
+
+```
+    "abstract": "This is an abstract",
+    "alternative_title": "",
+    "keyword": [""],
+    "binary_files": [{
+        "file_admin_access_condition_at_deposit": "",
+        "file_admin_file_and_record_do_not_match": "",
+        "file_admin_fedora3_datastream_identifier": "",
+        "file_embargo_comment": "",
+        "file_embargo_end_date": "",
+        "file_embargo_period": "",
+        "file_embargo_reason": "",
+        "file_embargo_release_method": "",
+        "file_format": "",
+        "file_last_access_request_date": "",
+        "file_made_available_date": "",
+        "file_name": "",
+        "file_order": "",
+        "file_path": "",
+        "file_public_url": "",
+        "file_rioxx_file_version": "",
+        "file_sha1": "",
+        "file_size": "",
+        "file_version": ""    
+    }],
+    "related_items": [{
+        "related_item_url": "http://example.com"
+    }], 
+```
+
+EXAMPLE OF GOOD PRACTICE (Python)
+
+```
+    "abstract": "This is an abstract",
+    "alternative_title": None,
+    "keyword": [],
+    "binary_files": [],
+    "related_items": [{
+        "related_item_citation_text": None,
+        "related_item_title": None,
+        "related_item_url": "http://example.com"
+    }],
+``` 
+
+### Where a scalar value is not set
 
 The handling for an unset value is dependent on the environment.
 
@@ -78,6 +130,13 @@ The handling for an unset value is dependent on the environment.
 - In XML serialisation it should not be expressed at all - i.e. in XML the value will not be present, rather than <mods:identifier type="isbn10"/>
 - In Solr, the value should not be set
 - In JSON serialisation, the `null` primitive should be used
+
+### Where a list is empty
+
+- In code, it should be expressed as the value of the empty list/array object: '[]'
+- In XML serialisation it should not be expressed at all - i.e. in XML the value will not be present, rather than <ora_admin:history/>
+- In Solr, the value should not be set
+- In JSON serialisation, the empty list should be used
 
 ### Boolean or trinary values
 
