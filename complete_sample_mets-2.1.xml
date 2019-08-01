@@ -56,6 +56,7 @@
                     <mods:note displayLabel="additional_information">Test additional information, basically notes, goes here</mods:note>
                     
                     <mods:physicalDescription>
+                        <mods:form type="collection_name">Dummy collection</mods:form>
                         <mods:form type="physical_form">Digital - this is just a dummy value</mods:form>
                         <mods:form type="physical_dimensions">100x200mm</mods:form>
                     </mods:physicalDescription>
