@@ -70,6 +70,7 @@ Contents:
 - Tokenised field values
 - URIs
 - URLs
+- Work types
 
 ### Keys should always be set
 
@@ -110,7 +111,7 @@ EXAMPLE OF BAD PRACTICE (JSON)
 
 EXAMPLE OF GOOD PRACTICE (Python)
 
-```
+```Python
     "abstract": "This is an abstract",
     "alternative_title": None,
     "keyword": [],
@@ -193,3 +194,27 @@ Specific rules
 - No trailing slashes
 - The data model spreadsheet shall indicate when a value is a URL
 - URLS shall use https over http, and web addressable formats over others
+
+### Work types
+- Work types shall be passed as strings in the data model format, e.g. "Journal article"
+- A mapping between data model work types and Hyrax class names is provided below:
+
+```Ruby
+data_model_to_hyrax_class_mappings = {
+    "Book" => "Book",
+    "Book section" => "BookSection",
+    "Compostition" => "Compostion",
+    "Conference item" => "ConferenceItem",
+    "Dataset" => "Dataset",
+    "Ephemera" => "Ephemera",
+    "Internet publication" => "InternetPublication",
+    "Journal article" => "JournalArticle",
+    "Patent" => "Patent",
+    "Physical object" => "PhysicalObject",
+    "Report" => "Report",
+    "Thesis" => "Thesis",
+    "Working paper" => "WorkingPaper"
+}
+
+```
+
