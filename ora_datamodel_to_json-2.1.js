@@ -185,7 +185,7 @@ ORA_Data_Model_Object = {
     "record_requires_review": "",
     "record_review_status": "",
     "rights_third_party_copyright_permission_received": "",
-    "rt_ticket_number": "",
+    "rt_ticket_number": [""],
     "thesis_archive_version_complete": "",
     "thesis_dispensation_from_consultation_granted": "",
     "thesis_leave_to_supplicate_date": "",
