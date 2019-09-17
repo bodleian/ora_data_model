@@ -92,7 +92,14 @@
       <xwalk:field-mapping to="doi">
         <xwalk:field-source from="/*/mods:identifier[@type = 'doi']" select-using="xpath" />
       </xwalk:field-mapping>
+
+    <!-- DS test added 17/09/2019 -->
+      <xwalk:field-mapping to="isbn-13">
+        <xwalk:field-source from="/*/mods:identifier[@type = 'isbn13']" select-using="xpath" />
+      </xwalk:field-mapping>
     </xwalk:field-map>
+
+    <!-- End of test -->
 
     <xwalk:field-map name="journal-markup">
       <xwalk:field-mapping to="pagination">
