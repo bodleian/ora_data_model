@@ -48,6 +48,11 @@
       <xwalk:include-field-map name="identifiers" />
       <xwalk:include-field-map name="journal-markup" />
       <xwalk:include-field-map name="access-conditions" />
+      
+      <xwalk:field-mapping to="recordInfo">
+        <xwalk:field-source subfield="recordContentSource" value = "Symplectic Elements">
+        </xwalk:field-source>
+      </xwalk:field-mapping>
 
       <xwalk:field-mapping to="titleInfo">
         <xwalk:field-source subfield="title" from="title" />
