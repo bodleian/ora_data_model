@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:api="http://www.symplectic.co.uk/publications/api">
+	<api:schema-version>5.5</api:schema-version>
+	<category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/feeds/" term="item"/>
+	<id>tag:elements-qa@oxford,5.17:/secure-api/v5.5/feeds/publications/1004000</id>
+	<updated>2019-09-30T09:57:15.453+01:00</updated>
+	<generator uri="https://oxris-qa.bsp.ox.ac.uk/" version="5.17">Symplectic Elements QA</generator>
+	<icon>https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/symplectic.ico</icon>
+	<rights>This data is the property of the Organisation, and can only be used with permission.</rights>
+	<subtitle>This feed represents a single publication.</subtitle>
+	<link href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/publications/1004000" rel="self" type="application/atom+xml"/>
+	<title>TESTOBJECTQAv2_2019-09-30_DS_Complete sample data</title>
+	<author>
+		<name>Symplectic Elements at Oxford QA</name>
+	</author>
+	<entry>
+		<id>tag:elements-qa@oxford,5.17:/secure-api/v5.5/publications/1004000</id>
+		<category label="Item" scheme="http://www.symplectic.co.uk/publications/atom/entries/" term="item"/>
+		<updated>2019-09-30T09:57:15.453+01:00</updated>
+		<link href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/publications/1004000" rel="alternate" type="application/atom+xml"/>
+		<title>TESTOBJECTQAv2_2019-09-30_DS_Complete sample data</title>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Publication (Complete sample data)</p>
+				<p>
+					<a href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/publications/1004000/relationships">Relationships</a>with other data</p>
+			</div>
+		</content>
+		<api:object category="publication" created-when="2019-09-30T09:57:14.407+01:00" href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/publications/1004000" id="1004000" last-affected-when="2019-09-30T09:57:15.453+01:00" last-modified-when="2019-09-30T09:57:15.453+01:00" type="c-journal-article-cloned" type-id="92">
+			<!--Publication type 92 is "Complete sample data"-->
+			<api:ever-approved>true</api:ever-approved>
+			<api:reporting-date-1>2016-04-21</api:reporting-date-1>
+			<api:is-public>true</api:is-public>
+			<api:records>
+				<api:record format="native" id="2928664" id-at-source="0db7225f-ab7c-473d-88f5-e2f1661994cc" source-display-name="Manual" source-id="1" source-name="manual">
+					<api:verification-status>unverified</api:verification-status>
+					<api:native>
+						<api:field display-name="Abstract" name="abstract" type="text">
+							<api:text>abstract test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Date of acceptance" name="acceptance-date" type="date">
+							<api:date>
+								<api:day>16</api:day>
+								<api:month>4</api:month>
+								<api:year>2016</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Addresses" name="addresses" type="address-list">
+							<api:addresses>
+								<api:address iso-country-code="AU">
+									<api:line type="name">David Saunders</api:line>
+									<api:line type="organisation">University of Melbourne</api:line>
+									<api:line type="suborganisation">Dept of Zoology</api:line>
+									<api:line type="street-address">10 Dairy St</api:line>
+									<api:line type="city">Melbourne</api:line>
+									<api:line type="state">Victoria</api:line>
+									<api:line type="zip-code">1035</api:line>
+									<api:line type="country">Australia</api:line>
+								</api:address>
+							</api:addresses>
+						</api:field>
+						<api:field display-name="Associated Authors" name="associated-authors" type="person-list">
+							<api:people>
+								<api:person>
+									<api:last-name>Saunders</api:last-name>
+									<api:initials>D</api:initials>
+									<api:first-names>D</api:first-names>
+									<api:separate-first-names>
+										<api:first-name>D</api:first-name>
+									</api:separate-first-names>
+								</api:person>
+								<api:person>
+									<api:last-name>Carrolchick</api:last-name>
+									<api:initials>M</api:initials>
+									<api:first-names>M</api:first-names>
+									<api:separate-first-names>
+										<api:first-name>M</api:first-name>
+									</api:separate-first-names>
+								</api:person>
+							</api:people>
+						</api:field>
+						<api:field display-name="Associated Identifiers" name="associated-identifiers" type="identifier-list">
+							<api:identifiers>
+								<api:identifier scheme="isidoc">associated-identifiers Assoc ID: 12345 test journal-article</api:identifier>
+							</api:identifiers>
+						</api:field>
+						<api:field display-name="Authors" name="authors" type="person-list">
+							<api:people>
+								<api:person>
+									<api:links>
+										<api:link href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/users/13654" id="13654" type="elements/user"/>
+									</api:links>
+									<api:last-name>Saunders</api:last-name>
+									<api:initials>D</api:initials>
+									<api:first-names>D</api:first-names>
+									<api:separate-first-names>
+										<api:first-name>D</api:first-name>
+									</api:separate-first-names>
+								</api:person>
+								<api:person>
+									<api:last-name>Carrolchick</api:last-name>
+									<api:initials>M</api:initials>
+									<api:first-names>M</api:first-names>
+									<api:separate-first-names>
+										<api:first-name>M</api:first-name>
+									</api:separate-first-names>
+								</api:person>
+							</api:people>
+						</api:field>
+						<api:field display-name="Author URL" name="author-url" type="text">
+							<api:text>http://www.authorurl.org/</api:text>
+						</api:field>
+						<api:field display-name="APC applied for" name="c-apc" type="text">
+							<api:text>Yes</api:text>
+						</api:field>
+						<api:field display-name="Commissioning body" name="commissioning-body" type="text">
+							<api:text>commissioning-body test report</api:text>
+						</api:field>
+						<api:field display-name="Confidential" name="confidential" type="boolean">
+							<api:boolean>true</api:boolean>
+						</api:field>
+						<api:field display-name="DOI" name="doi" type="text">
+							<api:text>10.1034/testDOIx/12</api:text>
+							<api:links>
+								<api:link href="http://doi.org/10.1034/testDOIx/12" type="doi"/>
+								<api:link href="http://www.altmetric.com/details.php?doi=10.1034/testDOIx/12" type="altmetric"/>
+							</api:links>
+						</api:field>
+						<api:field display-name="Edition" name="edition" type="text">
+							<api:text>edition test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Editors" name="editors" type="person-list">
+							<api:people>
+								<api:person>
+									<api:last-name>Barrio</api:last-name>
+									<api:initials>F</api:initials>
+									<api:first-names>F</api:first-names>
+									<api:separate-first-names>
+										<api:first-name>F</api:first-name>
+									</api:separate-first-names>
+								</api:person>
+								<api:person>
+									<api:last-name>Partridge</api:last-name>
+									<api:initials>J</api:initials>
+									<api:first-names>J</api:first-names>
+									<api:separate-first-names>
+										<api:first-name>J</api:first-name>
+									</api:separate-first-names>
+								</api:person>
+							</api:people>
+						</api:field>
+						<api:field display-name="eISSN" name="eissn" type="text">
+							<api:text>1750-0095</api:text>
+							<api:links>
+								<api:link href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/journals/775201" type="elements/journal"/>
+							</api:links>
+						</api:field>
+						<api:field display-name="Subtitle" name="field-47" type="text">
+							<api:text>field-47 test book</api:text>
+						</api:field>
+						<api:field display-name="Filed date" name="filed-date" type="date">
+							<api:date>
+								<api:day>21</api:day>
+								<api:month>4</api:month>
+								<api:year>2016</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Finish date" name="finish-date" type="date">
+							<api:date>
+								<api:day>24</api:day>
+								<api:month>1</api:month>
+								<api:year>2017</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Funding acknowledgement" name="funding-acknowledgements" type="funding-acknowledgements">
+							<api:funding-acknowledgements>
+								<api:grants>
+									<api:grant>
+										<api:grant-id>1234567/89</api:grant-id>
+										<api:organisation>MRC</api:organisation>
+									</api:grant>
+								</api:grants>
+							</api:funding-acknowledgements>
+						</api:field>
+						<api:field display-name="ISBN-10" name="isbn-10" type="text">
+							<api:text>0-19-852663-6</api:text>
+						</api:field>
+						<api:field display-name="ISBN-13" name="isbn-13" type="text">
+							<api:text>978-3-16-148410-0</api:text>
+						</api:field>
+						<api:field display-name="ISSN" name="issn" type="text">
+							<api:text>1750-0095</api:text>
+							<api:links>
+								<api:link href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/journals/775201" type="elements/journal"/>
+							</api:links>
+						</api:field>
+						<api:field display-name="Issue" name="issue" type="text">
+							<api:text>issue test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Journal" name="journal" type="text">
+							<api:text>journal test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Keywords" name="keywords" type="keyword-list">
+							<api:keywords>
+								<api:keyword>Frogs</api:keyword>
+								<api:keyword>cheese</api:keyword>
+								<api:keyword>randomosity</api:keyword>
+							</api:keywords>
+						</api:field>
+						<api:field display-name="Language" name="language" type="text">
+							<api:text>language test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Country" name="location" type="text">
+							<api:text>location test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Medium" name="medium" type="text">
+							<api:text>medium test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Name of conference" name="name-of-conference" type="text">
+							<api:text>name-of-conference test poster</api:text>
+						</api:field>
+						<api:field display-name="Notes" name="notes" type="text">
+							<api:text>notes test Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu</api:text>
+						</api:field>
+						<api:field display-name="Article number" name="number" type="text">
+							<api:text>number test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Number of pieces" name="number-of-pieces" type="text">
+							<api:text>number-of-pieces test other</api:text>
+						</api:field>
+						<api:field display-name="Online publication date" name="online-publication-date" type="date">
+							<api:date>
+								<api:day>16</api:day>
+								<api:month>4</api:month>
+								<api:year>2016</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Pagination" name="pagination" type="pagination">
+							<api:pagination>
+								<api:begin-page>214</api:begin-page>
+								<api:end-page>286</api:end-page>
+							</api:pagination>
+						</api:field>
+						<api:field display-name="Parent title" name="parent-title" type="text">
+							<api:text>parent-title test chapter</api:text>
+						</api:field>
+						<api:field display-name="Patent number" name="patent-number" type="text">
+							<api:text>patent-number test patent</api:text>
+						</api:field>
+						<api:field display-name="Patent status" name="patent-status" type="text">
+							<api:text>patent-status test patent</api:text>
+						</api:field>
+						<api:field display-name="PII" name="pii" type="text">
+							<api:text>pii test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Place of publication" name="place-of-publication" type="text">
+							<api:text>place-of-publication test other</api:text>
+						</api:field>
+						<api:field display-name="Publication date" name="publication-date" type="date">
+							<api:date>
+								<api:day>21</api:day>
+								<api:month>4</api:month>
+								<api:year>2016</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Status" name="publication-status" type="text">
+							<api:text>Published</api:text>
+						</api:field>
+						<api:field display-name="Publisher" name="publisher" type="text">
+							<api:text>publisher test journal-article</api:text>
+						</api:field>
+						<api:field display-name="Publisher licence" name="publisher-licence" type="text">
+							<api:text>CC BY</api:text>
+						</api:field>
+						<api:field display-name="Publisher URL" name="publisher-url" type="text">
+							<api:text>http://www.publishers-url.org/</api:text>
+						</api:field>
+						<api:field display-name="Record created at source" name="record-created-at-source-date" type="date">
+							<api:date>
+								<api:day>30</api:day>
+								<api:month>9</api:month>
+								<api:year>2019</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Series" name="series" type="text">
+							<api:text>series test book</api:text>
+						</api:field>
+						<api:field display-name="Start date" name="start-date" type="date">
+							<api:date>
+								<api:day>18</api:day>
+								<api:month>12</api:month>
+								<api:year>2016</api:year>
+							</api:date>
+						</api:field>
+						<api:field display-name="Thesis type" name="thesis-type" type="text">
+							<api:text>PhD Thesis</api:text>
+						</api:field>
+						<api:field display-name="Title" name="title" type="text">
+							<api:text>TESTOBJECTQAv2_2019-09-30_DS_Complete sample data</api:text>
+						</api:field>
+						<api:field display-name="Version" name="version" type="text">
+							<api:text>version test other</api:text>
+						</api:field>
+						<api:field display-name="Volume" name="volume" type="text">
+							<api:text>volume test journal-article</api:text>
+						</api:field>
+					</api:native>
+				</api:record>
+			</api:records>
+			<api:fields/>
+			<api:all-labels type="keyword-list">
+				<api:keywords>
+					<api:keyword origin="record-data" source="manual">Frogs</api:keyword>
+					<api:keyword origin="record-data" source="manual">cheese</api:keyword>
+					<api:keyword origin="record-data" source="manual">randomosity</api:keyword>
+					<api:keyword origin="issn-inferred" scheme="for">1904 Performing Arts and Creative Writing</api:keyword>
+				</api:keywords>
+			</api:all-labels>
+			<api:journal href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/journals/775201" issn="1750-0095">
+				<api:records>
+					<api:record source-name="era-2015">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="sherpa-romeo">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="sherpa-romeo">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="snip">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="sjr">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="sjr">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="era-2010">
+						<api:title>Dance Research</api:title>
+					</api:record>
+					<api:record source-name="era-2012">
+						<api:title>Dance Research</api:title>
+					</api:record>
+				</api:records>
+			</api:journal>
+			<api:relationships href="https://oxris-qa.bsp.ox.ac.uk:8091/secure-api/v5.5/publications/1004000/relationships"/>
+		</api:object>
+	</entry>
+</feed>
