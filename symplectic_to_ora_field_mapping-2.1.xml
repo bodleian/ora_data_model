@@ -13,6 +13,11 @@
     
     Changelog
     =========
+    02/10/2019: Update mappings for SE:
+    - finish-date (#86)
+    - thesis-type (#93)
+    - medium (#92)
+    - location (part of #88)
     22/07/2019: Update ORA work type mappings to include Hyrax Model names
     16/07/2019: Datamodel 2.1 updates
     - added mapping for c-apc to apc_admin_apc_requested
@@ -168,7 +173,7 @@
             <if test="record is a Thesis"><no_mapping/></if>
         </symplectic_field>
         
-        <symplectic_field name="finish-date"><ora_field>field:event_finish_date</ora_field></symplectic_field>
+        <symplectic_field name="finish-date"><ora_field>field:event_end_date</ora_field></symplectic_field>
         
         <symplectic_field name="funding-acknowledgements">
             <symplectic_child_field name="organisation"><ora_field>funders__funder_name</ora_field></symplectic_child_field>
@@ -193,19 +198,20 @@
         <symplectic_field name="language"><ora_field>language</ora_field></symplectic_field>
         
         <symplectic_field name="location">
-            <if test="record is a Conference, Exhibition, Performance, Presentation, etc."><ora_field>event_location</ora_field></if>
+            <if test="record is a Conference, Exhibition, Performance, or Presentation"><ora_field>event_location</ora_field></if>
             <if test="record is a Physical item"><ora_field>physical_location</ora_field></if>
             <if test="record is a Journal Article"><ora_field>citation_place_of_publication</ora_field></if>
             <if test="record is a Patent">patent_territory</if>
         </symplectic_field>
         
-        <symplectic_field name="medium"><no_mapping/></symplectic_field>
-        
-        <symplectic_field name="name-of-conference">
-            <if test="record is a Conference"><ora_field>title</ora_field></if>
-            <if test="record is a Conference paper, or Conference poster"><ora_field>event_title</ora_field></if>
-            <if test="record is a Conference proceedings or Event proceedings"><ora_field>host_title</ora_field></if>
+        <symplectic_field name="medium">
+        <if test="record is a Physical item"><ora_field>physical_form</ora_field></if>
+        <else><symplectic_field name="medium"><no_mapping/></symplectic_field>
         </symplectic_field>
+            
+        <symplectic_field name=name-of-conference>
+            <if test="record is Conference item/any or Composition/performance"><ora_field>event_title</ora_field></if>
+
         
         <symplectic_field name="notes"><ora_field>additional_information</ora_field><note>As other fields write to additional information, this should be appended to the additional_information value and not replace it</note></symplectic_field>
         
@@ -296,7 +302,7 @@
             <if test="record is not a Patent"><ora_field>event_start_date</ora_field></if>
         </symplectic_field>
         
-        <symplectic_field name="thesis-type"><ora_field>degree_level</ora_field></symplectic_field>
+        <symplectic_field name="thesis-type"><ora_field>thesis_degree_level</ora_field></symplectic_field>
         
         <symplectic_field name="title"><ora_field>title</ora_field></symplectic_field>
         
