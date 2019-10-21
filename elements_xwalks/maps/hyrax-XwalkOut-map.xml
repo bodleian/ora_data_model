@@ -2,7 +2,6 @@
   <!--STILL TO DO @15-10-2019
 #Fields
 - comissioning-body
-- confidential
 - version
 - funding-acknowledgements
 - associated-identifiers
@@ -11,6 +10,8 @@
 #General
  - Check that not duplicating nodes (that all are nested where needed)
  - Check AB 'TODO'
+ Check genre.
+ CHeck confidential report esp. should we map SE field confidential value even if false.
 
 -->
   <!--CHANGELOG
@@ -24,6 +25,9 @@ Initial changes not logged.
 - Updated  <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">14-10-2019
 - Updated publisher name to contributor type manufacturer
 - Updated location deposit for dataset ->digital_storage_location/physical_storage_location
+16-Oct-2019
+- Updated SE confidential field to ORA type and subtype and confidential_report field.
+
 
 
 
@@ -68,23 +72,17 @@ Initial changes not logged.
       <xwalk:include-field-map name="contributors"/>
       <xwalk:include-field-map name="identifiers"/>
       <xwalk:include-field-map name="access-conditions"/>
+
+
       <xwalk:field-mapping to="recordInfo">
-        <xwalk:if>
-          <xwalk:condition argument-field="object.type" operator="equals">report</xwalk:condition>
-          <xwalk:result>
-            <xwalk:field-source subfield="recordContentSource" value="Symplectic Elements"/>
-          </xwalk:result>
-          <xwalk:else>
-            <xwalk:result>
-              <xwalk:field-source subfield="recordContentSource" value="Symplectic Elements"/>
-              <xwalk:field-source subfield="recordInfoNote">
-                <xwalk:field-source subfield="@type" value="confidential_report"/>
-                <xwalk:field-source from="confidential-report"/>
-              </xwalk:field-source>
-            </xwalk:result>
-          </xwalk:else>
-        </xwalk:if>
+      	<xwalk:field-source subfield="recordContentSource" value="Symplectic Elements"/>
+        <xwalk:field-source subfield="recordInfoNote">
+        <xwalk:field-source subfield="@type" value="confidential_report"/>
+        <xwalk:field-source from="confidential"/>
+      </xwalk:field-source>
       </xwalk:field-mapping>
+
+
       <xwalk:field-mapping to="contributors__contributor_website_url">
         <xwalk:field-source subfield="name">
           <xwalk:field-source subfield="@type" value="personal"/>
@@ -211,23 +209,21 @@ Initial changes not logged.
       </xwalk:field-mapping>
       <!--DO WE NEED THIS IN ADDIOTN TO JA PLACE OF PUB TO CITATION xwalk:field-mapping to="location"><xwalk:if>-->
       <!-- TODO: Check item type -->
+
+
       <xwalk:field-mapping to="genre">
-        <xwalk:if>
-          <xwalk:condition argument-field="object.type" operator="equals">journal-article</xwalk:condition>
-          <xwalk:result>
-            <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
-            <xwalk:field-source from="types"/>
-          </xwalk:result>
-        </xwalk:if>
+           	<xwalk:field-source subfield="@type" value="type_of_work"/>
+        	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
       </xwalk:field-mapping>
+
+
+
+
       <xwalk:field-mapping to="titleInfo">
         <xwalk:field-source from="title" subfield="title"/>
         <xwalk:field-source from="field-47" subfield="subTitle"/>
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="genre">
-        <xwalk:field-source subfield="@type" value="type_of_work"/>
-        <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
-      </xwalk:field-mapping>
+     
       <xwalk:field-mapping to="language">
         <xwalk:field-source subfield="languageTerm">
           <xwalk:field-source subfield="@authority" value="iso639-2b"/>
@@ -865,6 +861,15 @@ Initial changes not logged.
     <!-- Journal article metadata (pagination, volume, etc) -->
     <xwalk:field-map name="journal-markup">
       <xwalk:include-field-map name="common-fields-map"/>
+
+<!-- Set is-list to false to force the first item to be selected -->
+<xwalk:field-mapping is-list="false" to="genre">
+      	<xwalk:field-source subfield="@type" value="type_of_work"/>
+        	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+        	<xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+            <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
+        </xwalk:field-mapping>
+
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="host"/>
         <xwalk:field-source subfield="titleInfo">
@@ -907,12 +912,7 @@ Initial changes not logged.
         </xwalk:field-source>
       </xwalk:field-mapping>
       <!-- Set is-list to false to force the first item to be selected -->
-      <!-- Only journal articles have a subtype ('types') field in SE') -->
-      <xwalk:field-mapping is-list="false" to="genre">
-        <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
-        <xwalk:field-source from="object.type" value-map="ora-subtype-work-mappings-from-type"/>
-        <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
-      </xwalk:field-mapping>
+
     </xwalk:field-map>
     <xwalk:field-map name="book-markup">
       <xwalk:include-field-map name="common-fields-map"/>
@@ -1019,6 +1019,23 @@ Initial changes not logged.
         </xwalk:if>
       </xwalk:field-mapping>
     </xwalk:field-map>
+    <xwalk:field-map name="confidential-report-markup">
+      <xwalk:include-field-map name="common-fields-map"/>
+      
+      <xwalk:field-mapping to="genre">
+        <xwalk:field-source subfield="@type" value="type_of_work"/>
+          <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+
+      </xwalk:field-mapping>
+<xwalk:field-mapping to="genre">
+                <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+          <xwalk:field-source value="Confidential report"/>
+          </xwalk:field-mapping>
+
+
+    </xwalk:field-map>
+
+
     <xwalk:field-map name="thesis-markup">
       <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:field-mapping to="extension">
@@ -1214,6 +1231,15 @@ Initial changes not logged.
         <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="dataset-markup"/>
+        </xwalk:result>
+      </xwalk:when>
+       <xwalk:when>
+        <xwalk:condition operator="and">
+        <xwalk:condition argument-field="object.type" operator="equals">report</xwalk:condition>
+        <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:text" operator = "equals" select-using="xpath">True</xwalk:condition>
+      </xwalk:condition>
+        <xwalk:result>
+          <xwalk:field-map-selection field-map="confidential-report-markup"/>
         </xwalk:result>
       </xwalk:when>
       <xwalk:otherwise>
