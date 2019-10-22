@@ -1,10 +1,10 @@
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--STILL TO DO @15-10-2019
+
 #Fields
-- comissioning-body
 - funding-acknowledgements
 - associated-identifiers
-- online-publication-date
+- to dateIssued from online-publication-date (rather than publication-date) if online-publication-date has a value
 
 #General
  - Check that not duplicating nodes (that all are nested where needed)
@@ -16,7 +16,9 @@
   <!--CHANGELOG
 Initial changes not logged.
 
-22/10/2019: added working paper version to file metadata dcterms:hasVersion
+22/10/2019:
+- updated citation_publication_date (including conditionals for available online-publication-date)
+- added working paper version to file metadata dcterms:hasVersion
 21/19/2019: added software/code version to ora_dataset:dataset/dc:version
 16/10/2019
 - Updated SE confidential field to ORA type and subtype and confidential_report field.
@@ -271,8 +273,42 @@ Initial changes not logged.
       </xwalk:field-mapping>
       <!-- TODO: Event -->
       <!-- Identifier mappings imported -->
+      
+
       <xwalk:field-mapping to="originInfo">
+        <xwalk:if>
+          <!--To take dateIssued from online-publication-date if it has a value. Have to repeat all other fields in condition result - I'm not sure there is a better way of doing it. -->
+           <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='online-publication-date']/api:date" operator="has-value" select-using="xpath"/>
+           <xwalk:result>
         <xwalk:field-source subfield="dateOther">
+          <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
+          <xwalk:field-source subfield="@encoding" value="iso8601"/>
+          <xwalk:field-source from="acceptance-date"/>
+        </xwalk:field-source>
+        <xwalk:field-source subfield="dateIssued">
+          <xwalk:field-source subfield="@encoding" value="iso8601"/>
+          <xwalk:field-source format="date:YYYY-MM-DD" from="online-publication-date"/>
+        </xwalk:field-source>
+        <xwalk:field-source subfield="copyrightDate">
+          <xwalk:field-source subfield="@encoding" value="iso8601"/>
+          <xwalk:field-source data-part="date:year" from="publication-date"/>
+        </xwalk:field-source>
+        <xwalk:field-source subfield="place">
+          <xwalk:field-source subfield="placeTerm">
+            <xwalk:field-source subfield="@type" value="text"/>
+            <xwalk:field-source from="place-of-publication"/>
+          </xwalk:field-source>
+        </xwalk:field-source>
+        <xwalk:field-source subfield="place">
+          <xwalk:field-source subfield="placeTerm">
+            <xwalk:field-source subfield="@type" value="code"/>
+            <xwalk:field-source from="publisher-url"/>
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:result>
+      <xwalk:else>
+        <xwalk:result>
+          <xwalk:field-source subfield="dateOther">
           <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
           <xwalk:field-source subfield="@encoding" value="iso8601"/>
           <xwalk:field-source from="acceptance-date"/>
@@ -297,7 +333,11 @@ Initial changes not logged.
             <xwalk:field-source from="publisher-url"/>
           </xwalk:field-source>
         </xwalk:field-source>
+        </xwalk:result>
+      </xwalk:else>
+    </xwalk:if>
       </xwalk:field-mapping>
+
       <!-- RELATED PUBLICATIONS -->
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source from="object.relationships" value-map="publication-relationships">
@@ -1187,7 +1227,18 @@ Initial changes not logged.
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
       <xwalk:value-mapping from="scholarly-edition" to="Scholarly edition"/>
       <xwalk:value-mapping from="edited-book" to="Edited book"/>
-      <!-- add additional ones here-->
+      <xwalk:value-mapping from="chapter" to="Chapter"/>
+      <xwalk:value-mapping from="software/code" to="Software"/>
+      <xwalk:value-mapping from="performance" to="Performance"/>
+      <xwalk:value-mapping from="design" to="Design"/>
+      <xwalk:value-mapping from="artefact" to="Artefact"/>
+      <xwalk:value-mapping from="exhibition" to="Exhibition"/>
+      <xwalk:value-mapping from="media" to="Media"/>
+      <xwalk:value-mapping from="translation" to="Translation"/>
+      <xwalk:value-mapping from="poster" to="Poster"/>
+      <xwalk:value-mapping from="presentation" to="Presentation"/>
+      <xwalk:value-mapping from="figure" to="Media"/>
+      <xwalk:value-mapping from="fileset" to="Fileset"/>
 
       <!--end additionals>-->
       <xwalk:otherwise-mapping action="ignore-this-value"/>
