@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    22/10/2019: Updated online-publication-date and -publication-date (#85)
     21/10/2019: Updated version (#87)
     02/10/2019: Update mappings for SE:
     - finish-date (#86)
@@ -230,8 +231,8 @@
         <symplectic_field name="oa-location-file-version"><ora_field>binary_files__file_rioxx_file_version</ora_field></symplectic_field>
         
         <symplectic_field name="online-publication-date">
-            <if test="describing a record">record_publication_date</if>
-            <if test="describing a binary file">binary_files__file_made_available_date</if>
+        <note>Crosswalk for deposit only. If null then map publication-date instead</note>
+            <ora_field>citation_publication_date</ora_field></if>
         </symplectic_field>
         
         <symplectic_field name="pagination">
@@ -255,10 +256,12 @@
         <symplectic_field name="public-url"><ora_field>has_public_url</ora_field></symplectic_field>
         
         <symplectic_field name="publication-date">
+            <Note "for deposit crosswalk, only map if online-publication-date' is null"/>
             <if test="type_of_work == 'device/product'"><ora_field>production_date</ora_field></if>
             <else><ora_field>citation_publication_date</ora_field></else>
             <note>In the absence of any other information, the year component of this value should also become rights_copyright_date</note>
         </symplectic_field>
+
         
         <symplectic_field name="publication-status"><ora_field>host_publication_status</ora_field>
             <value_mappings>
