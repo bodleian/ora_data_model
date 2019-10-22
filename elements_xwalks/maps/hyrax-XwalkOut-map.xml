@@ -2,7 +2,6 @@
   <!--STILL TO DO @15-10-2019
 #Fields
 - comissioning-body
-- version
 - funding-acknowledgements
 - associated-identifiers
 - online-publication-date
@@ -16,23 +15,28 @@
 -->
   <!--CHANGELOG
 Initial changes not logged.
-9-Oct-19  
+
+22/10/2019: added working paper version to file metadata dcterms:hasVersion
+21/19/2019: added software/code version to ora_dataset:dataset/dc:version
+16/10/2019
+- Updated SE confidential field to ORA type and subtype and confidential_report field.
+10/10/19
+- Updated  <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">14-10-2019
+- Updated publisher name to contributor type manufacturer
+- Updated location deposit for dataset ->digital_storage_location/physical_storage_location
+9/10/19  
 - Moved pagination to common-fields-fieldmap
 - Moved default-map to be included in journal-markup and book-markup rather than other way around
 - Renamed default-map to common-fields-map
 - Added device-product production_date conditional to place of publication
-10-Oct-19
-- Updated  <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">14-10-2019
-- Updated publisher name to contributor type manufacturer
-- Updated location deposit for dataset ->digital_storage_location/physical_storage_location
-16-Oct-2019
-- Updated SE confidential field to ORA type and subtype and confidential_report field.
+
+
 
 
 
 
 -->
-  <xwalk:parameters>
+ <xwalk:parameters>
     <!-- Instructs the crosswalk framework to use the 1st when dealing with a month-precision date,
     and January when dealing with a year-precision date -->
     <xwalk:parameter name="use-default-values-for-missing-date-components" value="true"/>
@@ -40,9 +44,22 @@ Initial changes not logged.
   <!-- Defines how metadata is generated for files that have been uploaded.  
   This map is executed for each file and uploaded via Sword one-by-one -->
   <xwalk:file-metadata-map>
+    
     <xwalk:field-mapping to="ora:repository_file">
+       <xwalk:if>
+        <xwalk:condition argument-field="object.type" operator="equals">c-report</xwalk:condition>
+        <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+      <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
+    </xwalk:result>
+    <xwalk:else>
+        <xwalk:result>
+      <xwalk:field-source from="file.name" subfield="dc:title"/>
+      <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+  </xwalk:result>
+</xwalk:else>
+</xwalk:if>
     </xwalk:field-mapping>
   </xwalk:file-metadata-map>
   <!-- Item-level metadata maps -->
@@ -997,6 +1014,7 @@ Initial changes not logged.
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
+    
     <xwalk:field-map name="dataset-markup">
       <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:field-mapping to="extension">
@@ -1034,6 +1052,37 @@ Initial changes not logged.
 
 
     </xwalk:field-map>
+
+    <xwalk:field-map name="software-markup">
+      <xwalk:include-field-map name="common-fields-map"/>
+      <xwalk:include-field-map name="dataset-markup"/>
+    <xwalk:field-mapping to="extension">
+        <xwalk:if>
+          <!-- TODO: Check item type -->
+          <xwalk:condition operator="and">
+            <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
+            <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='doi']/api:text" operator="has-value" select-using="xpath"/>
+          </xwalk:condition>
+          <xwalk:result>
+            <xwalk:field-source subfield="ora_dataset:dataset"/>
+            <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
+          </xwalk:result>
+          <xwalk:else>
+            <xwalk:result>
+              <xwalk:field-source subfield="ora_dataset:dataset"/>
+              <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
+            </xwalk:result>
+          </xwalk:else>
+        </xwalk:if>
+        <xwalk:field-source subfield="ora_dataset:dataset"/>
+            <xwalk:field-source from="version" subfield="dc:version"/>
+      </xwalk:field-mapping>
+
+
+    </xwalk:field-map>
+
+   
+
 
 
     <xwalk:field-map name="thesis-markup">
@@ -1103,7 +1152,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="device/product" to="Physical object"/>
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
-      <xwalk:value-mapping from="working-paper" to="Working paper"/>
+      <xwalk:value-mapping from="c-report" to="Working paper"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="hyrax-work-type-mappings">
@@ -1138,6 +1187,9 @@ Initial changes not logged.
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
       <xwalk:value-mapping from="scholarly-edition" to="Scholarly edition"/>
       <xwalk:value-mapping from="edited-book" to="Edited book"/>
+      <!-- add additional ones here-->
+
+      <!--end additionals>-->
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">
