@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    21/10/2019: Updated version (#87)
     02/10/2019: Update mappings for SE:
     - finish-date (#86)
     - thesis-type (#93)
@@ -331,6 +332,27 @@
             <if test="describing a binary file"><ora_field>binary_files__file_version</ora_field></if>
             <if test="describing a binary file's Rioxx/Open access status, e.g. Version of Record"><ora_field>binary_files__file_rioxx_file_version</ora_field></if>
         </symplectic_field>
+
+        <symplectic_field name="version">
+            <!-- removed as 'will not be implemented in the initial release of ORA4 and relates only to the actual versioning of the ORA public record not bibliographic info' (GitHub #87)
+            <if test="describing a record"><ora_field>record_version</ora_field></if>
+            -->
+            <!--Removed as SE field version does not descibe RIOXX version
+            <if test="describing a binary file's Rioxx/Open access status, e.g. Version of Record"><ora_field>binary_files__file_rioxx_file_version</ora_field></if>-->
+            
+            <if test="type = Software/code">
+                <ora_field>data_digital_data_version</ora_field><note>At object level</note>
+            </if>
+            <note>Deposit only, to pass initial paper version to ORA, but not to continuiously update from subsequent papers made available in ORA</note>
+            <if test="type = Working paper">
+            <ora_field>binary_files__file_version</ora_field> <note>At file level, if multiple files then take value from first file</note>
+            </if>
+        </symplectic_field>
+
+
+
+
+
         
         <symplectic_field name="volume"><ora_field>volume</ora_field></symplectic_field>
         
