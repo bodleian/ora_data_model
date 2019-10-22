@@ -1,7 +1,6 @@
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
   <!-- STILL TO DO
 #Fields
-- version
 - associated-identifiers
 
 #General
@@ -9,13 +8,14 @@
 
 -->
   <!--Changelog
-8-10-2019 Added Product conditionto publication-date
-9-10-2019 Updated start-date to include patent
-10-10-2019 Added PMID external identifier
-11-10-2019 Added publisher
-14-10-2019 Added from physial_storage_location for dataset where no DOI
-15-10-2019 Added confidential
 
+21/10/2019: Updated version (#87)
+15/10/2019 Added confidential
+14/10/2019 Added from physial_storage_location for dataset where no DOI
+11-10/2019 Added publisher
+10/10/2019 Added PMID external identifier
+9/10/2019 Updated start-date to include patent
+8/10/2019 Added Product conditionto publication-date
 
 -->
   <xwalk:field-maps>
@@ -289,8 +289,24 @@
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="version">
+        <xwalk:choose>
+          <xwalk:when>
+         <xwalk:condition operator="and">
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Dataset</xwalk:condition>
+          <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Software</xwalk:condition>
+        </xwalk:condition>
+            <xwalk:result>
         <xwalk:field-source from="/mods:mods/mods:extension/ora_dataset:dataset/dc:version" select-using="xpath"/>
-      </xwalk:field-mapping>
+      </xwalk:result>
+      <!--Initially do data_digital_data_version only, not binary_files__file_version
+      <xwalk:when>
+        <xwalk:result>
+            <note>Will take value form first file</note>
+            <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/dcterms:hasVersion" select-using="xpath"/>
+        </xwalk:result>
+      </xwalk:when>-->
+    </xwalk:choose>
+    </xwalk:field-mapping>
       <xwalk:field-mapping to="types">
         <xwalk:if>
           <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Journal article</xwalk:condition>
