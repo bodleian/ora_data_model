@@ -2,20 +2,20 @@
   <!--STILL TO DO @15-10-2019
 
 #Fields
-- funding-acknowledgements
-- associated-identifiers
-- to dateIssued from online-publication-date (rather than publication-date) if online-publication-date has a value
+- funding-acknowledgements (funder acknowledgment field)
 
-#General
- - Check that not duplicating nodes (that all are nested where needed)
- - Check AB 'TODO'
- Check genre.
- CHeck confidential report esp. should we map SE field confidential value even if false.
+
+
+#To note
+Funding acknowledgements -> Hyrax grants, not working yet (S Ltd ticket)
+Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -> <identifier type="abcd">1234</identifier>
+
 
 -->
   <!--CHANGELOG
 Initial changes not logged.
 
+23/10/2019:Updated grant relationships funder information
 22/10/2019:
 - updated citation_publication_date (including conditionals for available online-publication-date)
 - added working paper version to file metadata dcterms:hasVersion
@@ -369,37 +369,53 @@ Initial changes not logged.
                 <xwalk:field-source value="Funder"/>
               </xwalk:field-source>
             </xwalk:field-source>
+            <!-- have commented out - SE funder reference is grant reference, not org reference.
             <xwalk:field-source subfield="nameIdentifier">
               <xwalk:field-source subfield="@type" value="funder_identifier"/>
               <xwalk:field-source from="funder-reference"/>
-            </xwalk:field-source>
+            </xwalk:field-source>-->
+            <!-- have commented out - There is no SE field programme->
             <xwalk:field-source subfield="affiliation">
-              <xwalk:field-source from="programme" subfield="ora_admin:funding_programme"/>
+              <xwalk:field-source from="programme" subfield="ora_admin:funding_programme"/>-->
+
+<xwalk:field-source subfield="affiliation">
+
+              <xwalk:field-source from = "funder-reference" subfield="ora_admin:grant_identifier"/>
             </xwalk:field-source>
           </xwalk:field-source>
         </xwalk:field-source>
-        <!-- TODO: Futher grant field mappings. -->
+
+
       </xwalk:field-mapping>
       <!-- Related grants from the funding-acknowlegdements field -->
       <xwalk:field-mapping to="name">
-        <xwalk:field-source from="funding-ackowledgements">
-          <xwalk:field-source data-part="funding-acknowledgements:grant">
-            <xwalk:field-source subfield="@type" value="corporate"/>
-            <xwalk:field-source data-part="funding-acknowledgements-grant:org" subfield="displayForm"/>
+        
+          <xwalk:field-source subfield="@type" value="corporate"/>
+         <xwalk:field-source subfield="displayForm">
+        <xwalk:field-source from="funding-ackowledgements" data-part="funding-acknowledgements:grant">
+          <xwalk:field-source data-part="funding-acknowledgements-grant:org">
+        </xwalk:field-source>
+        </xwalk:field-source>
+    </xwalk:field-source>
+
+
             <xwalk:field-source subfield="role">
               <xwalk:field-source subfield="roleTerm">
                 <xwalk:field-source subfield="@type" value="text"/>
                 <xwalk:field-source value="Funder"/>
               </xwalk:field-source>
-            </xwalk:field-source>
-            <xwalk:field-source subfield="affiliation">
-              <xwalk:field-source subfield="ora_admin:funder_grant">
-                <xwalk:field-source data-part="funding-acknowledgements-grant:id" subfield="ora_admin:grant_identifier"/>
               </xwalk:field-source>
+
+
+           <xwalk:field-source subfield="affiliation">
+            <xwalk:field-source subfield="ora_admin:grant_identifier">
+            <xwalk:field-source from="funding-ackowledgements" data-part="funding-acknowledgements-grant:id"/>
+               </xwalk:field-source> 
             </xwalk:field-source>
-          </xwalk:field-source>
-        </xwalk:field-source>
+
+
       </xwalk:field-mapping>
+
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="corporate"/>
         <xwalk:field-source from="commissioning-body" subfield="displayForm"/>
