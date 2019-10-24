@@ -9,7 +9,9 @@
 -->
   <!--Changelog
 
-24/10/2019: Aded in external identifiers - to harvest pubmed ID.
+24/10/2019:
+- Added in external identifiers - to harvest pubmed ID
+- Updated publication-status value map for new ORA capitalisation, and 'othwerwise' to 'ignore this value' rather than 'published online'
 21/10/2019: Updated version (#87)
 15/10/2019 Added confidential
 14/10/2019 Added from physial_storage_location for dataset where no DOI
@@ -485,14 +487,14 @@
       <xwalk:otherwise-mapping to="Unknown"/>
     </xwalk:value-map>
     <xwalk:value-map name="publication-status">
-      <xwalk:value-mapping from="notpublished" to="Unpublished"/>
+      <xwalk:value-mapping from="Not published" to="Unpublished"/>
       <xwalk:value-mapping from="submitted" to="Submitted"/>
       <xwalk:value-mapping from="accepted" to="Accepted"/>
-      <xwalk:value-mapping from="inpress" to="In preparation"/>
+      <xwalk:value-mapping from="In press" to="In preparation"/>
       <xwalk:value-mapping from="published" to="Published"/>
-      <xwalk:otherwise-mapping to="Published online"/>
+      <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-    <xwalk:value-map name="types">
+      <xwalk:value-map name="types">
       <xwalk:value-mapping from="Editorial" to="editorial comment"/>
       <xwalk:value-mapping from="Review" to="review"/>
       <xwalk:value-mapping from="Correspondence" to="rapid communication"/>

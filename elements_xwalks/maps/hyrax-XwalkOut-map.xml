@@ -14,7 +14,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
-
+24/10/2019: Updated publication-status value map
 23/10/2019:Updated grant relationships funder information
 22/10/2019:
 - updated citation_publication_date (including conditionals for available online-publication-date)
@@ -1298,12 +1298,13 @@ Initial changes not logged.
       <xwalk:value-mapping action="continue" from="grant"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-    <xwalk:value-map name="publication-status">
-      <xwalk:value-mapping from="Unpublished" to="notpublished"/>
-      <xwalk:value-mapping from="Submitted" to="submitted"/>
-      <xwalk:value-mapping from="Accepted" to="accepted"/>
-      <xwalk:value-mapping from="In preparation" to="inpress"/>
-      <xwalk:value-mapping from="Published" to="published"/>
+      <xwalk:value-map name="publication-status">
+      <!--Where they don't change, have left in anyway to use the 'ignore' option for other values-->
+      <xwalk:value-mapping from="Unpublished" to="Not published"/>
+      <xwalk:value-mapping from="Submitted" to="Submitted"/>
+      <xwalk:value-mapping from="Accepted" to="Accepted"/>
+      <xwalk:value-mapping from="In preparation" to="In press"/>
+      <xwalk:value-mapping from="Published" to="Published"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="file-versions">
