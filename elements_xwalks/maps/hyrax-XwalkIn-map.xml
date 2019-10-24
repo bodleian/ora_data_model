@@ -9,6 +9,7 @@
 -->
   <!--Changelog
 
+24/10/2019: Aded in external identifiers - to harvest pubmed ID.
 21/10/2019: Updated version (#87)
 15/10/2019 Added confidential
 14/10/2019 Added from physial_storage_location for dataset where no DOI
@@ -303,8 +304,8 @@
         <xwalk:result>
             <note>Will take value form first file</note>
             <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/dcterms:hasVersion" select-using="xpath"/>
-        </xwalk:result>
-      </xwalk:when>-->
+        </xwalk:result>-->
+      </xwalk:when>
     </xwalk:choose>
     </xwalk:field-mapping>
       <xwalk:field-mapping to="types">
@@ -434,7 +435,10 @@
         <xwalk:field-source from="/*/mods:identifier[@type = 'eissn']" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="external-identifiers">
-        <xwalk:field-source from="/*/mods:identifier[@type = 'pmid']" select-using="xpath"/>
+        <xwalk:field-source data-part="identifier:value" from="/*/mods:identifier[@type = 'pmid']" select-using="xpath"/>
+        <xwalk:field-source data-part="identifier:scheme" value="pubmed"/>
+
+       
       </xwalk:field-mapping>
       <xwalk:field-mapping to="patent-number">
         <xwalk:field-source from="/mods:mods/mods:extension/ora_patent:patent/ora_patent:number" select-using="xpath"/>
