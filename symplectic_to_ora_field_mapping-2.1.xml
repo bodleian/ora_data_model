@@ -13,6 +13,9 @@
     
     Changelog
     =========
+    04/11/2019: Updated repository-status to use record_publication_date and record_review_status instead of public url.
+    28/10/2019: Added 'No mapping' for altemetric-attention-score and field-citation-ration (following call with S Ltd 24/10)
+    25/10/2019: Commented out oa-location-url and oa-location-file-version, as this means of deposit is not currently enabled in SE
     22/10/2019: Updated online-publication-date and publication-date (#85)
     21/10/2019: Updated version (#87)
     02/10/2019: Update mappings for SE:
@@ -226,9 +229,10 @@
         
         <symplectic_field name="number-of-pieces"><no_mapping/></symplectic_field>
         
-        <symplectic_field name="oa-location-url"><ora_field>binary_files__file_public_url</ora_field></symplectic_field>
+        <!--Fields not currently used as deposit option not enabled<symplectic_field name="oa-location-url"><ora_field>binary_files__file_public_url</ora_field></symplectic_field>
         
         <symplectic_field name="oa-location-file-version"><ora_field>binary_files__file_rioxx_file_version</ora_field></symplectic_field>
+    -->
         
         <symplectic_field name="online-publication-date">
         <note>Crosswalk for deposit only. If null then map publication-date instead</note>
@@ -292,12 +296,20 @@
         <symplectic_field name="record-created-at-source-date"><ora_field>field:record_created_date</ora_field></symplectic_field>
         
         <symplectic_field name="relative-citation-ratio"><no_mapping/></symplectic_field>
+        <symplectic_field name="field-citation-ratio"><no_mapping/></symplectic_field>
+        <symplectic_field name="altmetric-attention-score"><no_mapping/></symplectic_field>
         
         <symplectic_field name="references"><no_mapping/></symplectic_field>
         
         <symplectic_field name="repository-status">
+            <if test="there IS a record_publication_date">fixed value: Public</if>
+            <if test="there is NO record_publication_date and ANY record_review_status">fixed value: Private (In review)</if>
+            <if test="there is NO record_publication_date OR record_review_status">fixed value: Private</if>
+        </symplectic_field>
+
+        <!--<symplectic_field name="repository-status">
             <if test="has_public_url is set">fixed value: Public</if>
-            <if test="has_public_url is not set">record_review_status</if><note>As documented in https://github.com/tomwrobel/ora_data_model/issues/2#issuecomment-478963073</note></symplectic_field>
+            <if test="has_public_url is not set">record_review_status</if><note>As documented in https://github.com/tomwrobel/ora_data_model/issues/2#issuecomment-478963073</note></symplectic_field>-->
         
         <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
         
