@@ -10,6 +10,7 @@
   <!--Changelog
 
 04/11/2019: 
+- updated publication-status as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
 - Removed crosswalk for compliant-with-inst-policy
 - Updated repository-status to use ora_admin:record_publication_date and ora_admin:record_review_status instead of public url. repository-status value map no longer needed.
 25/10/2019: 
@@ -504,10 +505,11 @@
     </xwalk:value-map>-->
     <xwalk:value-map name="publication-status">
       <xwalk:value-mapping from="Not published" to="Unpublished"/>
-      <xwalk:value-mapping from="submitted" to="Submitted"/>
-      <xwalk:value-mapping from="accepted" to="Accepted"/>
-      <xwalk:value-mapping from="In press" to="In preparation"/>
-      <xwalk:value-mapping from="published" to="Published"/>
+      <xwalk:value-mapping from="Submitted" to="Submitted"/>
+      <xwalk:value-mapping from="Accepted" to="Accepted"/>
+      <xwalk:value-mapping from="In press" to="Accepted"/>
+      <xwalk:value-mapping from="Published" to="Published"/>
+      <xwalk:value-mapping from="Under review" to="Submitted"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
       <xwalk:value-map name="types">
