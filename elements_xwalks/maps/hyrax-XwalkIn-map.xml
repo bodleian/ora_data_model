@@ -84,10 +84,6 @@
       <xwalk:field-mapping to="record-created-at-source-date">
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordCreationDate" select-using="xpath"/>
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="is-compliant-with-inst-policy">
-        <!-- Used for OA monitor logic, is an override that will trigger 'Compliant'-->
-        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:ref_compliant_at_deposit" select-using="xpath"/>
-      </xwalk:field-mapping>
       <xwalk:field-mapping to="is-open-access">
         <!-- Is effectively 'is there a Hyrax record', used for OA monitor logic-->
         <xwalk:field-source value="True"/>
