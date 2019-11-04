@@ -14,6 +14,7 @@
     Changelog
     =========
     04/11/2019: 
+    - Updated publication status with new value mappings
     - Updated repository-status to use record_publication_date and record_review_status instead of public url.
     - update is-compliant-with-inst-policy to no mapping
     28/10/2019: Added 'No mapping' for altemetric-attention-score and field-citation-ration (following call with S Ltd 24/10)
@@ -274,11 +275,13 @@
                 <value_map><symp_value>Published</symp_value><ora_value>Published</ora_value></value_map>
                 <value_map><symp_value>Unpublished</symp_value><ora_value>Not published</ora_value></value_map>
                 <value_map><symp_value>Accepted</symp_value><ora_value>Accepted</ora_value></value_map>
-                <value_map><symp_value>In preparation</symp_value><ora_value>inpress</ora_value></value_map>
+                <value_map><symp_value>Accepted</symp_value><ora_value>In press</ora_value></value_map><note>Harvest only</note>
                 <value_map><symp_value>Submitted</symp_value><ora_value>submitted</ora_value></value_map>
-                <value_map><symp_value>Published online</symp_value><ora_value>published</ora_value><notes>ORA does not distinguish between published online and published.</notes></value_map>
+                <value_map><symp_value>Submitted</symp_value><ora_value>Under review</ora_value></value_map><note>Harvest only</note>
+                <value_map><symp_value>Published online</symp_value><ora_value>Under review</ora_value></value_map><note>Harvest only</note>
+                <value_map><symp_value>Published online</symp_value><ora_value>Published</ora_value><notes>Deposit only</notes></value_map>
             </value_mappings>
-            <note>See https://github.com/tomwrobel/ora_data_model/issues/70</note>
+            <note>See https://github.com/tomwrobel/ora_data_model/issues/70 also https://github.com/tomwrobel/ora_data_model/issues/112</note>
         </symplectic_field>
         
         <symplectic_field name="publisher">
