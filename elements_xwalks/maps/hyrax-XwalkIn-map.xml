@@ -9,7 +9,9 @@
 -->
   <!--Changelog
 
-04/11/2019: Updated repository-status to use 04/11/2019: Updated repository-status to use ora_admin:record_publication_date and ora_admin:record_review_status instead of public url. repository-status value map no longer needed.
+04/11/2019: 
+- Removed crosswalk for compliant-with-inst-policy
+- Updated repository-status to use ora_admin:record_publication_date and ora_admin:record_review_status instead of public url. repository-status value map no longer needed.
 25/10/2019: 
 - Commented out oa-location-url and oa-location-file-version, as this means of deposit is not currently enabled in SE
 - Set is-open-access value to true (for OAM compliance logic)
