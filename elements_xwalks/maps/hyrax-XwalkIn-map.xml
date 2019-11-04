@@ -9,6 +9,10 @@
 -->
   <!--Changelog
 
+04/11/2019: Updated repository-status to use 04/11/2019: Updated repository-status to use ora_admin:record_publication_date and ora_admin:record_review_status instead of public url. repository-status value map no longer needed.
+25/10/2019: 
+- Commented out oa-location-url and oa-location-file-version, as this means of deposit is not currently enabled in SE
+- Set is-open-access value to true (for OAM compliance logic)
 24/10/2019:
 - Added in external identifiers - to harvest pubmed ID
 - Updated publication-status value map for new ORA capitalisation, and 'othwerwise' to 'ignore this value' rather than 'published online'
@@ -45,20 +49,28 @@
       </xwalk:field-mapping>
       <!-- SE RESERVED FIELDS-->
       <xwalk:field-mapping to="repository-status">
-        <xwalk:if>
-          <xwalk:condition operator="or">
-            <xwalk:condition argument-field="location/url" operator="has-value"/>
-            <xwalk:condition argument-field="/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_publication_date" operator="has-value" select-using="xpath"/>
-          </xwalk:condition>
+        <xwalk:choose>
+          <xwalk:when>
+            <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_publication_date" operator="has-value" select-using="xpath"/>
           <xwalk:result>
             <xwalk:field-source value="Public"/>
           </xwalk:result>
-          <xwalk:else>
-            <xwalk:result>
-              <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_review_status" select-using="xpath" value-map="repository-status"/>
-            </xwalk:result>
-          </xwalk:else>
-        </xwalk:if>
+        </xwalk:when>
+        <xwalk:when>
+            <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_review_status" operator="has-value" select-using="xpath"/>
+          <xwalk:result>
+            <xwalk:field-source value="Private (In review)"/>
+          </xwalk:result>
+        </xwalk:when>
+                <xwalk:otherwise>
+          <xwalk:result>
+            <xwalk:field-source value="Private"/>
+          </xwalk:result>
+          
+        </xwalk:otherwise>
+      </xwalk:choose>
+          
+         
       </xwalk:field-mapping>
       <xwalk:field-mapping to="confidential-files-reason">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/ora:reasonForEmbargo" select-using="xpath"/>
@@ -73,14 +85,20 @@
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordCreationDate" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="is-compliant-with-inst-policy">
+        <!-- Used for OA monitor logic, is an override that will trigger 'Compliant'-->
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:ref_compliant_at_deposit" select-using="xpath"/>
       </xwalk:field-mapping>
+      <xwalk:field-mapping to="is-open-access">
+        <!-- Is effectively 'is there a Hyrax record', used for OA monitor logic-->
+        <xwalk:field-source value="True"/>
+      </xwalk:field-mapping>
+      <!--Fields not currently used as deposit option not enabled
       <xwalk:field-mapping to="oa-location-url">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/symp:hasPublicUrl" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="oa-location-file-version">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/rioxxterms:version" select-using="xpath"/>
-      </xwalk:field-mapping>
+      </xwalk:field-mapping> -->
       <xwalk:field-mapping to="abstract">
         <xwalk:field-source from="abstract"/>
       </xwalk:field-mapping>
@@ -480,12 +498,12 @@
       <xwalk:value-mapping action="ignore-this-value" from="institutional_identifier"/>
       <xwalk:value-mapping action="ignore-this-value" from="figshare-for-institutions-user-id"/>
     </xwalk:value-map>
-    <xwalk:value-map name="repository-status">
+    <!--<xwalk:value-map name="repository-status">
       <xwalk:value-mapping from="Deposited" to="Private"/>
       <xwalk:value-mapping from="In review" to="Private (in review)"/>
       <xwalk:value-mapping from="Public" to="Public"/>
       <xwalk:otherwise-mapping to="Unknown"/>
-    </xwalk:value-map>
+    </xwalk:value-map>-->
     <xwalk:value-map name="publication-status">
       <xwalk:value-mapping from="Not published" to="Unpublished"/>
       <xwalk:value-mapping from="submitted" to="Submitted"/>
