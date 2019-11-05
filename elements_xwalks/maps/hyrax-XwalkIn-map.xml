@@ -8,7 +8,9 @@
 
 -->
   <!--Changelog
-
+05/11/2019: 
+- Updatred is-open-access boolean to all lower case'true'
+- Updated object-type-seelction for Conference item (no subtype) from 'conference-paper' to 'conference'
 04/11/2019: 
 - updated publication-status as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
 - Removed crosswalk for compliant-with-inst-policy
@@ -89,7 +91,7 @@
       </xwalk:field-mapping>
       <xwalk:field-mapping to="is-open-access">
         <!-- Is effectively 'is there a Hyrax record', used for OA monitor logic-->
-        <xwalk:field-source value="True"/>
+        <xwalk:field-source value="true"/>
       </xwalk:field-mapping>
       <!--Fields not currently used as deposit option not enabled
       <xwalk:field-mapping to="oa-location-url">
@@ -648,7 +650,7 @@
       <xwalk:when>
         <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Conference item</xwalk:condition>
         <xwalk:result>
-          <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="conference-paper"/>
+          <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="conference"/>
         </xwalk:result>
       </xwalk:when>
       <!-- ORA DATASET AND SUBTYPES-->
