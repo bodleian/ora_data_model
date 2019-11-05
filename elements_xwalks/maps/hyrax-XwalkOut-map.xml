@@ -14,6 +14,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+05/11/2019: Commented out mapping from type 'conference-paper' (as 'conference' should suffice)
 04/11/2019: Updated publication-status value map as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
 24/10/2019: Updated publication-status value map
 23/10/2019:Updated grant relationships funder information
@@ -1192,7 +1193,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="composition" to="Composition"/>
       <xwalk:value-mapping from="performance" to="Composition"/>
       <xwalk:value-mapping from="conference" to="Conference item"/>
-      <xwalk:value-mapping from="conference paper" to="Conference item"/>
+      <!--<xwalk:value-mapping from="conference-paper" to="Conference item"/>-->
       <xwalk:value-mapping from="exhibition" to="Conference item"/>
       <xwalk:value-mapping from="presentation" to="Conference item"/>
       <xwalk:value-mapping from="poster" to="Conference item"/>
