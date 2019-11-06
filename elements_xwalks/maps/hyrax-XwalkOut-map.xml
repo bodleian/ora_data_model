@@ -1,28 +1,23 @@
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
-  <!--STILL TO DO @15-10-2019
-
-#Fields
-- funding-acknowledgements (funder acknowledgment field)
-
-
+  <!--
 
 #To note
-Funding acknowledgements -> Hyrax grants, not working yet (S Ltd ticket)
+
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -> <identifier type="abcd">1234</identifier>
 
 
 -->
   <!--CHANGELOG
 Initial changes not logged.
-05/11/2019: Commented out mapping from type 'conference-paper (as conference should suffice)'
-04/11/2019: Updated publication-status value map as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
-24/10/2019: Updated publication-status value map
-23/10/2019:Updated grant relationships funder information
-22/10/2019:
+06/11/19: Updated Funding acnkowledgements
+04/11/19: Updated publication-status value map as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
+24/10/19: Updated publication-status value map
+23/10/19:Updated grant relationships funder information
+22/10/19:
 - updated citation_publication_date (including conditionals for available online-publication-date)
 - added working paper version to file metadata dcterms:hasVersion
-21/19/2019: added software/code version to ora_dataset:dataset/dc:version
-16/10/2019
+21/19/19: added software/code version to ora_dataset:dataset/dc:version
+16/10/19
 - Updated SE confidential field to ORA type and subtype and confidential_report field.
 10/10/19
 - Updated  <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">14-10-2019
@@ -55,16 +50,12 @@ Initial changes not logged.
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
-      <xwalk:field-source from="p-requested-embargo-period" subfield="ora:embargoPeriod"/>
-      <xwalk:field-source from="p-embargo-comment" subfield="ora:embargoComment"/>
       <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
     </xwalk:result>
     <xwalk:else>
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
-      <xwalk:field-source from="p-requested-embargo-period" subfield="ora:embargoPeriod"/>
-      <xwalk:field-source from="p-embargo-comment" subfield="ora:embargoComment"/>
   </xwalk:result>
 </xwalk:else>
 </xwalk:if>
@@ -395,32 +386,27 @@ Initial changes not logged.
       </xwalk:field-mapping>
       <!-- Related grants from the funding-acknowlegdements field -->
       <xwalk:field-mapping to="name">
-        
-          <xwalk:field-source subfield="@type" value="corporate"/>
-         <xwalk:field-source subfield="displayForm">
-        <xwalk:field-source from="funding-ackowledgements" data-part="funding-acknowledgements:grant">
-          <xwalk:field-source data-part="funding-acknowledgements-grant:org">
-        </xwalk:field-source>
+    <xwalk:field-source subfield="@type" value="corporate"/>
+    <xwalk:field-source subfield="displayForm">
+        <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements:grant">
+            <xwalk:field-source data-part="funding-acknowledgements-grant:org"/>
         </xwalk:field-source>
     </xwalk:field-source>
 
+    <xwalk:field-source subfield="role">
+        <xwalk:field-source subfield="roleTerm">
+            <xwalk:field-source subfield="@type" value="text"/>
+            <xwalk:field-source value="Funder"/>
+        </xwalk:field-source>
+    </xwalk:field-source>
 
-            <xwalk:field-source subfield="role">
-              <xwalk:field-source subfield="roleTerm">
-                <xwalk:field-source subfield="@type" value="text"/>
-                <xwalk:field-source value="Funder"/>
-              </xwalk:field-source>
-              </xwalk:field-source>
+    <xwalk:field-source subfield="affiliation">
+        <xwalk:field-source subfield="ora_admin:grant_identifier">
+            <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
+        </xwalk:field-source>
+    </xwalk:field-source>
 
-
-           <xwalk:field-source subfield="affiliation">
-            <xwalk:field-source subfield="ora_admin:grant_identifier">
-            <xwalk:field-source from="funding-ackowledgements" data-part="funding-acknowledgements-grant:id"/>
-               </xwalk:field-source> 
-            </xwalk:field-source>
-
-
-      </xwalk:field-mapping>
+</xwalk:field-mapping>
 
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="corporate"/>
@@ -1197,7 +1183,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="composition" to="Composition"/>
       <xwalk:value-mapping from="performance" to="Composition"/>
       <xwalk:value-mapping from="conference" to="Conference item"/>
-      <!--<xwalk:value-mapping from="conference-paper" to="Conference item"/>-->
+      <xwalk:value-mapping from="conference paper" to="Conference item"/>
       <xwalk:value-mapping from="exhibition" to="Conference item"/>
       <xwalk:value-mapping from="presentation" to="Conference item"/>
       <xwalk:value-mapping from="poster" to="Conference item"/>
@@ -1215,8 +1201,6 @@ Initial changes not logged.
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
       <xwalk:value-mapping from="c-report" to="Working paper"/>
-      <!-- for type Complete sample data'-->
-      <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="hyrax-work-type-mappings">
@@ -1246,8 +1230,6 @@ Initial changes not logged.
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
       <xwalk:value-mapping from="working-paper" to="WorkingPaper"/>
-      <!-- for type Complete sample data'-->
-      <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
