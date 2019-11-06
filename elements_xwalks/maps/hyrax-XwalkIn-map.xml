@@ -8,6 +8,7 @@
 
 -->
   <!--Changelog
+06/11/19: Updated confidential boolean to all lower case'true'
 05/11/2019: 
 - Updated is-open-access boolean to all lower case'true'
 - Updated object-type-selection for Conference item (no subtype) from 'conference-paper' to 'conference'
@@ -351,7 +352,7 @@
               <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Confidential report</xwalk:condition>
             </xwalk:condition>
             <xwalk:result>
-              <xwalk:field-source value="True"/>
+              <xwalk:field-source value="true"/>
             </xwalk:result>
           </xwalk:when>
           <xwalk:when>
