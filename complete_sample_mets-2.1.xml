@@ -618,6 +618,7 @@
                                <ora_admin:record_check_back_date>2019-06-02</ora_admin:record_check_back_date>
                                <ora_admin:record_deposit_date>2019-06-01</ora_admin:record_deposit_date>
                                <ora_admin:record_publication_date>2019-06-02</ora_admin:record_publication_date>
+                               <ora_admin:record_embargo_status>Open access</ora_admin:record_embargo_status>
                                <ora_admin:record_review_status>Published</ora_admin:record_review_status>
                                <ora_admin:record_review_status_other>Record review status free text field</ora_admin:record_review_status_other>
                                <ora_admin:record_version>1thir</ora_admin:record_version>

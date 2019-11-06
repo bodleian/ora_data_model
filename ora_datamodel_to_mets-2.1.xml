@@ -17,6 +17,7 @@
     
     CHANGELOG
     =========
+    03/10/2019: Datamodel tweak - added record_embargo_status
     09/08/2019: Datamodel tweak - make RT Ticket Number multivalued
     15/07/2019: Datamodel v2.1 conformance
     - Physical item fields: added collection_name, manufacturer, manufacturer_website_url, production_date
@@ -633,6 +634,7 @@
                                <ora_admin:record_check_back_date>field:record_check_back_date</ora_admin:record_check_back_date>
                                <ora_admin:record_deposit_date>field:record_deposit_date</ora_admin:record_deposit_date>
                                <ora_admin:record_publication_date>field:record_publication_date</ora_admin:record_publication_date>
+                               <ora_admin:record_embargo_status>field:record_embargo_status</ora_admin:record_embargo_status>
                                <ora_admin:record_review_status>field:record_review_status</ora_admin:record_review_status>
                                <ora_admin:record_review_status_other>field:record_review_status_other</ora_admin:record_review_status_other>
                                <ora_admin:record_version>field:record_version</ora_admin:record_version>
