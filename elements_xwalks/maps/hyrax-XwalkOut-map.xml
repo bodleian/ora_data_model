@@ -14,7 +14,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
-05/11/2019: Commented out mapping from type 'conference-paper' (as 'conference' should suffice)
+05/11/2019: Commented out mapping from type 'conference-paper (as conference should suffice)'
 04/11/2019: Updated publication-status value map as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
 24/10/2019: Updated publication-status value map
 23/10/2019:Updated grant relationships funder information
@@ -55,12 +55,16 @@ Initial changes not logged.
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+      <xwalk:field-source from="p-requested-embargo-period" subfield="ora:embargoPeriod"/>
+      <xwalk:field-source from="p-embargo-comment" subfield="ora:embargoComment"/>
       <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
     </xwalk:result>
     <xwalk:else>
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+      <xwalk:field-source from="p-requested-embargo-period" subfield="ora:embargoPeriod"/>
+      <xwalk:field-source from="p-embargo-comment" subfield="ora:embargoComment"/>
   </xwalk:result>
 </xwalk:else>
 </xwalk:if>
@@ -1211,6 +1215,8 @@ Initial changes not logged.
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
       <xwalk:value-mapping from="c-report" to="Working paper"/>
+      <!-- for type Complete sample data'-->
+      <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="hyrax-work-type-mappings">
@@ -1240,6 +1246,8 @@ Initial changes not logged.
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
       <xwalk:value-mapping from="working-paper" to="WorkingPaper"/>
+      <!-- for type Complete sample data'-->
+      <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
