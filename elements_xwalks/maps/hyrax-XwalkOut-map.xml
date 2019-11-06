@@ -9,7 +9,9 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
-06/11/19: Updated Funding acnkowledgements
+06/11/19: 
+- Updated Funding acnkowledgements
+- added mapping to Universal Test Object
 04/11/19: Updated publication-status value map as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
 24/10/19: Updated publication-status value map
 23/10/19:Updated grant relationships funder information
@@ -1183,7 +1185,6 @@ Initial changes not logged.
       <xwalk:value-mapping from="composition" to="Composition"/>
       <xwalk:value-mapping from="performance" to="Composition"/>
       <xwalk:value-mapping from="conference" to="Conference item"/>
-      <xwalk:value-mapping from="conference paper" to="Conference item"/>
       <xwalk:value-mapping from="exhibition" to="Conference item"/>
       <xwalk:value-mapping from="presentation" to="Conference item"/>
       <xwalk:value-mapping from="poster" to="Conference item"/>
@@ -1201,6 +1202,8 @@ Initial changes not logged.
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
       <xwalk:value-mapping from="c-report" to="Working paper"/>
+      <!-- for type Complete sample data'-->
+      <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="hyrax-work-type-mappings">
@@ -1230,6 +1233,8 @@ Initial changes not logged.
       <xwalk:value-mapping from="report" to="Report"/>
       <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
       <xwalk:value-mapping from="working-paper" to="WorkingPaper"/>
+      <!-- for type Complete sample data'-->
+      <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
