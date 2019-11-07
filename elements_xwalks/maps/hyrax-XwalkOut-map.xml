@@ -1,5 +1,9 @@
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
+#Bugs to fix:
+- Confidential report
+- Journal article - subtypes
+
 
 #To note
 
@@ -9,6 +13,12 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+08/11/19:
+- Added in sub_type_of_work crosswalk
+- Corrected existing value-map for ora-subtype-work-mappings-from-type
+- Added dataset to ora-work-type-mappings
+- corrected recordInfoNote type="confidential_report"
+07/11/19: Added in requested embargo and embargo comments (requested-embargo.comment, requested-embargo.display-name)
 06/11/19: 
 - Updated Funding acnkowledgements
 - added mapping to Universal Test Object
@@ -53,11 +63,15 @@ Initial changes not logged.
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
       <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
+      <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
+      <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/> 
     </xwalk:result>
     <xwalk:else>
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
       <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+      <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
+      <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/>
   </xwalk:result>
 </xwalk:else>
 </xwalk:if>
@@ -98,6 +112,7 @@ Initial changes not logged.
         <xwalk:field-source subfield="@type" value="confidential_report"/>
         <xwalk:field-source from="confidential"/>
       </xwalk:field-source>
+
       </xwalk:field-mapping>
 
 
@@ -232,6 +247,11 @@ Initial changes not logged.
       <xwalk:field-mapping to="genre">
            	<xwalk:field-source subfield="@type" value="type_of_work"/>
         	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+          </xwalk:field-mapping>
+
+      <xwalk:field-mapping to="genre">    
+            <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+          <xwalk:field-source from="object.type" value-map="ora-subtype-work-mappings-from-type"/>
       </xwalk:field-mapping>
 
 
@@ -933,6 +953,8 @@ Initial changes not logged.
 <xwalk:field-mapping is-list="false" to="genre">
       	<xwalk:field-source subfield="@type" value="type_of_work"/>
         	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+        </xwalk:field-mapping>
+    <xwalk:field-mapping is-list="false" to="genre">
         	<xwalk:field-source subfield="@type" value="sub_type_of_work"/>
             <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
         </xwalk:field-mapping>
@@ -1178,41 +1200,44 @@ Initial changes not logged.
     <xwalk:value-map name="ora-work-type-mappings">
       <!-- TODO - Update these type names to be correct -->
       <xwalk:value-mapping from="book" to="Book"/>
-      <xwalk:value-mapping from="scholarly edition" to="Book"/>
-      <xwalk:value-mapping from="edited book" to="Book"/>
-      <xwalk:value-mapping from="translation" to="Book"/>
+      <xwalk:value-mapping from="scholarly-edition" to="Book"/>
+      <xwalk:value-mapping from="c-book" to="Book"/>
+      <xwalk:value-mapping from="c-translation" to="Book"/>
       <xwalk:value-mapping from="chapter" to="Book section"/>
       <xwalk:value-mapping from="composition" to="Composition"/>
       <xwalk:value-mapping from="performance" to="Composition"/>
       <xwalk:value-mapping from="conference" to="Conference item"/>
+      <xwalk:value-mapping from="dataset" to="Dataset"/>
       <xwalk:value-mapping from="exhibition" to="Conference item"/>
       <xwalk:value-mapping from="presentation" to="Conference item"/>
       <xwalk:value-mapping from="poster" to="Conference item"/>
       <xwalk:value-mapping from="fileset" to="Dataset"/>
       <xwalk:value-mapping from="media" to="Dataset"/>
       <xwalk:value-mapping from="figure" to="Dataset"/>
-      <xwalk:value-mapping from="software/code" to="Dataset"/>
+      <xwalk:value-mapping from="software" to="Dataset"/>
       <xwalk:value-mapping from="design" to="Dataset"/>
       <xwalk:value-mapping from="ephemera" to="Ephemera"/>
       <xwalk:value-mapping from="internet-publication" to="Internet publication"/>
       <xwalk:value-mapping from="journal-article" to="Journal article"/>
       <xwalk:value-mapping from="patent" to="Patent"/>
       <xwalk:value-mapping from="artefact" to="Physical object"/>
-      <xwalk:value-mapping from="device/product" to="Physical object"/>
+      <xwalk:value-mapping from="c-device-product" to="Physical object"/>
       <xwalk:value-mapping from="report" to="Report"/>
-      <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
+      <xwalk:value-mapping from="thesis-dissertation" to="Thesis"/>
       <xwalk:value-mapping from="c-report" to="Working paper"/>
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object"/>
+      <xwalk:value-mapping from="other" to="Record"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="hyrax-work-type-mappings">
       <xwalk:value-mapping from="book" to="Book"/>
-      <xwalk:value-mapping from="scholarly edition" to="Book"/>
-      <xwalk:value-mapping from="edited book" to="Book"/>
-      <xwalk:value-mapping from="translation" to="Book"/>
+      <xwalk:value-mapping from="scholarly-edition" to="Book"/>
+      <xwalk:value-mapping from="c-book" to="Book"/>
+      <xwalk:value-mapping from="c-translation" to="Book"/>
       <xwalk:value-mapping from="chapter" to="BookSection"/>
       <xwalk:value-mapping from="composition" to="Composition"/>
+      <xwalk:value-mapping from="dataset" to="Dataset"/>
       <xwalk:value-mapping from="performance" to="Composition"/>
       <xwalk:value-mapping from="conference" to="ConferenceItem"/>
       <xwalk:value-mapping from="conference paper" to="ConferenceItem"/>
@@ -1222,32 +1247,33 @@ Initial changes not logged.
       <xwalk:value-mapping from="fileset" to="Dataset"/>
       <xwalk:value-mapping from="media" to="Dataset"/>
       <xwalk:value-mapping from="figure" to="Dataset"/>
-      <xwalk:value-mapping from="software/code" to="Dataset"/>
+      <xwalk:value-mapping from="software" to="Dataset"/>
       <xwalk:value-mapping from="design" to="Dataset"/>
       <xwalk:value-mapping from="ephemera" to="Ephemera"/>
       <xwalk:value-mapping from="internet-publication" to="InternetPublication"/>
       <xwalk:value-mapping from="journal-article" to="JournalArticle"/>
       <xwalk:value-mapping from="patent" to="Patent"/>
       <xwalk:value-mapping from="artefact" to="PhysicalObject"/>
-      <xwalk:value-mapping from="device/product" to="PhysicalObject"/>
+      <xwalk:value-mapping from="c-device-product" to="PhysicalObject"/>
       <xwalk:value-mapping from="report" to="Report"/>
-      <xwalk:value-mapping from="thesis/dissertation" to="Thesis"/>
+      <xwalk:value-mapping from="thesis-dissertation" to="Thesis"/>
       <xwalk:value-mapping from="working-paper" to="WorkingPaper"/>
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject"/>
+      <xwalk:value-mapping from="other" to="UniversalTestObject"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
       <xwalk:value-mapping from="scholarly-edition" to="Scholarly edition"/>
-      <xwalk:value-mapping from="edited-book" to="Edited book"/>
+      <xwalk:value-mapping from="c-book" to="Edited book"/>
       <xwalk:value-mapping from="chapter" to="Chapter"/>
-      <xwalk:value-mapping from="software/code" to="Software"/>
+      <xwalk:value-mapping from="software" to="Software"/>
       <xwalk:value-mapping from="performance" to="Performance"/>
       <xwalk:value-mapping from="design" to="Design"/>
       <xwalk:value-mapping from="artefact" to="Artefact"/>
       <xwalk:value-mapping from="exhibition" to="Exhibition"/>
       <xwalk:value-mapping from="media" to="Media"/>
-      <xwalk:value-mapping from="translation" to="Translation"/>
+      <xwalk:value-mapping from="c-translation" to="Translation"/>
       <xwalk:value-mapping from="poster" to="Poster"/>
       <xwalk:value-mapping from="presentation" to="Presentation"/>
       <xwalk:value-mapping from="figure" to="Media"/>
@@ -1353,7 +1379,7 @@ Initial changes not logged.
        <xwalk:when>
         <xwalk:condition operator="and">
         <xwalk:condition argument-field="object.type" operator="equals">report</xwalk:condition>
-        <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:text" operator = "equals" select-using="xpath">True</xwalk:condition>
+        <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:text" operator = "equals" select-using="xpath">true</xwalk:condition>
       </xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="confidential-report-markup"/>
