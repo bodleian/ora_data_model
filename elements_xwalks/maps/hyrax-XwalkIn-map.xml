@@ -8,9 +8,10 @@
 
 -->
   <!--Changelog
+06/11/19: Updated confidential boolean to all lower case'true'
 05/11/2019: 
-- Updatred is-open-access boolean to all lower case'true'
-- Updated object-type-seelction for Conference item (no subtype) from 'conference-paper' to 'conference'
+- Updated is-open-access boolean to all lower case'true'
+- Updated object-type-selection for Conference item (no subtype) from 'conference-paper' to 'conference'
 04/11/2019: 
 - updated publication-status as per Git issue #112 https://github.com/tomwrobel/ora_data_model/issues/112
 - Removed crosswalk for compliant-with-inst-policy
@@ -351,7 +352,7 @@
               <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Confidential report</xwalk:condition>
             </xwalk:condition>
             <xwalk:result>
-              <xwalk:field-source value="True"/>
+              <xwalk:field-source value="true"/>
             </xwalk:result>
           </xwalk:when>
           <xwalk:when>
@@ -748,6 +749,12 @@
         <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Composition</xwalk:condition>
         <xwalk:result>
           <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="composition"/>
+        </xwalk:result>
+      </xwalk:when>
+      <xwalk:when>
+        <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Universal Test Object</xwalk:condition>
+        <xwalk:result>
+          <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="c-journal-article-cloned"/>
         </xwalk:result>
       </xwalk:when>
       <!-- END OF ORA PERFORMANCE AND SUBTYPES-->
