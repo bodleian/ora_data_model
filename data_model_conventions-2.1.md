@@ -147,6 +147,7 @@ The handling for an unset value is dependent on the environment.
 
 ### Date values
 - Dates shall be stored and serialized as ISO strings, in the format YYYY-MM-DD
+- `rights_copyright_date` is not a date field, and should be processed as a 'Date-like field'
 - The data model spreadsheet shall indicate that a field is a date value, the level of required precision (e.g. year, day) and any default values
 - Specific implementations, e.g. Solr, may choose to add additional precision where this is necessary for storage
 - If precision needs to be added to a date field, the earliest legitimate value will be used e.g 1978-01-01 for day level precision for the year 1978
@@ -161,6 +162,7 @@ The handling for an unset value is dependent on the environment.
 ### Date-like fields 
 - Fields containing date-like information that are not ISO dates shall be stored and serialized as strings for later processing (e.g `data_coverage_temporal_start_date`)
 - The data model spreadsheet shall indicate that a field is a date field that is stored as a free text string
+- `rights_copyright_date` is a date-like field and should be stored as a four digit string
 
 ### Strings
 - String values shall be stored and serialized in UTF8
