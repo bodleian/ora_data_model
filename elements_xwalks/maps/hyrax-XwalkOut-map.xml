@@ -13,7 +13,8 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
-08/11/19:
+08/11/19: Updated confidential report field map
+07/11/19:
 - Added in sub_type_of_work crosswalk
 - Corrected existing value-map for ora-subtype-work-mappings-from-type
 - Added dataset to ora-work-type-mappings
@@ -112,7 +113,6 @@ Initial changes not logged.
         <xwalk:field-source subfield="@type" value="confidential_report"/>
         <xwalk:field-source from="confidential"/>
       </xwalk:field-source>
-
       </xwalk:field-mapping>
 
 
@@ -950,13 +950,15 @@ Initial changes not logged.
       <xwalk:include-field-map name="common-fields-map"/>
 
 <!-- Set is-list to false to force the first item to be selected -->
-<xwalk:field-mapping is-list="false" to="genre">
+<xwalk:field-mapping to="genre">
       	<xwalk:field-source subfield="@type" value="type_of_work"/>
         	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
         </xwalk:field-mapping>
+
     <xwalk:field-mapping is-list="false" to="genre">
-        	<xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+        	<xwalk:field-source subfield="@type" value="sub_type_of_work">
             <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
+          </xwalk:field-source>
         </xwalk:field-mapping>
 
       <xwalk:field-mapping to="relatedItem">
@@ -1260,6 +1262,8 @@ Initial changes not logged.
       <xwalk:value-mapping from="working-paper" to="WorkingPaper"/>
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject"/>
+      <!-- the blow is temorary - will be replaced by 
+      <xwalk:value-mapping from="other" to="Record"/> -->
       <xwalk:value-mapping from="other" to="UniversalTestObject"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
