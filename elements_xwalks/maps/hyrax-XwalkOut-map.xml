@@ -13,7 +13,9 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
-08/11/19: Updated confidential report field map
+08/11/19:
+- Updated confidential report field-map (2)
+- Updated confidential report field-map
 07/11/19:
 - Added in sub_type_of_work crosswalk
 - Corrected existing value-map for ora-subtype-work-mappings-from-type
@@ -1383,7 +1385,7 @@ Initial changes not logged.
        <xwalk:when>
         <xwalk:condition operator="and">
         <xwalk:condition argument-field="object.type" operator="equals">report</xwalk:condition>
-        <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:text" operator = "equals" select-using="xpath">true</xwalk:condition>
+        <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:boolean" operator = "equals" select-using="xpath">true</xwalk:condition>
       </xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="confidential-report-markup"/>
