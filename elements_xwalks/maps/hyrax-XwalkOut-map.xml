@@ -14,6 +14,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
   <!--CHANGELOG
 Initial changes not logged.
 08/11/19:
+- Updated journal article subtypes
 - Updated confidential report field-map (2)
 - Updated confidential report field-map
 07/11/19:
@@ -949,7 +950,11 @@ Initial changes not logged.
     </xwalk:field-map>
     <!-- Journal article metadata (pagination, volume, etc) -->
     <xwalk:field-map name="journal-markup">
-      <xwalk:include-field-map name="common-fields-map"/>
+      <xwalk:include-field-map name="common-fields-map">
+      <xwalk:exclude-field-mapping to="genre" />
+    </xwalk:include-field-map>
+
+
 
 <!-- Set is-list to false to force the first item to be selected -->
 <xwalk:field-mapping to="genre">
@@ -958,9 +963,8 @@ Initial changes not logged.
         </xwalk:field-mapping>
 
     <xwalk:field-mapping is-list="false" to="genre">
-        	<xwalk:field-source subfield="@type" value="sub_type_of_work">
+          <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
             <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
-          </xwalk:field-source>
         </xwalk:field-mapping>
 
       <xwalk:field-mapping to="relatedItem">
@@ -1114,7 +1118,9 @@ Initial changes not logged.
       </xwalk:field-mapping>
     </xwalk:field-map>
     <xwalk:field-map name="confidential-report-markup">
-      <xwalk:include-field-map name="common-fields-map"/>
+      <xwalk:include-field-map name="common-fields-map">
+      <xwalk:exclude-field-mapping to="genre" />
+    </xwalk:include-field-map>
       
       <xwalk:field-mapping to="genre">
         <xwalk:field-source subfield="@type" value="type_of_work"/>
