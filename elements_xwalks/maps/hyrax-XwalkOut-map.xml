@@ -66,7 +66,7 @@ Initial changes not logged.
         <xwalk:condition argument-field="object.type" operator="equals">c-report</xwalk:condition>
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
-      <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+      <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions"/>
       <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
       <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
       <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/> 
@@ -74,7 +74,7 @@ Initial changes not logged.
     <xwalk:else>
         <xwalk:result>
       <xwalk:field-source from="file.name" subfield="dc:title"/>
-      <xwalk:field-source from="file.BSPWIN685version" subfield="rioxxterms:version" value-map="file-versions"/>
+      <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions"/>
       <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
       <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/>
   </xwalk:result>

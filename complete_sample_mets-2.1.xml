@@ -311,7 +311,7 @@
                                 <ora_admin:funding_programme>Test funder programme</ora_admin:funding_programme>
                                 <ora_admin:funder_compliance>false</ora_admin:funder_compliance>
                                 <ora_admin:funder_grant>
-                                    <ora_admin:is_funding_for>field:funders__funder_grant__is_funding_for</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
+                                    <ora_admin:is_funding_for>ora_cri_88888888-8888-8888-8888-12345678abc1</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
                                     <ora_admin:grant_identifier>fundinggrant3</ora_admin:grant_identifier>
                                 </ora_admin:funder_grant>                        
                             </ora_admin:funding>
