@@ -1,8 +1,6 @@
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
-#Bugs to fix:
-- Confidential report
-- Journal article - subtypes
+
 
 
 #To note
@@ -13,6 +11,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+15/11/19: Updated Ephemera in ora-work-type-mappings
 13/11/19: Updated case in ora-subtype-work-mappings-from-subtype
 11/11/19: Updated related grants from funding-acknowledgements
 08/11/19:
@@ -114,7 +113,7 @@ Initial changes not logged.
 
 
       <xwalk:field-mapping to="recordInfo">
-      	<xwalk:field-source subfield="recordContentSource" value="Symplectic Elements"/>
+        <xwalk:field-source subfield="recordContentSource" value="Symplectic Elements"/>
         <xwalk:field-source subfield="recordInfoNote">
         <xwalk:field-source subfield="@type" value="confidential_report"/>
         <xwalk:field-source from="confidential"/>
@@ -251,8 +250,8 @@ Initial changes not logged.
 
 
       <xwalk:field-mapping to="genre">
-           	<xwalk:field-source subfield="@type" value="type_of_work"/>
-        	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+            <xwalk:field-source subfield="@type" value="type_of_work"/>
+          <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
           </xwalk:field-mapping>
 
       <xwalk:field-mapping to="genre">    
@@ -966,8 +965,8 @@ Initial changes not logged.
 
 <!-- Set is-list to false to force the first item to be selected -->
 <xwalk:field-mapping to="genre">
-      	<xwalk:field-source subfield="@type" value="type_of_work"/>
-        	<xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+        <xwalk:field-source subfield="@type" value="type_of_work"/>
+          <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
         </xwalk:field-mapping>
 
     <xwalk:field-mapping is-list="false" to="genre">
@@ -1234,7 +1233,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="figure" to="Dataset"/>
       <xwalk:value-mapping from="software" to="Dataset"/>
       <xwalk:value-mapping from="design" to="Dataset"/>
-      <xwalk:value-mapping from="ephemera" to="Ephemera"/>
+      <xwalk:value-mapping from="c-ephemera" to="Ephemera"/>
       <xwalk:value-mapping from="internet-publication" to="Internet publication"/>
       <xwalk:value-mapping from="journal-article" to="Journal article"/>
       <xwalk:value-mapping from="patent" to="Patent"/>
@@ -1267,7 +1266,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="figure" to="Dataset"/>
       <xwalk:value-mapping from="software" to="Dataset"/>
       <xwalk:value-mapping from="design" to="Dataset"/>
-      <xwalk:value-mapping from="ephemera" to="Ephemera"/>
+      <xwalk:value-mapping from="c-ephemera" to="Ephemera"/>
       <xwalk:value-mapping from="internet-publication" to="InternetPublication"/>
       <xwalk:value-mapping from="journal-article" to="JournalArticle"/>
       <xwalk:value-mapping from="patent" to="Patent"/>
