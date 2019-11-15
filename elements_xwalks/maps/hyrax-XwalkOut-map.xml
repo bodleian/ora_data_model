@@ -13,6 +13,8 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+13/11/19: Updated case in ora-subtype-work-mappings-from-subtype
+11/11/19: Updated related grants from funding-acknowledgements
 08/11/19:
 - Updated journal article subtypes (2)
 - Updated journal article subtypes
@@ -138,7 +140,7 @@ Initial changes not logged.
         <xwalk:field-source subfield="physicalDescription"/>
         <xwalk:field-source subfield="form"/>
         <xwalk:field-source subfield="@type" value="status"/>
-        <xwalk:field-source from="publication-status"/>
+        <xwalk:field-source from="publication-status" value-map="publication-status"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="identifier">
         <xwalk:choose>
@@ -381,6 +383,7 @@ Initial changes not logged.
         </xwalk:field-source>
       </xwalk:field-mapping>
       <!-- RELATED GRANTS -->
+
       <xwalk:field-mapping to="name">
         <xwalk:field-source from="object.relationships" value-map="grant-relationships">
           <xwalk:field-source data-part="relationship:other-object">
@@ -392,6 +395,8 @@ Initial changes not logged.
                 <xwalk:field-source value="Funder"/>
               </xwalk:field-source>
             </xwalk:field-source>
+            </xwalk:field-source>
+        </xwalk:field-source>
             <!-- have commented out - SE funder reference is grant reference, not org reference.
             <xwalk:field-source subfield="nameIdentifier">
               <xwalk:field-source subfield="@type" value="funder_identifier"/>
@@ -400,14 +405,16 @@ Initial changes not logged.
             <!-- have commented out - There is no SE field programme->
             <xwalk:field-source subfield="affiliation">
               <xwalk:field-source from="programme" subfield="ora_admin:funding_programme"/>-->
+       
+          <xwalk:field-source subfield="affiliation">
+      <xwalk:field-source subfield="ora_admin:funding" />
+      <xwalk:field-source subfield="ora_admin:funder_grant" />
+        <xwalk:field-source subfield="ora_admin:grant_identifier">
+            <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
 
-<xwalk:field-source subfield="affiliation">
-
-              <xwalk:field-source from = "funder-reference" subfield="ora_admin:grant_identifier"/>
+          
             </xwalk:field-source>
-          </xwalk:field-source>
         </xwalk:field-source>
-
 
       </xwalk:field-mapping>
       <!-- Related grants from the funding-acknowlegdements field -->
@@ -427,6 +434,8 @@ Initial changes not logged.
     </xwalk:field-source>
 
     <xwalk:field-source subfield="affiliation">
+      <xwalk:field-source subfield="ora_admin:funding"/>
+      <xwalk:field-source subfield="ora_admin:funder_grant"/>
         <xwalk:field-source subfield="ora_admin:grant_identifier">
             <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
         </xwalk:field-source>
@@ -642,8 +651,6 @@ Initial changes not logged.
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-      <!-- End of DS add editors contributir metadata-->
-      <!--DS adds translator contributor metadata-->
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal"/>
         <xwalk:field-source from="c-translator">
@@ -731,7 +738,7 @@ Initial changes not logged.
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-      <!-- End of DS add translators contributor metadata-->
+
       <!--DS adds associated authors contributor metadata-->
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal"/>
@@ -1296,9 +1303,9 @@ Initial changes not logged.
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">
-      <xwalk:value-mapping from="Editorial comment" to="Editorial"/>
+      <xwalk:value-mapping from="Editorial Comment" to="Editorial"/>
       <xwalk:value-mapping from="Review" to="Review"/>
-      <xwalk:value-mapping from="Rapid communication" to="Correspondence"/>
+      <xwalk:value-mapping from="Rapid Communication" to="Correspondence"/>
       <xwalk:value-mapping from="Addendum" to="Adendum"/>
       <xwalk:value-mapping from="Corrigendum" to="Corrigendum"/>
       <xwalk:value-mapping from="Letter" to="Letter"/>
