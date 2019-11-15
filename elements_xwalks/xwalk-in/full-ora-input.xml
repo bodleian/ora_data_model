@@ -107,9 +107,9 @@
         
         commissioning bodies, contributors, copyright_holders, funders, publishers 
     -->
-    <!-- COMISSIONING BODY -->
+    <!-- COMMISSIONING BODY -->
     <mods:name type="corporate">
-      <mods:displayForm>field:comissioning_body</mods:displayForm>
+      <mods:displayForm>field:commissioning_body</mods:displayForm>
       <mods:role>
         <mods:roleTerm type="text">Commissioning body</mods:roleTerm>
       </mods:role>

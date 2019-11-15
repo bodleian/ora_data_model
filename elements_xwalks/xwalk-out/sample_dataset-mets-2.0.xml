@@ -303,7 +303,7 @@
                         commissioning bodies, contributors, copyright_holders, funders, publishers 
                     -->
                     
-                    <!-- COMISSIONING BODY -->
+                    <!-- COMMISSIONING BODY -->
                     <mods:name type="corporate">
                         <mods:displayForm>A fake commissioning body</mods:displayForm>
                         <mods:role>

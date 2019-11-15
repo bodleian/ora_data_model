@@ -146,7 +146,7 @@
         
         <symplectic_field name="collections"><no_mapping /></symplectic_field>
         
-        <symplectic_field name="commissioning-body"><ora_field>comissioning_body</ora_field></symplectic_field>
+        <symplectic_field name="commissioning-body"><ora_field>commissioning_body</ora_field></symplectic_field>
         
         <symplectic_field name="confidential">
             <if test="type_of_work==Report">
