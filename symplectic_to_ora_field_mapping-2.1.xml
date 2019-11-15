@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    15/11/19: Added location conditional for dataset
     05/11/2019:
     - Removed version code that should have been deleted 21/10/2019
     - updated is-open-access to set to True
@@ -213,6 +214,8 @@
             <if test="record is a Physical item"><ora_field>physical_location</ora_field></if>
             <if test="record is a Journal Article"><ora_field>citation_place_of_publication</ora_field></if>
             <if test="record is a Patent">patent_territory</if>
+            <if test="record is a Dataset">data_physical_storage_location
+</if>
         </symplectic_field>
         
         <symplectic_field name="medium">
