@@ -11,6 +11,10 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+
+18/11/19: 
+- Updated typ in Addendum
+- Updated grant from related object
 15/11/19: Updated Ephemera in ora-work-type-mappings
 13/11/19: Updated case in ora-subtype-work-mappings-from-subtype
 11/11/19: Updated related grants from funding-acknowledgements
@@ -408,16 +412,13 @@ Initial changes not logged.
           <xwalk:field-source subfield="affiliation">
       <xwalk:field-source subfield="ora_admin:funding" />
       <xwalk:field-source subfield="ora_admin:funder_grant" />
-        <xwalk:field-source subfield="ora_admin:grant_identifier">
-            <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
+        <xwalk:field-source subfield="ora_admin:grant_identifier" from ="funder-reference"/>
 
-          
-            </xwalk:field-source>
         </xwalk:field-source>
 
       </xwalk:field-mapping>
       <!-- Related grants from the funding-acknowlegdements field -->
-      <xwalk:field-mapping to="name">
+<xwalk:field-mapping to="name">
     <xwalk:field-source subfield="@type" value="corporate"/>
     <xwalk:field-source subfield="displayForm">
         <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements:grant">
@@ -433,8 +434,6 @@ Initial changes not logged.
     </xwalk:field-source>
 
     <xwalk:field-source subfield="affiliation">
-      <xwalk:field-source subfield="ora_admin:funding"/>
-      <xwalk:field-source subfield="ora_admin:funder_grant"/>
         <xwalk:field-source subfield="ora_admin:grant_identifier">
             <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
         </xwalk:field-source>
@@ -1305,7 +1304,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="Editorial Comment" to="Editorial"/>
       <xwalk:value-mapping from="Review" to="Review"/>
       <xwalk:value-mapping from="Rapid Communication" to="Correspondence"/>
-      <xwalk:value-mapping from="Addendum" to="Adendum"/>
+      <xwalk:value-mapping from="Addendum" to="Addendum"/>
       <xwalk:value-mapping from="Corrigendum" to="Corrigendum"/>
       <xwalk:value-mapping from="Letter" to="Letter"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
