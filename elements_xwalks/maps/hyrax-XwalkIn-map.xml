@@ -8,6 +8,8 @@
 
 -->
   <!--Changelog
+
+18/11/19: Updated types value map.
 06/11/19: Updated confidential boolean to all lower case'true'
 05/11/2019: 
 - Updated is-open-access boolean to all lower case'true'
@@ -516,12 +518,12 @@
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
       <xwalk:value-map name="types">
-      <xwalk:value-mapping from="Editorial" to="editorial comment"/>
-      <xwalk:value-mapping from="Review" to="review"/>
-      <xwalk:value-mapping from="Correspondence" to="rapid communication"/>
-      <xwalk:value-mapping from="Addendum" to="adendum"/>
-      <xwalk:value-mapping from="Corrigendum" to="corrigendum"/>
-      <xwalk:value-mapping from="Letter" to="letter"/>
+      <xwalk:value-mapping from="Editorial" to="Editorial Comment"/>
+      <xwalk:value-mapping from="Review" to="Review"/>
+      <xwalk:value-mapping from="Correspondence" to="Rapid communication"/>
+      <xwalk:value-mapping from="Addendum" to="Addendum"/>
+      <xwalk:value-mapping from="Corrigendum" to="Corrigendum"/>
+      <xwalk:value-mapping from="Letter" to="Letter"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
   </xwalk:value-maps>
