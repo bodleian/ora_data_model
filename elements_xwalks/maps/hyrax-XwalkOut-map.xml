@@ -12,6 +12,9 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
   <!--CHANGELOG
 Initial changes not logged.
 
+19/11/19: 
+- Author URL
+- correct issue with last commit (ln 186 contributor url)
 18/11/19: 
 - moved recordInfo into administrative-metadata field map.
 - Updated apc
@@ -183,16 +186,6 @@ Initial changes not logged.
       <!-- end of added from journal markup. -->
 
 
-      mods:nameIdentifier type="website
-
-
-      <xwalk:field-mapping to="contributors__contributor_website_url">
-        <xwalk:field-source subfield="name">
-          <xwalk:field-source subfield="@type" value="personal"/>
-          <xwalk:field-source subfield="@type" value="website"/>
-          <xwalk:field-source from="author-url"/>
-        </xwalk:field-source>
-      </xwalk:field-mapping>
       <xwalk:field-mapping to="physicalDescription">
         <xwalk:field-source subfield="form">
           <xwalk:field-source subfield="@type" value="physical_form"/>
@@ -560,6 +553,13 @@ Initial changes not logged.
             <xwalk:field-source subfield="@altType" value="initials"/>
             <xwalk:field-source data-part="person:initials" subfield="namePart"/>
           </xwalk:field-source>
+
+<xwalk:field-source subfield="nameIdentifier">
+          <xwalk:field-source subfield="@type" value="website"/>
+          <xwalk:field-source from="author-url"/>
+        </xwalk:field-source>
+
+
           <xwalk:field-source subfield="nameIdentifier">
             <xwalk:field-source subfield="@type" value="email_address"/>
             <!-- There are a few email address sources we could use, but we only want to use one. -->
