@@ -9,7 +9,9 @@
 -->
   <!--Changelog
 
-18/11/19: Updated types value map.
+18/11/19: 
+- updated file level and record level OA
+- Updated types value map.
 06/11/19: Updated confidential boolean to all lower case'true'
 05/11/2019: 
 - Updated is-open-access boolean to all lower case'true'
@@ -44,6 +46,8 @@
           <xwalk:field-source data-part="file:size" from="dcterms:extent"/>
           <xwalk:field-source data-part="file:version" from="rioxxterms:version"/>
           <xwalk:field-source data-part="file:embargo-release-date" from="oxds:embargoedUntil"/>
+          <!-- added at suggestion of AB S Ltd ticket 240083-->
+          <xwalk:field-source data-part="file:is-held-at-source" value="true" />
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
@@ -92,10 +96,12 @@
       <xwalk:field-mapping to="record-created-at-source-date">
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordCreationDate" select-using="xpath"/>
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="is-open-access">
-        <!-- Is effectively 'is there a Hyrax record', used for OA monitor logic-->
+      <!-- Is effectively 'is there a Hyrax record', used for OA monitor logic-->
+      <!-- commended out on suggestion of AB S Ltd ticket 240083
+      <xwalk:field-mapping to="is-open-access"
+        
         <xwalk:field-source value="true"/>
-      </xwalk:field-mapping>
+      </xwalk:field-mapping>-->
       <!--Fields not currently used as deposit option not enabled
       <xwalk:field-mapping to="oa-location-url">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/symp:hasPublicUrl" select-using="xpath"/>
