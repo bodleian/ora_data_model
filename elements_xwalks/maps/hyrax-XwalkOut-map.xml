@@ -13,9 +13,11 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 20/11/19:
+- changed default Hyrax model value header to Hyrax-Work-Model (TW)
+- Updated ORA admin email
+- Updated grant (object)
 - Add licence value-map (Git issue #131)
 - updated journal article subtype mapping (Git issue #134)
-- changed default Hyrax model value header to Hyrax-Work-Model
 19/11/19: 
 - Update ora-work-type-mappings/hyrax-work-type-mappings to map to "Unknown" for unrecognised types
 - updated conference paper or performance related item
@@ -107,7 +109,7 @@ Initial changes not logged.
     <xwalk:field-map name="http-headers">
       <!-- To be uncommented when the On-Behalf-Of user is available -->
       <xwalk:field-mapping to="On-Behalf-Of">
-        <xwalk:field-source value="oraadmin@bodleian.ox.ac.uk"/>
+        <xwalk:field-source value="ora.system@bodleian.ox.ac.uk"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="Hyrax-Work-Model">
         <xwalk:field-source from="object.type" value-map="hyrax-work-type-mappings"/>
@@ -449,44 +451,39 @@ Initial changes not logged.
         </xwalk:field-source>
       </xwalk:field-mapping>
       <!-- RELATED GRANTS -->
-
       <xwalk:field-mapping to="name">
         <xwalk:field-source from="object.relationships" value-map="grant-relationships">
           <xwalk:field-source data-part="relationship:other-object">
-            <xwalk:field-source subfield="@type" value="corporate"/>
-            <xwalk:field-source from="funder-name" subfield="displayForm"/>
+            <xwalk:field-source subfield="@type" value="corporate" />
+            <xwalk:field-source subfield="displayForm" from="funder-name" />
             <xwalk:field-source subfield="role">
               <xwalk:field-source subfield="roleTerm">
-                <xwalk:field-source subfield="@type" value="text"/>
-                <xwalk:field-source value="Funder"/>
+                <xwalk:field-source subfield="@type" value="text" />
+                <xwalk:field-source value="Funder" />
               </xwalk:field-source>
-
-<xwalk:field-source subfield="affiliation">
-      <xwalk:field-source subfield="ora_admin:funding" />
-      <xwalk:field-source subfield="ora_admin:funder_grant" />
-        <xwalk:field-source subfield="ora_admin:grant_identifier" value ="SE REF"/>
-
-
-
-
-
-        </xwalk:field-source>
-
             </xwalk:field-source>
-            </xwalk:field-source>
-        </xwalk:field-source>
-            <!-- have commented out - SE funder reference is grant reference, not org reference.
-            <xwalk:field-source subfield="nameIdentifier">
-              <xwalk:field-source subfield="@type" value="funder_identifier"/>
-              <xwalk:field-source from="funder-reference"/>
+            <!--<xwalk:field-source subfield="nameIdentifier">
+              <xwalk:field-source subfield="@type" value="funder_identifier" />
+              <xwalk:field-source from="funder-reference" />
             </xwalk:field-source>-->
-            <!-- have commented out - There is no SE field programme->
             <xwalk:field-source subfield="affiliation">
-              <xwalk:field-source from="programme" subfield="ora_admin:funding_programme"/>-->
-       
-          
+              <!--<xwalk:field-source subfield="ora_admin:funding_programme" from="programme" />-->
+<xwalk:field-source subfield="ora_admin:funding">
+                <xwalk:field-source subfield="ora_admin:funder_grant">
+              <xwalk:field-source subfield="ora_admin:grant_identifier" from="funder-reference" />
+</xwalk:field-source>
+</xwalk:field-source>
+            </xwalk:field-source>
 
+
+
+
+          </xwalk:field-source>
+        </xwalk:field-source>
+        <!-- TODO: Futher grant field mappings. -->
       </xwalk:field-mapping>
+
+
       <!-- Related grants from the funding-acknowlegdements field -->
 <xwalk:field-mapping to="name">
     <xwalk:field-source subfield="@type" value="corporate"/>
@@ -562,6 +559,8 @@ Initial changes not logged.
             <xwalk:field-source subfield="@altType" value="initials"/>
             <xwalk:field-source data-part="person:initials" subfield="namePart"/>
           </xwalk:field-source>
+
+<!-- this doesn;t actually work-->
 
 <xwalk:field-source subfield="nameIdentifier">
           <xwalk:field-source subfield="@type" value="website"/>
