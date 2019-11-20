@@ -12,7 +12,12 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
   <!--CHANGELOG
 Initial changes not logged.
 
+20/11/19:
+- Add licence value-map (Git issue #131)
+- updated journal article subtype mapping (Git issue #134)
 19/11/19: 
+- Update ora-work-type-mappings/hyrax-work-type-mappings to map to "Unknown" for unrecognised types
+- updated conference paper or performance related item
 - Author URL
 - correct issue with last commit (ln 186 contributor url)
 18/11/19: 
@@ -28,6 +33,7 @@ Initial changes not logged.
 - Updated journal article subtypes (2)
 - Updated journal article subtypes
 - Updated confidential report field-map (2)
+
 - Updated confidential report field-map
 07/11/19:
 - Added in sub_type_of_work crosswalk
@@ -217,47 +223,25 @@ Initial changes not logged.
           </xwalk:when>
         </xwalk:choose>
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="relatedItem">
-        <xwalk:if>
-          <xwalk:condition operator="or">
-            <xwalk:condition argument-field="object.type" operator="equals">conference-paper</xwalk:condition>
-            <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
-          </xwalk:condition>
-          <xwalk:result>
-            <xwalk:field-source subfield="@otherType" value="event"/>
-            <xwalk:field-source subfield="titleInfo">
-              <xwalk:field-source from="name-of-conference" subfield="title"/>
-            </xwalk:field-source>
-          </xwalk:result>
-        </xwalk:if>
-      </xwalk:field-mapping>
-      <xwalk:field-mapping to="accessCondition">
-        <xwalk:field-source subfield="@type" value="license"/>
-        <xwalk:field-source from="publisher-licence"/>
-      </xwalk:field-mapping>
+
+   <!-- Big chunk of related item mapping which needs to be repeated in full for three types-->
+
       <xwalk:field-mapping to="relatedItem">
         <xwalk:choose>
           <xwalk:when>
-            <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
-            <xwalk:result>
-              <xwalk:field-source subfield="@otherType" value="event"/>
-              <xwalk:field-source subfield="originInfo">
-                <xwalk:field-source subfield="dateOther">
-                  <xwalk:field-source subfield="@point" value="end"/>
-                  <xwalk:field-source subfield="@type" value="event_date"/>
-                  <xwalk:field-source from="finish-date"/>
-                </xwalk:field-source>
-              </xwalk:field-source>
-            </xwalk:result>
-          </xwalk:when>
-          <xwalk:when>
-            <xwalk:condition operator="or">
-              <xwalk:condition argument-field="object.type" operator="equals">conference-paper</xwalk:condition>
-              <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
-            </xwalk:condition>
-            <xwalk:result>
-              <xwalk:field-source subfield="@otherType" value="event"/>
-              <xwalk:field-source subfield="location">
+          <xwalk:condition operator="or">
+            <xwalk:condition argument-field="object.type" operator="equals">conference</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
+          </xwalk:condition>
+          <xwalk:result>
+
+            <xwalk:field-source subfield="@otherType" value="event"/>
+
+            <xwalk:field-source subfield="titleInfo">
+              <xwalk:field-source from="name-of-conference" subfield="title"/>
+            </xwalk:field-source>
+
+          <xwalk:field-source subfield="location">
                 <xwalk:field-source from="location" subfield="physicalLocation"/>
               </xwalk:field-source>
               <xwalk:field-source subfield="originInfo">
@@ -272,9 +256,22 @@ Initial changes not logged.
                   <xwalk:field-source from="finish-date"/>
                 </xwalk:field-source>
               </xwalk:field-source>
+          </xwalk:result>
+        </xwalk:when>
+         <xwalk:when>
+            <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
+            <xwalk:result>
+              <xwalk:field-source subfield="@otherType" value="event"/>
+              <xwalk:field-source subfield="originInfo">
+                 <xwalk:field-source subfield="dateOther">
+                  <xwalk:field-source subfield="@point" value="end"/>
+                  <xwalk:field-source subfield="@type" value="event_date"/>
+                  <xwalk:field-source from="finish-date"/>
+                </xwalk:field-source>
+              </xwalk:field-source>
             </xwalk:result>
           </xwalk:when>
-          <xwalk:otherwise>
+           <xwalk:otherwise>
             <xwalk:result>
               <xwalk:field-source subfield="@otherType" value="event"/>
               <xwalk:field-source subfield="originInfo">
@@ -293,6 +290,17 @@ Initial changes not logged.
           </xwalk:otherwise>
         </xwalk:choose>
       </xwalk:field-mapping>
+
+
+
+      <xwalk:field-mapping to="accessCondition">
+        <xwalk:field-source subfield="@type" value="license"/>
+        <xwalk:field-source from="publisher-licence" value-map="licences"/>
+      </xwalk:field-mapping>
+     
+
+        
+         
       <xwalk:field-mapping to="location">
         <xwalk:if>
           <!-- TODO: Check item type -->
@@ -1314,7 +1322,8 @@ Initial changes not logged.
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object"/>
       <xwalk:value-mapping from="other" to="Record"/>
-      <xwalk:otherwise-mapping action="ignore-this-value"/>
+      <xwalk:otherwise-mapping to="Unknown"/>
+      <!--<xwalk:otherwise-mapping action="ignore-this-value"/>-->
     </xwalk:value-map>
     <xwalk:value-map name="hyrax-work-type-mappings">
       <xwalk:value-mapping from="book" to="Book"/>
@@ -1349,7 +1358,8 @@ Initial changes not logged.
       <!-- the blow is temorary - will be replaced by 
       <xwalk:value-mapping from="other" to="Record"/> -->
       <xwalk:value-mapping from="other" to="UniversalTestObject"/>
-      <xwalk:otherwise-mapping action="ignore-this-value"/>
+      <xwalk:otherwise-mapping to="Unknown"/>
+      <!--<xwalk:otherwise-mapping action="ignore-this-value"/>-->
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-type">
       <xwalk:value-mapping from="scholarly-edition" to="Scholarly edition"/>
@@ -1377,6 +1387,9 @@ Initial changes not logged.
       <xwalk:value-mapping from="Addendum" to="Addendum"/>
       <xwalk:value-mapping from="Corrigendum" to="Corrigendum"/>
       <xwalk:value-mapping from="Letter" to="Letter"/>
+      <xwalk:value-mapping from="Erratum" to="Erratum"/>
+      <xwalk:value-mapping from="Abstract" to="Abstract"/>
+      <xwalk:value-mapping from="Comment" to="Comment"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map data-part="identifier:scheme" name="remove-irrelevant-identifiers">
@@ -1424,6 +1437,18 @@ Initial changes not logged.
       <xwalk:value-mapping from="Published version" to="VoR"/>
       <xwalk:otherwise-mapping to="NA"/>
     </xwalk:value-map>
+
+ <xwalk:value-map name="licences">
+      <xwalk:value-mapping from="CC BY" to="CC Attribution (CC BY)" />
+      <xwalk:value-mapping from="CC BY-ND" to="CC Attribution-NoDerivatives (CC BY-ND)" />
+      <xwalk:value-mapping from="CC BY-SA" to="CC Attribution-ShareAlike (CC BY-SA)"/>
+      <xwalk:value-mapping from="CC BY-NC" to="CC Attribution-NonCommercial (CC BY-NC)"/>
+      <xwalk:value-mapping from="CC BY-NC-ND" to="CC Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND)"/>
+      <xwalk:value-mapping from="CC BY-NC-SA" to="CC Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)"/>
+      <xwalk:otherwise-mapping action="ignore-this-value"/>
+    </xwalk:value-map>
+
+
   </xwalk:value-maps>
   <!-- Selects which field map to use -->
   <xwalkout:field-map-selector>
