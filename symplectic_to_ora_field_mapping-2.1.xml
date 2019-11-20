@@ -13,8 +13,10 @@
     
     Changelog
     =========
-    20/11/2019: Changed Hyrax Work Type to Hyrax Work Model
-    15/11/2019: Added location conditional for dataset
+    20/11/19: 
+    - Changed Hyrax Work Type to Hyrax Work Model (TW)
+    - Remove mapping from author-url to ORA personal website as not the same.
+    15/11/19: Added location conditional for dataset
     05/11/2019:
     - Removed version code that should have been deleted 21/10/2019
     - updated is-open-access to set to True
@@ -140,7 +142,8 @@
             <ora_note>In ORA authors would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
         </symplectic_field>
         
-        <symplectic_field name="author-url"><ora_field>contributors__contributor_website_url</ora_field></symplectic_field>
+        <!--Is this is correct? author URL is often author URL to publication-->
+        <symplectic_field name="author-url"><no_mapping/><note>Was contributors__contributor_website_url but author-url is not author's personal website</note>
         
         <symplectic_field name="c-apc2"><no_mapping/><note>Deprecated field</note></symplectic_field>
         
