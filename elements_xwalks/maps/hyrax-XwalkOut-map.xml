@@ -15,6 +15,7 @@ Initial changes not logged.
 20/11/19:
 - Add licence value-map (Git issue #131)
 - updated journal article subtype mapping (Git issue #134)
+- changed default Hyrax model value header to Hyrax-Work-Model
 19/11/19: 
 - Update ora-work-type-mappings/hyrax-work-type-mappings to map to "Unknown" for unrecognised types
 - updated conference paper or performance related item
@@ -108,7 +109,7 @@ Initial changes not logged.
       <xwalk:field-mapping to="On-Behalf-Of">
         <xwalk:field-source value="oraadmin@bodleian.ox.ac.uk"/>
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="Hyrax-Work-Type">
+      <xwalk:field-mapping to="Hyrax-Work-Model">
         <xwalk:field-source from="object.type" value-map="hyrax-work-type-mappings"/>
       </xwalk:field-mapping>
     </xwalk:field-map>

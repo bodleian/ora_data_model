@@ -13,7 +13,8 @@
     
     Changelog
     =========
-    15/11/19: Added location conditional for dataset
+    20/11/2019: Changed Hyrax Work Type to Hyrax Work Model
+    15/11/2019: Added location conditional for dataset
     05/11/2019:
     - Removed version code that should have been deleted 21/10/2019
     - updated is-open-access to set to True
@@ -621,7 +622,7 @@
         TYPE OF WORK MAPPINGS
         ===========================
         
-        This section details how to map work types, especially in the context of the Sword2 Hyrax-Work-Type header
+        This section details how to map work types, especially in the context of the Sword2 Hyrax-Work-Model header
         
         symplectic_work_type = name of Symplectic type of work
         symplectic_sub_type = 
@@ -629,7 +630,7 @@
           - Note that if this is the same as symplectic_work_type ignore it. 
           - If more than one sub type, take the first value
         ora_work_type =  name of ORA type of work (field:type_of_work) in the data model
-        hyrax_work_type = name of Hyrax Work Type to be set in the Hyrax-Work-Type header in all cases
+        hyrax_work_type = name of Hyrax Work Type to be set in the Hyrax-Work-Model header in all cases
         ora_sub_type_of_work = name of ORA sub type of work (field:sub_type_of_work), see also the Symplectic 'types' field mapping instructions above
     -->
     
