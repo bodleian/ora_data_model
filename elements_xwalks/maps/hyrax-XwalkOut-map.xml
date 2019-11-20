@@ -13,6 +13,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 20/11/19:
+- Updated name type = "institutional _identifier" to type = "sso" and to map from SE username rather than SE prop ID
 - changed default Hyrax model value header to Hyrax-Work-Model (TW)
 - Updated ORA admin email
 - Updated grant (object)
@@ -586,8 +587,8 @@ Initial changes not logged.
               <xwalk:field-source data-part="identifier:value"/>
             </xwalk:field-source>
             <xwalk:field-source>
-              <xwalk:field-source subfield="@type" value="institutional_identifier"/>
-              <xwalk:field-source from="user.proprietary-id"/>
+              <xwalk:field-source subfield="@type" value="sso"/>
+              <xwalk:field-source from="user.username"/>
             </xwalk:field-source>
           </xwalk:field-source>
           <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
@@ -674,8 +675,8 @@ Initial changes not logged.
               <xwalk:field-source data-part="identifier:value"/>
             </xwalk:field-source>
             <xwalk:field-source>
-              <xwalk:field-source subfield="@type" value="institutional_identifier"/>
-              <xwalk:field-source from="user.proprietary-id"/>
+              <xwalk:field-source subfield="@type" value="sso"/>
+              <xwalk:field-source from="user.username"/>
             </xwalk:field-source>
           </xwalk:field-source>
           <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
@@ -761,8 +762,8 @@ Initial changes not logged.
               <xwalk:field-source data-part="identifier:value"/>
             </xwalk:field-source>
             <xwalk:field-source>
-              <xwalk:field-source subfield="@type" value="institutional_identifier"/>
-              <xwalk:field-source from="user.proprietary-id"/>
+              <xwalk:field-source subfield="@type" value="sso"/>
+              <xwalk:field-source from="user.username"/>
             </xwalk:field-source>
           </xwalk:field-source>
           <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
@@ -850,8 +851,8 @@ Initial changes not logged.
               <xwalk:field-source data-part="identifier:value"/>
             </xwalk:field-source>
             <xwalk:field-source>
-              <xwalk:field-source subfield="@type" value="institutional_identifier"/>
-              <xwalk:field-source from="user.proprietary-id"/>
+              <xwalk:field-source subfield="@type" value="sso"/>
+              <xwalk:field-source from="user.username"/>
             </xwalk:field-source>
           </xwalk:field-source>
           <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
@@ -930,8 +931,8 @@ Initial changes not logged.
               <xwalk:field-source from="depositor.email-address"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="nameIdentifier">
-              <xwalk:field-source subfield="@type" value="institutional_identifier"/>
-              <xwalk:field-source from="depositor.proprietary-id"/>
+              <xwalk:field-source subfield="@type" value="sso"/>
+              <xwalk:field-source from="depositor.username"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="role">
               <xwalk:field-source subfield="mods:extension">
@@ -973,8 +974,8 @@ Initial changes not logged.
               <xwalk:field-source from="impersonated-depositor.email-address"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="nameIdentifier">
-              <xwalk:field-source subfield="@type" value="institutional_identifier"/>
-              <xwalk:field-source from="impersonated-depositor.proprietary-id"/>
+              <xwalk:field-source subfield="@type" value="sso"/>
+              <xwalk:field-source from="impersonated-depositor.username"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="role">
               <xwalk:field-source subfield="mods:extension">
