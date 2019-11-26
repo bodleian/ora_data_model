@@ -8,7 +8,9 @@
 
 -->
   <!--Changelog
-
+26/11/19:
+- removed apc value map
+- corrected physical item -> physical object in conditional
 20/11/19:
 - updated journal article subtype mapping (Git issue #134)
 19/11/19:
@@ -303,7 +305,7 @@
             </xwalk:result>
           </xwalk:when>
           <xwalk:when>
-            <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical item</xwalk:condition>
+            <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition>
             <xwalk:result>
               <xwalk:field-source from="/mods:mods/mods:location/mods:physicalLocation" select-using="xpath"/>
               <!-- <xwalk:field-source from="/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'article']/mods:number" select-using="xpath"/>-->
@@ -327,7 +329,7 @@
       </xwalk:field-mapping>
       <!--move to OA-->
       <xwalk:field-mapping to="c-apc">
-        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath" value-map="apc"/>
+        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="version">
         <xwalk:choose>
@@ -543,11 +545,6 @@
       <xwalk:value-mapping from="Erratum" to="Erratum"/>
       <xwalk:value-mapping from="Abstract" to="Abstract"/>
       <xwalk:value-mapping from="Comment" to="Comment"/>
-      <xwalk:otherwise-mapping action="ignore-this-value"/>
-    </xwalk:value-map>
-<xwalk:value-map name="apc">
-      <xwalk:value-mapping from="yes" to="true"/>
-      <xwalk:value-mapping from="no" to="false"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="licences">
