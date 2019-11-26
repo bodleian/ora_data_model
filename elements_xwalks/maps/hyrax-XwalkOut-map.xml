@@ -11,7 +11,13 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
-
+26/11/19:
+- Added location for presentation
+- Updated object.type physical object (incorrect as it is ORA value) to artefact OR c-device-product
+22/11/19:
+- Updated value-map name="licences">
+21/11/19:
+- Remove crosswalk for author-url
 20/11/19:
 - Updated name type = "institutional _identifier" to type = "sso" and to map from SE username rather than SE prop ID
 - changed default Hyrax model value header to Hyrax-Work-Model (TW)
@@ -236,6 +242,7 @@ Initial changes not logged.
           <xwalk:condition operator="or">
             <xwalk:condition argument-field="object.type" operator="equals">conference</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">presentation</xwalk:condition>
           </xwalk:condition>
           <xwalk:result>
 
@@ -308,7 +315,10 @@ Initial changes not logged.
       <xwalk:field-mapping to="location">
         <xwalk:if>
           <!-- TODO: Check item type -->
-          <xwalk:condition argument-field="object.type" operator="equals">physical-item</xwalk:condition>
+          <xwalk:condition operator="or">
+          <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
+          <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
+        </xwalk:condition>
           <xwalk:result>
             <xwalk:field-source from="location" subfield="physicalLocation"/>
           </xwalk:result>
@@ -349,7 +359,8 @@ Initial changes not logged.
           <xwalk:condition operator="or">
             <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
             <!-- TODO: Check these object types. Response - seem OK DS) -->
-            <xwalk:condition argument-field="object.type" operator="equals">physical-object</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">ephemera</xwalk:condition>
           </xwalk:condition>
           <xwalk:result>
@@ -561,12 +572,12 @@ Initial changes not logged.
             <xwalk:field-source data-part="person:initials" subfield="namePart"/>
           </xwalk:field-source>
 
-<!-- this doesn;t actually work-->
+<!--Don't crosswalk. There is no SE equivalent of personal author website
 
 <xwalk:field-source subfield="nameIdentifier">
           <xwalk:field-source subfield="@type" value="website"/>
           <xwalk:field-source from="author-url"/>
-        </xwalk:field-source>
+        </xwalk:field-source> -->
 
 
           <xwalk:field-source subfield="nameIdentifier">
@@ -1446,6 +1457,7 @@ Initial changes not logged.
       <xwalk:value-mapping from="CC BY-NC" to="CC Attribution-NonCommercial (CC BY-NC)"/>
       <xwalk:value-mapping from="CC BY-NC-ND" to="CC Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND)"/>
       <xwalk:value-mapping from="CC BY-NC-SA" to="CC Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)"/>
+      <xwalk:value-mapping from="Publisher's own licence" to="Other"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
 
