@@ -68,7 +68,10 @@
                 
                     <!-- EVENT related metadata -->
                     <mods:relatedItem otherType="event">
-                        <mods:titleInfo><mods:title>Test conference</mods:title></mods:titleInfo>
+                        <mods:titleInfo>
+                            <mods:title>Test conference</mods:title>
+                            <mods:subTitle>Test series title</mods:subTitle> 
+                        </mods:titleInfo>
                         <mods:location>
                             <mods:physicalLocation>Conference in Oxford</mods:physicalLocation>
                             <mods:url>https://test.conference.location.ac.uk/2019</mods:url>

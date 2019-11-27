@@ -17,6 +17,7 @@
     
     CHANGELOG
     =========
+    27/11/2019: Add event_series_title
     15/11/2019: Correct spelling of commissioning_body
     03/10/2019: Datamodel tweak - added record_embargo_status
     09/08/2019: Datamodel tweak - make RT Ticket Number multivalued
@@ -189,7 +190,10 @@
                 
                     <!-- EVENT related metadata -->
                     <mods:relatedItem otherType="event">
-                        <mods:titleInfo><mods:title>field:event_title</mods:title></mods:titleInfo>
+                        <mods:titleInfo>
+                            <mods:title>field:event_title</mods:title>
+                            <mods:subTitle>field:event_series_title</mods:subTitle>
+                        </mods:titleInfo>
                         <mods:location>
                             <mods:physicalLocation>field:event_location</mods:physicalLocation>
                             <mods:url>field:event_website_url</mods:url>
