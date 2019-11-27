@@ -11,8 +11,13 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+27/11/19:
+- Deleted series -> series _number, added series -> series_title
+- deleted duplicate code in journal-article markup (already in common fields markup
+- updated journal markup to not repeat relatedItem
 26/11/19:
-- Added location for presentation
+- Added chapter to book markup (rather then repeat all code in chapter markup) and excluded relatedItem form book markup
+- Added locaiton for presentation
 - Updated object.type physical object (incorrect as it is ORA value) to artefact OR c-device-product
 22/11/19:
 - Updated value-map name="licences">
@@ -175,11 +180,7 @@ Initial changes not logged.
             <xwalk:field-source subfield="@unit" value="pages"/>
             <xwalk:field-source format="pagination:start-end" from="pagination" subfield="list"/>
           </xwalk:field-source>
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="series_number"/>
-            <xwalk:field-source from="series" subfield="number"/>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="detail">
+                  <xwalk:field-source subfield="detail">
             <xwalk:field-source subfield="@type" value="volume"/>
             <xwalk:field-source from="volume" subfield="number"/>
           </xwalk:field-source>
@@ -199,7 +200,15 @@ Initial changes not logged.
         </xwalk:field-source>
       </xwalk:field-mapping>
 
+
       <!-- end of added from journal markup. -->
+
+      <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="series"/>
+        <xwalk:field-source subfield="titleInfo">
+          <xwalk:field-source from="series" subfield="title"/>
+        </xwalk:field-source>
+        </xwalk:field-mapping>
 
 
       <xwalk:field-mapping to="physicalDescription">
@@ -1063,52 +1072,14 @@ Initial changes not logged.
             <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
         </xwalk:field-mapping>
 
-      <xwalk:field-mapping to="relatedItem">
-        <xwalk:field-source subfield="@type" value="host"/>
-        <xwalk:field-source subfield="titleInfo">
-          <xwalk:field-source from="journal" subfield="title"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="part">
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="article"/>
-            <xwalk:field-source from="number" subfield="number" value-map="parse-article-number"/>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="issue"/>
-            <xwalk:field-source from="issue" subfield="number"/>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="extent">
-            <xwalk:field-source subfield="@unit" value="pages"/>
-            <xwalk:field-source format="pagination:start-end" from="pagination" subfield="list"/>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="series_number"/>
-            <xwalk:field-source from="series" subfield="number"/>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="volume"/>
-            <xwalk:field-source from="volume" subfield="number"/>
-          </xwalk:field-source>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="location">
-          <xwalk:field-source from="publisher-url" subfield="url"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="physicalDescription">
-          <xwalk:field-source subfield="form">
-            <xwalk:field-source subfield="@type" value="status"/>
-            <xwalk:field-source from="publication-status" value-map="publication-status"/>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="form">
-            <xwalk:field-source subfield="@type" value="peer_reviewed"/>
-            <xwalk:field-source value="true"/>
-          </xwalk:field-source>
-        </xwalk:field-source>
-      </xwalk:field-mapping>
+
       <!-- Set is-list to false to force the first item to be selected -->
 
     </xwalk:field-map>
     <xwalk:field-map name="book-markup">
-      <xwalk:include-field-map name="common-fields-map"/>
+      <xwalk:include-field-map name="common-fields-map">
+      <xwalk:exclude-field-mapping to="relatedItem" />
+    </xwalk:include-field-map>
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="host"/>
         <xwalk:field-source subfield="titleInfo">
@@ -1117,7 +1088,7 @@ Initial changes not logged.
         <xwalk:field-source subfield="part">
           <xwalk:field-source subfield="detail">
             <xwalk:field-source subfield="@type" value="chapter_number"/>
-            <xwalk:field-source from="chapter" subfield="number"/>
+            <xwalk:field-source from="number" subfield="number"/>
           </xwalk:field-source>
           <xwalk:field-source subfield="detail">
             <xwalk:field-source subfield="@type" value="edition"/>
@@ -1473,7 +1444,10 @@ Initial changes not logged.
         </xwalk:result>
       </xwalk:when>
       <xwalk:when>
+        <xwalk:condition operator="or">
         <xwalk:condition argument-field="object.type" operator="equals">book</xwalk:condition>
+        <xwalk:condition argument-field="object.type" operator="equals">chapter</xwalk:condition>
+        </xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="book-markup"/>
         </xwalk:result>
