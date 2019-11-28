@@ -11,6 +11,10 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+28/11/19:
+Debugged funder grant ID frm funding acknowledgments
+- Debugged user affiliation code
+Removed incorrect crosswalks form publisher-url (if device/product -> manufacturer_website_url else publication _website_url)
 27/11/19:
 - Deleted series -> series _number, added series -> series_title
 - deleted duplicate code in journal-article markup (already in common fields markup
@@ -185,9 +189,10 @@ Initial changes not logged.
             <xwalk:field-source from="volume" subfield="number"/>
           </xwalk:field-source>
         </xwalk:field-source>
+        <!--Removed, not in mapping doc
         <xwalk:field-source subfield="location">
           <xwalk:field-source from="publisher-url" subfield="url"/>
-        </xwalk:field-source>
+        </xwalk:field-source>-->
         <xwalk:field-source subfield="physicalDescription">
           <xwalk:field-source subfield="form">
             <xwalk:field-source subfield="@type" value="status"/>
@@ -413,12 +418,13 @@ Initial changes not logged.
             <xwalk:field-source from="place-of-publication"/>
           </xwalk:field-source>
         </xwalk:field-source>
+        <!--        Removed, not in mapping doc
         <xwalk:field-source subfield="place">
           <xwalk:field-source subfield="placeTerm">
             <xwalk:field-source subfield="@type" value="code"/>
             <xwalk:field-source from="publisher-url"/>
           </xwalk:field-source>
-        </xwalk:field-source>
+        </xwalk:field-source>-->
       </xwalk:result>
       <xwalk:else>
         <xwalk:result>
@@ -441,12 +447,13 @@ Initial changes not logged.
             <xwalk:field-source from="place-of-publication"/>
           </xwalk:field-source>
         </xwalk:field-source>
+        <!--        Removed, not in mapping doc
         <xwalk:field-source subfield="place">
           <xwalk:field-source subfield="placeTerm">
             <xwalk:field-source subfield="@type" value="code"/>
             <xwalk:field-source from="publisher-url"/>
           </xwalk:field-source>
-        </xwalk:field-source>
+        </xwalk:field-source>-->
         </xwalk:result>
       </xwalk:else>
     </xwalk:if>
@@ -522,10 +529,12 @@ Initial changes not logged.
     </xwalk:field-source>
 
     <xwalk:field-source subfield="affiliation">
-        <xwalk:field-source subfield="ora_admin:funding"/>
-          <xwalk:field-source subfield="ora_admin:funder_grant"/>
+        <xwalk:field-source subfield="ora_admin:funding">
+          <xwalk:field-source subfield="ora_admin:funder_grant">
             <xwalk:field-source subfield="ora_admin:grant_identifier">
             <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
+        </xwalk:field-source>
+        </xwalk:field-source>
         </xwalk:field-source>
     </xwalk:field-source>
 
@@ -620,22 +629,31 @@ Initial changes not logged.
           </xwalk:field-source>
           <xwalk:field-source subfield="affiliation">
             <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
+              <xwalk:field-source subfield = "ora:affiliationComponent">
               <!-- TODO: field:contributors__institution_identifier -->
               <xwalk:field-source>
                 <xwalk:field-source subfield="@type" value="division"/>
                 <xwalk:field-source from="user.generic01"/>
               </xwalk:field-source>
-              <xwalk:field-source>
+              </xwalk:field-source>
+               <xwalk:field-source subfield = "ora:affiliationComponent">
+                <xwalk:field-source>
                 <xwalk:field-source subfield="@type" value="department"/>
                 <xwalk:field-source from="user.primary-group-descriptor"/>
+                </xwalk:field-source>
               </xwalk:field-source>
-              <xwalk:field-source>
-                <xwalk:field-source subfield="@type" value="subdepartment"/>
+               <xwalk:field-source subfield = "ora:affiliationComponent">
+                <xwalk:field-source>
+                <xwalk:field-source subfield="@type" value="sub_department"/>
                 <xwalk:field-source from="user.generic07"/>
+                </xwalk:field-source>
               </xwalk:field-source>
-              <xwalk:field-source>
+
+               <xwalk:field-source subfield = "ora:affiliationComponent">
+                <xwalk:field-source>
                 <xwalk:field-source subfield="@type" value="oxford_college"/>
                 <xwalk:field-source from="user.generic03"/>
+                </xwalk:field-source>
               </xwalk:field-source>
             </xwalk:field-source>
           </xwalk:field-source>
@@ -1106,7 +1124,8 @@ Initial changes not logged.
       </xwalk:field-mapping>
     </xwalk:field-map>
     <xwalk:field-map name="device-product-markup">
-      <xwalk:include-field-map name="common-fields-map"/>
+      <xwalk:include-field-map name="common-fields-map">
+      </xwalk:include-field-map>
       <xwalk:field-mapping to="originInfo">
         <xwalk:field-source subfield="dateOther">
           <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
@@ -1123,12 +1142,13 @@ Initial changes not logged.
             <xwalk:field-source from="place-of-publication"/>
           </xwalk:field-source>
         </xwalk:field-source>
+        <!--Removed not in mapping doc
         <xwalk:field-source subfield="place">
           <xwalk:field-source subfield="placeTerm">
             <xwalk:field-source subfield="@type" value="code"/>
             <xwalk:field-source from="publisher-url"/>
           </xwalk:field-source>
-        </xwalk:field-source>
+        </xwalk:field-source>-->
         <xwalk:field-source subfield="dateOther">
           <xwalk:field-source subfield="@type" value="production_date"/>
           <xwalk:field-source subfield="@encoding" value="iso8601"/>
