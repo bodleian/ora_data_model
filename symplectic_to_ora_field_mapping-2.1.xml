@@ -13,6 +13,8 @@
     
     Changelog
     =========
+    02/12/19:
+    - Updated ocntributors_department to come frm user table G07, not Department field (see GitHub #124)
     20/11/19: 
     - Changed Hyrax Work Type to Hyrax Work Model (TW)
     - Remove mapping from author-url to ORA personal website as not the same.
@@ -421,7 +423,7 @@
         <symplectic_field xpath="api:organisation-defined-data[@field-number]='1']"><ora_field>contributors__division</ora_field></symplectic_field>
         <symplectic_field xpath="api:organisation-defined-data[@field-number]='2']"><ora_field>contributors__group</ora_field></symplectic_field>
         <symplectic_field name="primary-group-descriptor"><ora_field>contributors__department</ora_field><note>If this field is set, then contributors__institution should be set to "University of Oxford"</note></symplectic_field>
-        <symplectic_field name="department"><ora_field>contributors__sub_department</ora_field></symplectic_field>
+        <symplectic_field name="api:organisation-defined-data[@field-number]='7']"><ora_field>contributors__sub_department</ora_field></symplectic_field>
         <symplectic_field xpath="@proprietary-id"><ora_field>contributors__institutional_identifier</ora_field></symplectic_field>
         <symplectic_field xpath="api:user-identifier-associations/api:user-identifier-association">
             <if test="@scheme='orcid'">
@@ -521,7 +523,7 @@
         
         <oxford_symplectic_field number="04" name="Job Description"><ora_field>contributors__roles__role_title</ora_field></oxford_symplectic_field>
         
-        <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field>
+        <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field><notes>This is not held in users table,so not crosswalked. ORCID is crosswalked from user.identifiers.
         
         <oxford_symplectic_field number="06" name="Department Affiliation"><ora_field>contributors__department</ora_field></oxford_symplectic_field>
         
