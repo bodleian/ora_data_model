@@ -81,9 +81,9 @@ EXAMPLE OF BAD PRACTICE (JSON)
 
 ```
     "abstract": "This is an abstract",
-    "alternative_title": "",
-    "keyword": [""],
-    "binary_files": [{
+    "alternative_title": "",  # Bad beause this should be none
+    "keyword": [""], # Bad because this should be an empty array
+    "binary_files": [{  # Bad because object is empty
         "file_admin_access_condition_at_deposit": "",
         "file_admin_file_and_record_do_not_match": "",
         "file_admin_fedora3_datastream_identifier": "",
@@ -105,7 +105,7 @@ EXAMPLE OF BAD PRACTICE (JSON)
         "file_version": ""    
     }],
     "related_items": [{
-        "related_item_url": "http://example.com"
+        "related_item_url": "http://example.com"  # Bad because keys are not set
     }], 
 ```
 
@@ -113,11 +113,11 @@ EXAMPLE OF GOOD PRACTICE (Python)
 
 ```Python
     "abstract": "This is an abstract",
-    "alternative_title": None,
-    "keyword": [],
-    "binary_files": [],
+    "alternative_title": None,  # Empty single valued fields should be None or local equivalent
+    "keyword": [],  # Empty multivalued fields should be an empty Array or local equivalent
+    "binary_files": [],  # Don't pass empty objects
     "related_items": [{
-        "related_item_citation_text": None,
+        "related_item_citation_text": None,  # All keys should be set
         "related_item_title": None,
         "related_item_url": "http://example.com"
     }],
