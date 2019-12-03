@@ -205,7 +205,7 @@ Specific rules
 data_model_to_hyrax_class_mappings = {
     "Book" => "Book",
     "Book section" => "BookSection",
-    "Compostition" => "Compostion",
+    "Composition" => "Composition",
     "Conference item" => "ConferenceItem",
     "Dataset" => "Dataset",
     "Ephemera" => "Ephemera",
@@ -213,6 +213,7 @@ data_model_to_hyrax_class_mappings = {
     "Journal article" => "JournalArticle",
     "Patent" => "Patent",
     "Physical object" => "PhysicalObject",
+    "Record" => "UniversalTestObject",  # TODO: create Record work type (post Go-Live)   
     "Report" => "Report",
     "Thesis" => "Thesis",
     "Working paper" => "WorkingPaper"
