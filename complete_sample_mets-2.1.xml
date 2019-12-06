@@ -172,7 +172,7 @@
                         
                         <mods:nameIdentifier type="email_address">thomas.wrobel@bodleian.ox.ac.uk</mods:nameIdentifier>
                         <mods:nameIdentifier type="website">https://wrobel.net</mods:nameIdentifier>
-                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_88888888-8888-8888-8888-12345678abcd</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ci_88888888-8888-8888-8888-12345678abcd</mods:nameIdentifier>
                         <mods:nameIdentifier type="sso">lina0911r</mods:nameIdentifier><!-- TODO v2.1: change to type="institutional_identifier" -->
                         <mods:nameIdentifier type="orcid_identifier">0000-0003-3302-161X</mods:nameIdentifier>
                         
@@ -223,7 +223,7 @@
                         <mods:namePart type="given">Fake</mods:namePart>
                         <mods:namePart type="family">Author</mods:namePart>
                         
-                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_88888888-8888-8888-8888-12345678abce</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ci_88888888-8888-8888-8888-12345678abce</mods:nameIdentifier>
                         
                         <mods:role>
                             <mods:extension>
@@ -244,7 +244,7 @@
                         <mods:namePart type="given">Fake</mods:namePart>
                         <mods:namePart type="family">Impersonator</mods:namePart>
                         
-                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_88888888-8888-8888-8888-12345678abcf</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ci_88888888-8888-8888-8888-12345678abcf</mods:nameIdentifier>
                         
                         <mods:role>
                             <mods:extension>
@@ -260,7 +260,7 @@
                         <mods:namePart type="given">Fake</mods:namePart>
                         <mods:namePart type="family">Editor</mods:namePart>
                         
-                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_88888888-8888-8888-8888-12345678abc1</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ci_88888888-8888-8888-8888-12345678abc1</mods:nameIdentifier>
                         
                         <mods:role>
                             <mods:extension>
@@ -274,7 +274,7 @@
                         <mods:displayForm>Corporate Author</mods:displayForm>
                         
                       
-                        <mods:nameIdentifier type="contributor_record_identifier">ora_cri_88888888-8888-8888-8888-12345678abc2</mods:nameIdentifier>
+                        <mods:nameIdentifier type="contributor_record_identifier">ci_88888888-8888-8888-8888-12345678abc2</mods:nameIdentifier>
                         
                         <mods:role>
                             <mods:extension>
@@ -314,7 +314,7 @@
                                 <ora_admin:funding_programme>Test funder programme</ora_admin:funding_programme>
                                 <ora_admin:funder_compliance>false</ora_admin:funder_compliance>
                                 <ora_admin:funder_grant>
-                                    <ora_admin:is_funding_for>ora_cri_88888888-8888-8888-8888-12345678abc1</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
+                                    <ora_admin:is_funding_for>ci_88888888-8888-8888-8888-12345678abc1</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
                                     <ora_admin:grant_identifier>fundinggrant3</ora_admin:grant_identifier>
                                 </ora_admin:funder_grant>                        
                             </ora_admin:funding>
@@ -322,8 +322,8 @@
                                 <!-- For multiple grants, create one ora_admin:funding element for each grant -->
                                 <ora_admin:funder_compliance>true</ora_admin:funder_compliance>
                                 <ora_admin:funder_grant>
-                                    <ora_admin:is_funding_for>ora_cri_88888888-8888-8888-8888-12345678abc1</ora_admin:is_funding_for>
-                                    <ora_admin:is_funding_for>ora_cri_88888888-8888-8888-8888-12345678abc2</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
+                                    <ora_admin:is_funding_for>ci_88888888-8888-8888-8888-12345678abc1</ora_admin:is_funding_for>
+                                    <ora_admin:is_funding_for>ci_88888888-8888-8888-8888-12345678abc2</ora_admin:is_funding_for><!-- More than one is_funding_for element is permissable -->
                                     <ora_admin:grant_identifier>fundinggrant2</ora_admin:grant_identifier>
                                 </ora_admin:funder_grant>                        
                             </ora_admin:funding>
