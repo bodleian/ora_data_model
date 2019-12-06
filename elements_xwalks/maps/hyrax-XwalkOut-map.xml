@@ -11,8 +11,13 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+06/12/2019:
+- Added logic for software-markup (to account for version)
+- Added patent awarded date (ora_patent: awarded_date)
+- location debugged for dataset
+- isidoc added to value map fo rexternal identifiers
 28/11/19:
-Debugged funder grant ID frm funding acknowledgments
+- Debugged funder grant ID frm funding acknowledgments
 - Debugged user affiliation code
 Removed incorrect crosswalks form publisher-url (if device/product -> manufacturer_website_url else publication _website_url)
 27/11/19:
@@ -337,8 +342,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
             <xwalk:field-source from="location" subfield="physicalLocation"/>
           </xwalk:result>
         </xwalk:if>
-        <xwalk:field-source from="public-url" subfield="url"/>
-      </xwalk:field-mapping>
+       </xwalk:field-mapping>
       <!--DO WE NEED THIS IN ADDIOTN TO JA PLACE OF PUB TO CITATION xwalk:field-mapping to="location"><xwalk:if>-->
       <!-- TODO: Check item type -->
 
@@ -1124,8 +1128,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       </xwalk:field-mapping>
     </xwalk:field-map>
     <xwalk:field-map name="device-product-markup">
-      <xwalk:include-field-map name="common-fields-map">
-      </xwalk:include-field-map>
+      <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:field-mapping to="originInfo">
         <xwalk:field-source subfield="dateOther">
           <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
@@ -1178,6 +1181,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           <xwalk:field-source from="filed-date" subfield="ora_patent:filed_date"/>
           <xwalk:field-source from="patent-status" subfield="ora_patent:patent_status"/>
           <xwalk:field-source from="location" subfield="ora_patent:territory"/>
+          <xwalk:field-source from="start-date" subfield="ora_patent:awarded_date"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
@@ -1192,13 +1196,15 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
             <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='doi']/api:text" operator="has-value" select-using="xpath"/>
           </xwalk:condition>
           <xwalk:result>
-            <xwalk:field-source subfield="ora_dataset:dataset"/>
+            <xwalk:field-source subfield="ora_dataset:dataset">
             <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
+          </xwalk:field-source>
           </xwalk:result>
           <xwalk:else>
             <xwalk:result>
-              <xwalk:field-source subfield="ora_dataset:dataset"/>
+              <xwalk:field-source subfield="ora_dataset:dataset">
               <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
+            </xwalk:field-source>
             </xwalk:result>
           </xwalk:else>
         </xwalk:if>
@@ -1233,21 +1239,22 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
             <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='doi']/api:text" operator="has-value" select-using="xpath"/>
           </xwalk:condition>
           <xwalk:result>
-            <xwalk:field-source subfield="ora_dataset:dataset"/>
+             <xwalk:field-source subfield="ora_dataset:dataset">
             <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
+            <xwalk:field-source from="version" subfield="dc:version"/>
+          </xwalk:field-source>
           </xwalk:result>
           <xwalk:else>
             <xwalk:result>
-              <xwalk:field-source subfield="ora_dataset:dataset"/>
+               <xwalk:field-source subfield="ora_dataset:dataset">
               <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
+              <xwalk:field-source from="version" subfield="dc:version"/>
+            </xwalk:field-source>
             </xwalk:result>
           </xwalk:else>
         </xwalk:if>
-        <xwalk:field-source subfield="ora_dataset:dataset"/>
-            <xwalk:field-source from="version" subfield="dc:version"/>
       </xwalk:field-mapping>
-
-
+     
     </xwalk:field-map>
 
    
@@ -1280,6 +1287,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
     otherwise passes through unchanged -->
     <xwalk:value-map name="identifier-type">
       <xwalk:value-mapping from="pubmed" to="pmid"/>
+      <xwalk:value-mapping from="isidoc" to="isidoc"/>
       <xwalk:otherwise-mapping action="continue"/>
     </xwalk:value-map>
     <!-- Maps Elements author identifier schemes to the appropriate destination value, if known,
@@ -1488,6 +1496,12 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
         <xwalk:condition argument-field="object.type" operator="equals">thesis-dissertation</xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="thesis-markup"/>
+        </xwalk:result>
+      </xwalk:when>
+      <xwalk:when>
+        <xwalk:condition argument-field="object.type" operator="equals">software</xwalk:condition>
+        <xwalk:result>
+          <xwalk:field-map-selection field-map="software-markup"/>
         </xwalk:result>
       </xwalk:when>
       <xwalk:when>
