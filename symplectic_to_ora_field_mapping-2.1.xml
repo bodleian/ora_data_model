@@ -13,8 +13,9 @@
     
     Changelog
     =========
+    04/12/19: Updated location mapping to include JA only where no place-of-publication
     02/12/19:
-    - Updated ocntributors_department to come frm user table G07, not Department field (see GitHub #124)
+    - Updated contributors_department to come from user table G07, not Department field (see GitHub #124)
     20/11/19: 
     - Changed Hyrax Work Type to Hyrax Work Model (TW)
     - Remove mapping from author-url to ORA personal website as not the same.
@@ -218,19 +219,18 @@
         <symplectic_field name="location">
             <if test="record is a Conference, Exhibition, Performance, or Presentation"><ora_field>event_location</ora_field></if>
             <if test="record is a Physical item"><ora_field>physical_location</ora_field></if>
-            <if test="record is a Journal Article"><ora_field>citation_place_of_publication</ora_field></if>
+            <if test="record is a Journal Article" AND place-of-publication = 'no value'><ora_field>citation_place_of_publication</ora_field></if>
             <if test="record is a Patent">patent_territory</if>
             <if test="record is a Dataset">data_physical_storage_location</if>
         </symplectic_field>
         
         <symplectic_field name="medium">
-            <if test="record is a Physical item"><ora_field>physical_form</ora_field></if>
-            <else><no_mapping/></else>
+        <if test="record is a Physical item"><ora_field>physical_form</ora_field></if>
+        <else><symplectic_field name="medium"><no_mapping/></symplectic_field>
         </symplectic_field>
             
-        <symplectic_field name="name-of-conference">
+        <symplectic_field name=name-of-conference>
             <if test="record is Conference item/any or Composition/performance"><ora_field>event_title</ora_field></if>
-        </symplectic_field>
 
         
         <symplectic_field name="notes"><ora_field>additional_information</ora_field><note>As other fields write to additional information, this should be appended to the additional_information value and not replace it</note></symplectic_field>
@@ -250,14 +250,14 @@
     -->
         
         <symplectic_field name="online-publication-date">
-            <note>Crosswalk for deposit only. If null then map publication-date instead</note>
-            <ora_field>citation_publication_date</ora_field>
+        <note>Crosswalk for deposit only. If null then map publication-date instead</note>
+            <ora_field>citation_publication_date</ora_field></if>
         </symplectic_field>
         
         <symplectic_field name="pagination">
             <if test="pagination is given in page-count"><ora-field>pagination</ora-field><notes>Append " pages" to value, e.g. "32 pages"</notes></if>
             <if test="pagination is a range"><ora-field>pagination</ora-field><notes>Output as a range, separated by a '-', e.g '22-33'</notes></if>
-            <if test="pagination is given both as a range and a page count"><ora-field>pagination</ora-field><note>Output as a range only, separated by a '-', e.g '22-33'</note></if>
+            <if test="pagination is given both as a range and a page count"><ora-field>pagination</ora-field><notes>Output as a range only, separated by a '-', e.g '22-33'</notes></if>
         </symplectic_field>
         
         <symplectic_field name="parent-title"><ora_field>host_title</ora_field></symplectic_field>
@@ -270,12 +270,12 @@
         
         <symplectic_field name="pii"><ora_field>identifier_pii</ora_field></symplectic_field>
         
-        <symplectic_field name="place-of-publication"><ora_field>citation_place_of_publication</ora_field></symplectic_field>
+        <symplectic_field name="place-of-publication"><note>deposit only</note><ora_field>citation_place_of_publication</ora_field></if></symplectic_field>
         
         <symplectic_field name="public-url"><ora_field>has_public_url</ora_field></symplectic_field>
         
         <symplectic_field name="publication-date">
-            <note>for deposit crosswalk, only map if online-publication-date' is null</note> 
+            <Note "for deposit crosswalk, only map if online-publication-date' is null"/>
             <if test="type_of_work == 'device/product'"><ora_field>production_date</ora_field></if>
             <else><ora_field>citation_publication_date</ora_field></else>
             <note>In the absence of any other information, the year component of this value should also become rights_copyright_date</note>
@@ -291,7 +291,7 @@
                 <value_map><symp_value>Submitted</symp_value><ora_value>submitted</ora_value></value_map>
                 <value_map><symp_value>Submitted</symp_value><ora_value>Under review</ora_value></value_map><note>Harvest only</note>
                 <value_map><symp_value>Published online</symp_value><ora_value>Under review</ora_value></value_map><note>Harvest only</note>
-                <value_map><symp_value>Published online</symp_value><ora_value>Published</ora_value><note>Deposit only</note></value_map>
+                <value_map><symp_value>Published online</symp_value><ora_value>Published</ora_value><notes>Deposit only</notes></value_map>
             </value_mappings>
             <note>See https://github.com/tomwrobel/ora_data_model/issues/70 also https://github.com/tomwrobel/ora_data_model/issues/112</note>
         </symplectic_field>
@@ -523,7 +523,7 @@
         
         <oxford_symplectic_field number="04" name="Job Description"><ora_field>contributors__roles__role_title</ora_field></oxford_symplectic_field>
         
-        <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field><notes>This is not held in users table,so not crosswalked. ORCID is crosswalked from user.identifiers.</notes></symplectic_field>
+        <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field><notes>This is not held in users table,so not crosswalked. ORCID is crosswalked from user.identifiers.
         
         <oxford_symplectic_field number="06" name="Department Affiliation"><ora_field>contributors__department</ora_field></oxford_symplectic_field>
         
