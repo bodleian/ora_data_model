@@ -1,7 +1,8 @@
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
 
-
+ISSUES
+Can't set citation _place_of_publication from place-of-publication if value else location since citation _place_of_publication canlt have a conditional within it. Limitation of crosswalk.
 
 #To note
 
@@ -11,6 +12,8 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 -->
   <!--CHANGELOG
 Initial changes not logged.
+10/12/19: Added apc value map (upper to lower case boolean)
+09/12/19: Set placeTerm to come from location rather than place-of-publicaiton (pending answer to GitHub #88)
 06/12/2019:
 - Added logic for software-markup (to account for version)
 - Added patent awarded date (ora_patent: awarded_date)
@@ -28,10 +31,8 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
 - Added chapter to book markup (rather then repeat all code in chapter markup) and excluded relatedItem form book markup
 - Added locaiton for presentation
 - Updated object.type physical object (incorrect as it is ORA value) to artefact OR c-device-product
-22/11/19:
-- Updated value-map name="licences">
-21/11/19:
-- Remove crosswalk for author-url
+22/11/19: Updated value-map name="licences">
+21/11/19: Remove crosswalk for author-url
 20/11/19:
 - Updated name type = "institutional _identifier" to type = "sso" and to map from SE username rather than SE prop ID
 - changed default Hyrax model value header to Hyrax-Work-Model (TW)
@@ -156,7 +157,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
 
       <xwalk:field-mapping to="extension">
   <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
-        <xwalk:field-source subfield = "ora_open_access_admin:apc_admin_apc_requested" from="c-apc"/>
+        <xwalk:field-source subfield = "ora_open_access_admin:apc_admin_apc_requested" from="c-apc" value-map="apc"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
@@ -419,7 +420,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
         <xwalk:field-source subfield="place">
           <xwalk:field-source subfield="placeTerm">
             <xwalk:field-source subfield="@type" value="text"/>
-            <xwalk:field-source from="place-of-publication"/>
+            <xwalk:field-source from="location"/>
           </xwalk:field-source>
         </xwalk:field-source>
         <!--        Removed, not in mapping doc
@@ -1457,6 +1458,12 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:value-mapping from="CC BY-NC-ND" to="CC Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND)"/>
       <xwalk:value-mapping from="CC BY-NC-SA" to="CC Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)"/>
       <xwalk:value-mapping from="Publisher's own licence" to="Other"/>
+      <xwalk:otherwise-mapping action="ignore-this-value"/>
+    </xwalk:value-map>
+
+    <xwalk:value-map name="apc">
+      <xwalk:value-mapping from="Yes" to="yes"/>
+      <xwalk:value-mapping from="No" to="no"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
 
