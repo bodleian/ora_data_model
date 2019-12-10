@@ -8,11 +8,12 @@
 
 -->
   <!--Changelog
+10/12/2019: Added apc value map (lower to upper case boolean)
+09/12/19: Updated to not harvest citation_place_of_publication to location (use place-of-publication) as per gitHub issue #88
 26/11/19:
 - removed apc value map
 - corrected physical item -> physical object in conditional
-20/11/19:
-- updated journal article subtype mapping (Git issue #134)
+20/11/19: updated journal article subtype mapping (Git issue #134)
 19/11/19:
 - Updated subtypes value-map (Erratum)
 - Removed associated identifiers from to do list.
@@ -283,12 +284,12 @@
               <xwalk:field-source from="/mods:mods/mods:relatedItem[@otherType = 'event']/mods:location/mods:physicalLocation" select-using="xpath"/>
             </xwalk:result>
           </xwalk:when>
-          <xwalk:when>
+          <!--<xwalk:when>
             <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Journal article</xwalk:condition>
             <xwalk:result>
               <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='text']" select-using="xpath"/>
             </xwalk:result>
-          </xwalk:when>
+          </xwalk:when>-->
           <xwalk:when>
             <xwalk:condition operator="and">
               <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Dataset</xwalk:condition>
@@ -329,7 +330,7 @@
       </xwalk:field-mapping>
       <!--move to OA-->
       <xwalk:field-mapping to="c-apc">
-        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath"/>
+        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath" value-map="apc"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="version">
         <xwalk:choose>
@@ -554,6 +555,12 @@
       <xwalk:value-mapping from="CC Attribution-NonCommercial (CC BY-NC)" to="CC BY-NC"/>
       <xwalk:value-mapping from="CC Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND)" to="CC BY-NC-ND"/>
       <xwalk:value-mapping from="CC Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)" to="CC BY-NC-SA"/>
+      <xwalk:otherwise-mapping action="ignore-this-value"/>
+    </xwalk:value-map>
+
+    <xwalk:value-map name="apc">
+      <xwalk:value-mapping from="yes" to="Yes"/>
+      <xwalk:value-mapping from="no" to="No"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
 
