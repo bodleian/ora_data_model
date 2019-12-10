@@ -6,10 +6,7 @@ Can't set citation _place_of_publication from place-of-publication if value else
 
 #To note
 
-Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -> <identifier type="abcd">1234</identifier>
-
-
--->
+Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
 10/12/19: Added apc value map (upper to lower case boolean)
@@ -22,17 +19,16 @@ Initial changes not logged.
 28/11/19:
 - Debugged funder grant ID frm funding acknowledgments
 - Debugged user affiliation code
-Removed incorrect crosswalks form publisher-url (if device/product -> manufacturer_website_url else publication _website_url)
+Removed incorrect crosswalks form publisher-url (if device/product ->manufacturer_website_url else publication _website_url)
 27/11/19:
-- Deleted series -> series _number, added series -> series_title
+- Deleted series ->series _number, added series ->series_title
 - deleted duplicate code in journal-article markup (already in common fields markup
 - updated journal markup to not repeat relatedItem
 26/11/19:
 - Added chapter to book markup (rather then repeat all code in chapter markup) and excluded relatedItem form book markup
 - Added locaiton for presentation
 - Updated object.type physical object (incorrect as it is ORA value) to artefact OR c-device-product
-22/11/19: Updated value-map name="licences">
-21/11/19: Remove crosswalk for author-url
+22/11/19: Updated value-map name="licences">21/11/19: Remove crosswalk for author-url
 20/11/19:
 - Updated name type = "institutional _identifier" to type = "sso" and to map from SE username rather than SE prop ID
 - changed default Hyrax model value header to Hyrax-Work-Model (TW)
@@ -94,7 +90,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
 
 
 -->
- <xwalk:parameters>
+  <xwalk:parameters>
     <!-- Instructs the crosswalk framework to use the 1st when dealing with a month-precision date,
     and January when dealing with a year-precision date -->
     <xwalk:parameter name="use-default-values-for-missing-date-components" value="true"/>
@@ -102,26 +98,25 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
   <!-- Defines how metadata is generated for files that have been uploaded.  
   This map is executed for each file and uploaded via Sword one-by-one -->
   <xwalk:file-metadata-map>
-    
     <xwalk:field-mapping to="ora:repository_file">
-       <xwalk:if>
+      <xwalk:if>
         <xwalk:condition argument-field="object.type" operator="equals">c-report</xwalk:condition>
         <xwalk:result>
-      <xwalk:field-source from="file.name" subfield="dc:title"/>
-      <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions"/>
-      <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
-      <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
-      <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/> 
-    </xwalk:result>
-    <xwalk:else>
-        <xwalk:result>
-      <xwalk:field-source from="file.name" subfield="dc:title"/>
-      <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions"/>
-      <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
-      <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/>
-  </xwalk:result>
-</xwalk:else>
-</xwalk:if>
+          <xwalk:field-source from="file.name" subfield="dc:title"/>
+          <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions"/>
+          <xwalk:field-source from="version" subfield="dcterms:hasVersion"/>
+          <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
+          <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/>
+        </xwalk:result>
+        <xwalk:else>
+          <xwalk:result>
+            <xwalk:field-source from="file.name" subfield="dc:title"/>
+            <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions"/>
+            <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment"/>
+            <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod"/>
+          </xwalk:result>
+        </xwalk:else>
+      </xwalk:if>
     </xwalk:field-mapping>
   </xwalk:file-metadata-map>
   <!-- Item-level metadata maps -->
@@ -146,32 +141,24 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           <xwalk:field-source subfield="ora_admin:rights_third_party_copyright_permission_received" value="unknown"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
-
       <xwalk:field-mapping to="recordInfo">
         <xwalk:field-source subfield="recordContentSource" value="Symplectic Elements"/>
         <xwalk:field-source subfield="recordInfoNote">
-        <xwalk:field-source subfield="@type" value="confidential_report"/>
-        <xwalk:field-source from="confidential"/>
-      </xwalk:field-source>
+          <xwalk:field-source subfield="@type" value="confidential_report"/>
+          <xwalk:field-source from="confidential"/>
+        </xwalk:field-source>
       </xwalk:field-mapping>
-
       <xwalk:field-mapping to="extension">
-  <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
-        <xwalk:field-source subfield = "ora_open_access_admin:apc_admin_apc_requested" from="c-apc" value-map="apc"/>
+        <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
+          <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="apc"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
-
-
-
-
     <xwalk:field-map name="common-fields-map">
       <xwalk:include-field-map name="contributors"/>
       <xwalk:include-field-map name="identifiers"/>
       <xwalk:include-field-map name="access-conditions"/>
-
-      <!--added form journal markup. Check does this or joural markup need to be amended.-->
-
+      <!--copied from journal markup. Check does this or joural markup need to be amended.-->
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="host"/>
         <xwalk:field-source subfield="titleInfo">
@@ -190,15 +177,13 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
             <xwalk:field-source subfield="@unit" value="pages"/>
             <xwalk:field-source format="pagination:start-end" from="pagination" subfield="list"/>
           </xwalk:field-source>
-                  <xwalk:field-source subfield="detail">
+          <xwalk:field-source subfield="detail">
             <xwalk:field-source subfield="@type" value="volume"/>
             <xwalk:field-source from="volume" subfield="number"/>
           </xwalk:field-source>
         </xwalk:field-source>
         <!--Removed, not in mapping doc
-        <xwalk:field-source subfield="location">
-          <xwalk:field-source from="publisher-url" subfield="url"/>
-        </xwalk:field-source>-->
+        <xwalk:field-source subfield="location"><xwalk:field-source from="publisher-url" subfield="url"/></xwalk:field-source>-->
         <xwalk:field-source subfield="physicalDescription">
           <xwalk:field-source subfield="form">
             <xwalk:field-source subfield="@type" value="status"/>
@@ -210,18 +195,13 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-
-
-      <!-- end of added from journal markup. -->
-
+      <!-- copied from journal markup. -->
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="series"/>
         <xwalk:field-source subfield="titleInfo">
           <xwalk:field-source from="series" subfield="title"/>
         </xwalk:field-source>
-        </xwalk:field-mapping>
-
-
+      </xwalk:field-mapping>
       <xwalk:field-mapping to="physicalDescription">
         <xwalk:field-source subfield="form">
           <xwalk:field-source subfield="@type" value="physical_form"/>
@@ -253,26 +233,21 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:when>
         </xwalk:choose>
       </xwalk:field-mapping>
-
-   <!-- Big chunk of related item mapping which needs to be repeated in full for three types-->
-
+      <!-- Big chunk of related item mapping which needs to be repeated in full for three types-->
       <xwalk:field-mapping to="relatedItem">
         <xwalk:choose>
           <xwalk:when>
-          <xwalk:condition operator="or">
-            <xwalk:condition argument-field="object.type" operator="equals">conference</xwalk:condition>
-            <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
-            <xwalk:condition argument-field="object.type" operator="equals">presentation</xwalk:condition>
-          </xwalk:condition>
-          <xwalk:result>
-
-            <xwalk:field-source subfield="@otherType" value="event"/>
-
-            <xwalk:field-source subfield="titleInfo">
-              <xwalk:field-source from="name-of-conference" subfield="title"/>
-            </xwalk:field-source>
-
-          <xwalk:field-source subfield="location">
+            <xwalk:condition operator="or">
+              <xwalk:condition argument-field="object.type" operator="equals">conference</xwalk:condition>
+              <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
+              <xwalk:condition argument-field="object.type" operator="equals">presentation</xwalk:condition>
+            </xwalk:condition>
+            <xwalk:result>
+              <xwalk:field-source subfield="@otherType" value="event"/>
+              <xwalk:field-source subfield="titleInfo">
+                <xwalk:field-source from="name-of-conference" subfield="title"/>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="location">
                 <xwalk:field-source from="location" subfield="physicalLocation"/>
               </xwalk:field-source>
               <xwalk:field-source subfield="originInfo">
@@ -287,14 +262,14 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
                   <xwalk:field-source from="finish-date"/>
                 </xwalk:field-source>
               </xwalk:field-source>
-          </xwalk:result>
-        </xwalk:when>
-         <xwalk:when>
+            </xwalk:result>
+          </xwalk:when>
+          <xwalk:when>
             <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
             <xwalk:result>
               <xwalk:field-source subfield="@otherType" value="event"/>
               <xwalk:field-source subfield="originInfo">
-                 <xwalk:field-source subfield="dateOther">
+                <xwalk:field-source subfield="dateOther">
                   <xwalk:field-source subfield="@point" value="end"/>
                   <xwalk:field-source subfield="@type" value="event_date"/>
                   <xwalk:field-source from="finish-date"/>
@@ -302,7 +277,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
               </xwalk:field-source>
             </xwalk:result>
           </xwalk:when>
-           <xwalk:otherwise>
+          <xwalk:otherwise>
             <xwalk:result>
               <xwalk:field-source subfield="@otherType" value="event"/>
               <xwalk:field-source subfield="originInfo">
@@ -321,51 +296,34 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:otherwise>
         </xwalk:choose>
       </xwalk:field-mapping>
-
-
-
       <xwalk:field-mapping to="accessCondition">
         <xwalk:field-source subfield="@type" value="license"/>
         <xwalk:field-source from="publisher-licence" value-map="licences"/>
       </xwalk:field-mapping>
-     
-
-        
-         
       <xwalk:field-mapping to="location">
         <xwalk:if>
-          <!-- TODO: Check item type -->
           <xwalk:condition operator="or">
-          <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
-          <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
-        </xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
+          </xwalk:condition>
           <xwalk:result>
             <xwalk:field-source from="location" subfield="physicalLocation"/>
           </xwalk:result>
         </xwalk:if>
-       </xwalk:field-mapping>
-      <!--DO WE NEED THIS IN ADDIOTN TO JA PLACE OF PUB TO CITATION xwalk:field-mapping to="location"><xwalk:if>-->
-      <!-- TODO: Check item type -->
-
-
-      <xwalk:field-mapping to="genre">
-            <xwalk:field-source subfield="@type" value="type_of_work"/>
-          <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
-          </xwalk:field-mapping>
-
-      <xwalk:field-mapping to="genre">    
-            <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
-          <xwalk:field-source from="object.type" value-map="ora-subtype-work-mappings-from-type"/>
       </xwalk:field-mapping>
-
-
-
-
+      <!-- TODO: Check item type -->
+      <xwalk:field-mapping to="genre">
+        <xwalk:field-source subfield="@type" value="type_of_work"/>
+        <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="genre">
+        <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+        <xwalk:field-source from="object.type" value-map="ora-subtype-work-mappings-from-type"/>
+      </xwalk:field-mapping>
       <xwalk:field-mapping to="titleInfo">
         <xwalk:field-source from="title" subfield="title"/>
         <xwalk:field-source from="field-47" subfield="subTitle"/>
       </xwalk:field-mapping>
-     
       <xwalk:field-mapping to="language">
         <xwalk:field-source subfield="languageTerm">
           <xwalk:field-source subfield="@authority" value="iso639-2b"/>
@@ -377,7 +335,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
         <xwalk:if>
           <xwalk:condition operator="or">
             <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
-            <!-- TODO: Check these object types. Response - seem OK DS) -->
             <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">ephemera</xwalk:condition>
@@ -397,73 +354,60 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       </xwalk:field-mapping>
       <!-- TODO: Event -->
       <!-- Identifier mappings imported -->
-      
-
       <xwalk:field-mapping to="originInfo">
         <xwalk:if>
-          <!--To take dateIssued from online-publication-date if it has a value. Have to repeat all other fields in condition result - I'm not sure there is a better way of doing it. -->
-           <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='online-publication-date']/api:date" operator="has-value" select-using="xpath"/>
-           <xwalk:result>
-        <xwalk:field-source subfield="dateOther">
-          <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
-          <xwalk:field-source subfield="@encoding" value="iso8601"/>
-          <xwalk:field-source from="acceptance-date"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="dateIssued">
-          <xwalk:field-source subfield="@encoding" value="iso8601"/>
-          <xwalk:field-source format="date:YYYY-MM-DD" from="online-publication-date"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="copyrightDate">
-          <xwalk:field-source subfield="@encoding" value="iso8601"/>
-          <xwalk:field-source data-part="date:year" from="publication-date"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="place">
-          <xwalk:field-source subfield="placeTerm">
-            <xwalk:field-source subfield="@type" value="text"/>
-            <xwalk:field-source from="location"/>
-          </xwalk:field-source>
-        </xwalk:field-source>
-        <!--        Removed, not in mapping doc
-        <xwalk:field-source subfield="place">
-          <xwalk:field-source subfield="placeTerm">
-            <xwalk:field-source subfield="@type" value="code"/>
-            <xwalk:field-source from="publisher-url"/>
-          </xwalk:field-source>
-        </xwalk:field-source>-->
-      </xwalk:result>
-      <xwalk:else>
-        <xwalk:result>
-          <xwalk:field-source subfield="dateOther">
-          <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
-          <xwalk:field-source subfield="@encoding" value="iso8601"/>
-          <xwalk:field-source from="acceptance-date"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="dateIssued">
-          <xwalk:field-source subfield="@encoding" value="iso8601"/>
-          <xwalk:field-source format="date:YYYY-MM-DD" from="publication-date"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="copyrightDate">
-          <xwalk:field-source subfield="@encoding" value="iso8601"/>
-          <xwalk:field-source data-part="date:year" from="publication-date"/>
-        </xwalk:field-source>
-        <xwalk:field-source subfield="place">
-          <xwalk:field-source subfield="placeTerm">
-            <xwalk:field-source subfield="@type" value="text"/>
-            <xwalk:field-source from="place-of-publication"/>
-          </xwalk:field-source>
-        </xwalk:field-source>
-        <!--        Removed, not in mapping doc
-        <xwalk:field-source subfield="place">
-          <xwalk:field-source subfield="placeTerm">
-            <xwalk:field-source subfield="@type" value="code"/>
-            <xwalk:field-source from="publisher-url"/>
-          </xwalk:field-source>
-        </xwalk:field-source>-->
-        </xwalk:result>
-      </xwalk:else>
-    </xwalk:if>
+          <!--To take dateIssued from online-publication-date if it has a value. Have to repeat all other fields in condition result. -->
+          <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='online-publication-date']/api:date" operator="has-value" select-using="xpath"/>
+          <xwalk:result>
+            <xwalk:field-source subfield="dateOther">
+              <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
+              <xwalk:field-source subfield="@encoding" value="iso8601"/>
+              <xwalk:field-source from="acceptance-date"/>
+            </xwalk:field-source>
+            <xwalk:field-source subfield="dateIssued">
+              <xwalk:field-source subfield="@encoding" value="iso8601"/>
+              <xwalk:field-source format="date:YYYY-MM-DD" from="online-publication-date"/>
+            </xwalk:field-source>
+            <xwalk:field-source subfield="copyrightDate">
+              <xwalk:field-source subfield="@encoding" value="iso8601"/>
+              <xwalk:field-source data-part="date:year" from="publication-date"/>
+            </xwalk:field-source>
+            <xwalk:field-source subfield="place">
+              <xwalk:field-source subfield="placeTerm">
+                <xwalk:field-source subfield="@type" value="text"/>
+                <xwalk:field-source from="location"/>
+              </xwalk:field-source>
+            </xwalk:field-source>
+            <!--Removed, not in mapping doc
+        <xwalk:field-source subfield="place"><xwalk:field-source subfield="placeTerm"><xwalk:field-source subfield="@type" value="code"/><xwalk:field-source from="publisher-url"/></xwalk:field-source></xwalk:field-source>-->
+          </xwalk:result>
+          <xwalk:else>
+            <xwalk:result>
+              <xwalk:field-source subfield="dateOther">
+                <xwalk:field-source subfield="@type" value="date_of_acceptance"/>
+                <xwalk:field-source subfield="@encoding" value="iso8601"/>
+                <xwalk:field-source from="acceptance-date"/>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="dateIssued">
+                <xwalk:field-source subfield="@encoding" value="iso8601"/>
+                <xwalk:field-source format="date:YYYY-MM-DD" from="publication-date"/>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="copyrightDate">
+                <xwalk:field-source subfield="@encoding" value="iso8601"/>
+                <xwalk:field-source data-part="date:year" from="publication-date"/>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="place">
+                <xwalk:field-source subfield="placeTerm">
+                  <xwalk:field-source subfield="@type" value="text"/>
+                  <xwalk:field-source from="place-of-publication"/>
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <!--Removed, not in mapping doc
+        <xwalk:field-source subfield="place"><xwalk:field-source subfield="placeTerm"><xwalk:field-source subfield="@type" value="code"/><xwalk:field-source from="publisher-url"/></xwalk:field-source></xwalk:field-source>-->
+            </xwalk:result>
+          </xwalk:else>
+        </xwalk:if>
       </xwalk:field-mapping>
-
       <!-- RELATED PUBLICATIONS -->
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source from="object.relationships" value-map="publication-relationships">
@@ -487,64 +431,48 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:field-mapping to="name">
         <xwalk:field-source from="object.relationships" value-map="grant-relationships">
           <xwalk:field-source data-part="relationship:other-object">
-            <xwalk:field-source subfield="@type" value="corporate" />
-            <xwalk:field-source subfield="displayForm" from="funder-name" />
+            <xwalk:field-source subfield="@type" value="corporate"/>
+            <xwalk:field-source from="funder-name" subfield="displayForm"/>
             <xwalk:field-source subfield="role">
               <xwalk:field-source subfield="roleTerm">
-                <xwalk:field-source subfield="@type" value="text" />
-                <xwalk:field-source value="Funder" />
+                <xwalk:field-source subfield="@type" value="text"/>
+                <xwalk:field-source value="Funder"/>
               </xwalk:field-source>
             </xwalk:field-source>
-            <!--<xwalk:field-source subfield="nameIdentifier">
-              <xwalk:field-source subfield="@type" value="funder_identifier" />
-              <xwalk:field-source from="funder-reference" />
-            </xwalk:field-source>-->
             <xwalk:field-source subfield="affiliation">
-              <!--<xwalk:field-source subfield="ora_admin:funding_programme" from="programme" />-->
-<xwalk:field-source subfield="ora_admin:funding">
+                <xwalk:field-source subfield="ora_admin:funding">
                 <xwalk:field-source subfield="ora_admin:funder_grant">
-              <xwalk:field-source subfield="ora_admin:grant_identifier" from="funder-reference" />
-</xwalk:field-source>
-</xwalk:field-source>
+                  <xwalk:field-source from="funder-reference" subfield="ora_admin:grant_identifier"/>
+                </xwalk:field-source>
+              </xwalk:field-source>
             </xwalk:field-source>
-
-
-
-
           </xwalk:field-source>
         </xwalk:field-source>
-        <!-- TODO: Futher grant field mappings. -->
       </xwalk:field-mapping>
-
-
       <!-- Related grants from the funding-acknowlegdements field -->
-<xwalk:field-mapping to="name">
-    <xwalk:field-source subfield="@type" value="corporate"/>
-    <xwalk:field-source subfield="displayForm">
-        <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements:grant">
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source subfield="@type" value="corporate"/>
+        <xwalk:field-source subfield="displayForm">
+          <xwalk:field-source data-part="funding-acknowledgements:grant" from="funding-acknowledgements">
             <xwalk:field-source data-part="funding-acknowledgements-grant:org"/>
+          </xwalk:field-source>
         </xwalk:field-source>
-    </xwalk:field-source>
-
-    <xwalk:field-source subfield="role">
-        <xwalk:field-source subfield="roleTerm">
+        <xwalk:field-source subfield="role">
+          <xwalk:field-source subfield="roleTerm">
             <xwalk:field-source subfield="@type" value="text"/>
             <xwalk:field-source value="Funder"/>
+          </xwalk:field-source>
         </xwalk:field-source>
-    </xwalk:field-source>
-
-    <xwalk:field-source subfield="affiliation">
-        <xwalk:field-source subfield="ora_admin:funding">
-          <xwalk:field-source subfield="ora_admin:funder_grant">
-            <xwalk:field-source subfield="ora_admin:grant_identifier">
-            <xwalk:field-source from="funding-acknowledgements" data-part="funding-acknowledgements-grant:id"/>
+        <xwalk:field-source subfield="affiliation">
+          <xwalk:field-source subfield="ora_admin:funding">
+            <xwalk:field-source subfield="ora_admin:funder_grant">
+              <xwalk:field-source subfield="ora_admin:grant_identifier">
+                <xwalk:field-source data-part="funding-acknowledgements-grant:id" from="funding-acknowledgements"/>
+              </xwalk:field-source>
+            </xwalk:field-source>
+          </xwalk:field-source>
         </xwalk:field-source>
-        </xwalk:field-source>
-        </xwalk:field-source>
-    </xwalk:field-source>
-
-</xwalk:field-mapping>
-
+      </xwalk:field-mapping>
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="corporate"/>
         <xwalk:field-source from="commissioning-body" subfield="displayForm"/>
@@ -594,15 +522,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
             <xwalk:field-source subfield="@altType" value="initials"/>
             <xwalk:field-source data-part="person:initials" subfield="namePart"/>
           </xwalk:field-source>
-
-<!--Don't crosswalk. There is no SE equivalent of personal author website
-
-<xwalk:field-source subfield="nameIdentifier">
-          <xwalk:field-source subfield="@type" value="website"/>
-          <xwalk:field-source from="author-url"/>
-        </xwalk:field-source> -->
-
-
           <xwalk:field-source subfield="nameIdentifier">
             <xwalk:field-source subfield="@type" value="email_address"/>
             <!-- There are a few email address sources we could use, but we only want to use one. -->
@@ -634,30 +553,29 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:field-source>
           <xwalk:field-source subfield="affiliation">
             <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
-              <xwalk:field-source subfield = "ora:affiliationComponent">
-              <!-- TODO: field:contributors__institution_identifier -->
-              <xwalk:field-source>
-                <xwalk:field-source subfield="@type" value="division"/>
-                <xwalk:field-source from="user.generic01"/>
-              </xwalk:field-source>
-              </xwalk:field-source>
-               <xwalk:field-source subfield = "ora:affiliationComponent">
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <!-- TODO: field:contributors__institution_identifier -->
                 <xwalk:field-source>
-                <xwalk:field-source subfield="@type" value="department"/>
-                <xwalk:field-source from="user.primary-group-descriptor"/>
+                  <xwalk:field-source subfield="@type" value="division"/>
+                  <xwalk:field-source from="user.generic01"/>
                 </xwalk:field-source>
               </xwalk:field-source>
-               <xwalk:field-source subfield = "ora:affiliationComponent">
+              <xwalk:field-source subfield="ora:affiliationComponent">
                 <xwalk:field-source>
-                <xwalk:field-source subfield="@type" value="sub_department"/>
-                <xwalk:field-source from="user.generic07"/>
+                  <xwalk:field-source subfield="@type" value="department"/>
+                  <xwalk:field-source from="user.primary-group-descriptor"/>
                 </xwalk:field-source>
               </xwalk:field-source>
-
-               <xwalk:field-source subfield = "ora:affiliationComponent">
+              <xwalk:field-source subfield="ora:affiliationComponent">
                 <xwalk:field-source>
-                <xwalk:field-source subfield="@type" value="oxford_college"/>
-                <xwalk:field-source from="user.generic03"/>
+                  <xwalk:field-source subfield="@type" value="sub_department"/>
+                  <xwalk:field-source from="user.generic07"/>
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="oxford_college"/>
+                  <xwalk:field-source from="user.generic03"/>
                 </xwalk:field-source>
               </xwalk:field-source>
             </xwalk:field-source>
@@ -683,7 +601,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-      <!--DS adds editor contributor metadata-->
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal"/>
         <xwalk:field-source from="editors">
@@ -858,8 +775,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-
-      <!--DS adds associated authors contributor metadata-->
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal"/>
         <xwalk:field-source from="associated-authors">
@@ -947,7 +862,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-      <!-- End of DS add associated authors contributor metadata-->
       <!-- We output the depositor details, only if they were not included in the existing author or editor list details -->
       <xwalk:field-mapping to="name">
         <xwalk:if>
@@ -1079,30 +993,23 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
     <!-- Journal article metadata (pagination, volume, etc) -->
     <xwalk:field-map name="journal-markup">
       <xwalk:include-field-map name="common-fields-map">
-      <xwalk:exclude-field-mapping to="genre" />
-    </xwalk:include-field-map>
-
-
-
-<!-- Set is-list to false to force the first item to be selected -->
-<xwalk:field-mapping to="genre">
-        <xwalk:field-source subfield="@type" value="type_of_work"/>
-          <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
-        </xwalk:field-mapping>
-
-    <xwalk:field-mapping is-list="false" to="genre">
-          <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
-            <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
-        </xwalk:field-mapping>
-
-
+        <xwalk:exclude-field-mapping to="genre"/>
+      </xwalk:include-field-map>
       <!-- Set is-list to false to force the first item to be selected -->
-
+      <xwalk:field-mapping to="genre">
+        <xwalk:field-source subfield="@type" value="type_of_work"/>
+        <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping is-list="false" to="genre">
+        <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+        <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype"/>
+      </xwalk:field-mapping>
+      <!-- Set is-list to false to force the first item to be selected -->
     </xwalk:field-map>
     <xwalk:field-map name="book-markup">
       <xwalk:include-field-map name="common-fields-map">
-      <xwalk:exclude-field-mapping to="relatedItem" />
-    </xwalk:include-field-map>
+        <xwalk:exclude-field-mapping to="relatedItem"/>
+      </xwalk:include-field-map>
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="host"/>
         <xwalk:field-source subfield="titleInfo">
@@ -1146,13 +1053,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
             <xwalk:field-source from="place-of-publication"/>
           </xwalk:field-source>
         </xwalk:field-source>
-        <!--Removed not in mapping doc
-        <xwalk:field-source subfield="place">
-          <xwalk:field-source subfield="placeTerm">
-            <xwalk:field-source subfield="@type" value="code"/>
-            <xwalk:field-source from="publisher-url"/>
-          </xwalk:field-source>
-        </xwalk:field-source>-->
         <xwalk:field-source subfield="dateOther">
           <xwalk:field-source subfield="@type" value="production_date"/>
           <xwalk:field-source subfield="@encoding" value="iso8601"/>
@@ -1186,26 +1086,24 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
-    
     <xwalk:field-map name="dataset-markup">
       <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:field-mapping to="extension">
         <xwalk:if>
-          <!-- TODO: Check item type -->
           <xwalk:condition operator="and">
             <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
             <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='doi']/api:text" operator="has-value" select-using="xpath"/>
           </xwalk:condition>
           <xwalk:result>
             <xwalk:field-source subfield="ora_dataset:dataset">
-            <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
-          </xwalk:field-source>
+              <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
+            </xwalk:field-source>
           </xwalk:result>
           <xwalk:else>
             <xwalk:result>
               <xwalk:field-source subfield="ora_dataset:dataset">
-              <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
-            </xwalk:field-source>
+                <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
+              </xwalk:field-source>
             </xwalk:result>
           </xwalk:else>
         </xwalk:if>
@@ -1213,55 +1111,43 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
     </xwalk:field-map>
     <xwalk:field-map name="confidential-report-markup">
       <xwalk:include-field-map name="common-fields-map">
-      <xwalk:exclude-field-mapping to="genre" />
-    </xwalk:include-field-map>
-      
+        <xwalk:exclude-field-mapping to="genre"/>
+      </xwalk:include-field-map>
       <xwalk:field-mapping to="genre">
         <xwalk:field-source subfield="@type" value="type_of_work"/>
-          <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
-
+        <xwalk:field-source from="object.type" value-map="ora-work-type-mappings"/>
       </xwalk:field-mapping>
-<xwalk:field-mapping to="genre">
-                <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
-          <xwalk:field-source value="Confidential report"/>
-          </xwalk:field-mapping>
-
-
+      <xwalk:field-mapping to="genre">
+        <xwalk:field-source subfield="@type" value="sub_type_of_work"/>
+        <xwalk:field-source value="Confidential report"/>
+      </xwalk:field-mapping>
     </xwalk:field-map>
-
     <xwalk:field-map name="software-markup">
       <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:include-field-map name="dataset-markup"/>
-    <xwalk:field-mapping to="extension">
+      <xwalk:field-mapping to="extension">
         <xwalk:if>
-          <!-- TODO: Check item type -->
           <xwalk:condition operator="and">
             <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
             <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='doi']/api:text" operator="has-value" select-using="xpath"/>
           </xwalk:condition>
           <xwalk:result>
-             <xwalk:field-source subfield="ora_dataset:dataset">
-            <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
-            <xwalk:field-source from="version" subfield="dc:version"/>
-          </xwalk:field-source>
+            <xwalk:field-source subfield="ora_dataset:dataset">
+              <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location"/>
+              <xwalk:field-source from="version" subfield="dc:version"/>
+            </xwalk:field-source>
           </xwalk:result>
           <xwalk:else>
             <xwalk:result>
-               <xwalk:field-source subfield="ora_dataset:dataset">
-              <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
-              <xwalk:field-source from="version" subfield="dc:version"/>
-            </xwalk:field-source>
+              <xwalk:field-source subfield="ora_dataset:dataset">
+                <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location"/>
+                <xwalk:field-source from="version" subfield="dc:version"/>
+              </xwalk:field-source>
             </xwalk:result>
           </xwalk:else>
         </xwalk:if>
       </xwalk:field-mapping>
-     
     </xwalk:field-map>
-
-   
-
-
-
     <xwalk:field-map name="thesis-markup">
       <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:field-mapping to="extension">
@@ -1304,7 +1190,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:otherwise-mapping action="continue"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-work-type-mappings">
-      <!-- TODO - Update these type names to be correct -->
       <xwalk:value-mapping from="book" to="Book"/>
       <xwalk:value-mapping from="scholarly-edition" to="Book"/>
       <xwalk:value-mapping from="c-book" to="Book"/>
@@ -1367,8 +1252,8 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:value-mapping from="working-paper" to="WorkingPaper"/>
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject"/>
-      <!-- the blow is temorary - will be replaced by 
-      <xwalk:value-mapping from="other" to="Record"/> -->
+      <!-- the below is temorary - will be replaced by 
+      <xwalk:value-mapping from="other" to="Record"/>-->
       <xwalk:value-mapping from="other" to="UniversalTestObject"/>
       <xwalk:otherwise-mapping to="Unknown"/>
       <!--<xwalk:otherwise-mapping action="ignore-this-value"/>-->
@@ -1388,8 +1273,6 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:value-mapping from="presentation" to="Presentation"/>
       <xwalk:value-mapping from="figure" to="Media"/>
       <xwalk:value-mapping from="fileset" to="Fileset"/>
-
-      <!--end additionals>-->
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">
@@ -1434,8 +1317,7 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:value-mapping action="continue" from="grant"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-      <xwalk:value-map name="publication-status">
-      <!--Where they don't change, have left in anyway to use the 'ignore' option for other values-->
+    <xwalk:value-map name="publication-status">
       <xwalk:value-mapping from="Unpublished" to="Not published"/>
       <xwalk:value-mapping from="Submitted" to="Submitted"/>
       <xwalk:value-mapping from="Accepted" to="Accepted"/>
@@ -1449,10 +1331,9 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:value-mapping from="Published version" to="VoR"/>
       <xwalk:otherwise-mapping to="NA"/>
     </xwalk:value-map>
-
- <xwalk:value-map name="licences">
-      <xwalk:value-mapping from="CC BY" to="CC Attribution (CC BY)" />
-      <xwalk:value-mapping from="CC BY-ND" to="CC Attribution-NoDerivatives (CC BY-ND)" />
+    <xwalk:value-map name="licences">
+      <xwalk:value-mapping from="CC BY" to="CC Attribution (CC BY)"/>
+      <xwalk:value-mapping from="CC BY-ND" to="CC Attribution-NoDerivatives (CC BY-ND)"/>
       <xwalk:value-mapping from="CC BY-SA" to="CC Attribution-ShareAlike (CC BY-SA)"/>
       <xwalk:value-mapping from="CC BY-NC" to="CC Attribution-NonCommercial (CC BY-NC)"/>
       <xwalk:value-mapping from="CC BY-NC-ND" to="CC Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND)"/>
@@ -1460,14 +1341,11 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       <xwalk:value-mapping from="Publisher's own licence" to="Other"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-
     <xwalk:value-map name="apc">
       <xwalk:value-mapping from="Yes" to="yes"/>
       <xwalk:value-mapping from="No" to="no"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-
-
   </xwalk:value-maps>
   <!-- Selects which field map to use -->
   <xwalkout:field-map-selector>
@@ -1480,8 +1358,8 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
       </xwalk:when>
       <xwalk:when>
         <xwalk:condition operator="or">
-        <xwalk:condition argument-field="object.type" operator="equals">book</xwalk:condition>
-        <xwalk:condition argument-field="object.type" operator="equals">chapter</xwalk:condition>
+          <xwalk:condition argument-field="object.type" operator="equals">book</xwalk:condition>
+          <xwalk:condition argument-field="object.type" operator="equals">chapter</xwalk:condition>
         </xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="book-markup"/>
@@ -1517,11 +1395,11 @@ Removed incorrect crosswalks form publisher-url (if device/product -> manufactur
           <xwalk:field-map-selection field-map="dataset-markup"/>
         </xwalk:result>
       </xwalk:when>
-       <xwalk:when>
+      <xwalk:when>
         <xwalk:condition operator="and">
-        <xwalk:condition argument-field="object.type" operator="equals">report</xwalk:condition>
-        <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:boolean" operator = "equals" select-using="xpath">true</xwalk:condition>
-      </xwalk:condition>
+          <xwalk:condition argument-field="object.type" operator="equals">report</xwalk:condition>
+          <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='confidential']/api:boolean" operator="equals" select-using="xpath">true</xwalk:condition>
+        </xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="confidential-report-markup"/>
         </xwalk:result>
