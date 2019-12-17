@@ -10,7 +10,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
   <!--CHANGELOG
 Initial changes not logged.
 10/12/19: Added apc value map (upper to lower case boolean)
-09/12/19: Set placeTerm to come from location rather than place-of-publicaiton (pending answer to GitHub #88)
+09/12/19: Set placeTerm to come from location rather than place-of-publication (pending answer to GitHub #88)
 06/12/2019:
 - Added logic for software-markup (to account for version)
 - Added patent awarded date (ora_patent: awarded_date)
@@ -28,7 +28,8 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
 - Added chapter to book markup (rather then repeat all code in chapter markup) and excluded relatedItem form book markup
 - Added locaiton for presentation
 - Updated object.type physical object (incorrect as it is ORA value) to artefact OR c-device-product
-22/11/19: Updated value-map name="licences">21/11/19: Remove crosswalk for author-url
+22/11/19: Updated value-map name="licences">
+21/11/19: Remove crosswalk for author-url
 20/11/19:
 - Updated name type = "institutional _identifier" to type = "sso" and to map from SE username rather than SE prop ID
 - changed default Hyrax model value header to Hyrax-Work-Model (TW)
