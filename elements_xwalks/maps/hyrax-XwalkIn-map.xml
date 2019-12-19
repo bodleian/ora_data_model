@@ -343,9 +343,9 @@
             </xwalk:result>
           </xwalk:when>
           <xwalk:when>
-            <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" operator="has-value" select-using="xpath" value-map = "confidential"/>
+            <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" operator="has-value" select-using="xpath"/>
             <xwalk:result>
-              <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" select-using="xpath" value-map = 'confidential' />
+              <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" select-using="xpath" value-map = "confidential" />
             </xwalk:result>
           </xwalk:when>
         </xwalk:choose>
