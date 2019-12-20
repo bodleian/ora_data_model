@@ -3,12 +3,14 @@
 
 ISSUES
 Can't set citation _place_of_publication from place-of-publication if value else location since citation _place_of_publication canlt have a conditional within it. Limitation of crosswalk.
+Device /Product - map yo subtype device or prouct? (GitHub #158)
 
 #To note
 
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+20/12/19: Updated maping from SE Device/Product to ORA subtype Procuct (GitHub issue #158). Decision to be made to go to confirm mapping to either Device or Product.
 10/12/19: Added apc value map (upper to lower case boolean)
 09/12/19: Set placeTerm to come from location rather than place-of-publication (pending answer to GitHub #88)
 06/12/2019:
@@ -1274,6 +1276,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="presentation" to="Presentation"/>
       <xwalk:value-mapping from="figure" to="Media"/>
       <xwalk:value-mapping from="fileset" to="Fileset"/>
+      <xwalk:value-mapping from="c-device-product" to="Product"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="ora-subtype-work-mappings-from-subtype">
