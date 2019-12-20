@@ -520,7 +520,7 @@
      <xwalk:value-map name="confidential">
       <xwalk:value-mapping from="false" to="false"/>
       <xwalk:value-mapping from="False" to="false"/>
-      <xwalk:otherwise-mapping action="true"/>
+      <xwalk:otherwise-mapping to="true"/>
     </xwalk:value-map>
   </xwalk:value-maps>
   <xwalkin:object-type-selector>
