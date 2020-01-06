@@ -1,6 +1,16 @@
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
+ <!--
+ISSUES:
+06/01/20: isidoc, pmc and nihms identifiers are in Sword but do not display in SE. Possibly need corrected scheme value 
+ --> 
+
   <!--Changelog
 
+
+06/01/20: 
+- Debugged external identifiers
+- Added pmc, nihms to external identifiers
+- Added commented out text should it be needed for abstract harvest (GitHub issue #138)
 20/12/19: Updated confidential value map (GitHub issue #159)
 19/12/19: Added SE 'confidential' value map to filter out non-booleans (GitHub issue #159)
 10/12/19: Added apc value map (lower to upper case boolean)
@@ -105,6 +115,9 @@
         <xwalk:field-source value="true"/></xwalk:field-mapping>-->
       <!--Fields not currently used as Oa location option not enabled
       <xwalk:field-mapping to="oa-location-url"><xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/symp:hasPublicUrl" select-using="xpath"/></xwalk:field-mapping><xwalk:field-mapping to="oa-location-file-version"><xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/rioxxterms:version" select-using="xpath"/></xwalk:field-mapping>-->
+      <!-- Use this if needed see GitHub #138
+
+      <xwalk:field-mapping to="abstract"><xwalk:if><xwalk:condition operator="or"><xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition><xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Patent</xwalk:condition><xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Ephemera</xwalk:condition></xwalk:condition><xwalk:result><xwalk:field-source from="/mods:mods/mods:abstract[@type = 'summary_documentation']" select-using="xpath"/></xwalk:result><xwalk:else><xwalk:result><xwalk:field-source from="abstract"/></xwalk:result></xwalk:else></xwalk:if></xwalk:field-mapping>-->
       <xwalk:field-mapping to="abstract">
         <xwalk:field-source from="abstract"/>
       </xwalk:field-mapping>
@@ -347,7 +360,7 @@
           <xwalk:when>
             <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" operator="has-value" select-using="xpath"/>
             <xwalk:result>
-              <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" select-using="xpath" value-map = "confidential" />
+              <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" select-using="xpath" value-map="confidential"/>
             </xwalk:result>
           </xwalk:when>
         </xwalk:choose>
@@ -442,8 +455,22 @@
         <xwalk:field-source from="/*/mods:identifier[@type = 'eissn']" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="external-identifiers">
-        <xwalk:field-source data-part="identifier:value" from="/*/mods:identifier[@type = 'pmid']" select-using="xpath"/>
-        <xwalk:field-source data-part="identifier:scheme" value="pubmed"/>
+        <xwalk:field-source>
+          <xwalk:field-source data-part="identifier:value" from="/*/mods:identifier[@type = 'pmid']" select-using="xpath"/>
+          <xwalk:field-source data-part="identifier:scheme" value="pubmed"/>
+        </xwalk:field-source>
+        <xwalk:field-source>
+          <xwalk:field-source data-part="identifier:value" from="/*/mods:identifier[@type = 'isidoc']" select-using="xpath"/>
+          <xwalk:field-source data-part="identifier:scheme" value="isidoc"/>
+        </xwalk:field-source>
+        <xwalk:field-source>
+          <xwalk:field-source data-part="identifier:value" from="/*/mods:identifier[@type = 'pmc']" select-using="xpath"/>
+          <xwalk:field-source data-part="identifier:scheme" value="pmc"/>
+        </xwalk:field-source>
+        <xwalk:field-source>
+          <xwalk:field-source data-part="identifier:value" from="/*/mods:identifier[@type = 'nihms']" select-using="xpath"/>
+          <xwalk:field-source data-part="identifier:scheme" value="nihms"/>
+        </xwalk:field-source>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="patent-number">
         <xwalk:field-source from="/mods:mods/mods:extension/ora_patent:patent/ora_patent:number" select-using="xpath"/>
@@ -517,8 +544,9 @@
       <xwalk:value-mapping from="no" to="No"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-     <xwalk:value-map name="confidential">
+    <xwalk:value-map name="confidential">
       <xwalk:value-mapping from="false" to="false"/>
+      <xwalk:value-mapping from="False" to="false"/>
       <xwalk:value-mapping from="False" to="false"/>
       <xwalk:otherwise-mapping to="true"/>
     </xwalk:value-map>
