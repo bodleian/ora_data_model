@@ -3,13 +3,16 @@
 
 ISSUES
 Can't set citation _place_of_publication from place-of-publication if value else location since citation _place_of_publication canlt have a conditional within it. Limitation of crosswalk.
-Device /Product - map yo subtype device or prouct? (GitHub #158)
+Device /Product - map to new subtype 'Device/Product' when available, post release development. (GitHub #158)
 
 #To note
 
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+06/01/20: 
+- Removed isidoc->isidoc from identifier value map (serves no purpose)
+- Debug abstract (ephemera -> c-ephemera) as per GitHub #138.
 20/12/19: Updated maping from SE Device/Product to ORA subtype Procuct (GitHub issue #158). Decision to be made to go to confirm mapping to either Device or Product.
 10/12/19: Added apc value map (upper to lower case boolean)
 09/12/19: Set placeTerm to come from location rather than place-of-publication (pending answer to GitHub #88)
@@ -340,7 +343,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
-            <xwalk:condition argument-field="object.type" operator="equals">ephemera</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">c-ephemera</xwalk:condition>
           </xwalk:condition>
           <xwalk:result>
             <xwalk:field-source subfield="@type" value="summary_documentation"/>
@@ -1177,7 +1180,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
     otherwise passes through unchanged -->
     <xwalk:value-map name="identifier-type">
       <xwalk:value-mapping from="pubmed" to="pmid"/>
-      <xwalk:value-mapping from="isidoc" to="isidoc"/>
       <xwalk:otherwise-mapping action="continue"/>
     </xwalk:value-map>
     <!-- Maps Elements author identifier schemes to the appropriate destination value, if known,
