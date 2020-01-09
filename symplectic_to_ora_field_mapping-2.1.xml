@@ -13,6 +13,10 @@
     
     Changelog
     =========
+    09/01/19: Edited confidential as per GitHub #159
+    13/12/19:
+    - No mapping for author licence (see GitHub #149)
+    - Added  SE field-47 to ORA alternative_title
     04/12/19: Updated location mapping to include JA only where no place-of-publication
     02/12/19:
     - Updated contributors_department to come from user table G07, not Department field (see GitHub #124)
@@ -127,7 +131,7 @@
         
         <symplectic_field name="are-files-confidential"><computed /><note>We assuming this means ANY binary file is embargoed</note></symplectic_field>
         
-        <symplectic_field name="author-licence"><ora_field>licence</ora_field></symplectic_field>
+        <symplectic_field name="author-licence"><ora_field>no mapping</ora_field><note>See GitHub #149</note></symplectic_field>
         
         <symplectic_field name="acceptance-date"><ora_field>acceptance_date</ora_field></symplectic_field>
         
@@ -162,9 +166,9 @@
                 <ora_field>sub_type_of_work='Report'</ora_field>
                 <note>If the item is a Report, the type of work should be Report and the sub_type_of_work should be 'Confidential report', see TYPE OF WORK MAPPIGNS, below</note>
             </if>
-            <if test="type_of_work!=Report">
+            <!--Removed as per gitHub issue #159 <if test="type_of_work!=Report">
                 <ora_field>confidential_report</ora_field>
-            </if>
+            </if>-->
         </symplectic_field>
         
         <symplectic_field name="confidential-files-reason"><ora_field>binary_files__file_embargo_reason</ora_field></symplectic_field>
@@ -270,7 +274,7 @@
         
         <symplectic_field name="pii"><ora_field>identifier_pii</ora_field></symplectic_field>
         
-        <symplectic_field name="place-of-publication"><note>deposit only</note><ora_field>citation_place_of_publication</ora_field></if></symplectic_field>
+        <symplectic_field name="place-of-publication"><note>deposit only</note><if>place-of-publication has a value</if><ora_field>citation_place_of_publication</ora_field></if></symplectic_field>
         
         <symplectic_field name="public-url"><ora_field>has_public_url</ora_field></symplectic_field>
         
@@ -329,6 +333,8 @@
             <if test="has_public_url is not set">record_review_status</if><note>As documented in https://github.com/tomwrobel/ora_data_model/issues/2#issuecomment-478963073</note></symplectic_field>-->
         
         <symplectic_field name="series"><ora_field>series_title</ora_field></symplectic_field>
+
+        <symplectic_field name="field-47"><ora_field>alternative_title</ora_field></symplectic_field>
         
         <symplectic_field name="start-date">
             <if test="record is a Patent"><ora_field>patent_awarded_date</ora_field></if>
