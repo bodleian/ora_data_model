@@ -1,12 +1,13 @@
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
  <!--
 ISSUES:
-06/01/20: isidoc, pmc and nihms identifiers are in Sword but do not display in SE. Possibly need corrected scheme value 
+
  --> 
 
   <!--Changelog
 
 
+09/01/17: Updated confidential as per GitHub #159
 06/01/20: 
 - Debugged external identifiers
 - Added pmc, nihms to external identifiers
@@ -357,12 +358,13 @@ ISSUES:
               <xwalk:field-source value="true"/>
             </xwalk:result>
           </xwalk:when>
+          <!--Removed as per GitHub #159
           <xwalk:when>
             <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" operator="has-value" select-using="xpath"/>
             <xwalk:result>
               <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='confidential_report']" select-using="xpath" value-map="confidential"/>
             </xwalk:result>
-          </xwalk:when>
+          </xwalk:when>-->
         </xwalk:choose>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="thesis-type">
@@ -544,13 +546,7 @@ ISSUES:
       <xwalk:value-mapping from="no" to="No"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
-    <xwalk:value-map name="confidential">
-      <xwalk:value-mapping from="false" to="false"/>
-      <xwalk:value-mapping from="False" to="false"/>
-      <xwalk:value-mapping from="False" to="false"/>
-      <xwalk:otherwise-mapping to="true"/>
-    </xwalk:value-map>
-  </xwalk:value-maps>
+    </xwalk:value-maps>
   <xwalkin:object-type-selector>
     <xwalk:choose>
       <!-- ORA OUTPUT TYPES WHERE ANY SUBTYPES DO NOT FEATURE IN MAPPING TO SE-->
