@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    23/01/19: Update SE notes -> ORA deposit_note (GitHub #166)
     09/01/19: Edited confidential as per GitHub #159
     13/12/19:
     - No mapping for author licence (see GitHub #149)
@@ -237,7 +238,7 @@
             <if test="record is Conference item/any or Composition/performance"><ora_field>event_title</ora_field></if>
 
         
-        <symplectic_field name="notes"><ora_field>additional_information</ora_field><note>As other fields write to additional information, this should be appended to the additional_information value and not replace it</note></symplectic_field>
+        <symplectic_field name="notes"><ora_field>deposit_note</ora_field><note>As other fields write to additional information, this should be appended to the additional_information value and not replace it</note></symplectic_field>
         
         <symplectic_field name="number">
             <if test="record is a Book Chapter"><ora_field>chapter_number</ora_field></if>
