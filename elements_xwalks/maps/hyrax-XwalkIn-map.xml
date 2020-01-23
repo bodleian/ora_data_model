@@ -7,6 +7,7 @@ ISSUES:
   <!--Changelog
 
 
+23/01/19: Update mapping to Se Notes (Github #166)
 09/01/17: Updated confidential as per GitHub #159
 06/01/20: 
 - Debugged external identifiers
@@ -169,7 +170,7 @@ ISSUES:
         <xwalk:field-source from="/mods:mods/mods:physicalDescription/mods:form[@type = 'physical_form']" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="notes">
-        <xwalk:field-source from="/mods:mods/mods:note[@displayLabel='additional_information']" select-using="xpath"/>
+         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='deposit_note']" select-using="xpath"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="name-of-conference">
         <xwalk:if>
