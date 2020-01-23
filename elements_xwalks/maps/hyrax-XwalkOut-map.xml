@@ -10,6 +10,7 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+23/01/19: SE notes -> <mods:recordInfoNote type="deposit_note"> (not additional_information) (GitHub #166)
 06/01/20: 
 - Removed isidoc->isidoc from identifier value map (serves no purpose)
 - Debug abstract (ephemera -> c-ephemera) as per GitHub #138.
@@ -152,6 +153,8 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         <xwalk:field-source subfield="recordInfoNote">
           <xwalk:field-source subfield="@type" value="confidential_report"/>
           <xwalk:field-source from="confidential"/>
+          <xwalk:field-source subfield="@type" value="deposit_note"/>
+          <xwalk:field-source from="notes"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="extension">
@@ -353,10 +356,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       </xwalk:field-mapping>
       <xwalk:field-mapping to="note">
         <xwalk:field-source subfield="@displayLabel" value="additional_information"/>
-        <xwalk:field-source concatenate-with-separator=";">
-          <xwalk:field-source from="notes"/>
-          <xwalk:field-source data-part="funding-acknowledgements:acknowledgement-text" from="funding-acknowledgements"/>
-        </xwalk:field-source>
+        <xwalk:field-source data-part="funding-acknowledgements:acknowledgement-text" from="funding-acknowledgements"/>
       </xwalk:field-mapping>
       <!-- TODO: Event -->
       <!-- Identifier mappings imported -->
@@ -1158,7 +1158,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:include-field-map name="common-fields-map"/>
       <xwalk:field-mapping to="extension">
         <xwalk:field-source subfield="uketd_dc:uketddc">
-          <xwalk:field-source from="thesis-type" subfield="uketdterms:qualificationlevel"/>
+          <xwalk:field-source from="thesis-type" subfield="uketdterms:qualificationlevel" value-map="thesis-degree-levels"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
@@ -1351,6 +1351,12 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="Yes" to="yes"/>
       <xwalk:value-mapping from="No" to="no"/>
       <xwalk:otherwise-mapping action="ignore-this-value"/>
+    </xwalk:value-map>
+    <xwalk:value-map name="thesis-degree-levels">
+      <xwalk:value-mapping from="PhD Thesis" to="doctoral"/>
+      <xwalk:value-mapping from="Master's Thesis" to="masters"/>
+      <xwalk:value-mapping from="Undergraduate Dissertation" to="undergraduate"/>
+      <xwalk:otherwise-mapping action="continue"/>
     </xwalk:value-map>
   </xwalk:value-maps>
   <!-- Selects which field map to use -->
