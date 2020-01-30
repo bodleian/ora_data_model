@@ -7,7 +7,8 @@ ISSUES:
   <!--Changelog
 
 
-23/01/19: Update mapping to Se Notes (Github #166)
+30/01/20: Commented out record level embargo end date following embargo compliance issues
+23/01/19: Update mapping to SE Notes (Github #166)
 09/01/17: Updated confidential as per GitHub #159
 06/01/20: 
 - Debugged external identifiers
@@ -101,9 +102,9 @@ ISSUES:
       <xwalk:field-mapping to="confidential-files-reason">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/ora:reasonForEmbargo" select-using="xpath"/>
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="embargo-release-date">
+      <!--Commented out to test issue with AB<xwalk:field-mapping to="embargo-release-date">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/oxds:embargoedUntil" select-using="xpath"/>
-      </xwalk:field-mapping>
+      </xwalk:field-mapping>-->
       <xwalk:field-mapping to="record-made-public-at-source-date">
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/mods:recordCreationDate" select-using="xpath"/>
       </xwalk:field-mapping>
