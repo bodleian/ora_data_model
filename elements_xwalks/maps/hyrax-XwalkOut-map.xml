@@ -10,6 +10,7 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+27/02/20: Added paramer to limit the number of authors (to be uploaded during upgrade to 5.19)
 29/01/19:
 Commented out subfield="@type" value="peer_reviewed" (GitHub issue #164)
 Third party copyright not needed to be set (GitHub issue #168)
@@ -104,6 +105,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
     <!-- Instructs the crosswalk framework to use the 1st when dealing with a month-precision date,
     and January when dealing with a year-precision date -->
     <xwalk:parameter name="use-default-values-for-missing-date-components" value="true"/>
+    <xwalk:parameter name="person-list-entry-read-limit" value="50" /> 
   </xwalk:parameters>
   <!-- Defines how metadata is generated for files that have been uploaded.  
   This map is executed for each file and uploaded via Sword one-by-one -->
