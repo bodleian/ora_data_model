@@ -7,6 +7,7 @@ ISSUES:
   <!--Changelog
 
 
+02/02/2020: New ORA subtype Device/Product (as opposed to separate subtypes for device and product) as per Gitub issue #158. Also harvest data s production date for that subtype.
 10/02/20: Repository status - all items not Public should be Private (In review)
 30/01/20: Commented out record level embargo end date following embargo compliance issues
 23/01/19: Update mapping to SE Notes (Github #166)
@@ -144,7 +145,7 @@ ISSUES:
         <xwalk:if>
           <xwalk:condition operator="and">
             <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition>
-            <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Product</xwalk:condition>
+            <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Device/Product</xwalk:condition>
           </xwalk:condition>
           <xwalk:result>
             <xwalk:field-source from="/mods:mods/mods:originInfo/mods:dateOther[@type = 'production_date']" select-using="xpath"/>
@@ -735,7 +736,7 @@ ISSUES:
         </xwalk:result>
       </xwalk:when>
       <!--Rather than a nested conditional I have written Device and Product separately to help readability-->
-      <xwalk:when>
+      <!--<xwalk:when>
         <xwalk:condition operator="and">
           <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition>
           <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Device</xwalk:condition>
@@ -748,6 +749,15 @@ ISSUES:
         <xwalk:condition operator="and">
           <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition>
           <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Product</xwalk:condition>
+        </xwalk:condition>
+        <xwalk:result>
+          <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="c-device-product"/>
+        </xwalk:result>
+      </xwalk:when>-->
+      <xwalk:when>
+        <xwalk:condition operator="and">
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition>
+          <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Device/Product</xwalk:condition>
         </xwalk:condition>
         <xwalk:result>
           <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="c-device-product"/>
