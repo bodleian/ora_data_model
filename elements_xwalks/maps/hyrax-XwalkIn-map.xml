@@ -7,6 +7,7 @@ ISSUES:
   <!--Changelog
 
 
+30/03/20: Merged AB fix for author order (Pull request #182)
 02/02/2020: New ORA subtype Device/Product (as opposed to separate subtypes for device and product) as per Gitub issue #158. Also harvest data s production date for that subtype.
 10/02/20: Repository status - all items not Public should be Private (In review)
 30/01/20: Commented out record level embargo end date following embargo compliance issues
