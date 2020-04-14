@@ -6,7 +6,7 @@ ISSUES:
 
   <!--Changelog
 
-
+14/04/20: Updated author order for 5.20 (as per Pull request #182)
 30/03/20: Merged AB fix for author order (Pull request #182)
 02/02/2020: New ORA subtype Device/Product (as opposed to separate subtypes for device and product) as per Gitub issue #158. Also harvest data s production date for that subtype.
 10/02/20: Repository status - all items not Public should be Private (In review)
@@ -389,7 +389,7 @@ ISSUES:
           <!-- Workaround author ordering issue - GitHub issue 181 (https://github.com/tomwrobel/ora_data_model/issues/181), support ticket https://support.symplectic.co.uk/a/tickets/260733. -->
           <!-- Map the relevant role_order for this author to a data-part which is not used for output: person:id (this data-part only normally takes effect) during deposit xwalks. -->
           <!-- This value will be used in an overriden XSL template which will be added to the Custom\hyrax-XwalkIn.xsl file, which will apply a sort before rendering author-list fields. -->
-          <xwalk:field-source data-part="person:id" from="/*/mods:role[mods:roleTerm/text() = 'Author']/mods:extension/ora:role_order" select-using="xpath" />
+          <xwalk:field-source data-part="list:sort-integer" from="/*/mods:role[mods:roleTerm/text() = 'Author']/mods:extension/ora:role_order" select-using="xpath" />
           <xwalk:field-source data-part="person:identifier" from="nameIdentifier">
             <xwalk:field-source data-part="identifier:scheme" from="@type" value-map="name-identifier"/>
             <xwalk:field-source data-part="identifier:value" from="."/>
@@ -407,7 +407,7 @@ ISSUES:
           <!-- Workaround author ordering issue - GitHub issue 181 (https://github.com/tomwrobel/ora_data_model/issues/181), support ticket https://support.symplectic.co.uk/a/tickets/260733. -->
           <!-- Map the relevant role_order for this author to a data-part which is not used for output: person:id (this data-part only normally takes effect) during deposit xwalks. -->
           <!-- This value will be used in an overriden XSL template which will be added to the Custom\hyrax-XwalkIn.xsl file, which will apply a sort before rendering author-list fields. -->
-          <xwalk:field-source data-part="person:id" from="/*/mods:role[mods:roleTerm/text() = 'Editor']/mods:extension/ora:role_order" select-using="xpath" />
+          <xwalk:field-source data-part="list:sort-integer" from="/*/mods:role[mods:roleTerm/text() = 'Editor']/mods:extension/ora:role_order" select-using="xpath" />
           <xwalk:field-source data-part="person:identifier" from="nameIdentifier">
             <xwalk:field-source data-part="identifier:scheme" from="@type" value-map="name-identifier"/>
             <xwalk:field-source data-part="identifier:value" from="."/>
@@ -425,7 +425,7 @@ ISSUES:
           <!-- Workaround author ordering issue - GitHub issue 181 (https://github.com/tomwrobel/ora_data_model/issues/181), support ticket https://support.symplectic.co.uk/a/tickets/260733. -->
           <!-- Map the relevant role_order for this author to a data-part which is not used for output: person:id (this data-part only normally takes effect) during deposit xwalks. -->
           <!-- This value will be used in an overriden XSL template which will be added to the Custom\hyrax-XwalkIn.xsl file, which will apply a sort before rendering author-list fields. -->
-          <xwalk:field-source data-part="person:id" from="/*/mods:role[mods:roleTerm/text() = 'Translator']/mods:extension/ora:role_order" select-using="xpath" />
+          <xwalk:field-source data-part="list:sort-integer" from="/*/mods:role[mods:roleTerm/text() = 'Translator']/mods:extension/ora:role_order" select-using="xpath" />
           <xwalk:field-source data-part="person:identifier" from="nameIdentifier">
             <xwalk:field-source data-part="identifier:scheme" from="@type" value-map="name-identifier"/>
             <xwalk:field-source data-part="identifier:value" from="."/>
@@ -443,7 +443,7 @@ ISSUES:
           <!-- Workaround author ordering issue - GitHub issue 181 (https://github.com/tomwrobel/ora_data_model/issues/181), support ticket https://support.symplectic.co.uk/a/tickets/260733. -->
           <!-- Map the relevant role_order for this author to a data-part which is not used for output: person:id (this data-part only normally takes effect) during deposit xwalks. -->
           <!-- This value will be used in an overriden XSL template which will be added to the Custom\hyrax-XwalkIn.xsl file, which will apply a sort before rendering author-list fields. -->
-          <xwalk:field-source data-part="person:id" from="/*/mods:role[mods:roleTerm/text() = 'Contributor']/mods:extension/ora:role_order" select-using="xpath" />
+          <xwalk:field-source data-part="list:sort-integer" from="/*/mods:role[mods:roleTerm/text() = 'Contributor']/mods:extension/ora:role_order" select-using="xpath" />
           <xwalk:field-source data-part="person:identifier" from="nameIdentifier">
             <xwalk:field-source data-part="identifier:scheme" from="@type" value-map="name-identifier"/>
             <xwalk:field-source data-part="identifier:value" from="."/>
