@@ -10,6 +10,8 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+28/04/20: Updated file-versions value map to map null to null instead of NA.
+24/04/20: Updated for v5.20 to add parameter to limit author list to x authors (GitHub issue #163, S Ltd ticket #248705)
 02/03/2020: Updated Device/Product ->> subtype Device/Product as per Gitub issue #158
 27/02/20: Added paramer to limit the number of authors (to be uploaded during upgrade to 5.19)
 29/01/19:
@@ -521,7 +523,8 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
     <xwalk:field-map name="contributors">
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal"/>
-        <xwalk:field-source from="authors">
+        <!--<xwalk:field-source from="authors">-->
+        <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath">
           <xwalk:field-source format="person:firstnames-lastname" subfield="displayForm"/>
           <xwalk:field-source subfield="namePart">
             <xwalk:field-source subfield="@type" value="given"/>
@@ -1339,10 +1342,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:otherwise-mapping action="ignore-this-value"/>
     </xwalk:value-map>
     <xwalk:value-map name="file-versions">
-      <xwalk:value-mapping from="Accepted version" to="AM"/>
-      <xwalk:value-mapping from="Submitted version" to="SMUR"/>
-      <xwalk:value-mapping from="Published version" to="VoR"/>
-      <xwalk:otherwise-mapping to="NA"/>
+      <xwalk:value-mapping from="Accepted version" to="AM" />
+      <xwalk:value-mapping from="Submitted version" to="SMUR" />
+      <xwalk:value-mapping from="Published version" to="VoR" />
+      <xwalk:value-mapping from="" to="" />
+      <xwalk:otherwise-mapping to="NA" />
     </xwalk:value-map>
     <xwalk:value-map name="licences">
       <xwalk:value-mapping from="CC BY" to="CC Attribution (CC BY)"/>
