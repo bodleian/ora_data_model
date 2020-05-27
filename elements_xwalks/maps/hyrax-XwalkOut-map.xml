@@ -598,8 +598,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
           <xwalk:field-source subfield="role">
             <xwalk:field-source subfield="mods:extension">
-              <!-- 'temp:value1' is used temporarily as the person index -->
-              <xwalk:field-source data-part="temp:value1" subfield="ora:role_order"/>
+              <xwalk:field-source from="$list.index" subfield="ora:role_order"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="roleTerm">
               <xwalk:field-source subfield="@type" value="text"/>
@@ -685,8 +684,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
           <xwalk:field-source subfield="role">
             <xwalk:field-source subfield="mods:extension">
-              <!-- 'temp:value1' is used temporarily as the person index -->
-              <xwalk:field-source data-part="temp:value1" subfield="ora:role_order"/>
+              <xwalk:field-source from="$list.index" subfield="ora:role_order"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="roleTerm">
               <xwalk:field-source subfield="@type" value="text"/>
@@ -772,8 +770,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
           <xwalk:field-source subfield="role">
             <xwalk:field-source subfield="mods:extension">
-              <!-- 'temp:value1' is used temporarily as the person index -->
-              <xwalk:field-source data-part="temp:value1" subfield="ora:role_order"/>
+              <xwalk:field-source data-part="$list.index" subfield="ora:role_order"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="roleTerm">
               <xwalk:field-source subfield="@type" value="text"/>
@@ -859,8 +856,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
           <xwalk:field-source subfield="role">
             <xwalk:field-source subfield="mods:extension">
-              <!-- 'temp:value1' is used temporarily as the person index -->
-              <xwalk:field-source data-part="temp:value1" subfield="ora:role_order"/>
+              <xwalk:field-source from="$list.index" subfield="ora:role_order"/>
             </xwalk:field-source>
             <xwalk:field-source subfield="roleTerm">
               <xwalk:field-source subfield="@type" value="text"/>
