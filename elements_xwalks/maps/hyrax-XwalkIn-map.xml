@@ -6,6 +6,7 @@ ISSUES:
   
   <!--Changelog
 
+19/08/20: Added value map to convert em-dash to hyphen for pagination
 14/04/20: Updated author order for 5.20 (as per Pull request #182)
 30/03/20: Merged AB fix for author order (Pull request #182)
 02/02/2020: New ORA subtype Device/Product (as opposed to separate subtypes for device and product) as per Gitub issue #158. Also harvest data s production date for that subtype.
@@ -501,7 +502,7 @@ ISSUES:
     </xwalk:field-map>
     <xwalk:field-map name="journal-markup">
       <xwalk:field-mapping to="pagination">
-        <xwalk:field-source format="pagination:start-end" from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:extent[@unit = 'pages']/mods:list" select-using="xpath" />
+        <xwalk:field-source format="pagination:start-end" from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:extent[@unit = 'pages']/mods:list" select-using="xpath" value-map="dash-hyphen" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="volume">
         <xwalk:field-source from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'volume']/mods:number" select-using="xpath" />
@@ -566,6 +567,10 @@ ISSUES:
       <xwalk:value-mapping from="yes" to="Yes" />
       <xwalk:value-mapping from="no" to="No" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="dash-hyphen" matchMode="anyPosition">
+      <xwalk:value-mapping from="–" to="-" />
+      <!--From U+2013 : EN DASH -> U+002D : HYPHEN-MINUS -->
     </xwalk:value-map>
   </xwalk:value-maps>
   <xwalkin:object-type-selector>
