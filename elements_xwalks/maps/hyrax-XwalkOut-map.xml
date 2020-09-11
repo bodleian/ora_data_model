@@ -600,7 +600,23 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
           <xwalk:field-source subfield="role">
             <xwalk:field-source subfield="mods:extension">
-              <xwalk:field-source from="$list.index" subfield="ora:role_order"/>
+              <!-- Since the outer field-source is selecting data using an XPath statement rather than the "native" field-selectors (i.e. from="authors"), -->
+              <!-- the crosswalk engine has lost knowledge that this is a 'person-list' field. After all, the same XML could have easily been selected from -->
+              <!-- a 'person' (singular) field. When the XPath selection *does* produce multiple nodes, the engine iterates over them and provides $list.index -->
+              <!-- as the iteration index, but if the XPath selection only produced one value, then the engine has no way of knowing that the result was -->
+              <!-- contained in a list of length 1, and so does not assign any value to $list.index. But *we* know that this selection targets a list. -->
+              <!-- So, if we see that there is no value to $list.index, we use the value 1 for the role_order. -->
+              <xwalk:if>
+                <xwalk:condition operator="has-value" argument-field="$list.index" />
+                <xwalk:result>
+                  <xwalk:field-source from="$list.index" subfield="ora:role_order" />
+                </xwalk:result>
+                <xwalk:else>
+                  <xwalk:result>
+                    <xwalk:field-source value="1" subfield="ora:role_order" />
+                  </xwalk:result>
+                </xwalk:else>
+              </xwalk:if>
             </xwalk:field-source>
             <xwalk:field-source subfield="roleTerm">
               <xwalk:field-source subfield="@type" value="text"/>
