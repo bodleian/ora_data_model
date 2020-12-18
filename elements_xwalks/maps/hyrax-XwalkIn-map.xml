@@ -5,7 +5,7 @@ ISSUES:
  -->
   
   <!--Changelog
-
+18/12/2020: Harvest journal (series-title) in SE from series title in ORA for WPs only
 19/08/20: Added value map to convert em-dash to hyphen for pagination
 14/04/20: Updated author order for 5.20 (as per Pull request #182)
 30/03/20: Merged AB fix for author order (Pull request #182)
@@ -507,9 +507,32 @@ ISSUES:
       <xwalk:field-mapping to="volume">
         <xwalk:field-source from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'volume']/mods:number" select-using="xpath" />
       </xwalk:field-mapping>
+      
+<!-- 
       <xwalk:field-mapping to="journal">
         <xwalk:field-source from="/*/mods:relatedItem[@type='host']/mods:titleInfo/mods:title" select-using="xpath" />
       </xwalk:field-mapping>
+ -->
+      
+      
+<!-- added 18 Dec-->
+      <xwalk:field-mapping to="journal">
+        <xwalk:if>
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Working paper</xwalk:condition>
+          <xwalk:result>
+            <xwalk:field-source from="/mods:mods/mods:relatedItem[@type = 'series']/mods:titleInfo/mods:title" select-using="xpath" />
+          </xwalk:result>
+          <xwalk:else>
+            <xwalk:result>
+              <xwalk:field-source from="/*/mods:relatedItem[@type='host']/mods:titleInfo/mods:title" select-using="xpath" />
+            </xwalk:result>
+          </xwalk:else>
+        </xwalk:if>
+      </xwalk:field-mapping>
+
+      
+      
+      
       <xwalk:field-mapping to="issue">
         <xwalk:field-source from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'issue']/mods:number" select-using="xpath" />
       </xwalk:field-mapping>
