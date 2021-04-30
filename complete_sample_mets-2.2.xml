@@ -45,8 +45,6 @@
                         <mods:genre>Test keyword two</mods:genre>
                         <mods:topic>Library science</mods:topic>
                         <mods:topic>Computer science</mods:topic>
-                        <mods:genre type="ora_collection">Best of ORA</mods:genre>
-                        <mods:genre type="ora_collection">Sample works</mods:genre>
                     </mods:subject>
                     
                     <mods:language>   
@@ -608,6 +606,8 @@
                            <mods:recordInfoNote type="pre_counter_downloads">0</mods:recordInfoNote>
                            <mods:recordInfoNote type="pre_counter_views">0</mods:recordInfoNote>
                            <mods:recordInfoNote type="requires_review">True</mods:recordInfoNote>
+                           <mods:recordInfoNote type="ora_collection">Best of ORA</mods:recordInfoNote>
+                           <mods:recordInfoNote type="ora_collection">Sample works</mods:recordInfoNote>
                        </mods:recordInfo>
                        
                        <mods:extension>

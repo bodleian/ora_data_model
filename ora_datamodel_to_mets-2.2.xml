@@ -17,7 +17,7 @@
     
     CHANGELOG
     =========
-    25/03/2021: Added collection, doi_requested, data_responsibility
+    25/03/2021: Added ora_collection, doi_requested, data_responsibility
     27/11/2019: Add event_series_title
     15/11/2019: Correct spelling of commissioning_body
     03/10/2019: Datamodel tweak - added record_embargo_status
@@ -168,7 +168,6 @@
                     <mods:subject>
                         <mods:genre>field:keyword</mods:genre>
                         <mods:topic>field:subject</mods:topic>
-                        <mods:genre type="ora_collection">field:collection</mods:genre>
                     </mods:subject>
                     
                     <mods:language>   
@@ -626,6 +625,7 @@
                            <mods:recordInfoNote type="pre_counter_downloads">field:pre_counter_downloads</mods:recordInfoNote>
                            <mods:recordInfoNote type="pre_counter_views">field:pre_counter_views</mods:recordInfoNote>
                            <mods:recordInfoNote type="requires_review">field:record_requires_review</mods:recordInfoNote>
+                           <mods:recordInfoNote type="ora_collection">field:ora_collection</mods:recordInfoNote>
                        </mods:recordInfo>
                        
                        <mods:extension>

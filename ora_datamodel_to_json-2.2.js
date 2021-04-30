@@ -88,7 +88,6 @@ ORA_Data_Model_Object = {
         "file_size": "",
         "file_version": ""    
     }],
-    "collection": [],
     "contributors": [{
         "contributor_email": "",
         "contributor_identifiers": [{
@@ -175,6 +174,7 @@ ORA_Data_Model_Object = {
         "action_duration": "",
         "action_responsibility": ""
     }],
+    "ora_collection": [""],
     "record_accept_updates": "",
     "record_check_back_date": "",
     "record_deposit_date": "",
