@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    24/08/21: added new SE preprint type
     25/03/21: Added collection, doi_requested, data_responsibility to ORA Datamodel 2.2, no mappings yet
     23/01/19: Update SE notes -> ORA deposit_note (GitHub #166)
     09/01/19: Edited confidential as per GitHub #159
@@ -822,6 +823,12 @@
             <ora_sub_type_of_work>Device/product</ora_sub_type_of_work>
         </symplectic_work_type>
         
+        <!--Preprint -->
+        <symplectic_work_type>preprint
+            <ora_work_type>Internet publication</ora_work_type>
+            <hyrax_work_type>InternetPublication</hyrax_work_type>
+            <ora_sub_type_of_work />
+        </symplectic_work_type>
         
         <!-- Report -->
         <symplectic_work_type>report
