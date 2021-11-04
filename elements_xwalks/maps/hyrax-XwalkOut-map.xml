@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
 
@@ -10,6 +11,10 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+24/08/21: 
+- preprint preprint server (parent-title) → title added to preprint markup
+- (Test) Note: publisher-url and author-url are not part of ORA data model(re: preprint mapping)
+23/08/21: (Test) Added deposit Preprint.
 03/09/20: Correct AB pull request #186
 03/09/20: Update author order as per AB pull request #186
 28/04/20: Updated file-versions value map to map null to null instead of NA.
@@ -1065,6 +1070,20 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
+    
+    
+    <xwalk:field-map name="preprint-markup">
+      <xwalk:include-field-map name="common-fields-map">
+        <xwalk:exclude-field-mapping to="relatedItem" />
+      </xwalk:include-field-map>
+      <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="host" />
+        <xwalk:field-source subfield="titleInfo">
+          <xwalk:field-source from="parent-title" subfield="title" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+    </xwalk:field-map>
+    
     <xwalk:field-map name="device-product-markup">
       <xwalk:include-field-map name="common-fields-map" />
       <xwalk:field-mapping to="originInfo">
@@ -1245,6 +1264,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="Working paper" />
+      <xwalk:value-mapping from="preprint" to="Internet publication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object" />
       <xwalk:value-mapping from="other" to="Record" />
@@ -1279,6 +1299,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="working-paper" to="WorkingPaper" />
+      <xwalk:value-mapping from="preprint" to="InternetPublication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject" />
       <!-- the below is temorary - will be replaced by 
@@ -1414,6 +1435,14 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-map-selection field-map="patent-markup" />
         </xwalk:result>
       </xwalk:when>
+      
+      <xwalk:when>
+        <xwalk:condition argument-field="object.type" operator="equals">preprint</xwalk:condition>
+        <xwalk:result>
+          <xwalk:field-map-selection field-map="preprint-markup" />
+        </xwalk:result>
+      </xwalk:when>
+      
       <xwalk:when>
         <xwalk:condition argument-field="object.type" operator="equals">thesis-dissertation</xwalk:condition>
         <xwalk:result>
