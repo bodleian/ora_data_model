@@ -534,7 +534,7 @@
         
         <oxford_symplectic_field number="05" name="ORCID"><ora_field>contributors__orcid_identifier</ora_field></oxford_symplectic_field><notes>This is not held in users table,so not crosswalked. ORCID is crosswalked from user.identifiers.
         
-        <oxford_symplectic_field number="06" name="Department Affiliation"><ora_field>contributors__department</ora_field></oxford_symplectic_field>
+        <oxford_symplectic_field number="06" name="Department Affiliation"><no_mapping /><note>Formerly mapped to ora_field contributors__department, but primary group descriptor now maps to that field.</note></oxford_symplectic_field>
         
         <oxford_symplectic_field number="07" name="Sub Unit Affiliation"><ora_field>contributors__sub_unit</ora_field></oxford_symplectic_field>
         
