@@ -11,6 +11,7 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+11/05/2022: Move article number to journal-markup from common-fields-markup to prevent being populated for working papers.
 24/08/21: 
 - preprint preprint server (parent-title) → title added to preprint markup
 - (Test) Note: publisher-url and author-url are not part of ORA data model(re: preprint mapping)
