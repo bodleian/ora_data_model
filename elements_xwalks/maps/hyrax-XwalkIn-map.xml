@@ -5,6 +5,7 @@ ISSUES:
  -->
   
   <!--Changelog
+12/05/2022: Added 'Case note' subtype for journal articles
 18/12/2020: Harvest journal (series-title) in SE from series title in ORA for WPs only
 19/08/20: Added value map to convert em-dash to hyphen for pagination
 14/04/20: Updated author order for 5.20 (as per Pull request #182)
@@ -575,6 +576,7 @@ ISSUES:
       <xwalk:value-mapping from="Erratum" to="Erratum" />
       <xwalk:value-mapping from="Abstract" to="Abstract" />
       <xwalk:value-mapping from="Comment" to="Comment" />
+      <xwalk:value-mapping from="Case note" to="Case note" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="licences">
