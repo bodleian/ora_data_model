@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
 
@@ -10,6 +11,12 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+12/05/2022: Added case note subtype
+11/05/2022: Move article number to journal-markup from common-fields-markup to prevent being populated for working papers.
+24/08/21: 
+- preprint preprint server (parent-title) → title added to preprint markup
+- (Test) Note: publisher-url and author-url are not part of ORA data model(re: preprint mapping)
+23/08/21: (Test) Added deposit Preprint.
 03/09/20: Correct AB pull request #186
 03/09/20: Update author order as per AB pull request #186
 28/04/20: Updated file-versions value map to map null to null instead of NA.
@@ -185,10 +192,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source from="journal" subfield="title" />
         </xwalk:field-source>
         <xwalk:field-source subfield="part">
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="article" />
-            <xwalk:field-source from="number" subfield="number" value-map="parse-article-number" />
-          </xwalk:field-source>
           <xwalk:field-source subfield="detail">
             <xwalk:field-source subfield="@type" value="issue" />
             <xwalk:field-source from="issue" subfield="number" />
@@ -1034,6 +1037,22 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         <xwalk:field-source subfield="@type" value="sub_type_of_work" />
         <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype" />
       </xwalk:field-mapping>
+
+      <!--NEW-->
+      <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="host" />
+        <xwalk:field-source subfield="part">
+          <xwalk:field-source subfield="detail">
+            <xwalk:field-source subfield="@type" value="article" />
+            <xwalk:field-source from="number" subfield="number" value-map="parse-article-number" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+
+<!--END NEW-->
+
+
+
       <!-- Set is-list to false to force the first item to be selected -->
     </xwalk:field-map>
     <xwalk:field-map name="book-markup">
@@ -1062,6 +1081,17 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source subfield="@type" value="volume" />
             <xwalk:field-source from="volume" subfield="number" />
           </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+    </xwalk:field-map>
+    <xwalk:field-map name="preprint-markup">
+      <xwalk:include-field-map name="common-fields-map">
+        <xwalk:exclude-field-mapping to="relatedItem" />
+      </xwalk:include-field-map>
+      <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="host" />
+        <xwalk:field-source subfield="titleInfo">
+          <xwalk:field-source from="parent-title" subfield="title" />
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
@@ -1245,6 +1275,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="Working paper" />
+      <xwalk:value-mapping from="preprint" to="Internet publication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object" />
       <xwalk:value-mapping from="other" to="Record" />
@@ -1279,6 +1310,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="working-paper" to="WorkingPaper" />
+      <xwalk:value-mapping from="preprint" to="InternetPublication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject" />
       <!-- the below is temorary - will be replaced by 
@@ -1315,6 +1347,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="Erratum" to="Erratum" />
       <xwalk:value-mapping from="Abstract" to="Abstract" />
       <xwalk:value-mapping from="Comment" to="Comment" />
+      <xwalk:value-mapping from="Case note" to="Case note" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map data-part="identifier:scheme" name="remove-irrelevant-identifiers">
@@ -1412,6 +1445,12 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         <xwalk:condition argument-field="object.type" operator="equals">patent</xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="patent-markup" />
+        </xwalk:result>
+      </xwalk:when>
+      <xwalk:when>
+        <xwalk:condition argument-field="object.type" operator="equals">preprint</xwalk:condition>
+        <xwalk:result>
+          <xwalk:field-map-selection field-map="preprint-markup" />
         </xwalk:result>
       </xwalk:when>
       <xwalk:when>
