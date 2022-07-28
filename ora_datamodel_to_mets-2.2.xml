@@ -2,11 +2,11 @@
 <!--
     =========================================
     =========================================
-    METS - THE ORA DATA MODEL 2.2 IN METS
+    METS - THE ORA DATA MODEL 2.3 IN METS
     =========================================
     =========================================
     
-    This section describes how to mark up an ORA Data Model v2.2 object in METS
+    This section describes how to mark up an ORA Data Model v2.3 object in METS
     
     MODS content is conformant to an expected MODS 3.8*, with one exception (a mods:extension element).
     
@@ -17,6 +17,7 @@
     
     CHANGELOG
     =========
+    28/07/2022: Added rights_retention_statement_included
     25/03/2021: Added ora_collection, doi_requested, data_responsibility
     27/11/2019: Add event_series_title
     15/11/2019: Correct spelling of commissioning_body
@@ -673,6 +674,7 @@
                                <ora_open_access_admin:ref_compliant_avialability>field:ref_compliant_avialability</ora_open_access_admin:ref_compliant_avialability>
                                <ora_open_access_admin:ref_exception_required>field:ref_exception_required</ora_open_access_admin:ref_exception_required>
                                <ora_open_access_admin:ref_exception_note>field:ref_exception_note</ora_open_access_admin:ref_exception_note>
+                               <ora_open_access_admin:rights_retention_statement_included>field:rights_retention_statement_included</ora_open_access_admin:rights_retention_statement_included>
                            </ora_open_access_admin:ref_admin>
                        </mods:extension>
                        

@@ -2,7 +2,7 @@
 <!--
     =========================================
     =========================================
-    METS - A FULL ORA DATAMODEL 2.2 OBJECT IN METS
+    METS - A FULL ORA DATAMODEL 2.3 OBJECT IN METS
     =========================================
     =========================================
     
@@ -677,6 +677,7 @@
                                <ora_open_access_admin:ref_compliant_avialability>Yes</ora_open_access_admin:ref_compliant_avialability>
                                <ora_open_access_admin:ref_exception_required>38f</ora_open_access_admin:ref_exception_required>
                                <ora_open_access_admin:ref_exception_note>Ref exception free text note</ora_open_access_admin:ref_exception_note>
+                               <ora_open_access_admin:rights_retention_statement_included>Yes</ora_open_access_admin:rights_retention_statement_included>
                            </ora_open_access_admin:ref_admin>
                        </mods:extension>
                        
