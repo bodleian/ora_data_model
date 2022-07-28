@@ -3,7 +3,7 @@
 Content relating to the ORA Data Model, in particular, the METS 
 version of the data model and accompanying customised MODS schema.
 
-The most recent ORA data model is 2.2
+The most recent ORA data model is 2.3
 
 This project maintains four files relating to the ORA Data Model:
 
