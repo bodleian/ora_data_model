@@ -11,6 +11,8 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+12/05/2022: Added case note subtype
+11/05/2022: Move article number to journal-markup from common-fields-markup to prevent being populated for working papers.
 24/08/21: 
 - preprint preprint server (parent-title) → title added to preprint markup
 - (Test) Note: publisher-url and author-url are not part of ORA data model(re: preprint mapping)
@@ -190,10 +192,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source from="journal" subfield="title" />
         </xwalk:field-source>
         <xwalk:field-source subfield="part">
-          <xwalk:field-source subfield="detail">
-            <xwalk:field-source subfield="@type" value="article" />
-            <xwalk:field-source from="number" subfield="number" value-map="parse-article-number" />
-          </xwalk:field-source>
           <xwalk:field-source subfield="detail">
             <xwalk:field-source subfield="@type" value="issue" />
             <xwalk:field-source from="issue" subfield="number" />
@@ -1039,6 +1037,22 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         <xwalk:field-source subfield="@type" value="sub_type_of_work" />
         <xwalk:field-source from="types" value-map="ora-subtype-work-mappings-from-subtype" />
       </xwalk:field-mapping>
+
+      <!--NEW-->
+      <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="host" />
+        <xwalk:field-source subfield="part">
+          <xwalk:field-source subfield="detail">
+            <xwalk:field-source subfield="@type" value="article" />
+            <xwalk:field-source from="number" subfield="number" value-map="parse-article-number" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+
+<!--END NEW-->
+
+
+
       <!-- Set is-list to false to force the first item to be selected -->
     </xwalk:field-map>
     <xwalk:field-map name="book-markup">
@@ -1070,8 +1084,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
-    
-    
     <xwalk:field-map name="preprint-markup">
       <xwalk:include-field-map name="common-fields-map">
         <xwalk:exclude-field-mapping to="relatedItem" />
@@ -1083,7 +1095,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
-    
     <xwalk:field-map name="device-product-markup">
       <xwalk:include-field-map name="common-fields-map" />
       <xwalk:field-mapping to="originInfo">
@@ -1336,6 +1347,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="Erratum" to="Erratum" />
       <xwalk:value-mapping from="Abstract" to="Abstract" />
       <xwalk:value-mapping from="Comment" to="Comment" />
+      <xwalk:value-mapping from="Case note" to="Case note" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map data-part="identifier:scheme" name="remove-irrelevant-identifiers">
@@ -1435,14 +1447,12 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-map-selection field-map="patent-markup" />
         </xwalk:result>
       </xwalk:when>
-      
       <xwalk:when>
         <xwalk:condition argument-field="object.type" operator="equals">preprint</xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="preprint-markup" />
         </xwalk:result>
       </xwalk:when>
-      
       <xwalk:when>
         <xwalk:condition argument-field="object.type" operator="equals">thesis-dissertation</xwalk:condition>
         <xwalk:result>
