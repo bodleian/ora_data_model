@@ -12,6 +12,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
   <!--CHANGELOG
 Initial changes not logged.
 10/08/2022: 
+- Do publisher url even where no online date
 - Reenabled publisher-url -> Origin Info
 - REmoved publisher-url -> contributor website
 - n.b. publisher-url only coming from manual records
@@ -423,9 +424,12 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
                   <xwalk:field-source from="place-of-publication" />
                 </xwalk:field-source>
               </xwalk:field-source>
-              <!--Removed, not in mapping doc
-        <xwalk:field-source subfield="place"><xwalk:field-source subfield="placeTerm"><xwalk:field-source subfield="@type" value="code"/>
-        <xwalk:field-source from="publisher-url"/></xwalk:field-source></xwalk:field-source>-->
+            <!--Added 10/8/22-->
+            <xwalk:field-source subfield="place">
+              <xwalk:field-source subfield="placeTerm">
+                <xwalk:field-source subfield="@type" value="code"/>
+                <xwalk:field-source from="publisher-url"/>
+              </xwalk:field-source>
             </xwalk:result>
           </xwalk:else>
         </xwalk:if>
