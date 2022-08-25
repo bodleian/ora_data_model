@@ -11,6 +11,11 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+10/08/2022: 
+- Do publisher url even where no online date
+- Reenabled publisher-url -> Origin Info
+- Removed publisher-url -> contributor website
+- n.b. publisher-url only coming from manual records
 12/05/2022: Moved patent application number to mods:extension (from mods:identifier). CHanged remanining single mapping for mods:identifer to <if> instead of <choose>
 12/05/2022: Added case note subtype
 11/05/2022: Move article number to journal-markup from common-fields-markup to prevent being populated for working papers.
@@ -390,8 +395,13 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
                 <xwalk:field-source from="location" />
               </xwalk:field-source>
             </xwalk:field-source>
-            <!--Removed, not in mapping doc
-        <xwalk:field-source subfield="place"><xwalk:field-source subfield="placeTerm"><xwalk:field-source subfield="@type" value="code"/><xwalk:field-source from="publisher-url"/></xwalk:field-source></xwalk:field-source>-->
+            <!--Added 10/8/22-->
+            <xwalk:field-source subfield="place">
+              <xwalk:field-source subfield="placeTerm">
+                <xwalk:field-source subfield="@type" value="code" />
+                <xwalk:field-source from="publisher-url" />
+              </xwalk:field-source>
+            </xwalk:field-source>
           </xwalk:result>
           <xwalk:else>
             <xwalk:result>
@@ -414,8 +424,13 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
                   <xwalk:field-source from="place-of-publication" />
                 </xwalk:field-source>
               </xwalk:field-source>
-              <!--Removed, not in mapping doc
-        <xwalk:field-source subfield="place"><xwalk:field-source subfield="placeTerm"><xwalk:field-source subfield="@type" value="code"/><xwalk:field-source from="publisher-url"/></xwalk:field-source></xwalk:field-source>-->
+              <!--Added 10/8/22-->
+              <xwalk:field-source subfield="place">
+                <xwalk:field-source subfield="placeTerm">
+                  <xwalk:field-source subfield="@type" value="code" />
+                  <xwalk:field-source from="publisher-url" />
+                </xwalk:field-source>
+              </xwalk:field-source>
             </xwalk:result>
           </xwalk:else>
         </xwalk:if>
@@ -505,10 +520,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source value="Publisher" />
           </xwalk:field-source>
         </xwalk:field-source>
+        <!-- Removed as publisher-url now goes to origin info
         <xwalk:field-source subfield="nameIdentifier">
           <xwalk:field-source subfield="@type" value="website" />
           <xwalk:field-source from="publisher-url" />
-        </xwalk:field-source>
+        </xwalk:field-source>-->
       </xwalk:field-mapping>
       <!--commenting to try keyword field rather than object level
       <xwalk:field-mapping to="subject"><xwalk:field-source subfield="genre" from="object.keywords" /></xwalk:field-mapping>-->
