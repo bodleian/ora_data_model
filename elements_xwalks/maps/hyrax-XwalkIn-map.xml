@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
   <!--
 ISSUES:
 
  -->
-  
   <!--Changelog
+10/08/2022: Update publisher-url to placeTerm
 12/05/2022: Added 'Case note' subtype for journal articles
 18/12/2020: Harvest journal (series-title) in SE from series title in ORA for WPs only
 19/08/20: Added value map to convert em-dash to hyphen for pagination
@@ -163,9 +164,9 @@ ISSUES:
       <xwalk:field-mapping to="publication-status">
         <xwalk:field-source from="/mods:mods/mods:relatedItem[@type = 'host']/mods:physicalDescription/mods:form[@type = 'status']" select-using="xpath" value-map="publication-status" />
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="publisher-url">
+      <!--><xwalk:field-mapping to="publisher-url">
         <xwalk:field-source from="/mods:mods/mods:placeTerm[@type = 'code']" select-using="xpath" />
-      </xwalk:field-mapping>
+      </xwalk:field-mapping>-->
       <xwalk:field-mapping to="edition">
         <xwalk:field-source from="/mods:mods/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'edition']/mods:number" select-using="xpath" />
       </xwalk:field-mapping>
@@ -198,6 +199,15 @@ ISSUES:
       <xwalk:field-mapping to="place-of-publication">
         <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='text']" select-using="xpath" />
       </xwalk:field-mapping>
+      <!-- added 10/8/22-->
+      
+      <xwalk:field-mapping to="publisher-url">
+        <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='code']" select-using="xpath" />
+      </xwalk:field-mapping>
+      
+      
+      
+      
       <xwalk:field-mapping to="number">
         <xwalk:choose>
           <xwalk:when>
@@ -508,15 +518,12 @@ ISSUES:
       <xwalk:field-mapping to="volume">
         <xwalk:field-source from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'volume']/mods:number" select-using="xpath" />
       </xwalk:field-mapping>
-      
-<!-- 
+      <!--
       <xwalk:field-mapping to="journal">
         <xwalk:field-source from="/*/mods:relatedItem[@type='host']/mods:titleInfo/mods:title" select-using="xpath" />
       </xwalk:field-mapping>
  -->
-      
-      
-<!-- added 18 Dec-->
+      <!-- added 18 Dec-->
       <xwalk:field-mapping to="journal">
         <xwalk:if>
           <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Working paper</xwalk:condition>
@@ -530,10 +537,6 @@ ISSUES:
           </xwalk:else>
         </xwalk:if>
       </xwalk:field-mapping>
-
-      
-      
-      
       <xwalk:field-mapping to="issue">
         <xwalk:field-source from="/*/mods:relatedItem[@type = 'host']/mods:part/mods:detail[@type = 'issue']/mods:number" select-using="xpath" />
       </xwalk:field-mapping>
