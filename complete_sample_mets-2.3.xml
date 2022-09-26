@@ -527,8 +527,8 @@
                     <ali:free_to_read start_date="2019-06-02" />
                     <ora:fileOrder>1</ora:fileOrder>
                     <ora:fileSha1>28830c64019c1b6f80bbd513491fcd9b111d5c1f</ora:fileSha1>
-                    <ora:accessConditionAtDeposit>Yes</ora:accessConditionAtDeposit>
-                    <ora:fileAndRecordDoNotMatch>No</ora:fileAndRecordDoNotMatch>
+                    <ora:accessConditionAtDeposit>yes</ora:accessConditionAtDeposit>
+                    <ora:fileAndRecordDoNotMatch>no</ora:fileAndRecordDoNotMatch>
                     <symp:hasPublicUrl>https://ora.ox.ac.uk/objects/uuid:12345678-1234-1234-1234-12345678abcd?download=filename1.txt</symp:hasPublicUrl>
                     <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
                     <ora:filesetId>9k41zd50j</ora:filesetId>
@@ -561,8 +561,8 @@
                     <oxds:embargoedUntil>9999-12-31</oxds:embargoedUntil>
                     <ora:fileOrder>2</ora:fileOrder>
                     <ora:fileSha1>5d5668d2a6108a2fb9211f6e6d824e2019dddf72</ora:fileSha1>
-                    <ora:accessConditionAtDeposit>Yes</ora:accessConditionAtDeposit>
-                    <ora:fileAndRecordDoNotMatch>No</ora:fileAndRecordDoNotMatch>
+                    <ora:accessConditionAtDeposit>yes</ora:accessConditionAtDeposit>
+                    <ora:fileAndRecordDoNotMatch>no</ora:fileAndRecordDoNotMatch>
                     <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
                     <ora:filesetId>5b8fzd66r</ora:filesetId>
                 </ora:repository_file>
@@ -616,11 +616,11 @@
                                xmlns:dc="http://purl.org/dc/elements/1.1/"
                                xmlns:dcterms="http://purl.org/dc/terms/"
                                xmlns:mods="http://www.loc.gov/mods/v3">
-                               <ora_admin:doi_requested>Yes</ora_admin:doi_requested>
-                               <ora_admin:depositor_contacted>Yes</ora_admin:depositor_contacted>
+                               <ora_admin:doi_requested>yes</ora_admin:doi_requested>
+                               <ora_admin:depositor_contacted>yes</ora_admin:depositor_contacted>
                                <ora_admin:depositor_contact_email_template>Template identifier 1</ora_admin:depositor_contact_email_template>
                                <ora_admin:record_first_reviewed_by>lina0911</ora_admin:record_first_reviewed_by>
-                               <ora_admin:incorrect_version_deposited>No</ora_admin:incorrect_version_deposited>
+                               <ora_admin:incorrect_version_deposited>no</ora_admin:incorrect_version_deposited>
                                <ora_admin:record_check_back_date>2019-06-02</ora_admin:record_check_back_date>
                                <ora_admin:record_deposit_date>2019-06-01</ora_admin:record_deposit_date>
                                <ora_admin:record_publication_date>2019-06-02</ora_admin:record_publication_date>
@@ -628,8 +628,8 @@
                                <ora_admin:record_review_status>Published</ora_admin:record_review_status>
                                <ora_admin:record_review_status_other>Record review status free text field</ora_admin:record_review_status_other>
                                <ora_admin:record_version>1thir</ora_admin:record_version>
-                               <ora_admin:rights_third_party_copyright_material>Yes</ora_admin:rights_third_party_copyright_material>
-                               <ora_admin:rights_third_party_copyright_permission_received>Yes</ora_admin:rights_third_party_copyright_permission_received>
+                               <ora_admin:rights_third_party_copyright_material>yes</ora_admin:rights_third_party_copyright_material>
+                               <ora_admin:rights_third_party_copyright_permission_received>yes</ora_admin:rights_third_party_copyright_permission_received>
                                <ora_admin:rt_ticket_number>RTTicket12354</ora_admin:rt_ticket_number>
                                <ora_admin:history>
                                    <ora_admin:history_action>
@@ -670,24 +670,24 @@
                        <mods:extension>
                            <ora_open_access_admin:ref_admin xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin">
                                <ora_open_access_admin:apc_admin_apc_number>12312313</ora_open_access_admin:apc_admin_apc_number>
-                               <ora_open_access_admin:apc_admin_apc_requested>Yes</ora_open_access_admin:apc_admin_apc_requested>
+                               <ora_open_access_admin:apc_admin_apc_requested>yes</ora_open_access_admin:apc_admin_apc_requested>
                                <ora_open_access_admin:apc_admin_review_status>Under review</ora_open_access_admin:apc_admin_review_status>
                                <ora_open_access_admin:apc_admin_spreadsheet_identifier>APC Sheet 1</ora_open_access_admin:apc_admin_spreadsheet_identifier>
-                               <ora_open_access_admin:ref_compliant_at_deposit>Yes</ora_open_access_admin:ref_compliant_at_deposit>
-                               <ora_open_access_admin:ref_compliant_avialability>Yes</ora_open_access_admin:ref_compliant_avialability>
+                               <ora_open_access_admin:ref_compliant_at_deposit>yes</ora_open_access_admin:ref_compliant_at_deposit>
+                               <ora_open_access_admin:ref_compliant_avialability>yes</ora_open_access_admin:ref_compliant_avialability>
                                <ora_open_access_admin:ref_exception_required>38f</ora_open_access_admin:ref_exception_required>
                                <ora_open_access_admin:ref_exception_note>Ref exception free text note</ora_open_access_admin:ref_exception_note>
-                               <ora_open_access_admin:rights_retention_statement_included>Yes</ora_open_access_admin:rights_retention_statement_included>
+                               <ora_open_access_admin:rights_retention_statement_included>yes</ora_open_access_admin:rights_retention_statement_included>
                            </ora_open_access_admin:ref_admin>
                        </mods:extension>
                        
                        <!-- THESIS SPECIFIC ADMIN -->
                        <mods:extension>
                            <ora_thesis:thesis_admin xmlns:ora_thesis="https://ora.ox.ac.uk/vocabs/thesis">
-                               <ora_thesis:thesis_archive_version_completed>No</ora_thesis:thesis_archive_version_completed>
-                               <ora_thesis:thesis_student_system_updated>Yes</ora_thesis:thesis_student_system_updated>
-                               <ora_thesis:thesis_dispensation_from_consultation_granted>No</ora_thesis:thesis_dispensation_from_consultation_granted>
-                               <ora_thesis:thesis_voluntary_deposit>Yes</ora_thesis:thesis_voluntary_deposit>
+                               <ora_thesis:thesis_archive_version_completed>no</ora_thesis:thesis_archive_version_completed>
+                               <ora_thesis:thesis_student_system_updated>yes</ora_thesis:thesis_student_system_updated>
+                               <ora_thesis:thesis_dispensation_from_consultation_granted>no</ora_thesis:thesis_dispensation_from_consultation_granted>
+                               <ora_thesis:thesis_voluntary_deposit>yes</ora_thesis:thesis_voluntary_deposit>
                            </ora_thesis:thesis_admin>
                        </mods:extension>
                        
