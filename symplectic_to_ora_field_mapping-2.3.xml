@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    15/11/22: Updated publisher-url (https://gitlab.bodleian.ox.ac.uk/ORA4/ora_data_model/-/issues/197)
     24/08/21: added new SE preprint type
     25/03/21: Added collection, doi_requested, data_responsibility to ORA Datamodel 2.2, no mappings yet
     23/01/19: Update SE notes -> ORA deposit_note (GitHub #166)
@@ -309,11 +310,15 @@
         </symplectic_field>
         
         <symplectic_field name="publisher-licence"><ora_field>licence</ora_field></symplectic_field>
-        
+      
+            
         <symplectic_field name="publisher-url">
             <if test="type_of_work == 'device/product'"><ora_field>manufacturer_website_url</ora_field></if>
+            <if test="type_of_work == 'conference paper'"><ora_field>event_website_url</ora_field></if>
             <else><ora_field>publication_website_url</ora_field></else>
         </symplectic_field>
+
+
         
         <symplectic_field name="record-made-public-at-source-date"><ora_field>record_publication_date</ora_field></symplectic_field>
         
