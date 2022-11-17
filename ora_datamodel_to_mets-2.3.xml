@@ -17,6 +17,7 @@
     
     CHANGELOG
     =========
+    17/11/2022: Corrected manufacturer typo
     28/07/2022: Added rights_retention_statement_included
     25/03/2021: Added ora_collection, doi_requested, data_responsibility
     27/11/2019: Add event_series_title
@@ -372,7 +373,7 @@
                         <mods:role>
                             <mods:roleTerm type="text">Manufacturer</mods:roleTerm>
                         </mods:role>
-                        <mods:nameIdentifier type="website">field:manufactuer_website_url</mods:nameIdentifier>
+                        <mods:nameIdentifier type="website">field:manufacturer_website_url</mods:nameIdentifier>
                     </mods:name>
                     
                     <!-- PUBLISHER -->
