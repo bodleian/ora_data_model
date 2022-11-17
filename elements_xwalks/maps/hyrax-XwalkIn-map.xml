@@ -5,6 +5,7 @@ ISSUES:
 
  -->
   <!--Changelog
+16/11/22: Udate publisher-url (GitLab Issue #197)
 10/08/2022: Update publisher-url to placeTerm
 12/05/2022: Added 'Case note' subtype for journal articles
 18/12/2020: Harvest journal (series-title) in SE from series title in ORA for WPs only
@@ -199,13 +200,39 @@ ISSUES:
       <xwalk:field-mapping to="place-of-publication">
         <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='text']" select-using="xpath" />
       </xwalk:field-mapping>
-      <!-- added 10/8/22-->
-      
+      <!-- added 10/8/22
       <xwalk:field-mapping to="publisher-url">
         <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='code']" select-using="xpath" />
       </xwalk:field-mapping>
+      Updated below 16/11/22-->
       
       
+      <xwalk:field-mapping to="publisher-url">
+        <xwalk:choose>
+          <xwalk:when>
+            <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Conference item</xwalk:condition>
+            <xwalk:result>
+              <xwalk:field-source from="/mods:mods/mods:relatedItem[@otherType = 'event']/mods:location/mods:url" select-using="xpath" />
+            </xwalk:result>
+          </xwalk:when>
+          <xwalk:when>
+            <xwalk:condition operator="and">
+              <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Physical object</xwalk:condition>
+              <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Device/Product</xwalk:condition>
+            </xwalk:condition>
+            <xwalk:result>
+              <!--<xwalk:field-source from="/*/mods:name[@type='corporate' and string(mods:role/mods:roleTerm) = 'Manufacturer']/mods:displayForm" select-using="xpath" />-->
+              <xwalk:field-source from="/*/mods:name[@type='corporate' and string(mods:role/mods:roleTerm) = 'Manufacturer']/mods:nameIdentifier[@type='website']" select-using="xpath" />
+              
+            </xwalk:result>
+          </xwalk:when>
+          <xwalk:otherwise>
+            <xwalk:result>
+              <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='code']" select-using="xpath" />
+            </xwalk:result>
+          </xwalk:otherwise>
+        </xwalk:choose>
+      </xwalk:field-mapping>
       
       
       <xwalk:field-mapping to="number">
