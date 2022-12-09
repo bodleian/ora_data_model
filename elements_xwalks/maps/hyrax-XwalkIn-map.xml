@@ -67,7 +67,7 @@ ISSUES:
           <xwalk:field-source data-part="file:proprietary-id" from="ora:filesetId" />
           <xwalk:field-source data-part="file:url" from="symp:hasPublicUrl" />
           <xwalk:field-source data-part="file:name" from="dc:title" />
-          <xwalk:field-source data-part="file:mime-type" from="foxml:datastream" />
+          <xwalk:field-source data-part="file:mime-type" from="dc:format" />
           <xwalk:field-source data-part="file:size" from="dcterms:extent" />
           <xwalk:field-source data-part="file:version" from="rioxxterms:version" />
           <xwalk:field-source data-part="file:embargo-release-date" from="oxds:embargoedUntil" />
