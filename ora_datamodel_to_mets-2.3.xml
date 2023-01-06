@@ -17,6 +17,9 @@
     
     CHANGELOG
     =========
+    06/01/2023: Corrected 'license' fields typo: these are wrongly named in MODS, 
+                but consistently so. They are corrected in the crosswalks to point to the
+                correct data model fields.
     17/11/2022: Corrected manufacturer typo
     28/07/2022: Added rights_retention_statement_included
     25/03/2021: Added ora_collection, doi_requested, data_responsibility
@@ -252,10 +255,10 @@
                 
                     <!-- RIGHTS and LICENCES -->
                     <!-- Includes ORA deposit licence. See also CONTRIBUTIONS AND ROLES: COPYRIGHT HOLDER -->
-                    <mods:accessCondition type="license">field:license</mods:accessCondition>
-                    <mods:accessCondition type="license_statement">field:license_statement</mods:accessCondition>
-                    <mods:accessCondition type="license_start_date">field:license_start_date</mods:accessCondition>
-                    <mods:accessCondition type="license_url">field:license_url</mods:accessCondition>
+                    <mods:accessCondition type="license">field:licence</mods:accessCondition>
+                    <mods:accessCondition type="license_statement">field:licence_statement</mods:accessCondition>
+                    <mods:accessCondition type="license_start_date">field:licence_start_date</mods:accessCondition>
+                    <mods:accessCondition type="license_url">field:licence_url</mods:accessCondition>
                     <mods:accessCondition type="record_ora_deposit_licence">field:record_ora_deposit_licence</mods:accessCondition> 
                     <mods:accessCondition type="rights_statement">field:rights_statement</mods:accessCondition>
                     <!-- /RECORD METADATA -->
