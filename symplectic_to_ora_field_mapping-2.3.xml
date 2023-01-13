@@ -13,6 +13,7 @@
     
     Changelog
     =========
+    13/01/2022: Updated fields for dataset integration. publisher-url, notes, and new fields prefixed with c-
     15/11/22: Updated publisher-url (https://gitlab.bodleian.ox.ac.uk/ORA4/ora_data_model/-/issues/197)
     24/08/21: added new SE preprint type
     25/03/21: Added collection, doi_requested, data_responsibility to ORA Datamodel 2.2, no mappings yet
@@ -160,6 +161,39 @@
         
         <symplectic_field name="c-apc"><ora_field>apc_admin_apc_requested</ora_field><note>New field mapping for 2.1</note></symplectic_field>
         
+        <symplectic_field name="authors">
+            <ora_field>contributors</ora_field>
+            <ora_note>In ORA authors would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+        </symplectic_field>
+        
+        <symplectic_field name="c-supervisors">
+            <ora_field>contributors</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field></symplectic_field>
+            <ora_note>In ORA supervisors would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+        </symplectic_field>
+        
+        <symplectic_field name="c-principal-investigators">
+            <ora_field>contributors</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field>
+            <ora_note>In ORA principal-investigators would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+        </symplectic_field>
+        
+        <symplectic_field name="c-co-investigators">
+            <ora_field>contributors</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field>
+            <ora_note>In ORA co-investigators would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+        </symplectic_field>
+        
+        <symplectic_field name="c-rights-holder">
+            <ora_field>contributors</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field>
+            <ora_note>In ORA co-investigators would have a role attribute, with contributors__contributor_roles__role_title="author" and contributors__contributor_roles__role_order denoting their position in the author order</ora_note>
+        </symplectic_field>
+        
+
+        <symplectic_field name="c-doi-request"><ora_field>doi_requested</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field>
+        <symplectic_field name="c-data-management-url"><ora_field>data_management_plan_url</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field>
+        <symplectic_field name="c-data-responsibility"><ora_field>data-responsibility-role</ora_field><Note>New fields for datasets, but not dataset specific</Note></symplectic_field>
+        
+        <symplectic_field name="c-notes-2"><ora_field>deposit_note</ora_field><Note>New fields for datasets, but not dataset specific. Labelled 'Additional notes' in Elements</Note></symplectic_field>
+
+        
         <symplectic_field name="collections"><no_mapping /></symplectic_field>
         
         <symplectic_field name="commissioning-body"><ora_field>commissioning_body</ora_field></symplectic_field>
@@ -241,7 +275,7 @@
             <if test="record is Conference item/any or Composition/performance"><ora_field>event_title</ora_field></if>
 
         
-        <symplectic_field name="notes"><ora_field>deposit_note</ora_field><note>As other fields write to additional information, this should be appended to the additional_information value and not replace it</note></symplectic_field>
+        <symplectic_field name="notes"><ora_field>additional_information</ora_field><note>Original note says:'As other fields write to additional information, this should be appended to the additional_information value and not replace it'. However I don't think we can append. With datasets integration, we are mapping Notes field to ORA 'Additional_information' (DS).</note></symplectic_field>
         
         <symplectic_field name="number">
             <if test="record is a Book Chapter"><ora_field>chapter_number</ora_field></if>
@@ -315,9 +349,11 @@
         <symplectic_field name="publisher-url">
             <if test="type_of_work == 'device/product'"><ora_field>manufacturer_website_url</ora_field></if>
             <if test="type_of_work == 'conference paper'"><ora_field>event_website_url</ora_field></if>
+            <if test="type_of_work == 'dataset'"><ora_field>digital-data-storage-location</ora_field></if>
             <else><ora_field>publication_website_url</ora_field></else>
         </symplectic_field>
-
+        
+        
 
         
         <symplectic_field name="record-made-public-at-source-date"><ora_field>record_publication_date</ora_field></symplectic_field>
