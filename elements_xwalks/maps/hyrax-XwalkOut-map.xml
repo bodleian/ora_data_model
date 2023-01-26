@@ -184,9 +184,18 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       </xwalk:field-mapping>
       <xwalk:field-mapping to="extension">
         <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
-          <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="apc" />
+          <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="booleans" />
+          <xwalk:field-source from="c-rights-retention" subfield="ora_open_access_admin:rights_retention_statement_included" />
         </xwalk:field-source>
       </xwalk:field-mapping>
+<!-- 
+      <xwalk:field-mapping to="extension">
+        <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
+          <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="apc" />
+        </xwalk:field-source>
+
+      </xwalk:field-mapping>
+       -->
     </xwalk:field-map>
     <xwalk:field-map name="common-fields-map">
       <xwalk:include-field-map name="contributors" />
@@ -268,12 +277,10 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
               <xwalk:field-source subfield="titleInfo">
                 <xwalk:field-source from="name-of-conference" subfield="title" />
               </xwalk:field-source>
-              
               <xwalk:field-source subfield="location">
                 <xwalk:field-source from="location" subfield="physicalLocation" />
                 <xwalk:field-source from="publisher-url" subfield="url" />
               </xwalk:field-source>
-              
               <xwalk:field-source subfield="originInfo">
                 <xwalk:field-source subfield="dateOther">
                   <xwalk:field-source subfield="@point" value="start" />
@@ -415,8 +422,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
                     <xwalk:field-source from="publisher-url" />
                   </xwalk:field-source>
                 </xwalk:field-source>
-                
-                
               </xwalk:result>
             </xwalk:if>
           </xwalk:result>
@@ -457,7 +462,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
                       <xwalk:field-source from="publisher-url" />
                     </xwalk:field-source>
                   </xwalk:field-source>
-                  
                 </xwalk:result>
               </xwalk:if>
             </xwalk:result>
@@ -1441,6 +1445,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
     <xwalk:value-map name="apc">
       <xwalk:value-mapping from="Yes" to="yes" />
       <xwalk:value-mapping from="No" to="no" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="booleans">
+      <xwalk:value-mapping from="true" to="Yes" />
+      <xwalk:value-mapping from="false" to="No" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="thesis-degree-levels">
