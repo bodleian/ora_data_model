@@ -371,7 +371,7 @@
                         <mods:role>
                             <mods:roleTerm type="text">Manufacturer</mods:roleTerm>
                         </mods:role>
-                        <mods:nameIdentifier type="website">field:manufactuer_website_url</mods:nameIdentifier>
+                        <mods:nameIdentifier type="website">field:manufacturer_website_url</mods:nameIdentifier>
                     </mods:name>
                     
                     <!-- PUBLISHER -->

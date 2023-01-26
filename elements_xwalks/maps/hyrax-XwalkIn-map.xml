@@ -5,6 +5,8 @@ ISSUES:
 
  -->
   <!--Changelog
+20/02/23: Added Rights Retention in QA
+09/12/22: For Discovery updated to <xwalk:field-source data-part="file:mime-type" from="dc:format" /
 16/11/22: Udate publisher-url (GitLab Issue #197)
 10/08/2022: Update publisher-url to placeTerm
 12/05/2022: Added 'Case note' subtype for journal articles
@@ -67,7 +69,7 @@ ISSUES:
           <xwalk:field-source data-part="file:proprietary-id" from="ora:filesetId" />
           <xwalk:field-source data-part="file:url" from="symp:hasPublicUrl" />
           <xwalk:field-source data-part="file:name" from="dc:title" />
-          <xwalk:field-source data-part="file:mime-type" from="foxml:datastream" />
+          <xwalk:field-source data-part="file:mime-type" from="dc:format" />
           <xwalk:field-source data-part="file:size" from="dcterms:extent" />
           <xwalk:field-source data-part="file:version" from="rioxxterms:version" />
           <xwalk:field-source data-part="file:embargo-release-date" from="oxds:embargoedUntil" />
@@ -205,8 +207,6 @@ ISSUES:
         <xwalk:field-source from="/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type='code']" select-using="xpath" />
       </xwalk:field-mapping>
       Updated below 16/11/22-->
-      
-      
       <xwalk:field-mapping to="publisher-url">
         <xwalk:choose>
           <xwalk:when>
@@ -223,7 +223,6 @@ ISSUES:
             <xwalk:result>
               <!--<xwalk:field-source from="/*/mods:name[@type='corporate' and string(mods:role/mods:roleTerm) = 'Manufacturer']/mods:displayForm" select-using="xpath" />-->
               <xwalk:field-source from="/*/mods:name[@type='corporate' and string(mods:role/mods:roleTerm) = 'Manufacturer']/mods:nameIdentifier[@type='website']" select-using="xpath" />
-              
             </xwalk:result>
           </xwalk:when>
           <xwalk:otherwise>
@@ -233,8 +232,6 @@ ISSUES:
           </xwalk:otherwise>
         </xwalk:choose>
       </xwalk:field-mapping>
-      
-      
       <xwalk:field-mapping to="number">
         <xwalk:choose>
           <xwalk:when>
@@ -361,6 +358,9 @@ ISSUES:
       <!--move to OA?-->
       <xwalk:field-mapping to="c-apc">
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath" value-map="apc" />
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="c-rights-retention">
+        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:rights_retention_statement_included" select-using="xpath" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="version">
         <xwalk:choose>
@@ -621,6 +621,11 @@ ISSUES:
     <xwalk:value-map name="apc">
       <xwalk:value-mapping from="yes" to="Yes" />
       <xwalk:value-mapping from="no" to="No" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="booleans">
+      <xwalk:value-mapping from="Yes" to="true" />
+      <xwalk:value-mapping from="No" to="false" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="dash-hyphen" matchMode="anyPosition">
