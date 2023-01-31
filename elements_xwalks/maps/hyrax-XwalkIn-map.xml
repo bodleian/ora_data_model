@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
   <!--
 ISSUES:
 
  -->
   <!--Changelog
+
+30/01/23: Updated booleans value map (for rights retention)
 20/02/23: Added Rights Retention in QA
 09/12/22: For Discovery updated to <xwalk:field-source data-part="file:mime-type" from="dc:format" /
 16/11/22: Udate publisher-url (GitLab Issue #197)
@@ -359,8 +360,8 @@ ISSUES:
       <xwalk:field-mapping to="c-apc">
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:apc_admin_apc_requested" select-using="xpath" value-map="apc" />
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="c-rights-retention">
-        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:rights_retention_statement_included" select-using="xpath" />
+      <xwalk:field-mapping to="c-rights-retention-statement">
+        <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_open_access_admin:ref_admin/ora_open_access_admin:rights_retention_statement_included" select-using="xpath" value-map = "booleans"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="version">
         <xwalk:choose>
@@ -624,8 +625,8 @@ ISSUES:
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="booleans">
-      <xwalk:value-mapping from="Yes" to="true" />
-      <xwalk:value-mapping from="No" to="false" />
+      <xwalk:value-mapping from="yes" to="Yes" />
+      <xwalk:value-mapping from="no" to="No" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="dash-hyphen" matchMode="anyPosition">

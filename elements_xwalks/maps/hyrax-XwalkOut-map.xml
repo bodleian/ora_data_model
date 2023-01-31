@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
 
@@ -11,6 +10,7 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+30/01/23: Updated rights retention statement and booleans value map
 16/11/22: Added to subfield location <xwalk:field-source from="publisher-url" subfield="url" /> (GitLab Issue #197)
 10/08/2022: 
 - Do publisher url even where no online date
@@ -185,10 +185,10 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:field-mapping to="extension">
         <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
           <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="booleans" />
-          <xwalk:field-source from="c-rights-retention" subfield="ora_open_access_admin:rights_retention_statement_included" />
+          <xwalk:field-source from="c-rights-retention-statement" subfield="ora_open_access_admin:rights_retention_statement_included" value-map="booleans"/>
         </xwalk:field-source>
       </xwalk:field-mapping>
-<!-- 
+      <!--
       <xwalk:field-mapping to="extension">
         <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
           <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="apc" />
@@ -1448,8 +1448,8 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="booleans">
-      <xwalk:value-mapping from="true" to="Yes" />
-      <xwalk:value-mapping from="false" to="No" />
+      <xwalk:value-mapping from="Yes" to="yes" />
+      <xwalk:value-mapping from="No" to="no" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="thesis-degree-levels">
