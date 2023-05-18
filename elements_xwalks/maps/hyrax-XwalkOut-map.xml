@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
 
@@ -10,6 +11,26 @@ Device /Product - map to new subtype 'Device/Product' when available, post relea
 Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. abcd:1234 -><identifier type="abcd">1234</identifier>-->
   <!--CHANGELOG
 Initial changes not logged.
+
+***
+18/05/23: Fix abstract -> description for datasets
+15/05/23: Removed supervisor for datasets
+24/02/23: Corrected 'Co-investigator' to 'Co-Investigator' as required by ORA
+23/02/23: xwalk 'Principal Investigator (PI)' as type as opposed to 'Principal Investigator'
+15/02/23: 
+- Updated booleans map to have two - one for t/f (doi requested booleans field) and one for y/n (rights retention choice field)
+- removed c-apc xwalk
+01/02/2023 Added for datasets:
+12/01/23: Updating abstract, notes to refelect new mapping
+11/01/23: Corrected funding acknowledgement
+10/01/23: Debugged new dataset fields
+06/01/23:
+- type to subtype mappings: new subtype 'media'
+- for datasets, abstract -> summary documentation
+- Added new rights r'etention statement included' boolean
+
+***
+
 30/01/23: Updated rights retention statement and booleans value map
 16/11/22: Added to subfield location <xwalk:field-source from="publisher-url" subfield="url" /> (GitLab Issue #197)
 10/08/2022: 
@@ -179,23 +200,20 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source subfield="@type" value="confidential_report" />
           <xwalk:field-source from="confidential" />
           <xwalk:field-source subfield="@type" value="deposit_note" />
-          <xwalk:field-source from="notes" />
+          <xwalk:field-source from="c-notes-2" />
         </xwalk:field-source>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="extension">
         <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
-          <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="booleans" />
-          <xwalk:field-source from="c-rights-retention-statement" subfield="ora_open_access_admin:rights_retention_statement_included" value-map="booleans"/>
+          <xwalk:field-source from="c-rights-retention-statement" subfield="ora_open_access_admin:rights_retention_statement_included" value-map="booleans_yn" />
         </xwalk:field-source>
       </xwalk:field-mapping>
-      <!--
+      <!-- added for datasets-->
       <xwalk:field-mapping to="extension">
-        <xwalk:field-source subfield="ora_open_access_admin:ref_admin">
-          <xwalk:field-source from="c-apc" subfield="ora_open_access_admin:apc_admin_apc_requested" value-map="apc" />
+        <xwalk:field-source subfield="ora_admin:admin">
+          <xwalk:field-source from="c-doi-request" subfield="ora_admin:doi_requested" value-map="booleans_tf" />
         </xwalk:field-source>
-
       </xwalk:field-mapping>
-       -->
     </xwalk:field-map>
     <xwalk:field-map name="common-fields-map">
       <xwalk:include-field-map name="contributors" />
@@ -362,6 +380,10 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source from="language" />
         </xwalk:field-source>
       </xwalk:field-mapping>
+      <xwalk:field-mapping to="note">
+        <xwalk:field-source subfield="@displayLabel" value="additional_information" />
+        <xwalk:field-source from="notes" />
+      </xwalk:field-mapping>
       <xwalk:field-mapping to="abstract">
         <xwalk:if>
           <xwalk:condition operator="or">
@@ -369,17 +391,28 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:condition argument-field="object.type" operator="equals">c-device-product</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">artefact</xwalk:condition>
             <xwalk:condition argument-field="object.type" operator="equals">c-ephemera</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">software</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">design</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">media</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">figure</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">fileset</xwalk:condition>
           </xwalk:condition>
           <xwalk:result>
             <xwalk:field-source subfield="@type" value="summary_documentation" />
+            <xwalk:field-source from="abstract" />
           </xwalk:result>
+          <xwalk:else>
+            <xwalk:result>
+              <xwalk:field-source from="abstract" />
+            </xwalk:result>
+          </xwalk:else>
         </xwalk:if>
-        <xwalk:field-source from="abstract" />
       </xwalk:field-mapping>
-      <xwalk:field-mapping to="note">
+      <!--<xwalk:field-mapping to="note">
         <xwalk:field-source subfield="@displayLabel" value="additional_information" />
         <xwalk:field-source data-part="funding-acknowledgements:acknowledgement-text" from="funding-acknowledgements" />
-      </xwalk:field-mapping>
+      </xwalk:field-mapping> -->
       <!-- TODO: Event -->
       <!-- Identifier mappings imported -->
       <xwalk:field-mapping to="originInfo">
@@ -450,7 +483,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
               <xwalk:if>
                 <xwalk:condition operator="not">
                   <xwalk:condition operator="or">
-                    <xwalk:condition argument-field="object.type" operator="equals">conference</xwalk:condition>
                     <xwalk:condition argument-field="object.type" operator="equals">performance</xwalk:condition>
                     <xwalk:condition argument-field="object.type" operator="equals">presentation</xwalk:condition>
                   </xwalk:condition>
@@ -527,7 +559,10 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source subfield="ora_admin:funding">
             <xwalk:field-source subfield="ora_admin:funder_grant">
               <xwalk:field-source subfield="ora_admin:grant_identifier">
-                <xwalk:field-source data-part="funding-acknowledgements-grant:id" from="funding-acknowledgements" />
+                <!--                 <xwalk:field-source data-part="funding-acknowledgements-grant:id" from="funding-acknowledgements" /> -->
+                <xwalk:field-source data-part="funding-acknowledgements:grant" from="funding-acknowledgements">
+                  <xwalk:field-source data-part="funding-acknowledgements-grant:id" />
+                </xwalk:field-source>
               </xwalk:field-source>
             </xwalk:field-source>
           </xwalk:field-source>
@@ -553,6 +588,17 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source value="Publisher" />
           </xwalk:field-source>
         </xwalk:field-source>
+      </xwalk:field-mapping>
+      <!-- Added for datasets -->
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source subfield="@type" value="corporate" />
+        <xwalk:field-source from="c-rights-holder" subfield="displayForm" />
+        <xwalk:field-source subfield="role">
+          <xwalk:field-source subfield="roleTerm">
+            <xwalk:field-source subfield="@type" value="text" />
+            <xwalk:field-source value="Copyright holder" />
+          </xwalk:field-source>
+        </xwalk:field-source>
         <!-- Removed as publisher-url now goes to origin info
         <xwalk:field-source subfield="nameIdentifier">
           <xwalk:field-source subfield="@type" value="website" />
@@ -568,116 +614,247 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
     <!-- Author contributor metadata -->
     <xwalk:field-map name="contributors">
       <xwalk:field-mapping to="name">
-        <xwalk:field-source subfield="@type" value="personal" />
-        <!--<xwalk:field-source from="authors">-->
-        <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath">
-          <xwalk:field-source format="person:firstnames-lastname" subfield="displayForm" />
-          <xwalk:field-source subfield="namePart">
-            <xwalk:field-source subfield="@type" value="given" />
-            <xwalk:field-source data-part="person:firstnames" />
-          </xwalk:field-source>
-          <xwalk:field-source subfield="namePart">
-            <xwalk:field-source subfield="@type" value="family" />
-            <xwalk:field-source data-part="person:lastname" />
-          </xwalk:field-source>
-          <xwalk:field-source subfield="alternativeName">
-            <xwalk:field-source subfield="@altType" value="initials" />
-            <xwalk:field-source data-part="person:initials" subfield="namePart" />
-          </xwalk:field-source>
-          <xwalk:field-source subfield="nameIdentifier">
-            <xwalk:field-source subfield="@type" value="email_address" />
-            <!-- There are a few email address sources we could use, but we only want to use one. -->
-            <!-- So, build a list, but state that the output is not a list -->
-            <xwalk:field-source is-list="false">
-              <xwalk:field-source data-part="person:resolved-user">
-                <xwalk:field-source from="user.email-address" />
+        <!-- ENTER DATASETS HERE
+
+    IF STATEMENT-->
+        <xwalk:if>
+          <xwalk:condition operator="or">
+            <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">fileset</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">figure</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">media</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">software</xwalk:condition>
+            <xwalk:condition argument-field="object.type" operator="equals">design</xwalk:condition>
+          </xwalk:condition>
+          <xwalk:result>
+            <xwalk:field-source subfield="@type" value="personal" />
+            <!--<xwalk:field-source from="authors">-->
+            <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath">
+              <xwalk:field-source format="person:firstnames-lastname" subfield="displayForm" />
+              <xwalk:field-source subfield="namePart">
+                <xwalk:field-source subfield="@type" value="given" />
+                <xwalk:field-source data-part="person:firstnames" />
               </xwalk:field-source>
-              <xwalk:field-source data-part="person:email-address" />
-            </xwalk:field-source>
-          </xwalk:field-source>
-          <!-- First map stuff from the resolved Elements user -->
-          <xwalk:field-source data-part="person:resolved-user" subfield="nameIdentifier">
-            <xwalk:field-source from="user.identifiers" value-map="remove-irrelevant-identifiers">
-              <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
-              <xwalk:field-source data-part="identifier:value" />
-            </xwalk:field-source>
-            <xwalk:field-source>
-              <xwalk:field-source subfield="@type" value="sso" />
-              <xwalk:field-source from="user.username" />
-            </xwalk:field-source>
-          </xwalk:field-source>
-          <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
-          <xwalk:field-source subfield="nameIdentifier">
-            <xwalk:field-source data-part="person:identifier">
-              <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
-              <xwalk:field-source data-part="identifier:value" />
-            </xwalk:field-source>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="affiliation">
-            <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
-              <xwalk:field-source subfield="ora:affiliationComponent">
-                <!-- TODO: field:contributors__institution_identifier -->
-                <xwalk:field-source>
-                  <xwalk:field-source subfield="@type" value="division" />
-                  <xwalk:field-source from="user.generic01" />
+              <xwalk:field-source subfield="namePart">
+                <xwalk:field-source subfield="@type" value="family" />
+                <xwalk:field-source data-part="person:lastname" />
+              </xwalk:field-source>
+              <xwalk:field-source subfield="alternativeName">
+                <xwalk:field-source subfield="@altType" value="initials" />
+                <xwalk:field-source data-part="person:initials" subfield="namePart" />
+              </xwalk:field-source>
+              <xwalk:field-source subfield="nameIdentifier">
+                <xwalk:field-source subfield="@type" value="email_address" />
+                <!-- There are a few email address sources we could use, but we only want to use one. -->
+                <!-- So, build a list, but state that the output is not a list -->
+                <xwalk:field-source is-list="false">
+                  <xwalk:field-source data-part="person:resolved-user">
+                    <xwalk:field-source from="user.email-address" />
+                  </xwalk:field-source>
+                  <xwalk:field-source data-part="person:email-address" />
                 </xwalk:field-source>
               </xwalk:field-source>
-              <xwalk:field-source subfield="ora:affiliationComponent">
+              <!-- First map stuff from the resolved Elements user -->
+              <xwalk:field-source data-part="person:resolved-user" subfield="nameIdentifier">
+                <xwalk:field-source from="user.identifiers" value-map="remove-irrelevant-identifiers">
+                  <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+                  <xwalk:field-source data-part="identifier:value" />
+                </xwalk:field-source>
                 <xwalk:field-source>
-                  <xwalk:field-source subfield="@type" value="department" />
-                  <xwalk:field-source from="user.primary-group-descriptor" />
+                  <xwalk:field-source subfield="@type" value="sso" />
+                  <xwalk:field-source from="user.username" />
                 </xwalk:field-source>
               </xwalk:field-source>
-              <xwalk:field-source subfield="ora:affiliationComponent">
-                <xwalk:field-source>
-                  <xwalk:field-source subfield="@type" value="sub_department" />
-                  <xwalk:field-source from="user.generic07" />
+              <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
+              <xwalk:field-source subfield="nameIdentifier">
+                <xwalk:field-source data-part="person:identifier">
+                  <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+                  <xwalk:field-source data-part="identifier:value" />
                 </xwalk:field-source>
               </xwalk:field-source>
-              <xwalk:field-source subfield="ora:affiliationComponent">
-                <xwalk:field-source>
-                  <xwalk:field-source subfield="@type" value="oxford_college" />
-                  <xwalk:field-source from="user.generic03" />
+              <xwalk:field-source subfield="affiliation">
+                <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
+                  <xwalk:field-source subfield="ora:affiliationComponent">
+                    <!-- TODO: field:contributors__institution_identifier -->
+                    <xwalk:field-source>
+                      <xwalk:field-source subfield="@type" value="division" />
+                      <xwalk:field-source from="user.generic01" />
+                    </xwalk:field-source>
+                  </xwalk:field-source>
+                  <xwalk:field-source subfield="ora:affiliationComponent">
+                    <xwalk:field-source>
+                      <xwalk:field-source subfield="@type" value="department" />
+                      <xwalk:field-source from="user.primary-group-descriptor" />
+                    </xwalk:field-source>
+                  </xwalk:field-source>
+                  <xwalk:field-source subfield="ora:affiliationComponent">
+                    <xwalk:field-source>
+                      <xwalk:field-source subfield="@type" value="sub_department" />
+                      <xwalk:field-source from="user.generic07" />
+                    </xwalk:field-source>
+                  </xwalk:field-source>
+                  <xwalk:field-source subfield="ora:affiliationComponent">
+                    <xwalk:field-source>
+                      <xwalk:field-source subfield="@type" value="oxford_college" />
+                      <xwalk:field-source from="user.generic03" />
+                    </xwalk:field-source>
+                  </xwalk:field-source>
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="role">
+                <xwalk:field-source subfield="mods:extension">
+                  <!-- Since the outer field-source is selecting data using an XPath statement rather than the "native" field-selectors (i.e. from="authors"), -->
+                  <!-- the crosswalk engine has lost knowledge that this is a 'person-list' field. After all, the same XML could have easily been selected from -->
+                  <!-- a 'person' (singular) field. When the XPath selection *does* produce multiple nodes, the engine iterates over them and provides $list.index -->
+                  <!-- as the iteration index, but if the XPath selection only produced one value, then the engine has no way of knowing that the result was -->
+                  <!-- contained in a list of length 1, and so does not assign any value to $list.index. But *we* know that this selection targets a list. -->
+                  <!-- So, if we see that there is no value to $list.index, we use the value 1 for the role_order. -->
+                  <xwalk:if>
+                    <xwalk:condition operator="has-value" argument-field="$list.index" />
+                    <xwalk:result>
+                      <xwalk:field-source from="$list.index" subfield="ora:role_order" />
+                    </xwalk:result>
+                    <xwalk:else>
+                      <xwalk:result>
+                        <xwalk:field-source value="1" subfield="ora:role_order" />
+                      </xwalk:result>
+                    </xwalk:else>
+                  </xwalk:if>
+                </xwalk:field-source>
+                <xwalk:field-source subfield="roleTerm">
+                  <xwalk:field-source subfield="@type" value="text" />
+                  <xwalk:field-source value="Creator" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source data-part="person:resolved-user" subfield="role">
+                <xwalk:field-source from="user.depositor-type" subfield="mods:extension" value-map="is-deposit-related">
+                  <xwalk:field-source subfield="ora:role_order" value="1" />
+                </xwalk:field-source>
+                <xwalk:field-source subfield="roleTerm">
+                  <xwalk:field-source subfield="@type" value="text" />
+                  <xwalk:field-source from="user.depositor-type" value-map="depositor-type-to-role" />
                 </xwalk:field-source>
               </xwalk:field-source>
             </xwalk:field-source>
-          </xwalk:field-source>
-          <xwalk:field-source subfield="role">
-            <xwalk:field-source subfield="mods:extension">
-              <!-- Since the outer field-source is selecting data using an XPath statement rather than the "native" field-selectors (i.e. from="authors"), -->
-              <!-- the crosswalk engine has lost knowledge that this is a 'person-list' field. After all, the same XML could have easily been selected from -->
-              <!-- a 'person' (singular) field. When the XPath selection *does* produce multiple nodes, the engine iterates over them and provides $list.index -->
-              <!-- as the iteration index, but if the XPath selection only produced one value, then the engine has no way of knowing that the result was -->
-              <!-- contained in a list of length 1, and so does not assign any value to $list.index. But *we* know that this selection targets a list. -->
-              <!-- So, if we see that there is no value to $list.index, we use the value 1 for the role_order. -->
-              <xwalk:if>
-                <xwalk:condition operator="has-value" argument-field="$list.index" />
-                <xwalk:result>
-                  <xwalk:field-source from="$list.index" subfield="ora:role_order" />
-                </xwalk:result>
-                <xwalk:else>
-                  <xwalk:result>
-                    <xwalk:field-source value="1" subfield="ora:role_order" />
-                  </xwalk:result>
-                </xwalk:else>
-              </xwalk:if>
-            </xwalk:field-source>
-            <xwalk:field-source subfield="roleTerm">
-              <xwalk:field-source subfield="@type" value="text" />
-              <xwalk:field-source value="Author" />
-            </xwalk:field-source>
-          </xwalk:field-source>
-          <xwalk:field-source data-part="person:resolved-user" subfield="role">
-            <xwalk:field-source from="user.depositor-type" subfield="mods:extension" value-map="is-deposit-related">
-              <xwalk:field-source subfield="ora:role_order" value="1" />
-            </xwalk:field-source>
-            <xwalk:field-source subfield="roleTerm">
-              <xwalk:field-source subfield="@type" value="text" />
-              <xwalk:field-source from="user.depositor-type" value-map="depositor-type-to-role" />
-            </xwalk:field-source>
-          </xwalk:field-source>
-        </xwalk:field-source>
+          </xwalk:result>
+          <!--END DATASET
+      PART 2 author-->
+          <xwalk:else>
+            <xwalk:result>
+              <xwalk:field-source subfield="@type" value="personal" />
+              <!--<xwalk:field-source from="authors">-->
+              <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath">
+                <xwalk:field-source format="person:firstnames-lastname" subfield="displayForm" />
+                <xwalk:field-source subfield="namePart">
+                  <xwalk:field-source subfield="@type" value="given" />
+                  <xwalk:field-source data-part="person:firstnames" />
+                </xwalk:field-source>
+                <xwalk:field-source subfield="namePart">
+                  <xwalk:field-source subfield="@type" value="family" />
+                  <xwalk:field-source data-part="person:lastname" />
+                </xwalk:field-source>
+                <xwalk:field-source subfield="alternativeName">
+                  <xwalk:field-source subfield="@altType" value="initials" />
+                  <xwalk:field-source data-part="person:initials" subfield="namePart" />
+                </xwalk:field-source>
+                <xwalk:field-source subfield="nameIdentifier">
+                  <xwalk:field-source subfield="@type" value="email_address" />
+                  <!-- There are a few email address sources we could use, but we only want to use one. -->
+                  <!-- So, build a list, but state that the output is not a list -->
+                  <xwalk:field-source is-list="false">
+                    <xwalk:field-source data-part="person:resolved-user">
+                      <xwalk:field-source from="user.email-address" />
+                    </xwalk:field-source>
+                    <xwalk:field-source data-part="person:email-address" />
+                  </xwalk:field-source>
+                </xwalk:field-source>
+                <!-- First map stuff from the resolved Elements user -->
+                <xwalk:field-source data-part="person:resolved-user" subfield="nameIdentifier">
+                  <xwalk:field-source from="user.identifiers" value-map="remove-irrelevant-identifiers">
+                    <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+                    <xwalk:field-source data-part="identifier:value" />
+                  </xwalk:field-source>
+                  <xwalk:field-source>
+                    <xwalk:field-source subfield="@type" value="sso" />
+                    <xwalk:field-source from="user.username" />
+                  </xwalk:field-source>
+                </xwalk:field-source>
+                <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
+                <xwalk:field-source subfield="nameIdentifier">
+                  <xwalk:field-source data-part="person:identifier">
+                    <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+                    <xwalk:field-source data-part="identifier:value" />
+                  </xwalk:field-source>
+                </xwalk:field-source>
+                <xwalk:field-source subfield="affiliation">
+                  <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
+                    <xwalk:field-source subfield="ora:affiliationComponent">
+                      <!-- TODO: field:contributors__institution_identifier -->
+                      <xwalk:field-source>
+                        <xwalk:field-source subfield="@type" value="division" />
+                        <xwalk:field-source from="user.generic01" />
+                      </xwalk:field-source>
+                    </xwalk:field-source>
+                    <xwalk:field-source subfield="ora:affiliationComponent">
+                      <xwalk:field-source>
+                        <xwalk:field-source subfield="@type" value="department" />
+                        <xwalk:field-source from="user.primary-group-descriptor" />
+                      </xwalk:field-source>
+                    </xwalk:field-source>
+                    <xwalk:field-source subfield="ora:affiliationComponent">
+                      <xwalk:field-source>
+                        <xwalk:field-source subfield="@type" value="sub_department" />
+                        <xwalk:field-source from="user.generic07" />
+                      </xwalk:field-source>
+                    </xwalk:field-source>
+                    <xwalk:field-source subfield="ora:affiliationComponent">
+                      <xwalk:field-source>
+                        <xwalk:field-source subfield="@type" value="oxford_college" />
+                        <xwalk:field-source from="user.generic03" />
+                      </xwalk:field-source>
+                    </xwalk:field-source>
+                  </xwalk:field-source>
+                </xwalk:field-source>
+                <xwalk:field-source subfield="role">
+                  <xwalk:field-source subfield="mods:extension">
+                    <!-- Since the outer field-source is selecting data using an XPath statement rather than the "native" field-selectors (i.e. from="authors"), -->
+                    <!-- the crosswalk engine has lost knowledge that this is a 'person-list' field. After all, the same XML could have easily been selected from -->
+                    <!-- a 'person' (singular) field. When the XPath selection *does* produce multiple nodes, the engine iterates over them and provides $list.index -->
+                    <!-- as the iteration index, but if the XPath selection only produced one value, then the engine has no way of knowing that the result was -->
+                    <!-- contained in a list of length 1, and so does not assign any value to $list.index. But *we* know that this selection targets a list. -->
+                    <!-- So, if we see that there is no value to $list.index, we use the value 1 for the role_order. -->
+                    <xwalk:if>
+                      <xwalk:condition operator="has-value" argument-field="$list.index" />
+                      <xwalk:result>
+                        <xwalk:field-source from="$list.index" subfield="ora:role_order" />
+                      </xwalk:result>
+                      <xwalk:else>
+                        <xwalk:result>
+                          <xwalk:field-source value="1" subfield="ora:role_order" />
+                        </xwalk:result>
+                      </xwalk:else>
+                    </xwalk:if>
+                  </xwalk:field-source>
+                  <xwalk:field-source subfield="roleTerm">
+                    <xwalk:field-source subfield="@type" value="text" />
+                    <xwalk:field-source value="Author" />
+                  </xwalk:field-source>
+                </xwalk:field-source>
+                <xwalk:field-source data-part="person:resolved-user" subfield="role">
+                  <xwalk:field-source from="user.depositor-type" subfield="mods:extension" value-map="is-deposit-related">
+                    <xwalk:field-source subfield="ora:role_order" value="1" />
+                  </xwalk:field-source>
+                  <xwalk:field-source subfield="roleTerm">
+                    <xwalk:field-source subfield="@type" value="text" />
+                    <xwalk:field-source from="user.depositor-type" value-map="depositor-type-to-role" />
+                  </xwalk:field-source>
+                </xwalk:field-source>
+              </xwalk:field-source>
+            </xwalk:result>
+          </xwalk:else>
+        </xwalk:if>
       </xwalk:field-mapping>
+      <!--END AUTHOR-->
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal" />
         <xwalk:field-source from="editors">
@@ -1020,8 +1197,233 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:result>
         </xwalk:if>
       </xwalk:field-mapping>
+      <!--ADDED IN FOR DATASETS-->
+      
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source subfield="@type" value="personal" />
+        <xwalk:field-source from="c-principal-investigator">
+          <!--         <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath"> -->
+          <xwalk:field-source format="person:firstnames-lastname" subfield="displayForm" />
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source subfield="@type" value="given" />
+            <xwalk:field-source data-part="person:firstnames" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source subfield="@type" value="family" />
+            <xwalk:field-source data-part="person:lastname" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="alternativeName">
+            <xwalk:field-source subfield="@altType" value="initials" />
+            <xwalk:field-source data-part="person:initials" subfield="namePart" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="nameIdentifier">
+            <xwalk:field-source subfield="@type" value="email_address" />
+            <!-- There are a few email address sources we could use, but we only want to use one. -->
+            <!-- So, build a list, but state that the output is not a list -->
+            <xwalk:field-source is-list="false">
+              <xwalk:field-source data-part="person:resolved-user">
+                <xwalk:field-source from="user.email-address" />
+              </xwalk:field-source>
+              <xwalk:field-source data-part="person:email-address" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <!-- First map stuff from the resolved Elements user -->
+          <xwalk:field-source data-part="person:resolved-user" subfield="nameIdentifier">
+            <xwalk:field-source from="user.identifiers" value-map="remove-irrelevant-identifiers">
+              <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+              <xwalk:field-source data-part="identifier:value" />
+            </xwalk:field-source>
+            <xwalk:field-source>
+              <xwalk:field-source subfield="@type" value="sso" />
+              <xwalk:field-source from="user.username" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
+          <xwalk:field-source subfield="nameIdentifier">
+            <xwalk:field-source data-part="person:identifier">
+              <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+              <xwalk:field-source data-part="identifier:value" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <xwalk:field-source subfield="affiliation">
+            <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <!-- TODO: field:contributors__institution_identifier -->
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="division" />
+                  <xwalk:field-source from="user.generic01" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="department" />
+                  <xwalk:field-source from="user.primary-group-descriptor" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="sub_department" />
+                  <xwalk:field-source from="user.generic07" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="oxford_college" />
+                  <xwalk:field-source from="user.generic03" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <xwalk:field-source subfield="role">
+            <xwalk:field-source subfield="mods:extension">
+              <!-- Since the outer field-source is selecting data using an XPath statement rather than the "native" field-selectors (i.e. from="authors"), -->
+              <!-- the crosswalk engine has lost knowledge that this is a 'person-list' field. After all, the same XML could have easily been selected from -->
+              <!-- a 'person' (singular) field. When the XPath selection *does* produce multiple nodes, the engine iterates over them and provides $list.index -->
+              <!-- as the iteration index, but if the XPath selection only produced one value, then the engine has no way of knowing that the result was -->
+              <!-- contained in a list of length 1, and so does not assign any value to $list.index. But *we* know that this selection targets a list. -->
+              <!-- So, if we see that there is no value to $list.index, we use the value 1 for the role_order. -->
+              <xwalk:if>
+                <xwalk:condition operator="has-value" argument-field="$list.index" />
+                <xwalk:result>
+                  <xwalk:field-source from="$list.index" subfield="ora:role_order" />
+                </xwalk:result>
+                <xwalk:else>
+                  <xwalk:result>
+                    <xwalk:field-source value="1" subfield="ora:role_order" />
+                  </xwalk:result>
+                </xwalk:else>
+              </xwalk:if>
+            </xwalk:field-source>
+            <xwalk:field-source subfield="roleTerm">
+              <xwalk:field-source subfield="@type" value="text" />
+              <xwalk:field-source value="Principal Investigator (PI)" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <xwalk:field-source data-part="person:resolved-user" subfield="role">
+            <xwalk:field-source from="user.depositor-type" subfield="mods:extension" value-map="is-deposit-related">
+              <xwalk:field-source subfield="ora:role_order" value="1" />
+            </xwalk:field-source>
+            <xwalk:field-source subfield="roleTerm">
+              <xwalk:field-source subfield="@type" value="text" />
+              <xwalk:field-source from="user.depositor-type" value-map="depositor-type-to-role" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source subfield="@type" value="personal" />
+        <xwalk:field-source from="c-co-investigator">
+          <!--         <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath"> -->
+          <xwalk:field-source format="person:firstnames-lastname" subfield="displayForm" />
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source subfield="@type" value="given" />
+            <xwalk:field-source data-part="person:firstnames" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="namePart">
+            <xwalk:field-source subfield="@type" value="family" />
+            <xwalk:field-source data-part="person:lastname" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="alternativeName">
+            <xwalk:field-source subfield="@altType" value="initials" />
+            <xwalk:field-source data-part="person:initials" subfield="namePart" />
+          </xwalk:field-source>
+          <xwalk:field-source subfield="nameIdentifier">
+            <xwalk:field-source subfield="@type" value="email_address" />
+            <!-- There are a few email address sources we could use, but we only want to use one. -->
+            <!-- So, build a list, but state that the output is not a list -->
+            <xwalk:field-source is-list="false">
+              <xwalk:field-source data-part="person:resolved-user">
+                <xwalk:field-source from="user.email-address" />
+              </xwalk:field-source>
+              <xwalk:field-source data-part="person:email-address" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <!-- First map stuff from the resolved Elements user -->
+          <xwalk:field-source data-part="person:resolved-user" subfield="nameIdentifier">
+            <xwalk:field-source from="user.identifiers" value-map="remove-irrelevant-identifiers">
+              <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+              <xwalk:field-source data-part="identifier:value" />
+            </xwalk:field-source>
+            <xwalk:field-source>
+              <xwalk:field-source subfield="@type" value="sso" />
+              <xwalk:field-source from="user.username" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <!-- Then map stuff from the biliographic metadata. This may result in duplication of some identifiers -->
+          <xwalk:field-source subfield="nameIdentifier">
+            <xwalk:field-source data-part="person:identifier">
+              <xwalk:field-source data-part="identifier:scheme" subfield="@type" value-map="contributor-identifier-scheme" />
+              <xwalk:field-source data-part="identifier:value" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <xwalk:field-source subfield="affiliation">
+            <xwalk:field-source data-part="person:resolved-user" subfield="ora:affiliation">
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <!-- TODO: field:contributors__institution_identifier -->
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="division" />
+                  <xwalk:field-source from="user.generic01" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="department" />
+                  <xwalk:field-source from="user.primary-group-descriptor" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="sub_department" />
+                  <xwalk:field-source from="user.generic07" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+              <xwalk:field-source subfield="ora:affiliationComponent">
+                <xwalk:field-source>
+                  <xwalk:field-source subfield="@type" value="oxford_college" />
+                  <xwalk:field-source from="user.generic03" />
+                </xwalk:field-source>
+              </xwalk:field-source>
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <xwalk:field-source subfield="role">
+            <xwalk:field-source subfield="mods:extension">
+              <!-- Since the outer field-source is selecting data using an XPath statement rather than the "native" field-selectors (i.e. from="authors"), -->
+              <!-- the crosswalk engine has lost knowledge that this is a 'person-list' field. After all, the same XML could have easily been selected from -->
+              <!-- a 'person' (singular) field. When the XPath selection *does* produce multiple nodes, the engine iterates over them and provides $list.index -->
+              <!-- as the iteration index, but if the XPath selection only produced one value, then the engine has no way of knowing that the result was -->
+              <!-- contained in a list of length 1, and so does not assign any value to $list.index. But *we* know that this selection targets a list. -->
+              <!-- So, if we see that there is no value to $list.index, we use the value 1 for the role_order. -->
+              <xwalk:if>
+                <xwalk:condition operator="has-value" argument-field="$list.index" />
+                <xwalk:result>
+                  <xwalk:field-source from="$list.index" subfield="ora:role_order" />
+                </xwalk:result>
+                <xwalk:else>
+                  <xwalk:result>
+                    <xwalk:field-source value="1" subfield="ora:role_order" />
+                  </xwalk:result>
+                </xwalk:else>
+              </xwalk:if>
+            </xwalk:field-source>
+            <xwalk:field-source subfield="roleTerm">
+              <xwalk:field-source subfield="@type" value="text" />
+              <xwalk:field-source value="Co-Investigator" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+          <xwalk:field-source data-part="person:resolved-user" subfield="role">
+            <xwalk:field-source from="user.depositor-type" subfield="mods:extension" value-map="is-deposit-related">
+              <xwalk:field-source subfield="ora:role_order" value="1" />
+            </xwalk:field-source>
+            <xwalk:field-source subfield="roleTerm">
+              <xwalk:field-source subfield="@type" value="text" />
+              <xwalk:field-source from="user.depositor-type" value-map="depositor-type-to-role" />
+            </xwalk:field-source>
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <!-- END OF ADDED IN FOR DATASETS-->
     </xwalk:field-map>
-    <!-- Various persistent item-level identifiers (DOI, ISSN, etc) -->
+    <!-- Various persistent item level identifiers (DOI, ISSN, etc) -->
     <xwalk:field-map name="identifiers">
       <xwalk:field-mapping to="identifier">
         <xwalk:field-source subfield="@type" value="doi" />
@@ -1186,25 +1588,22 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
     <xwalk:field-map name="dataset-markup">
       <xwalk:include-field-map name="common-fields-map" />
       <xwalk:field-mapping to="extension">
-        <xwalk:if>
-          <xwalk:condition operator="and">
-            <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
-            <xwalk:condition argument-field="/api:push-object/api:object/api:view/api:field[@name='doi']/api:text" operator="has-value" select-using="xpath" />
-          </xwalk:condition>
-          <xwalk:result>
-            <xwalk:field-source subfield="ora_dataset:dataset">
-              <xwalk:field-source from="location" subfield="ora_dataset:digital_storage_location" />
-            </xwalk:field-source>
-          </xwalk:result>
-          <xwalk:else>
-            <xwalk:result>
-              <xwalk:field-source subfield="ora_dataset:dataset">
-                <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location" />
-              </xwalk:field-source>
-            </xwalk:result>
-          </xwalk:else>
-        </xwalk:if>
+        <xwalk:field-source subfield="ora_dataset:dataset">
+          <xwalk:field-source from="location" subfield="ora_dataset:physical_storage_location" />
+          <xwalk:field-source from="c-data-management-url" subfield="dcterms:references" />
+          <xwalk:field-source from="c-data-responsibility" subfield="ora_dataset:responsibility" />
+          <xwalk:field-source from="version" subfield="dc:version" />
+          <xwalk:field-source from="publisher-url" subfield="ora_dataset:digital_storage_location" />
+        </xwalk:field-source>
       </xwalk:field-mapping>
+      <!-- Added for datasets -->
+      <xwalk:field-mapping to="related_item">
+        <xwalk:field-source subfield="@otherType" value="related_item" />
+        <xwalk:field-source subfield="titleInfo">
+          <xwalk:field-source from="c-related" subfield="title" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      <!-- -->
     </xwalk:field-map>
     <xwalk:field-map name="confidential-report-markup">
       <xwalk:include-field-map name="common-fields-map">
@@ -1219,7 +1618,8 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         <xwalk:field-source value="Confidential report" />
       </xwalk:field-mapping>
     </xwalk:field-map>
-    <xwalk:field-map name="software-markup">
+    <!-- Removed with dataset new amendments> 
+   <xwalk:field-map name="software-markup">
       <xwalk:include-field-map name="common-fields-map" />
       <xwalk:include-field-map name="dataset-markup" />
       <xwalk:field-mapping to="extension">
@@ -1244,7 +1644,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:else>
         </xwalk:if>
       </xwalk:field-mapping>
-    </xwalk:field-map>
+    </xwalk:field-map>-->
     <xwalk:field-map name="thesis-markup">
       <xwalk:include-field-map name="common-fields-map" />
       <xwalk:field-mapping to="extension">
@@ -1369,7 +1769,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="c-translation" to="Translation" />
       <xwalk:value-mapping from="poster" to="Poster" />
       <xwalk:value-mapping from="presentation" to="Presentation" />
-      <xwalk:value-mapping from="figure" to="Media" />
+      <xwalk:value-mapping from="figure" to="Figure" />
       <xwalk:value-mapping from="fileset" to="Fileset" />
       <xwalk:value-mapping from="c-device-product" to="Device/Product" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
@@ -1447,9 +1847,14 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="No" to="no" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
-    <xwalk:value-map name="booleans">
+    <xwalk:value-map name="booleans_yn">
       <xwalk:value-mapping from="Yes" to="yes" />
       <xwalk:value-mapping from="No" to="no" />
+      <xwalk:otherwise-mapping action="ignore-this-value" />
+    </xwalk:value-map>
+    <xwalk:value-map name="booleans_tf">
+      <xwalk:value-mapping from="true" to="yes" />
+      <xwalk:value-mapping from="false" to="no" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map name="thesis-degree-levels">
@@ -1501,12 +1906,14 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-map-selection field-map="thesis-markup" />
         </xwalk:result>
       </xwalk:when>
-      <xwalk:when>
+      <!-- Removed with new dataset updates> 
+     <xwalk:when>
         <xwalk:condition argument-field="object.type" operator="equals">software</xwalk:condition>
         <xwalk:result>
           <xwalk:field-map-selection field-map="software-markup" />
         </xwalk:result>
       </xwalk:when>
+      -->
       <xwalk:when>
         <xwalk:condition argument-field="object.type" operator="equals">dataset</xwalk:condition>
         <xwalk:result>
