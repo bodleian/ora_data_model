@@ -4,6 +4,7 @@ ISSUES:
 
  -->
   <!--Changelog
+
 30/01/23: Updated booleans value map (for rights retention)
 20/02/23: Added Rights Retention in QA
 09/12/22: For Discovery updated to <xwalk:field-source data-part="file:mime-type" from="dc:format" /
