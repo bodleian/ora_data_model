@@ -13,6 +13,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+05/07/23: Correct Elements working paper naming in hyrax-work-type-mappings
 18/05/23: Fix abstract -> description for datasets
 15/05/23: Removed supervisor for datasets
 24/02/23: Corrected 'Co-investigator' to 'Co-Investigator' as required by ORA
@@ -1746,7 +1747,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="c-device-product" to="PhysicalObject" />
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
-      <xwalk:value-mapping from="working-paper" to="WorkingPaper" />
+      <xwalk:value-mapping from="c-report" to="WorkingPaper" />
       <xwalk:value-mapping from="preprint" to="InternetPublication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject" />
