@@ -132,7 +132,7 @@ ORA_Data_Model_Object = {
         "funder_identifier": "",
         "funder_name": ""
     }],
-    "language": "",
+    "language": [""],
     "keyword": [""],
     "pid": "",
     "ora_data_model_version": "",
