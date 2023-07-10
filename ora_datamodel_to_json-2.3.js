@@ -90,6 +90,7 @@ ORA_Data_Model_Object = {
         "file_version": ""    
     }],
     "contributors": [{
+        "contributor_record_identifier": "",
         "contributor_email": "",
         "contributor_identifiers": [{
             "contributor_identifier": "",
