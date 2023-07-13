@@ -72,6 +72,7 @@ ORA_Data_Model_Object = {
         "file_admin_access_condition_at_deposit": "",
         "file_admin_file_and_record_do_not_match": "",
         "file_admin_fedora3_datastream_identifier": "",
+        "file_admin_hyrax_fileset_identifier", "",
         "file_embargo_comment": "",
         "file_embargo_end_date": "",
         "file_embargo_period": "",
