@@ -189,6 +189,7 @@ ORA_Data_Model_Object = {
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
     "record_review_status": "",
+    "record_review_status_other": "",
     "rights_third_party_copyright_permission_received": "",
     "rt_ticket_number": [""],
     "thesis_archive_version_complete": "",
@@ -273,6 +274,7 @@ ORA_Data_Model_Object = {
     // PATENT_FIELDS
     "patent_awarded_date": "",
     "patent_application_number": "",
+    "patent_publication_number": "",
     "patent_cooperative_classification": "",
     "patent_european_classification": "",
     "patent_filed_date": "",
