@@ -35,7 +35,7 @@
             "file_embargo_reason": "",
             "file_embargo_release_method": "",
             "file_format": "",
-            "file_admin_hyrax_fileset_identifier", "",
+            "file_admin_hyrax_fileset_identifier": "",
             "file_last_access_request_date": "",
             "file_made_available_date": "",
             "file_name": "",
