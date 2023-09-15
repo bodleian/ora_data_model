@@ -21,7 +21,7 @@
      - binary_file__file_is_derivative_of
      - record_review_priority
      - related_data_location 
-     - object_version
+     - object_versions
        - version_identifier_doi
        - version_title
        - version_public_note
@@ -271,12 +271,12 @@
                     <!-- RECORD VERSIONS-->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
-                            <mods:title>field:object_version__version_title</mods:title>
+                            <mods:title>field:object_versions__version_title</mods:title>
                         </mods:titleInfo>
-                        <mods:identifier type="doi">field:object_version__version_identifier_doi</mods:identifier>
+                        <mods:identifier type="doi">field:object_versions__version_identifier_doi</mods:identifier>
                         <mods:recordInfo>
-                          <mods:recordCreationDate>field:object_version__version_created_date</mods:recordCreationDate>
-                          <mods:recordInfoNote>field:object_version__version_public_note</mods:recordInfoNote>
+                          <mods:recordCreationDate>field:object_versions__version_created_date</mods:recordCreationDate>
+                          <mods:recordInfoNote>field:object_versions__version_public_note</mods:recordInfoNote>
                         </mods:recordInfo>
                     </mods:relatedItem>
                 
