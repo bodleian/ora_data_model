@@ -19,7 +19,8 @@
     =========
     14/09/2023: Datamodel 2.4 conformance
      - binary_file__file_is_derivative_of
-     - record_review_priority 
+     - record_review_priority
+     - related_data_location 
     06/01/2023: Corrected 'license' fields typo: these are wrongly named in MODS, 
                 but consistently so. They are corrected in the crosswalks to point to the
                 correct data model fields.
@@ -254,6 +255,12 @@
                         </mods:titleInfo>
                         <mods:location><mods:url>field:related_items__related_item_url</mods:url></mods:location>
                         <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
+                    </mods:relatedItem>
+
+
+                    <!-- reference the location of data related to the work -->
+                    <mods:relatedItem type="references">
+                      <mods:location><mods:url>field:related_data_location</mods:url></mods:location>
                     </mods:relatedItem>
                 
                     <!-- RIGHTS and LICENCES -->
