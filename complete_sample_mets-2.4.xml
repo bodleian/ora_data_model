@@ -83,7 +83,7 @@
                     </mods:relatedItem>
                  
                     <!-- IDENTIFIERS -->
-                    <mods:identifier type="doi">10.1594/GFZ.GEOFON.gfz2009kciu</mods:identifier>
+                    <mods:identifier type="doi">10.1594/GFZ.GEOFON.gfz2009kciu/2</mods:identifier>
                     <mods:identifier type="eisbn">978-0-306-40615-7</mods:identifier>
                     <mods:identifier type="eissn">0378-5955</mods:identifier>
                     <mods:identifier type="isbn">0-306-40615-7</mods:identifier>
@@ -133,6 +133,19 @@
                     <mods:relatedItem type="references">
                         <mods:location><mods:url>https://related_data_location.com</mods:url></mods:location>
                     </mods:relatedItem>
+
+                    <!-- OBJECT VERSIONS -->
+                    <mods:relatedItem type="otherVersion">
+                         <mods:titleInfo>
+                            <mods:title>1.0</mods:title>
+                        </mods:titleInfo>
+                        <mods:identifier type="doi">10.1594/GFZ.GEOFON.gfz2009kciu</mods:identifier>
+                        <mods:recordInfo>
+                          <mods:recordCreationDate>2019-06-05</mods:recordCreationDate>
+                          <mods:recordInfoNote>Version created by owner for reason</mods:recordInfoNote>
+                        </mods:recordInfo>
+                    </mods:relatedItem>
+
                 
                     <!-- RIGHTS and LICENCES -->
                     <!-- Includes ORA deposit licence. See also CONTRIBUTIONS AND ROLES: COPYRIGHT HOLDER -->

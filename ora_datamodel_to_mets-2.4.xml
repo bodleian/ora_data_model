@@ -21,6 +21,11 @@
      - binary_file__file_is_derivative_of
      - record_review_priority
      - related_data_location 
+     - object_version
+       - version_identifier_doi
+       - version_title
+       - version_public_note
+       - version_created_date
     06/01/2023: Corrected 'license' fields typo: these are wrongly named in MODS, 
                 but consistently so. They are corrected in the crosswalks to point to the
                 correct data model fields.
@@ -261,6 +266,18 @@
                     <!-- reference the location of data related to the work -->
                     <mods:relatedItem type="references">
                       <mods:location><mods:url>field:related_data_location</mods:url></mods:location>
+                    </mods:relatedItem>
+
+                    <!-- RECORD VERSIONS-->
+                    <mods:relatedItem type="otherVersion">
+                         <mods:titleInfo>
+                            <mods:title>field:object_version__version_title</mods:title>
+                        </mods:titleInfo>
+                        <mods:identifier type="doi">field:object_version__version_identifier_doi</mods:identifier>
+                        <mods:recordInfo>
+                          <mods:recordCreationDate>field:object_version__version_created_date</mods:recordCreationDate>
+                          <mods:recordInfoNote>field:object_version__version_public_note</mods:recordInfoNote>
+                        </mods:recordInfo>
                     </mods:relatedItem>
                 
                     <!-- RIGHTS and LICENCES -->
