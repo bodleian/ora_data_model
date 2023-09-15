@@ -129,6 +129,10 @@
                         </mods:titleInfo>
                         <mods:note displayLabel="related_item_citation_text">Wrobel, TD, Related Item Two test citation</mods:note>
                     </mods:relatedItem>
+
+                    <mods:relatedItem type="references">
+                        <mods:location><mods:url>https://related_data_location.com</mods:url></mods:location>
+                    </mods:relatedItem>
                 
                     <!-- RIGHTS and LICENCES -->
                     <!-- Includes ORA deposit licence. See also CONTRIBUTIONS AND ROLES: COPYRIGHT HOLDER -->
