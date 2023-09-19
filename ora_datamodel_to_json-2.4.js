@@ -4,9 +4,9 @@
     (Note that JSON does not allow comments, which are useful here, so this is actually
     a JavaScript file. The conversion to JSON is, thankfully, trivial!)
 
-    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.1
+    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.4
   
-    For the changelog since v2.0rc4, see ora_datamodel_to_mods.xml
+    For the changelog (since v2.0rc4), see ora_datamodel_to_mods.xml
      
     Guidelines for this document:
     - single-valued fields are indicated by an empty string as the sample value
@@ -19,7 +19,7 @@
     - A single valued field with no value should be set to null, e.g. `"key": null`
     - A multiple valued field with no value should be set to an empty array, e.g. `"key": []`
     - There should be no empty strings `""` or empty objects `{}` (use null or [] as appropriate for the parent value
-    - All keys within a given object shall be present
+    - Only keys with set values a given object shall be present
     
     EXAMPLE OF BAD PRACTICE
         "abstract": "This is an abstract",
@@ -52,12 +52,7 @@
 
     EXAMPLE OF GOOD PRACTICE
         "abstract": "This is an abstract",
-        "alternative_title": null,
-        "keyword": [],
-        "binary_files": [],
         "related_items": [{
-            "related_item_citation_text": null,
-            "related_item_title": null,
             "related_item_url": "http://example.com"
         }], 
  */
@@ -76,6 +71,7 @@ ORA_Data_Model_Object = {
         "file_embargo_period": "",
         "file_embargo_reason": "",
         "file_embargo_release_method": "",
+        "file_is_derivative_of": "",
         "file_format": "",
         "file_last_access_request_date": "",
         "file_made_available_date": "",
@@ -134,6 +130,12 @@ ORA_Data_Model_Object = {
     "language": "",
     "keyword": [""],
     "pid": "",
+    "object_version": [{
+        "version_title": "",
+        "version_created_date": "",
+        "version_identifier_doi": "",
+        "version_public_note": ""
+    }],
     "ora_data_model_version": "",
     "pre_counter_downloads": "",
     "pre_counter_views": "",
@@ -150,6 +152,7 @@ ORA_Data_Model_Object = {
         "related_item_title": "",
         "related_item_url": ""
     }],
+    "related_data_location": "",
     "subject": [""],
     "summary_documentation": "",
     "tinypid": "",
@@ -186,6 +189,7 @@ ORA_Data_Model_Object = {
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
     "record_review_status": "",
+    "record_review_priority": "",
     "rights_third_party_copyright_permission_received": "",
     "rt_ticket_number": [""],
     "thesis_archive_version_complete": "",
