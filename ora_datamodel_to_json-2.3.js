@@ -4,9 +4,9 @@
     (Note that JSON does not allow comments, which are useful here, so this is actually
     a JavaScript file. The conversion to JSON is, thankfully, trivial!)
 
-    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.1
+    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.3
   
-    For the changelog since v2.0rc4, see ora_datamodel_to_mods.xml
+    For the changelog (since v2.0rc4), see ora_datamodel_to_mods.xml
      
     Guidelines for this document:
     - single-valued fields are indicated by an empty string as the sample value
