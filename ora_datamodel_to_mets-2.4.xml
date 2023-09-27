@@ -18,9 +18,9 @@
     CHANGELOG
     =========
     14/09/2023: Datamodel 2.4 conformance
-     - binary_file__file_is_derivative_of
+     - binary_files__file_version_of
      - record_review_priority
-     - related_data_location 
+     - related_items__related_item_statement 
      - object_versions
        - version_identifier_doi
        - version_title
@@ -260,12 +260,7 @@
                         </mods:titleInfo>
                         <mods:location><mods:url>field:related_items__related_item_url</mods:url></mods:location>
                         <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
-                    </mods:relatedItem>
-
-
-                    <!-- reference the location of data related to the work -->
-                    <mods:relatedItem type="references">
-                      <mods:location><mods:url>field:related_data_location</mods:url></mods:location>
+                        <mods:note displayLabel="related_item_statement">field:related_items__related_item_statement</mods:note>
                     </mods:relatedItem>
 
                     <!-- RECORD VERSIONS-->
@@ -607,7 +602,7 @@
                     <ora:embargoPeriod>field:binary_files__file_embargo_period</ora:embargoPeriod>
                     <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
-                    <dc:relation type="isFormatOf">field:binary_files__file_is_derivative_of</dc:relation>
+                    <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
                     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
                     <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
                     <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>

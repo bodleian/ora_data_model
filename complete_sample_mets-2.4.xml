@@ -121,6 +121,7 @@
                             <mods:title>First test related item</mods:title>
                         </mods:titleInfo>
                         <mods:location><mods:url>https://test.related-item.url.ac.uk/test</mods:url></mods:location>
+                        <mods:note displayLabel="related_item_statement">Related item statement</mods:note>
                     </mods:relatedItem>
                 
                     <mods:relatedItem otherType="related_item">
@@ -130,9 +131,6 @@
                         <mods:note displayLabel="related_item_citation_text">Wrobel, TD, Related Item Two test citation</mods:note>
                     </mods:relatedItem>
 
-                    <mods:relatedItem type="references">
-                        <mods:location><mods:url>https://related_data_location.com</mods:url></mods:location>
-                    </mods:relatedItem>
 
                     <!-- OBJECT VERSIONS -->
                     <mods:relatedItem type="otherVersion">

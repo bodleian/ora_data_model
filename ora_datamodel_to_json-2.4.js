@@ -34,6 +34,7 @@
             "file_embargo_period": "",
             "file_embargo_reason": "",
             "file_embargo_release_method": "",
+            "file_version_of": "",
             "file_format": "",
             "file_last_access_request_date": "",
             "file_made_available_date": "",
@@ -71,7 +72,7 @@ ORA_Data_Model_Object = {
         "file_embargo_period": "",
         "file_embargo_reason": "",
         "file_embargo_release_method": "",
-        "file_is_derivative_of": "",
+        "file_version_of": "",
         "file_format": "",
         "file_last_access_request_date": "",
         "file_made_available_date": "",
@@ -149,10 +150,10 @@ ORA_Data_Model_Object = {
     "record_version": "",
     "related_items": [{
         "related_item_citation_text": "",
+        "related_item_statement": "",
         "related_item_title": "",
         "related_item_url": ""
     }],
-    "related_data_location": "",
     "subject": [""],
     "summary_documentation": "",
     "tinypid": "",
