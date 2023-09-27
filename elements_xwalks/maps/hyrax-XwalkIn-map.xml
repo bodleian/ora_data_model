@@ -2,6 +2,8 @@
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
   <!--Changelog
 
+27/09/23: Prep for thesis harvest
+- Supervisor, thesis name, awarding institution, copyright date.
 15/03/23: 
 - Removed supervisor
 - Debugged funding acknowledgement (wasn't harveting funder name)
@@ -22,6 +24,7 @@
 - Added xwalks for new dataset fields in Elements
 - Locaton for datasets always from data_physical_storage_location
 **
+
 30/01/23: Updated booleans value map (for rights retention)
 20/02/23: Added Rights Retention in QA
 09/12/22: For Discovery updated to <xwalk:field-source data-part="file:mime-type" from="dc:format" /
@@ -182,6 +185,18 @@
           </xwalk:else>
         </xwalk:if>
       </xwalk:field-mapping>
+<!--       Added for thesis -->
+       <xwalk:field-mapping to="c-copyright-date">      
+       <xwalk:if>
+        <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
+          <xwalk:result>
+            <xwalk:field-source from="/mods:mods/mods:originInfo/mods:copyrightDate" select-using="xpath" />
+          </xwalk:result>
+        </xwalk:if>
+        </xwalk:field-mapping>
+          
+      
+      
       <xwalk:field-mapping to="publication-status">
         <xwalk:field-source from="/mods:mods/mods:relatedItem[@type = 'host']/mods:physicalDescription/mods:form[@type = 'status']" select-using="xpath" value-map="publication-status" />
       </xwalk:field-mapping>
@@ -203,7 +218,11 @@
       <xwalk:field-mapping to="c-notes-2">
         <xwalk:field-source from="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:recordInfo/mods:recordInfoNote[@type='deposit_note']" select-using="xpath" />
       </xwalk:field-mapping>
+      
+      
       <xwalk:field-mapping to="name-of-conference">
+<!-- 
+        prior to thesis
         <xwalk:if>
           <xwalk:condition operator="or">
             <xwalk:condition operator="and">
@@ -217,6 +236,31 @@
           </xwalk:result>
         </xwalk:if>
       </xwalk:field-mapping>
+ -->
+      
+      <xwalk:choose>
+      <xwalk:when>
+       <xwalk:condition operator="or">
+            <xwalk:condition operator="and">
+              <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Composition</xwalk:condition>
+              <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Performance</xwalk:condition>
+            </xwalk:condition>
+            <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Conference item</xwalk:condition>
+          </xwalk:condition>
+      <xwalk:result>
+       <xwalk:field-source from="/mods:mods/mods:relatedItem[@otherType = 'event']/mods:titleInfo/mods:title" select-using="xpath" />
+      </xwalk:result>
+      </xwalk:when>
+       <xwalk:when>
+       <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
+      <xwalk:result>
+       <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:institution" select-using="xpath" />
+      </xwalk:result>
+      </xwalk:when>   
+      </xwalk:choose>
+      </xwalk:field-mapping>
+      
+      
       <xwalk:field-mapping to="parent-title">
         <xwalk:field-source from="/mods:mods/mods:relatedItem[@type = 'host']/mods:titleInfo/mods:title" select-using="xpath" />
       </xwalk:field-mapping>
@@ -452,12 +496,24 @@
       </xwalk:field-mapping>
       <xwalk:field-mapping to="thesis-type">
         <xwalk:if>
-          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath" >Thesis</xwalk:condition>
           <xwalk:result>
-            <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:qualificationlevel" select-using="xpath" />
+            <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:qualificationlevel" select-using="xpath" value-map="thesis-degree-levels" />
           </xwalk:result>
         </xwalk:if>
       </xwalk:field-mapping>
+      
+      
+    <xwalk:field-mapping to="c-thesis-name">
+        <xwalk:if>
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
+          <xwalk:result>
+            <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:qualificationname" select-using="xpath" />
+          </xwalk:result>
+        </xwalk:if>
+      </xwalk:field-mapping>
+      
+      
     </xwalk:field-map>
     <xwalk:field-map name="contributors">
       <xwalk:field-mapping to="authors">
@@ -540,7 +596,7 @@
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-      <!-- ADDED IN FOR DATASETS, NEED TO CHECK VALUES FOPR ROLES. IF IT WORKS, REPEAT FOR CO-PI, PI-->
+      <!-- ADDED IN FOR DATASETS-->
       
       <xwalk:field-mapping to="c-principal-investigator">
         <xwalk:field-source from="/mods:mods/mods:name[@type = 'personal' and mods:role/mods:roleTerm/text() = 'Principal Investigator (PI)']" select-using="xpath">
@@ -590,7 +646,33 @@
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
+      
+      <!-- Added in for Theses -->
+      
+       <xwalk:field-mapping to="c-supervisor">
+        <xwalk:field-source from="/mods:mods/mods:name[@type = 'personal' and mods:role/mods:roleTerm/text() = 'Supervisor']" select-using="xpath">
+          <xwalk:field-source data-part="person:firstnames" from="/*/mods:namePart[@type = 'given']" select-using="xpath" />
+          <xwalk:field-source data-part="person:lastname" from="/*/mods:namePart[@type = 'family']" select-using="xpath" />
+          <!-- Workaround author ordering issue - GitHub issue 181 (https://github.com/tomwrobel/ora_data_model/issues/181), support ticket https://support.symplectic.co.uk/a/tickets/260733. -->
+          <!-- Map the relevant role_order for this author to a data-part which is not used for output: person:id (this data-part only normally takes effect) during deposit xwalks. -->
+          <!-- This value will be used in an overriden XSL template which will be added to the Custom\hyrax-XwalkIn.xsl file, which will apply a sort before rendering author-list fields. -->
+          <xwalk:field-source data-part="list:sort-integer" from="/*/mods:role[mods:roleTerm/text() = 'Translator']/mods:extension/ora:role_order" select-using="xpath" />
+          <xwalk:field-source data-part="person:identifier" from="nameIdentifier">
+            <xwalk:field-source data-part="identifier:scheme" from="@type" value-map="name-identifier" />
+            <xwalk:field-source data-part="identifier:value" from="." />
+          </xwalk:field-source>
+          <xwalk:field-source data-part="person:address" from="/*/mods:affiliation/ora:affiliation" select-using="xpath">
+            <xwalk:field-source data-part="address:organisation" from="/*/ora:affiliationComponent[@type='institution']" select-using="xpath" />
+            <xwalk:field-source data-part="address:suborganisation" from="/*/ora:affiliationComponent[@type='department']" select-using="xpath" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      
+      
+      
       <xwalk:field-mapping to="associated-authors">
+      
+      <!-- Harvest to Elements Associated Authors from a range of ORA roles -->
         
         <xwalk:field-source from="/mods:mods/mods:name[@type = 'personal' and mods:role/mods:roleTerm/text() = 'Contributor']" select-using="xpath">
           <xwalk:field-source data-part="person:firstnames" from="/*/mods:namePart[@type = 'given']" select-using="xpath" />
@@ -875,6 +957,16 @@
       <xwalk:value-mapping from="–" to="-" />
       <!--From U+2013 : EN DASH -> U+002D : HYPHEN-MINUS -->
     </xwalk:value-map>
+    
+     <xwalk:value-map name="thesis-degree-levels">
+      <xwalk:value-mapping from="Doctoral" to="PhD Thesis" />
+      <xwalk:value-mapping from="Masters" to="Master's Thesis"  />
+      <xwalk:value-mapping from="Bachelors" to="Undergraduate Dissertation"  />
+      <xwalk:value-mapping from="Undergraduate" to="Undergraduate Dissertation"  />
+      <xwalk:otherwise-mapping action="continue" />
+    </xwalk:value-map>
+    
+    
   </xwalk:value-maps>
   <xwalkin:object-type-selector>
     <xwalk:choose>
