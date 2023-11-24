@@ -179,7 +179,7 @@ A tokenised string value is a string that comes from a limited list of legitimat
 - Where possible, tokenised values shall be separated by semicolons
 
 Specific rules
-- `history__automatically_updated_fields` shall contain an alphabetically semi-colon separated list of updated values in their extended format, as specified above, with no padded whilespace, e.g. `subject;record_publication_date;keyword`
+- `history__automatically_updated_fields` shall contain an alphabetically ordered semi-colon separated list of updated values in their extended format, as specified above, with no padded whilespace, e.g. `subject;record_publication_date;keyword`
 - `language` shall be stored and serialized as a string, which equate to the language name value in ISO 639-2 or 639-3, e.g. "English", "French, Old (842–ca. 1400)"
 - `subjects` shall be FAST subject headings stored and serialized as a string
 -- Validation of FAST subjects is a post migration task
