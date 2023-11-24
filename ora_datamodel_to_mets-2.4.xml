@@ -17,6 +17,8 @@
     
     CHANGELOG
     =========
+    24/11/2023: Datamodel 2.4.1
+     - history__automatically_updated_fields
     14/09/2023: Datamodel 2.4 conformance
      - binary_files__file_version_of
      - record_review_priority
@@ -682,6 +684,7 @@
                                    <ora_admin:history_action>
                                        <dc:keyword>field:history__action_category</dc:keyword>
                                        <mods:note>field:history__action_comment</mods:note>
+                                       <mods:note type="automatically_updated_fields">history__automatically_updated_fields</note>
                                        <dc:date>field:history__action_date</dc:date>
                                        <dc:description>field:history__action_description</dc:description>
                                        <dcterms:temporal>field:history__action_duration</dcterms:temporal>

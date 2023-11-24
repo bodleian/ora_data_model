@@ -176,7 +176,8 @@ ORA_Data_Model_Object = {
         "action_date": "",
         "action_description": "",
         "action_duration": "",
-        "action_responsibility": ""
+        "action_responsibility": "",
+        "automatically_updated_fields": ""
     }],
     "ora_collection": [""],
     "record_accept_updates": "",

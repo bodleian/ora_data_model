@@ -171,13 +171,15 @@ The property binary_files__file_path, if used, should point to a binary file loc
 ### Tokenised string values
 A tokenised string value is a string that comes from a limited list of legitimate values, e.g "English", "Open access", "38b"
 
-- The string values stored and serialized for a field will be specified the data model spreadsheet or linked to from it.
+- The string values stored and serialized for a field will be specified in the data model spreadsheet or linked to from it.
 -- This value can be converted for solrization or intermediate format purposes!
 - The spreadsheet shall indicate where a value is a tokenised value, and the location of the list of valid values and their display equivalents where relevant
 -- In linked YML files, the `id` shall be the value, the `term` is what is displayed to the user at a given time
 - These tokenised values will become part of the datamodel
+- Where possible, tokenised values shall be separated by semicolons
 
 Specific rules
+- `history__automatically_updated_fields` shall contain an alphabetically semi-colon separated list of updated values in their extended format, as specified above, with no padded whilespace, e.g. `subject;record_publication_date;keyword`
 - `language` shall be stored and serialized as a string, which equate to the language name value in ISO 639-2 or 639-3, e.g. "English", "French, Old (842–ca. 1400)"
 - `subjects` shall be FAST subject headings stored and serialized as a string
 -- Validation of FAST subjects is a post migration task
