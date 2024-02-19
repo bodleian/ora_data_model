@@ -16,6 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+19/02/2024: Add deposit comment (append to embargo comment)
 26/09/23: Updated following ORA data model, in prep for theses impport
 - Thesis name
 - Copright date
@@ -166,7 +167,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source from="file.name" subfield="dc:title" />
           <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions" />
           <xwalk:field-source from="version" subfield="dcterms:hasVersion" />
-          <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment" />
+	  <xwalk:field-source subfield="ora:embargoComment" concatenate-with-separator=" (Deposit comment). Embargo comment: ">
+            <xwalk:field-source from="deposit.comment" />
+            <xwalk:field-source from="requested-embargo.comment" />
+          </xwalk:field-source>
+          
           <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" />
         </xwalk:result>
         <xwalk:else>
