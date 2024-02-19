@@ -178,7 +178,10 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:result>
             <xwalk:field-source from="file.name" subfield="dc:title" />
             <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions" />
-            <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment" />
+            <xwalk:field-source subfield="ora:embargoComment" concatenate-with-separator=" (Deposit comment). Embargo comment: ">
+              <xwalk:field-source from="deposit.comment" />
+              <xwalk:field-source from="requested-embargo.comment" />
+            </xwalk:field-source>
             <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" />
           </xwalk:result>
         </xwalk:else>
