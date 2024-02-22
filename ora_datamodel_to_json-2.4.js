@@ -249,7 +249,7 @@ ORA_Data_Model_Object = {
     "event_website_url": "",
 
     // IDENTIFIERS
-    "identifier_doi": "",
+    "identifier_doi": [],
     "identifier_eisbn": "",
     "identifier_eissn": "",
     "identifier_isbn10": "",
