@@ -132,7 +132,7 @@
                     </mods:relatedItem>
 
 
-                    <!-- OBJECT VERSIONS -->
+                    <!-- ORA RECORD VERSIONS -->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
                             <mods:title>1.0</mods:title>
@@ -539,6 +539,7 @@
                     <ora:embargoReleaseMethod>Automatic release</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>Publisher request</ora:reasonForEmbargo>
                     <dc:relation type="isFormatOf">r123453<dc:relation>
+                    <ora:fileRequestable>automatically_available_to_oxford</ora:fileRequestable>
                     <ora:lastAccessRequestDate>2019-07-01</ora:lastAccessRequestDate>
                     <ali:free_to_read start_date="2019-06-02" />
                     <ora:fileOrder>1</ora:fileOrder>

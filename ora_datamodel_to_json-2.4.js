@@ -80,6 +80,7 @@ ORA_Data_Model_Object = {
         "file_order": "",
         "file_path": "",
         "file_public_url": "",
+        "file_requestable": "",
         "file_rioxx_file_version": "",
         "file_sha1": "",
         "file_size": "",
@@ -131,7 +132,7 @@ ORA_Data_Model_Object = {
     "language": "",
     "keyword": [""],
     "pid": "",
-    "object_versions": [{
+    "ora_versions": [{
         "version_title": "",
         "version_created_date": "",
         "version_identifier_doi": "",

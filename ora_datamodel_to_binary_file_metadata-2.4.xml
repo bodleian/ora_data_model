@@ -21,6 +21,7 @@
     <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
     <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
     <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
+    <ora:fileRequestable>field:binary_files__file_requestable</ora:fileRequestable>
     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
     <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
     <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>

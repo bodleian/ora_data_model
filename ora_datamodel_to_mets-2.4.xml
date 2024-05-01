@@ -17,6 +17,9 @@
     
     CHANGELOG
     =========
+    01/05/2024: Datamodel 2.4.2
+      - object_versions now ora_versions
+      - binary_files__file_requestable
     24/11/2023: Datamodel 2.4.1
      - history__automatically_updated_fields
     14/09/2023: Datamodel 2.4 conformance
@@ -265,15 +268,15 @@
                         <mods:note displayLabel="related_item_statement">field:related_items__related_item_statement</mods:note>
                     </mods:relatedItem>
 
-                    <!-- RECORD VERSIONS-->
+                    <!-- ORA RECORD VERSIONS-->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
-                            <mods:title>field:object_versions__version_title</mods:title>
+                            <mods:title>field:ora_versions__version_title</mods:title>
                         </mods:titleInfo>
-                        <mods:identifier type="doi">field:object_versions__version_identifier_doi</mods:identifier>
+                        <mods:identifier type="doi">field:ora_versions__version_identifier_doi</mods:identifier>
                         <mods:recordInfo>
-                          <mods:recordCreationDate>field:object_versions__version_created_date</mods:recordCreationDate>
-                          <mods:recordInfoNote>field:object_versions__version_public_note</mods:recordInfoNote>
+                          <mods:recordCreationDate>field:ora_versions__version_created_date</mods:recordCreationDate>
+                          <mods:recordInfoNote>field:ora_versions__version_public_note</mods:recordInfoNote>
                         </mods:recordInfo>
                     </mods:relatedItem>
                 
@@ -605,6 +608,7 @@
                     <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
                     <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
+                    <ora:fileRequestable>field:binary_files__file_requestable</ora:fileRequestable>
                     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
                     <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
                     <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
