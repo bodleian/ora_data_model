@@ -132,7 +132,7 @@ ORA_Data_Model_Object = {
     "language": "",
     "keyword": [""],
     "pid": "",
-    "object_versions": [{
+    "ora_versions": [{
         "version_title": "",
         "version_created_date": "",
         "version_identifier_doi": "",
