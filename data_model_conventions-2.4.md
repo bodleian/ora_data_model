@@ -60,8 +60,9 @@ The object properties themselves are specified in the data model spreadsheet.
 ## Field value conventions
 
 Contents:
-- Keys should always be set
+- Keys should NOT always be set
 - Where a scalar value is not set
+- Binary file paths
 - Boolean or trinary values
 - Date values
 - Date/time values
@@ -72,9 +73,9 @@ Contents:
 - URLs
 - Work types
 
-### Keys should always be set
+### Keys should NOT always be set
 
-For any dictionary/hash object, e.g. a contributor, a funder, an ORA object, all the keys for that object shall be present in all output
+For any dictionary/hash object, e.g. a contributor, a funder, an ORA object, previous advice was that all the keys for that object shall be present in all output. However, this rule was being completely ignored in XML and makes exported JSON longer and less useful than the shortened version
 - If no value is present for that key, then the rules 'Where a scalar value is not set' or 'Where a list is empty' shall be followed.
 
 EXAMPLE OF BAD PRACTICE (JSON)
@@ -113,12 +114,7 @@ EXAMPLE OF GOOD PRACTICE (Python)
 
 ```Python
     "abstract": "This is an abstract",
-    "alternative_title": None,  # Empty single valued fields should be None or local equivalent
-    "keyword": [],  # Empty multivalued fields should be an empty Array or local equivalent
-    "binary_files": [],  # Don't pass empty objects
     "related_items": [{
-        "related_item_citation_text": None,  # All keys should be set
-        "related_item_title": None,
         "related_item_url": "http://example.com"
     }],
 ``` 
@@ -127,17 +123,21 @@ EXAMPLE OF GOOD PRACTICE (Python)
 
 The handling for an unset value is dependent on the environment.
 
-- In code, it should be expressed as the value of the language primitive for null values: e.g. `None` (python), `Nil` (Ruby), `null` (Javascript)
+- In code, it can be expressed as the value of the language primitive for null values: e.g. `None` (python), `Nil` (Ruby), `null` (Javascript)
 - In XML serialisation it should not be expressed at all - i.e. in XML the value will not be present, rather than <mods:identifier type="isbn10"/>
-- In Solr, the value should not be set
-- In JSON serialisation, the `null` primitive should be used
+- In Solr, the key should not be set
+- In JSON serialisation, the key should nto be set
 
 ### Where a list is empty
 
 - In code, it should be expressed as the value of the empty list/array object: '[]'
 - In XML serialisation it should not be expressed at all - i.e. in XML the value will not be present, rather than <ora_admin:history/>
-- In Solr, the value should not be set
-- In JSON serialisation, the empty list should be used
+- In Solr, the key should not be set
+- In JSON serialisation, the key should not be set
+
+### Binary file paths
+
+The property binary_files__file_path, if used, should point to a binary file location which allows retrieval of that binary file. Where metadata is being sent to an external service, it should be a file location usable by that external service. Where serialized for preservation terms, it should contain the location of the server on which the file is stored. If stored within an OCFL location, this will not be possible, as the conventional file path may not be known or predicable (cf. https://ocfl.io/0.9/spec/#example-object-diff-paths). However, within any specific OCFL-aware content system, the binary file will be retrievable from its identifier + the identifier of its parent object; as a result this value SHOULD be set to a the OCFL logical file path relative to the object. In current ORA DPS practice, this would be the fileset id of the binary file.
 
 ### Boolean or trinary values
 
@@ -171,13 +171,15 @@ The handling for an unset value is dependent on the environment.
 ### Tokenised string values
 A tokenised string value is a string that comes from a limited list of legitimate values, e.g "English", "Open access", "38b"
 
-- The string values stored and serialized for a field will be specified the data model spreadsheet or linked to from it.
+- The string values stored and serialized for a field will be specified in the data model spreadsheet or linked to from it.
 -- This value can be converted for solrization or intermediate format purposes!
 - The spreadsheet shall indicate where a value is a tokenised value, and the location of the list of valid values and their display equivalents where relevant
 -- In linked YML files, the `id` shall be the value, the `term` is what is displayed to the user at a given time
 - These tokenised values will become part of the datamodel
+- Where possible, tokenised values shall be separated by semicolons
 
 Specific rules
+- `history__automatically_updated_fields` shall contain an alphabetically ordered semi-colon separated list of updated values in their extended format, as specified above, with no padded whilespace, e.g. `subject;record_publication_date;keyword`
 - `language` shall be stored and serialized as a string, which equate to the language name value in ISO 639-2 or 639-3, e.g. "English", "French, Old (842–ca. 1400)"
 - `subjects` shall be FAST subject headings stored and serialized as a string
 -- Validation of FAST subjects is a post migration task

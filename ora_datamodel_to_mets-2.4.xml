@@ -17,11 +17,13 @@
     
     CHANGELOG
     =========
+    24/11/2023: Datamodel 2.4.1
+     - history__automatically_updated_fields
     14/09/2023: Datamodel 2.4 conformance
-     - binary_file__file_is_derivative_of
+     - binary_files__file_version_of
      - record_review_priority
-     - related_data_location 
-     - object_version
+     - related_items__related_item_statement 
+     - object_versions
        - version_identifier_doi
        - version_title
        - version_public_note
@@ -260,23 +262,18 @@
                         </mods:titleInfo>
                         <mods:location><mods:url>field:related_items__related_item_url</mods:url></mods:location>
                         <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
-                    </mods:relatedItem>
-
-
-                    <!-- reference the location of data related to the work -->
-                    <mods:relatedItem type="references">
-                      <mods:location><mods:url>field:related_data_location</mods:url></mods:location>
+                        <mods:note displayLabel="related_item_statement">field:related_items__related_item_statement</mods:note>
                     </mods:relatedItem>
 
                     <!-- RECORD VERSIONS-->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
-                            <mods:title>field:object_version__version_title</mods:title>
+                            <mods:title>field:object_versions__version_title</mods:title>
                         </mods:titleInfo>
-                        <mods:identifier type="doi">field:object_version__version_identifier_doi</mods:identifier>
+                        <mods:identifier type="doi">field:object_versions__version_identifier_doi</mods:identifier>
                         <mods:recordInfo>
-                          <mods:recordCreationDate>field:object_version__version_created_date</mods:recordCreationDate>
-                          <mods:recordInfoNote>field:object_version__version_public_note</mods:recordInfoNote>
+                          <mods:recordCreationDate>field:object_versions__version_created_date</mods:recordCreationDate>
+                          <mods:recordInfoNote>field:object_versions__version_public_note</mods:recordInfoNote>
                         </mods:recordInfo>
                     </mods:relatedItem>
                 
@@ -607,7 +604,7 @@
                     <ora:embargoPeriod>field:binary_files__file_embargo_period</ora:embargoPeriod>
                     <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
-                    <dc:relation type="isFormatOf">field:binary_files__file_is_derivative_of</dc:relation>
+                    <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
                     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
                     <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
                     <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
@@ -687,6 +684,7 @@
                                    <ora_admin:history_action>
                                        <dc:keyword>field:history__action_category</dc:keyword>
                                        <mods:note>field:history__action_comment</mods:note>
+                                       <mods:note type="automatically_updated_fields">history__automatically_updated_fields</note>
                                        <dc:date>field:history__action_date</dc:date>
                                        <dc:description>field:history__action_description</dc:description>
                                        <dcterms:temporal>field:history__action_duration</dcterms:temporal>

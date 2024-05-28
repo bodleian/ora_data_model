@@ -29,11 +29,13 @@
             "file_admin_access_condition_at_deposit": "",
             "file_admin_file_and_record_do_not_match": "",
             "file_admin_fedora3_datastream_identifier": "",
+            "file_admin_hyrax_fileset_identifier": "",
             "file_embargo_comment": "",
             "file_embargo_end_date": "",
             "file_embargo_period": "",
             "file_embargo_reason": "",
             "file_embargo_release_method": "",
+            "file_version_of": "",
             "file_format": "",
             "file_last_access_request_date": "",
             "file_made_available_date": "",
@@ -71,7 +73,7 @@ ORA_Data_Model_Object = {
         "file_embargo_period": "",
         "file_embargo_reason": "",
         "file_embargo_release_method": "",
-        "file_is_derivative_of": "",
+        "file_version_of": "",
         "file_format": "",
         "file_last_access_request_date": "",
         "file_made_available_date": "",
@@ -130,7 +132,7 @@ ORA_Data_Model_Object = {
     "language": "",
     "keyword": [""],
     "pid": "",
-    "object_version": [{
+    "object_versions": [{
         "version_title": "",
         "version_created_date": "",
         "version_identifier_doi": "",
@@ -149,10 +151,10 @@ ORA_Data_Model_Object = {
     "record_version": "",
     "related_items": [{
         "related_item_citation_text": "",
+        "related_item_statement": "",
         "related_item_title": "",
         "related_item_url": ""
     }],
-    "related_data_location": "",
     "subject": [""],
     "summary_documentation": "",
     "tinypid": "",
@@ -175,7 +177,8 @@ ORA_Data_Model_Object = {
         "action_date": "",
         "action_description": "",
         "action_duration": "",
-        "action_responsibility": ""
+        "action_responsibility": "",
+        "automatically_updated_fields": ""
     }],
     "ora_collection": [""],
     "record_accept_updates": "",
@@ -247,7 +250,7 @@ ORA_Data_Model_Object = {
     "event_website_url": "",
 
     // IDENTIFIERS
-    "identifier_doi": "",
+    "identifier_doi": [],
     "identifier_eisbn": "",
     "identifier_eissn": "",
     "identifier_isbn10": "",
