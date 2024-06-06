@@ -2,6 +2,7 @@
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
   <!--Changelog
 
+06/06/2024: Added value map to remove value FFR (admin code used by ORA) from keywords
 27/09/23: Prep for thesis harvest
 - Supervisor, thesis name, awarding institution, copyright date.
 15/03/23: 
@@ -158,7 +159,7 @@
         <xwalk:field-source from="titleInfo/title" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="keywords">
-        <xwalk:field-source from="subject/genre" />
+        <xwalk:field-source from="subject/genre"  value-map = "keywords"/>
       </xwalk:field-mapping>
       <xwalk:field-mapping to="field-47">
         <xwalk:field-source from="titleInfo/subTitle" />
@@ -185,16 +186,16 @@
           </xwalk:else>
         </xwalk:if>
       </xwalk:field-mapping>
-<!--       Added for thesis -->
-       <xwalk:field-mapping to="c-copyright-date">      
-       <xwalk:if>
-        <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
+      <!--       Added for thesis -->
+      <xwalk:field-mapping to="c-copyright-date">
+        <xwalk:if>
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
           <xwalk:result>
             <xwalk:field-source from="/mods:mods/mods:originInfo/mods:copyrightDate" select-using="xpath" />
           </xwalk:result>
         </xwalk:if>
-        </xwalk:field-mapping>
-          
+      </xwalk:field-mapping>
+      
       
       
       <xwalk:field-mapping to="publication-status">
@@ -221,7 +222,7 @@
       
       
       <xwalk:field-mapping to="name-of-conference">
-<!-- 
+        <!--
         prior to thesis
         <xwalk:if>
           <xwalk:condition operator="or">
@@ -237,27 +238,27 @@
         </xwalk:if>
       </xwalk:field-mapping>
  -->
-      
-      <xwalk:choose>
-      <xwalk:when>
-       <xwalk:condition operator="or">
-            <xwalk:condition operator="and">
-              <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Composition</xwalk:condition>
-              <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Performance</xwalk:condition>
+        
+        <xwalk:choose>
+          <xwalk:when>
+            <xwalk:condition operator="or">
+              <xwalk:condition operator="and">
+                <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Composition</xwalk:condition>
+                <xwalk:condition argument-field="/*/mods:genre[@type='sub_type_of_work']" operator="equals" select-using="xpath">Performance</xwalk:condition>
+              </xwalk:condition>
+              <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Conference item</xwalk:condition>
             </xwalk:condition>
-            <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Conference item</xwalk:condition>
-          </xwalk:condition>
-      <xwalk:result>
-       <xwalk:field-source from="/mods:mods/mods:relatedItem[@otherType = 'event']/mods:titleInfo/mods:title" select-using="xpath" />
-      </xwalk:result>
-      </xwalk:when>
-       <xwalk:when>
-       <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
-      <xwalk:result>
-       <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:institution" select-using="xpath" />
-      </xwalk:result>
-      </xwalk:when>   
-      </xwalk:choose>
+            <xwalk:result>
+              <xwalk:field-source from="/mods:mods/mods:relatedItem[@otherType = 'event']/mods:titleInfo/mods:title" select-using="xpath" />
+            </xwalk:result>
+          </xwalk:when>
+          <xwalk:when>
+            <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
+            <xwalk:result>
+              <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:institution" select-using="xpath" />
+            </xwalk:result>
+          </xwalk:when>
+        </xwalk:choose>
       </xwalk:field-mapping>
       
       
@@ -496,7 +497,7 @@
       </xwalk:field-mapping>
       <xwalk:field-mapping to="thesis-type">
         <xwalk:if>
-          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath" >Thesis</xwalk:condition>
+          <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
           <xwalk:result>
             <xwalk:field-source from="/mods:mods/mods:extension/uketd_dc:uketddc/uketdterms:qualificationlevel" select-using="xpath" value-map="thesis-degree-levels" />
           </xwalk:result>
@@ -504,7 +505,7 @@
       </xwalk:field-mapping>
       
       
-    <xwalk:field-mapping to="c-thesis-name">
+      <xwalk:field-mapping to="c-thesis-name">
         <xwalk:if>
           <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Thesis</xwalk:condition>
           <xwalk:result>
@@ -649,7 +650,7 @@
       
       <!-- Added in for Theses -->
       
-       <xwalk:field-mapping to="c-supervisor">
+      <xwalk:field-mapping to="c-supervisor">
         <xwalk:field-source from="/mods:mods/mods:name[@type = 'personal' and mods:role/mods:roleTerm/text() = 'Supervisor']" select-using="xpath">
           <xwalk:field-source data-part="person:firstnames" from="/*/mods:namePart[@type = 'given']" select-using="xpath" />
           <xwalk:field-source data-part="person:lastname" from="/*/mods:namePart[@type = 'family']" select-using="xpath" />
@@ -671,8 +672,8 @@
       
       
       <xwalk:field-mapping to="associated-authors">
-      
-      <!-- Harvest to Elements Associated Authors from a range of ORA roles -->
+        
+        <!-- Harvest to Elements Associated Authors from a range of ORA roles -->
         
         <xwalk:field-source from="/mods:mods/mods:name[@type = 'personal' and mods:role/mods:roleTerm/text() = 'Contributor']" select-using="xpath">
           <xwalk:field-source data-part="person:firstnames" from="/*/mods:namePart[@type = 'given']" select-using="xpath" />
@@ -958,14 +959,19 @@
       <!--From U+2013 : EN DASH -> U+002D : HYPHEN-MINUS -->
     </xwalk:value-map>
     
-     <xwalk:value-map name="thesis-degree-levels">
+    <xwalk:value-map name="thesis-degree-levels">
       <xwalk:value-mapping from="Doctoral" to="PhD Thesis" />
-      <xwalk:value-mapping from="Masters" to="Master's Thesis"  />
-      <xwalk:value-mapping from="Bachelors" to="Undergraduate Dissertation"  />
-      <xwalk:value-mapping from="Undergraduate" to="Undergraduate Dissertation"  />
+      <xwalk:value-mapping from="Masters" to="Master's Thesis" />
+      <xwalk:value-mapping from="Bachelors" to="Undergraduate Dissertation" />
+      <xwalk:value-mapping from="Undergraduate" to="Undergraduate Dissertation" />
       <xwalk:otherwise-mapping action="continue" />
     </xwalk:value-map>
     
+    <xwalk:value-map name="keywords">
+      <xwalk:value-mapping action="ignore-this-value" from="FFR" />
+      <xwalk:value-mapping action="ignore-this-value" from="ffr" />
+      <xwalk:otherwise-mapping action="continue" />
+    </xwalk:value-map>
     
   </xwalk:value-maps>
   <xwalkin:object-type-selector>
