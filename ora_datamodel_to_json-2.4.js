@@ -132,12 +132,6 @@ ORA_Data_Model_Object = {
     "language": "",
     "keyword": [""],
     "pid": "",
-    "ora_versions": [{
-        "version_title": "",
-        "version_created_date": "",
-        "version_identifier_doi": "",
-        "version_public_note": ""
-    }],
     "ora_data_model_version": "",
     "pre_counter_downloads": "",
     "pre_counter_views": "",
@@ -161,6 +155,12 @@ ORA_Data_Model_Object = {
     "title": "",
     "sub_type_of_work": "",
     "type_of_work": "",
+    "versions": [{
+        "version_title": "",
+        "version_created_date": "",
+        "version_identifier_doi": "",
+        "version_public_note": ""
+    }],
 
     // ADMIN FIELDS
     "admin_incorrect_version_deposited": "",
