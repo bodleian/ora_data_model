@@ -35,6 +35,7 @@
             "file_embargo_reason": "",
             "file_embargo_release_method": "",
             "file_format": "",
+            "file_admin_hyrax_fileset_identifier": "",
             "file_last_access_request_date": "",
             "file_made_available_date": "",
             "file_name": "",
@@ -66,6 +67,7 @@ ORA_Data_Model_Object = {
         "file_admin_access_condition_at_deposit": "",
         "file_admin_file_and_record_do_not_match": "",
         "file_admin_fedora3_datastream_identifier": "",
+        "file_admin_hyrax_fileset_identifier", "",
         "file_embargo_comment": "",
         "file_embargo_end_date": "",
         "file_embargo_period": "",
@@ -85,6 +87,7 @@ ORA_Data_Model_Object = {
         "file_version": ""    
     }],
     "contributors": [{
+        "contributor_record_identifier": "",
         "contributor_email": "",
         "contributor_identifiers": [{
             "contributor_identifier": "",
@@ -98,6 +101,7 @@ ORA_Data_Model_Object = {
         "family_name": "",
         "given_names": "",
         "initials": "",
+        "institution_identifier": "",
         "institution": "",
         "institutional_identifier": "",
         "ora3_affiliation": "",
@@ -127,7 +131,7 @@ ORA_Data_Model_Object = {
         "funder_identifier": "",
         "funder_name": ""
     }],
-    "language": "",
+    "language": [""],
     "keyword": [""],
     "pid": "",
     "ora_data_model_version": "",
@@ -182,6 +186,7 @@ ORA_Data_Model_Object = {
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
     "record_review_status": "",
+    "record_review_status_other": "",
     "rights_third_party_copyright_permission_received": "",
     "rt_ticket_number": [""],
     "thesis_archive_version_complete": "",
@@ -266,6 +271,7 @@ ORA_Data_Model_Object = {
     // PATENT_FIELDS
     "patent_awarded_date": "",
     "patent_application_number": "",
+    "patent_publication_number": "",
     "patent_cooperative_classification": "",
     "patent_european_classification": "",
     "patent_filed_date": "",

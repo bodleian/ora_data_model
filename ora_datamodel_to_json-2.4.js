@@ -29,6 +29,7 @@
             "file_admin_access_condition_at_deposit": "",
             "file_admin_file_and_record_do_not_match": "",
             "file_admin_fedora3_datastream_identifier": "",
+            "file_admin_hyrax_fileset_identifier": "",
             "file_embargo_comment": "",
             "file_embargo_end_date": "",
             "file_embargo_period": "",
@@ -132,12 +133,6 @@ ORA_Data_Model_Object = {
     "language": "",
     "keyword": [""],
     "pid": "",
-    "ora_versions": [{
-        "version_title": "",
-        "version_created_date": "",
-        "version_identifier_doi": "",
-        "version_public_note": ""
-    }],
     "ora_data_model_version": "",
     "pre_counter_downloads": "",
     "pre_counter_views": "",
@@ -161,6 +156,12 @@ ORA_Data_Model_Object = {
     "title": "",
     "sub_type_of_work": "",
     "type_of_work": "",
+    "versions": [{
+        "version_title": "",
+        "version_created_date": "",
+        "version_identifier_doi": "",
+        "version_public_note": ""
+    }],
 
     // ADMIN FIELDS
     "admin_incorrect_version_deposited": "",
@@ -250,7 +251,7 @@ ORA_Data_Model_Object = {
     "event_website_url": "",
 
     // IDENTIFIERS
-    "identifier_doi": "",
+    "identifier_doi": [],
     "identifier_eisbn": "",
     "identifier_eissn": "",
     "identifier_isbn10": "",
