@@ -17,14 +17,11 @@
     
     CHANGELOG
     =========
-<<<<<<< HEAD
+
+    28/06/2024: Change ora_versions to versions
     01/05/2024: Datamodel 2.4.2
       - object_versions now ora_versions
       - binary_files__file_requestable
-=======
-    28/06/2024: Change object_versions to versions
-    28/05/2024: Change object_versions to ora_versions
->>>>>>> develop
     24/11/2023: Datamodel 2.4.1
      - history__automatically_updated_fields
     14/09/2023: Datamodel 2.4 conformance
