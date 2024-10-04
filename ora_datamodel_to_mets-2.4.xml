@@ -19,7 +19,7 @@
     =========
 
     01/05/2024: Datamodel 2.4.2
-      - object_versions now ora_versions
+      - object_versions now versions
       - binary_files__file_requestable
     24/11/2023: Datamodel 2.4.1
      - history__automatically_updated_fields
@@ -272,12 +272,12 @@
                     <!-- ORA RECORD VERSIONS-->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
-                            <mods:title>field:ora_versions__version_title</mods:title>
+                            <mods:title>field:versions__version_title</mods:title>
                         </mods:titleInfo>
-                        <mods:identifier type="doi">field:ora_versions__version_identifier_doi</mods:identifier>
+                        <mods:identifier type="doi">field:versions__version_identifier_doi</mods:identifier>
                         <mods:recordInfo>
-                          <mods:recordCreationDate>field:ora_versions__version_created_date</mods:recordCreationDate>
-                          <mods:recordInfoNote>field:ora_versions__version_public_note</mods:recordInfoNote>
+                          <mods:recordCreationDate>field:versions__version_created_date</mods:recordCreationDate>
+                          <mods:recordInfoNote>field:versions__version_public_note</mods:recordInfoNote>
                         </mods:recordInfo>
                     </mods:relatedItem>
                 
