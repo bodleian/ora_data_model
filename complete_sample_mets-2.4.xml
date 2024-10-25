@@ -580,6 +580,7 @@
                     <ora:fileSha1>5d5668d2a6108a2fb9211f6e6d824e2019dddf72</ora:fileSha1>
                     <ora:accessConditionAtDeposit>yes</ora:accessConditionAtDeposit>
                     <ora:fileAndRecordDoNotMatch>no</ora:fileAndRecordDoNotMatch>
+                    <dc:relation type="isFormatOf">s32553325</dc:relation>
                     <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
                     <ora:filesetId>5b8fzd66r</ora:filesetId>
                 </ora:repository_file>
