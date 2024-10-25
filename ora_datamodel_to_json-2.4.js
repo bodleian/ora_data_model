@@ -148,7 +148,8 @@ ORA_Data_Model_Object = {
         "related_item_citation_text": "",
         "related_item_statement": "",
         "related_item_title": "",
-        "related_item_url": ""
+        "related_item_url": "",
+        "related_data_location": ""
     }],
     "subject": [""],
     "summary_documentation": "",

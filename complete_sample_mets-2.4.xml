@@ -121,7 +121,7 @@
                             <mods:title>First test related item</mods:title>
                         </mods:titleInfo>
                         <mods:location><mods:url>https://test.related-item.url.ac.uk/test</mods:url></mods:location>
-                        <mods:note displayLabel="related_item_statement">Related item statement</mods:note>
+                        <mods:note displayLabel="related_data_location">Related data location</mods:note>
                     </mods:relatedItem>
                 
                     <mods:relatedItem otherType="related_item">

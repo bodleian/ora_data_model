@@ -18,6 +18,10 @@
     CHANGELOG
     =========
 
+    25/10/2024: Datamodel 2.4.3
+    - related_items__related_data_location
+    - rights_retention_statement_opt_out
+    - removed related_item_statement
     01/05/2024: Datamodel 2.4.2
       - object_versions now versions
       - binary_files__file_requestable
@@ -266,7 +270,7 @@
                         </mods:titleInfo>
                         <mods:location><mods:url>field:related_items__related_item_url</mods:url></mods:location>
                         <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
-                        <mods:note displayLabel="related_item_statement">field:related_items__related_item_statement</mods:note>
+                        <mods:note displayLabel="relatated_data_location">field:related_items__relatated_data_location</mods:note>
                     </mods:relatedItem>
 
                     <!-- ORA RECORD VERSIONS-->
