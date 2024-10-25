@@ -76,6 +76,8 @@ ORA_Data_Model_Object = {
         "file_version_of": "",
         "file_format": "",
         "file_last_access_request_date": "",
+        "file_licence": "",
+        "file_licence_url": "",
         "file_made_available_date": "",
         "file_name": "",
         "file_order": "",

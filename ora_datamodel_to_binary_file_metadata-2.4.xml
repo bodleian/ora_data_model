@@ -20,6 +20,8 @@
     <ora:embargoPeriod>field:binary_files__file_embargo_period</ora:embargoPeriod>
     <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
     <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
+    <mods:accessCondition type="file_license">field:binary_files__file_licence</mods:accessCondition>
+    <mods:accessCondition type="file_license_url">field:binary_files__file_licence_url</mods:accessCondition>
     <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
     <ora:fileRequestable>field:binary_files__file_requestable</ora:fileRequestable>
     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>

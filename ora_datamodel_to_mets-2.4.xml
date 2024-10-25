@@ -23,6 +23,8 @@
     - rights_retention_statement_opt_out
     - record_should_automatically_update
     - removed related_item_statement
+    - binary_files__file_licence
+    - binary_files__file_licence_url
     01/05/2024: Datamodel 2.4.2
       - object_versions now versions
       - binary_files__file_requestable
@@ -616,6 +618,8 @@
                     <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
                     <ora:fileRequestable>field:binary_files__file_requestable</ora:fileRequestable>
                     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
+                    <mods:accessCondition type="file_license">field:binary_files__file_licence</mods:accessCondition>
+                    <mods:accessCondition type="file_license_url">field:binary_files__file_licence_url</mods:accessCondition>
                     <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
                     <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
                     <ora:fileSha1>field:binary_files__file_sha1</ora:fileSha1>
