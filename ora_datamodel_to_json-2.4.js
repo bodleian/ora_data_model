@@ -194,6 +194,7 @@ ORA_Data_Model_Object = {
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
     "record_review_status": "",
+    "record_should_automatically_update": "",
     "record_review_priority": "",
     "rights_third_party_copyright_permission_received": "",
     "rt_ticket_number": [""],

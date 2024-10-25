@@ -645,6 +645,7 @@
                                <ora_admin:record_embargo_status>Open access</ora_admin:record_embargo_status>
                                <ora_admin:record_review_status>Published</ora_admin:record_review_status>
                                <ora_admin:record_review_status_other>Record review status free text field</ora_admin:record_review_status_other>
+                              <ora_admin:record_should_automatically_update>yes</ora_admin:record_should_automatically_update>
                                <ora_admin:record_review_priority>2</ora_admin:record_review_priority>
                                <ora_admin:record_version>1thir</ora_admin:record_version>
                                <ora_admin:rights_third_party_copyright_material>yes</ora_admin:rights_third_party_copyright_material>
