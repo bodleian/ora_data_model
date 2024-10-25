@@ -274,6 +274,7 @@ ORA_Data_Model_Object = {
     "ref_compliant_at_deposit": "",
     "ref_compliant_availability": "",
     "rights_retention_statement_included": "",
+    "rights_retention_statement_opt_out": "",
 
     // PATENT_FIELDS
     "patent_awarded_date": "",

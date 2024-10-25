@@ -701,6 +701,7 @@
                                <ora_open_access_admin:ref_exception_required>38f</ora_open_access_admin:ref_exception_required>
                                <ora_open_access_admin:ref_exception_note>Ref exception free text note</ora_open_access_admin:ref_exception_note>
                                <ora_open_access_admin:rights_retention_statement_included>yes</ora_open_access_admin:rights_retention_statement_included>
+                               <ora_open_access_admin:rights_retention_statement_opt_out>yes</ora_open_access_admin:rights_retention_statement_opt_out>
                            </ora_open_access_admin:ref_admin>
                        </mods:extension>
                        
