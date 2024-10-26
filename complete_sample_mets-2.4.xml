@@ -538,8 +538,8 @@
                     <ora:embargoPeriod>1 month</ora:embargoPeriod>
                     <ora:embargoReleaseMethod>Automatic release</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>Publisher request</ora:reasonForEmbargo>
-                    <mods:accessCondition type="file_license">CC-BY</mods:accessCondition>
-                    <mods:accessCondition type="file_license_url">https://creativecommons.org/licenses/by/4.0</mods:accessCondition>
+                    <mods:accessCondition type="file_licence">CC-BY</mods:accessCondition>
+                    <mods:accessCondition type="file_licence_url">https://creativecommons.org/licenses/by/4.0</mods:accessCondition>
                     <dc:relation type="isFormatOf">r123453<dc:relation>
                     <ora:fileRequestable>automatically_available_to_oxford</ora:fileRequestable>
                     <ora:lastAccessRequestDate>2019-07-01</ora:lastAccessRequestDate>
