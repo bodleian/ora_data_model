@@ -144,6 +144,17 @@
                         </mods:recordInfo>
                     </mods:relatedItem>
 
+                    <mods:relatedItem type="otherVersion">
+                         <mods:titleInfo>
+                            <mods:title>2.0</mods:title>
+                        </mods:titleInfo>
+                        <mods:identifier type="doi">10.1594/GFZ.GEOFON.gfz2009kciu-2</mods:identifier>
+                        <mods:recordInfo>
+                          <mods:recordCreationDate>2019-06-18</mods:recordCreationDate>
+                          <mods:recordInfoNote>Version created by owner for another reason</mods:recordInfoNote>
+                        </mods:recordInfo>
+                    </mods:relatedItem>
+
                 
                     <!-- RIGHTS and LICENCES -->
                     <!-- Includes ORA deposit licence. See also CONTRIBUTIONS AND ROLES: COPYRIGHT HOLDER -->
@@ -540,7 +551,7 @@
                     <ora:reasonForEmbargo>Publisher request</ora:reasonForEmbargo>
                     <mods:accessCondition type="file_licence">CC-BY</mods:accessCondition>
                     <mods:accessCondition type="file_licence_url">https://creativecommons.org/licenses/by/4.0</mods:accessCondition>
-                    <dc:relation type="isFormatOf">r123453<dc:relation>
+                    <dc:relation type="isFormatOf">r123453</dc:relation>
                     <ora:fileRequestable>automatically_available_to_oxford</ora:fileRequestable>
                     <ora:lastAccessRequestDate>2019-07-01</ora:lastAccessRequestDate>
                     <ali:free_to_read start_date="2019-06-02" />
@@ -689,7 +700,8 @@
                                        <mods:note>JISC Core Updates</mods:note>
                                        <dc:date>2019-06-06T13:00:05</dc:date>
                                        <mods_note type="automatically_updated_fields">keyword;record_publication_date;subject</mods_note>
-                                   </ora_admin:history_action>     automatic_update                          </ora_admin:history>
+                                   </ora_admin:history_action>
+                               </ora_admin:history>
                            </ora_admin:admin>
                        </mods:extension>
                        
