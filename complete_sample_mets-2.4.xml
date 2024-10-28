@@ -699,7 +699,7 @@
                                        <dc:keyword>automatic_update</dc:keyword>
                                        <mods:note>JISC Core Updates</mods:note>
                                        <dc:date>2019-06-06T13:00:05</dc:date>
-                                       <mods_note type="automatically_updated_fields">keyword;record_publication_date;subject</mods_note>
+                                       <mods:note type="automatically_updated_fields">keyword;record_publication_date;subject</mods:note>
                                    </ora_admin:history_action>
                                </ora_admin:history>
                            </ora_admin:admin>
