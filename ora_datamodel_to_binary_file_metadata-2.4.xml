@@ -7,7 +7,8 @@
     xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
     xmlns:ora="http://ora.ox.ac.uk/terms/"
     xmlns:symp="http://symplectic/symplectic-elements:def/model#"
-    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+    xmlns:ali="http://www.niso.org/schemas/ali/1.0/"
+    xmlns:mods="http://www.loc.gov/mods/v3">
     <dc:title>field:binary_files__file_name</dc:title>
     <dc:format>field:binary_files__file_format</dc:format>
     <dcterms:extent>field:binary_files__file_size</dcterms:extent>
