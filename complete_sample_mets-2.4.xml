@@ -2,7 +2,7 @@
 <!--
     =========================================
     =========================================
-    METS - A FULL ORA DATAMODEL 2.3 OBJECT IN METS
+    METS - A FULL ORA DATAMODEL 2.4 OBJECT IN METS
     =========================================
     =========================================
     
@@ -33,7 +33,7 @@
                     
                     <!-- DEFAULT FIELDS -->
                     <mods:titleInfo>
-                        <mods:title>Test object title</mods:title>
+                        <mods:title>Test object title for 2.4</mods:title>
                         <mods:subTitle>Test object alternate title</mods:subTitle> 
                     </mods:titleInfo>
                         
