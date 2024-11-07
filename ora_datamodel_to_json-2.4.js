@@ -76,11 +76,14 @@ ORA_Data_Model_Object = {
         "file_version_of": "",
         "file_format": "",
         "file_last_access_request_date": "",
+        "file_licence": "",
+        "file_licence_url": "",
         "file_made_available_date": "",
         "file_name": "",
         "file_order": "",
         "file_path": "",
         "file_public_url": "",
+        "file_requestable": "",
         "file_rioxx_file_version": "",
         "file_sha1": "",
         "file_size": "",
@@ -147,7 +150,8 @@ ORA_Data_Model_Object = {
         "related_item_citation_text": "",
         "related_item_statement": "",
         "related_item_title": "",
-        "related_item_url": ""
+        "related_item_url": "",
+        "related_data_location": ""
     }],
     "subject": [""],
     "summary_documentation": "",
@@ -192,6 +196,7 @@ ORA_Data_Model_Object = {
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
     "record_review_status": "",
+    "record_should_automatically_update": "",
     "record_review_priority": "",
     "rights_third_party_copyright_permission_received": "",
     "rt_ticket_number": [""],
@@ -273,6 +278,7 @@ ORA_Data_Model_Object = {
     "ref_compliant_at_deposit": "",
     "ref_compliant_availability": "",
     "rights_retention_statement_included": "",
+    "rights_retention_statement_opt_out": "",
 
     // PATENT_FIELDS
     "patent_awarded_date": "",

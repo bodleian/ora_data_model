@@ -2,7 +2,7 @@
 <!--
     =========================================
     =========================================
-    METS - A FULL ORA DATAMODEL 2.3 OBJECT IN METS
+    METS - A FULL ORA DATAMODEL 2.4 OBJECT IN METS
     =========================================
     =========================================
     
@@ -33,7 +33,7 @@
                     
                     <!-- DEFAULT FIELDS -->
                     <mods:titleInfo>
-                        <mods:title>Test object title</mods:title>
+                        <mods:title>Test object title for 2.4</mods:title>
                         <mods:subTitle>Test object alternate title</mods:subTitle> 
                     </mods:titleInfo>
                         
@@ -121,7 +121,7 @@
                             <mods:title>First test related item</mods:title>
                         </mods:titleInfo>
                         <mods:location><mods:url>https://test.related-item.url.ac.uk/test</mods:url></mods:location>
-                        <mods:note displayLabel="related_item_statement">Related item statement</mods:note>
+                        <mods:note displayLabel="related_data_location">Related data location</mods:note>
                     </mods:relatedItem>
                 
                     <mods:relatedItem otherType="related_item">
@@ -132,7 +132,7 @@
                     </mods:relatedItem>
 
 
-                    <!-- OBJECT VERSIONS -->
+                    <!-- ORA RECORD VERSIONS -->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
                             <mods:title>1.0</mods:title>
@@ -141,6 +141,17 @@
                         <mods:recordInfo>
                           <mods:recordCreationDate>2019-06-05</mods:recordCreationDate>
                           <mods:recordInfoNote>Version created by owner for reason</mods:recordInfoNote>
+                        </mods:recordInfo>
+                    </mods:relatedItem>
+
+                    <mods:relatedItem type="otherVersion">
+                         <mods:titleInfo>
+                            <mods:title>2.0</mods:title>
+                        </mods:titleInfo>
+                        <mods:identifier type="doi">10.1594/GFZ.GEOFON.gfz2009kciu-2</mods:identifier>
+                        <mods:recordInfo>
+                          <mods:recordCreationDate>2019-06-18</mods:recordCreationDate>
+                          <mods:recordInfoNote>Version created by owner for another reason</mods:recordInfoNote>
                         </mods:recordInfo>
                     </mods:relatedItem>
 
@@ -525,7 +536,8 @@
                     xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
                     xmlns:ora="http://ora.ox.ac.uk/terms/"
                     xmlns:symp="http://symplectic/symplectic-elements:def/model#"
-                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/"
+                    xmlns:mods="http://www.loc.gov/mods/v3">
                     <dc:title>filename1.pdf</dc:title>
                     <dc:format>application/pdf</dc:format>
                     <dcterms:extent>1234567</dcterms:extent>
@@ -538,7 +550,10 @@
                     <ora:embargoPeriod>1 month</ora:embargoPeriod>
                     <ora:embargoReleaseMethod>Automatic release</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>Publisher request</ora:reasonForEmbargo>
-                    <dc:relation type="isFormatOf">r123453<dc:relation>
+                    <mods:accessCondition type="file_licence">CC Attribution (CC-BY)</mods:accessCondition>
+                    <mods:accessCondition type="file_licence_url">https://creativecommons.org/licenses/by/4.0</mods:accessCondition>
+                    <dc:relation type="isFormatOf">r123453</dc:relation>
+                    <ora:fileRequestable>automatically_available_to_oxford</ora:fileRequestable>
                     <ora:lastAccessRequestDate>2019-07-01</ora:lastAccessRequestDate>
                     <ali:free_to_read start_date="2019-06-02" />
                     <ora:fileOrder>1</ora:fileOrder>
@@ -567,7 +582,8 @@
                     xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
                     xmlns:ora="http://ora.ox.ac.uk/terms/"
                     xmlns:symp="http://symplectic/symplectic-elements:def/model#"
-                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/">
+                    xmlns:ali="http://www.niso.org/schemas/ali/1.0/"
+                    xmlns:mods="http://www.loc.gov/mods/v3">
                     <dc:title>filename2.zip</dc:title>
                     <dc:format>application/zip</dc:format>
                     <dcterms:extent>5234568</dcterms:extent>
@@ -579,6 +595,7 @@
                     <ora:fileSha1>5d5668d2a6108a2fb9211f6e6d824e2019dddf72</ora:fileSha1>
                     <ora:accessConditionAtDeposit>yes</ora:accessConditionAtDeposit>
                     <ora:fileAndRecordDoNotMatch>no</ora:fileAndRecordDoNotMatch>
+                    <dc:relation type="isFormatOf">s32553325</dc:relation>
                     <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
                     <ora:filesetId>5b8fzd66r</ora:filesetId>
                 </ora:repository_file>
@@ -643,6 +660,7 @@
                                <ora_admin:record_embargo_status>Open access</ora_admin:record_embargo_status>
                                <ora_admin:record_review_status>Published</ora_admin:record_review_status>
                                <ora_admin:record_review_status_other>Record review status free text field</ora_admin:record_review_status_other>
+                               <ora_admin:record_should_automatically_update>yes</ora_admin:record_should_automatically_update>
                                <ora_admin:record_review_priority>2</ora_admin:record_review_priority>
                                <ora_admin:record_version>1thir</ora_admin:record_version>
                                <ora_admin:rights_third_party_copyright_material>yes</ora_admin:rights_third_party_copyright_material>
@@ -683,8 +701,9 @@
                                        <dc:keyword>automatic_update</dc:keyword>
                                        <mods:note>JISC Core Updates</mods:note>
                                        <dc:date>2019-06-06T13:00:05</dc:date>
-                                       <mods_note type="automatically_updated_fields">keyword;record_publication_date;subject</mods_note>
-                                   </ora_admin:history_action>     automatic_update                          </ora_admin:history>
+                                       <mods:note type="automatically_updated_fields">keyword;record_publication_date;subject</mods:note>
+                                   </ora_admin:history_action>
+                               </ora_admin:history>
                            </ora_admin:admin>
                        </mods:extension>
                        
@@ -700,6 +719,7 @@
                                <ora_open_access_admin:ref_exception_required>38f</ora_open_access_admin:ref_exception_required>
                                <ora_open_access_admin:ref_exception_note>Ref exception free text note</ora_open_access_admin:ref_exception_note>
                                <ora_open_access_admin:rights_retention_statement_included>yes</ora_open_access_admin:rights_retention_statement_included>
+                               <ora_open_access_admin:rights_retention_statement_opt_out>yes</ora_open_access_admin:rights_retention_statement_opt_out>
                            </ora_open_access_admin:ref_admin>
                        </mods:extension>
                        

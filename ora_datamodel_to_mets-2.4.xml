@@ -17,8 +17,17 @@
     
     CHANGELOG
     =========
-    28/06/2024: Change object_versions to versions
-    28/05/2024: Change object_versions to ora_versions
+
+    25/10/2024: Datamodel 2.4.3
+    - related_items__related_data_location
+    - rights_retention_statement_opt_out
+    - record_should_automatically_update
+    - removed related_item_statement
+    - binary_files__file_licence
+    - binary_files__file_licence_url
+    01/05/2024: Datamodel 2.4.2
+      - object_versions now versions
+      - binary_files__file_requestable
     24/11/2023: Datamodel 2.4.1
      - history__automatically_updated_fields
     14/09/2023: Datamodel 2.4 conformance
@@ -264,10 +273,10 @@
                         </mods:titleInfo>
                         <mods:location><mods:url>field:related_items__related_item_url</mods:url></mods:location>
                         <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
-                        <mods:note displayLabel="related_item_statement">field:related_items__related_item_statement</mods:note>
+                        <mods:note displayLabel="relatated_data_location">field:related_items__relatated_data_location</mods:note>
                     </mods:relatedItem>
 
-                    <!-- RECORD VERSIONS-->
+                    <!-- ORA RECORD VERSIONS-->
                     <mods:relatedItem type="otherVersion">
                          <mods:titleInfo>
                             <mods:title>field:versions__version_title</mods:title>
@@ -607,7 +616,10 @@
                     <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
                     <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
                     <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
+                    <ora:fileRequestable>field:binary_files__file_requestable</ora:fileRequestable>
                     <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
+                    <mods:accessCondition type="file_licence">field:binary_files__file_licence</mods:accessCondition>
+                    <mods:accessCondition type="file_licence_url">field:binary_files__file_licence_url</mods:accessCondition>
                     <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
                     <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
                     <ora:fileSha1>field:binary_files__file_sha1</ora:fileSha1>
@@ -677,6 +689,7 @@
                                <ora_admin:record_embargo_status>field:record_embargo_status</ora_admin:record_embargo_status>
                                <ora_admin:record_review_status>field:record_review_status</ora_admin:record_review_status>
                                <ora_admin:record_review_status_other>field:record_review_status_other</ora_admin:record_review_status_other>
+                               <ora_admin:record_should_automatically_update>field:record_should_automatically_update</ora_admin:record_should_automatically_update>
                                <ora_admin:record_review_priority>field:record_review_priority</ora_admin:record_review_priority>
                                <ora_admin:record_version>field:record_version</ora_admin:record_version>
                                <ora_admin:rights_third_party_copyright_material>field:rights_third_party_copyright_material</ora_admin:rights_third_party_copyright_material>
@@ -708,6 +721,7 @@
                                <ora_open_access_admin:ref_exception_required>field:ref_exception_required</ora_open_access_admin:ref_exception_required>
                                <ora_open_access_admin:ref_exception_note>field:ref_exception_note</ora_open_access_admin:ref_exception_note>
                                <ora_open_access_admin:rights_retention_statement_included>field:rights_retention_statement_included</ora_open_access_admin:rights_retention_statement_included>
+                               <ora_open_access_admin:rights_retention_statement_opt_out>field:rights_retention_statement_opt_out</ora_open_access_admin:rights_retention_statement_opt_out>
                            </ora_open_access_admin:ref_admin>
                        </mods:extension>
                        
