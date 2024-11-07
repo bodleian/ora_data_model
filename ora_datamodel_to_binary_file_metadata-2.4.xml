@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- See ora_datamodel_to_mets file for changelog -->
+<ora:repository_file xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/"
+    xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+    xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#"
+    xmlns:ora="http://ora.ox.ac.uk/terms/"
+    xmlns:symp="http://symplectic/symplectic-elements:def/model#"
+    xmlns:ali="http://www.niso.org/schemas/ali/1.0/"
+    xmlns:mods="http://www.loc.gov/mods/v3">
+    <dc:title>field:binary_files__file_name</dc:title>
+    <dc:format>field:binary_files__file_format</dc:format>
+    <dcterms:extent>field:binary_files__file_size</dcterms:extent>
+    <dcterms:hasVersion>field:binary_files__file_version</dcterms:hasVersion>
+    <dcterms:location>field:binary_files__file_path</dcterms:location>
+    <foxml:datastream>field:binary_files__file_admin_fedora3_datastream_identifier</foxml:datastream>
+    <rioxxterms:version>field:binary_files__file_rioxx_file_version</rioxxterms:version>
+    <oxds:embargoedUntil>field:binary_files__file_embargo_end_date</oxds:embargoedUntil>
+    <ora:embargoComment>field:binary_files__file_embargo_comment</ora:embargoComment>
+    <ora:embargoPeriod>field:binary_files__file_embargo_period</ora:embargoPeriod>
+    <ora:embargoReleaseMethod>field:binary_files__file_embargo_release_method</ora:embargoReleaseMethod>
+    <ora:reasonForEmbargo>field:binary_files__file_embargo_reason</ora:reasonForEmbargo>
+    <mods:accessCondition type="file_licence">field:binary_files__file_licence</mods:accessCondition>
+    <mods:accessCondition type="file_licence_url">field:binary_files__file_licence_url</mods:accessCondition>
+    <dc:relation type="isFormatOf">field:binary_files__file_version_of</dc:relation>
+    <ora:fileRequestable>field:binary_files__file_requestable</ora:fileRequestable>
+    <ora:lastAccessRequestDate>field:binary_files__file_last_access_request_date</ora:lastAccessRequestDate>
+    <ali:free_to_read start_date="field:binary_files__file_made_available_date" />
+    <ora:fileOrder>field:binary_files__file_order</ora:fileOrder>
+    <ora:fileSha1>field:binary_files__file_sha1</ora:fileSha1>
+    <ora:accessConditionAtDeposit>field:binary_files__file_admin_access_condition_at_deposit</ora:accessConditionAtDeposit>
+    <ora:fileAndRecordDoNotMatch>field:binary_files__file_admin_file_and_record_do_not_match</ora:fileAndRecordDoNotMatch>
+    <symp:hasPublicUrl>field:binary_files__file_public_url</symp:hasPublicUrl>
+    <!-- binary_files__file_admin_hyrax_filesest_identifier is a computed field, generated only when reading/exporting an object's metadata from Hyrax -->
+    <ora:filesetId>field:binary_files__file_admin_hyrax_filesest_identifier</ora:filesetId>
+</ora:repository_file>

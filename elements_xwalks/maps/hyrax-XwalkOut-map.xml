@@ -5,6 +5,9 @@
 TO NOTE
 WHen first written, nested conditionals (i.e. at subfield level) were not possible so I had to repeat large chunks of text just to add a conditional to one subfield. They are now p[ossible to there is some rewriting that could be done.
 
+TO NOTE
+WHen first written, nested conditionals (i.e. at subfield level) were not possible so I had to repeat large chunks of text just to add a conditional to one subfield. They are now p[ossible to there is some rewriting that could be done.
+
 ISSUES
 Can't set citation _place_of_publication from place-of-publication if value else location since citation _place_of_publication canlt have a conditional within it. Limitation of crosswalk.
 Device /Product - map to new subtype 'Device/Product' when available, post release development. (GitHub #158)
@@ -16,6 +19,10 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+<<<<<<< HEAD
+19/02/2024: Add deposit comment (append to embargo comment)
+=======
+>>>>>>> master
 26/09/23: Updated following ORA data model, in prep for theses impport
 - Thesis name
 - Copright date
@@ -166,14 +173,21 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source from="file.name" subfield="dc:title" />
           <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions" />
           <xwalk:field-source from="version" subfield="dcterms:hasVersion" />
-          <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment" />
+          <xwalk:field-source subfield="ora:embargoComment" concatenate-with-separator=" (Deposit comment). Embargo comment: ">
+            <xwalk:field-source from="deposit.comment" />
+            <xwalk:field-source from="requested-embargo.comment" />
+          </xwalk:field-source>
+          
           <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" />
         </xwalk:result>
         <xwalk:else>
           <xwalk:result>
             <xwalk:field-source from="file.name" subfield="dc:title" />
             <xwalk:field-source from="file.version" subfield="rioxxterms:version" value-map="file-versions" />
-            <xwalk:field-source from="requested-embargo.comment" subfield="ora:embargoComment" />
+            <xwalk:field-source subfield="ora:embargoComment" concatenate-with-separator=" (Deposit comment). Embargo comment: ">
+              <xwalk:field-source from="deposit.comment" />
+              <xwalk:field-source from="requested-embargo.comment" />
+            </xwalk:field-source>
             <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" />
           </xwalk:result>
         </xwalk:else>
@@ -440,7 +454,6 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             </xwalk:field-source>
             <xwalk:field-source subfield="copyrightDate">
               <xwalk:field-source subfield="@encoding" value="iso8601" />
-              
 <!--               if thesis, copyright date is copyright date, else use publicartion date -->
               <xwalk:if>
 				  <xwalk:condition argument-field="object.type" operator="equals">thesis-dissertation</xwalk:condition>
@@ -1450,7 +1463,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <!-- ADDED IN FOR THESIS SUPERVISORS-->
       
       
-            <xwalk:field-mapping to="name">
+      <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="personal" />
         <xwalk:field-source from="c-supervisor">
           <!--         <xwalk:field-source from="/api:push-object/api:object/api:view/api:field[@name = 'authors']/api:people/api:person[position() &lt;= 50 or api:links/api:link]" select-using="xpath"> -->

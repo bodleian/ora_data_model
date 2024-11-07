@@ -4,7 +4,7 @@
     (Note that JSON does not allow comments, which are useful here, so this is actually
     a JavaScript file. The conversion to JSON is, thankfully, trivial!)
 
-    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.3
+    A Javascript Object representation of the ORA4 data model written against ORA Data Model v2.4
   
     For the changelog (since v2.0rc4), see ora_datamodel_to_mods.xml
      
@@ -19,7 +19,7 @@
     - A single valued field with no value should be set to null, e.g. `"key": null`
     - A multiple valued field with no value should be set to an empty array, e.g. `"key": []`
     - There should be no empty strings `""` or empty objects `{}` (use null or [] as appropriate for the parent value
-    - All keys within a given object shall be present
+    - Only keys with set values a given object shall be present
     
     EXAMPLE OF BAD PRACTICE
         "abstract": "This is an abstract",
@@ -29,13 +29,14 @@
             "file_admin_access_condition_at_deposit": "",
             "file_admin_file_and_record_do_not_match": "",
             "file_admin_fedora3_datastream_identifier": "",
+            "file_admin_hyrax_fileset_identifier": "",
             "file_embargo_comment": "",
             "file_embargo_end_date": "",
             "file_embargo_period": "",
             "file_embargo_reason": "",
             "file_embargo_release_method": "",
+            "file_version_of": "",
             "file_format": "",
-            "file_admin_hyrax_fileset_identifier": "",
             "file_last_access_request_date": "",
             "file_made_available_date": "",
             "file_name": "",
@@ -53,12 +54,7 @@
 
     EXAMPLE OF GOOD PRACTICE
         "abstract": "This is an abstract",
-        "alternative_title": null,
-        "keyword": [],
-        "binary_files": [],
         "related_items": [{
-            "related_item_citation_text": null,
-            "related_item_title": null,
             "related_item_url": "http://example.com"
         }], 
  */
@@ -72,26 +68,28 @@ ORA_Data_Model_Object = {
         "file_admin_access_condition_at_deposit": "",
         "file_admin_file_and_record_do_not_match": "",
         "file_admin_fedora3_datastream_identifier": "",
-        "file_admin_hyrax_fileset_identifier", "",
         "file_embargo_comment": "",
         "file_embargo_end_date": "",
         "file_embargo_period": "",
         "file_embargo_reason": "",
         "file_embargo_release_method": "",
+        "file_version_of": "",
         "file_format": "",
         "file_last_access_request_date": "",
+        "file_licence": "",
+        "file_licence_url": "",
         "file_made_available_date": "",
         "file_name": "",
         "file_order": "",
         "file_path": "",
         "file_public_url": "",
+        "file_requestable": "",
         "file_rioxx_file_version": "",
         "file_sha1": "",
         "file_size": "",
         "file_version": ""    
     }],
     "contributors": [{
-        "contributor_record_identifier": "",
         "contributor_email": "",
         "contributor_identifiers": [{
             "contributor_identifier": "",
@@ -105,7 +103,6 @@ ORA_Data_Model_Object = {
         "family_name": "",
         "given_names": "",
         "initials": "",
-        "institution_identifier": "",
         "institution": "",
         "institutional_identifier": "",
         "ora3_affiliation": "",
@@ -135,7 +132,7 @@ ORA_Data_Model_Object = {
         "funder_identifier": "",
         "funder_name": ""
     }],
-    "language": [""],
+    "language": "",
     "keyword": [""],
     "pid": "",
     "ora_data_model_version": "",
@@ -151,8 +148,10 @@ ORA_Data_Model_Object = {
     "record_version": "",
     "related_items": [{
         "related_item_citation_text": "",
+        "related_item_statement": "",
         "related_item_title": "",
-        "related_item_url": ""
+        "related_item_url": "",
+        "related_data_location": ""
     }],
     "subject": [""],
     "summary_documentation": "",
@@ -160,6 +159,12 @@ ORA_Data_Model_Object = {
     "title": "",
     "sub_type_of_work": "",
     "type_of_work": "",
+    "versions": [{
+        "version_title": "",
+        "version_created_date": "",
+        "version_identifier_doi": "",
+        "version_public_note": ""
+    }],
 
     // ADMIN FIELDS
     "admin_incorrect_version_deposited": "",
@@ -176,7 +181,8 @@ ORA_Data_Model_Object = {
         "action_date": "",
         "action_description": "",
         "action_duration": "",
-        "action_responsibility": ""
+        "action_responsibility": "",
+        "automatically_updated_fields": ""
     }],
     "ora_collection": [""],
     "record_accept_updates": "",
@@ -190,7 +196,8 @@ ORA_Data_Model_Object = {
     "record_ora_deposit_licence": "",
     "record_requires_review": "",
     "record_review_status": "",
-    "record_review_status_other": "",
+    "record_should_automatically_update": "",
+    "record_review_priority": "",
     "rights_third_party_copyright_permission_received": "",
     "rt_ticket_number": [""],
     "thesis_archive_version_complete": "",
@@ -248,7 +255,7 @@ ORA_Data_Model_Object = {
     "event_website_url": "",
 
     // IDENTIFIERS
-    "identifier_doi": "",
+    "identifier_doi": [],
     "identifier_eisbn": "",
     "identifier_eissn": "",
     "identifier_isbn10": "",
@@ -271,11 +278,11 @@ ORA_Data_Model_Object = {
     "ref_compliant_at_deposit": "",
     "ref_compliant_availability": "",
     "rights_retention_statement_included": "",
+    "rights_retention_statement_opt_out": "",
 
     // PATENT_FIELDS
     "patent_awarded_date": "",
     "patent_application_number": "",
-    "patent_publication_number": "",
     "patent_cooperative_classification": "",
     "patent_european_classification": "",
     "patent_filed_date": "",
