@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xwalkout:consolidated-maps xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:metsrights="http://cosimo.stanford.edu/sdr/metsrights/" xmlns:ora="http://ora/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkout="http://www.symplectic.co.uk/elements/xwalkout">
   <!--
-  
-TO NOTE
-WHen first written, nested conditionals (i.e. at subfield level) were not possible so I had to repeat large chunks of text just to add a conditional to one subfield. They are now p[ossible to there is some rewriting that could be done.
 
 TO NOTE
 WHen first written, nested conditionals (i.e. at subfield level) were not possible so I had to repeat large chunks of text just to add a conditional to one subfield. They are now p[ossible to there is some rewriting that could be done.
@@ -19,10 +16,8 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
-<<<<<<< HEAD
+21/10/2024: Removed incorrect pagination from book markup as not different to common fields markup
 19/02/2024: Add deposit comment (append to embargo comment)
-=======
->>>>>>> master
 26/09/23: Updated following ORA data model, in prep for theses impport
 - Thesis name
 - Copright date
@@ -454,21 +449,22 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             </xwalk:field-source>
             <xwalk:field-source subfield="copyrightDate">
               <xwalk:field-source subfield="@encoding" value="iso8601" />
-<!--               if thesis, copyright date is copyright date, else use publicartion date -->
+              
+              <!--               if thesis, copyright date is copyright date, else use publicartion date -->
               <xwalk:if>
-				  <xwalk:condition argument-field="object.type" operator="equals">thesis-dissertation</xwalk:condition>
-				  <xwalk:result>
-				      <xwalk:field-source from="c-copyright-date" />
-				  </xwalk:result>
-			  <xwalk:else>
-				  <xwalk:result>
-				      <xwalk:field-source data-part="date:year" from="publication-date" />
-				  </xwalk:result>
-			  </xwalk:else>
-			  </xwalk:if>
-                  
-                  
-                  
+                <xwalk:condition argument-field="object.type" operator="equals">thesis-dissertation</xwalk:condition>
+                <xwalk:result>
+                  <xwalk:field-source from="c-copyright-date" />
+                </xwalk:result>
+                <xwalk:else>
+                  <xwalk:result>
+                    <xwalk:field-source data-part="date:year" from="publication-date" />
+                  </xwalk:result>
+                </xwalk:else>
+              </xwalk:if>
+              
+              
+              
               <xwalk:field-source data-part="date:year" from="publication-date" />
             </xwalk:field-source>
             <xwalk:field-source subfield="place">
@@ -1666,7 +1662,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source subfield="@type" value="edition" />
             <xwalk:field-source from="edition" subfield="number" />
           </xwalk:field-source>
-          <xwalk:field-source subfield="detail">
+          <xwalk:field-source subfield="extent">
             <xwalk:field-source subfield="@unit" value="pages" />
             <xwalk:field-source format="pagination:start-end" from="pagination" subfield="list" />
           </xwalk:field-source>
