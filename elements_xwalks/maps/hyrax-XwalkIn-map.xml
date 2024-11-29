@@ -109,6 +109,31 @@
         <xwalk:field-source from="location/url" />
       </xwalk:field-mapping>
       <!-- SE RESERVED FIELDS-->
+      
+      <xwalk:field-mapping to="repository-status">
+        <xwalk:choose>
+          <xwalk:when>
+            <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_publication_date" operator="has-value" select-using="xpath" />
+            <xwalk:result>
+              <xwalk:field-source value="Public" />
+            </xwalk:result>
+            </xwalk:when>
+            <xwalk:when>
+            <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_review_status" operator="equals" select-using="xpath">Tombstoned</xwalk:condition>
+          	<xwalk:result>
+          	  <xwalk:field-source value="Private (Withdrawn)" />
+          	</xwalk:result>
+          </xwalk:when>
+          <xwalk:otherwise>
+            <xwalk:result>
+              <xwalk:field-source value="Private (In review)" />
+            </xwalk:result>
+          </xwalk:otherwise>
+        </xwalk:choose>
+      </xwalk:field-mapping>
+      
+<!-- 
+      OLD
       <xwalk:field-mapping to="repository-status">
         <xwalk:choose>
           <xwalk:when>
@@ -117,12 +142,12 @@
               <xwalk:field-source value="Public" />
             </xwalk:result>
           </xwalk:when>
-          <!-- Updated whilst there are blank record_review_status values in ORA <xwalk:when>
+          <!~~ Updated whilst there are blank record_review_status values in ORA <xwalk:when>
             <xwalk:condition argument-field="/mets:mets/mets:amdSec/mets:sourceMD/mets:mdWrap/mets:xmlData/mods:mods/mods:extension/ora_admin:admin/ora_admin:record_review_status" operator="has-value" select-using="xpath"/>
             <xwalk:result>
               <xwalk:field-source value="Private (In review)"/>
             </xwalk:result>
-          </xwalk:when> -->
+          </xwalk:when> ~~>
           <xwalk:otherwise>
             <xwalk:result>
               <xwalk:field-source value="Private (In review)" />
@@ -130,6 +155,9 @@
           </xwalk:otherwise>
         </xwalk:choose>
       </xwalk:field-mapping>
+ -->
+      
+      
       <xwalk:field-mapping to="confidential-files-reason">
         <xwalk:field-source from="/mets:mets/mets:dmdSec/mets:mdWrap/mets:xmlData/ora:repository_file/ora:reasonForEmbargo" select-using="xpath" />
       </xwalk:field-mapping>
@@ -159,7 +187,7 @@
         <xwalk:field-source from="titleInfo/title" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="keywords">
-        <xwalk:field-source from="subject/genre"  value-map = "keywords"/>
+        <xwalk:field-source from="subject/genre" value-map="keywords" />
       </xwalk:field-mapping>
       <xwalk:field-mapping to="field-47">
         <xwalk:field-source from="titleInfo/subTitle" />
