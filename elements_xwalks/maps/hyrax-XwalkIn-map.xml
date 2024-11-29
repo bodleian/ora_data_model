@@ -2,6 +2,7 @@
 <xwalkin:consolidated-maps xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ora="http://ora.ox.ac.uk/terms/" xmlns:ora_admin="http://ora.ox.ac.uk/vocabs/admin" xmlns:ora_dataset="https://ora.ox.ac.uk/vocabs/dataset" xmlns:ora_open_access_admin="http://ora.ox.ac.uk/vocabs/open_access_admin" xmlns:ora_patent="https://ora.ox.ac.uk/vocabs/patent" xmlns:oxds="http://vocab.ox.ac.uk/dataset/schema#" xmlns:rioxxterms="http://www.rioxx.net/schema/v2.0/rioxx/" xmlns:symp="http://symplectic/symplectic-elements:def/model#" xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/" xmlns:uketdterms="http://naca.central.cranfield.ac.uk/ethos-oai/terms/" xmlns:xwalk="http://www.symplectic.co.uk/elements/xwalkcommon" xmlns:xwalkin="http://www.symplectic.co.uk/elements/xwalkin">
   <!--Changelog
 
+29/11/2024: Updated field mapping to 'repository-status' for tombstoned objects
 06/06/2024: Added value map to remove value FFR (admin code used by ORA) from keywords
 27/09/23: Prep for thesis harvest
 - Supervisor, thesis name, awarding institution, copyright date.
