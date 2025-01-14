@@ -16,6 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+14/01/2025: Added series title to book markup
 21/10/2024: Removed incorrect pagination from book markup as not different to common fields markup
 19/02/2024: Add deposit comment (append to embargo comment)
 26/09/23: Updated following ORA data model, in prep for theses impport
@@ -1670,6 +1671,12 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source subfield="@type" value="volume" />
             <xwalk:field-source from="volume" subfield="number" />
           </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+       <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="series" />
+        <xwalk:field-source subfield="titleInfo">
+          <xwalk:field-source from="series" subfield="title" />
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
