@@ -1672,6 +1672,12 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
+       <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="series" />
+        <xwalk:field-source subfield="titleInfo">
+          <xwalk:field-source from="series" subfield="title" />
+        </xwalk:field-source>
+      </xwalk:field-mapping>
     </xwalk:field-map>
     <xwalk:field-map name="preprint-markup">
       <xwalk:include-field-map name="common-fields-map">
