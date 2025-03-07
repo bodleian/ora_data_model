@@ -16,6 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+07/03/25: Preprints now crosswalk to ORA Preprint work type (instead of Internet Publication)
 14/01/2025: Added series title to book markup
 21/10/2024: Removed incorrect pagination from book markup as not different to common fields markup
 19/02/2024: Add deposit comment (append to embargo comment)
@@ -42,7 +43,6 @@ Initial changes not logged.
 - Added new rights r'etention statement included' boolean
 
 ***
-
 30/01/23: Updated rights retention statement and booleans value map
 16/11/22: Added to subfield location <xwalk:field-source from="publisher-url" subfield="url" /> (GitLab Issue #197)
 10/08/2022: 
@@ -1872,7 +1872,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="Working paper" />
-      <xwalk:value-mapping from="preprint" to="Internet publication" />
+      <xwalk:value-mapping from="preprint" to="Preprint" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object" />
       <xwalk:value-mapping from="other" to="Record" />
@@ -1907,7 +1907,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="WorkingPaper" />
-      <xwalk:value-mapping from="preprint" to="InternetPublication" />
+      <xwalk:value-mapping from="preprint" to="Preprint" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject" />
       <!-- the below is temorary - will be replaced by 
