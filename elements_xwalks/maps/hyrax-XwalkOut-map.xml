@@ -1684,10 +1684,20 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:include-field-map name="common-fields-map">
         <xwalk:exclude-field-mapping to="relatedItem" />
       </xwalk:include-field-map>
-      <xwalk:field-mapping to="relatedItem">
-        <xwalk:field-source subfield="@type" value="host" />
-        <xwalk:field-source subfield="titleInfo">
-          <xwalk:field-source from="parent-title" subfield="title" />
+      <xwalk:field-mapping to="name">
+        <xwalk:field-source subfield="@type" value="corporate" />
+        <xwalk:field-source subfield="displayForm">
+          <xwalk:field-source from="parent-title"  />
+        </xwalk:field-source>
+        <xwalk:field-source subfield="role">
+          <xwalk:field-source subfield="roleTerm">
+            <xwalk:field-source subfield="@type" value="text" />
+            <xwalk:field-source value="Publisher" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+        <xwalk:field-source subfield="nameIdentifier">
+          <xwalk:field-source subfield="@type" value="website" />
+          <xwalk:field-source from="publisher-url" />
         </xwalk:field-source>
       </xwalk:field-mapping>
     </xwalk:field-map>
