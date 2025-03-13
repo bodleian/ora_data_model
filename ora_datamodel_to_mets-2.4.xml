@@ -18,7 +18,7 @@
     CHANGELOG
     =========
     11/03/2025: Datamodel 2.4.4
-    - related_items__ora_record_identifier
+    - related_items__related_item_ora_record_identifier
     - related_items__related_item_type_of_relationship
     25/10/2024: Datamodel 2.4.3
     - related_items__related_data_location
@@ -277,7 +277,7 @@
                         <mods:note displayLabel="related_item_citation_text">field:related_items__related_item_citation_text</mods:note>
                         <mods:note displayLabel="relatated_data_location">field:related_items__relatated_data_location</mods:note>
                         <mods:note displayLabel="related_item_type_of_relationship">field:related_items__related_item_type_of_relationship</mods:note>
-                        <mods:note displayLabel="ora_record_identifier">field:related_items__ora_record_identifier</mods:note>
+                        <mods:note displayLabel="related_item_ora_record_identifier">field:related_items__related_item_ora_record_identifier</mods:note>
                     </mods:relatedItem>
 
                     <!-- ORA RECORD VERSIONS-->

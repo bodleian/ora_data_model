@@ -124,7 +124,7 @@
                         <mods:note displayLabel="related_item_citation_text">Test, A, et. al (2019), A Related work</mods:note>
                         <mods:note displayLabel="related_data_location">Related data location</mods:note>
                         <mods:note displayLabel="related_item_type_of_relationship">Is preprint of</mods:note>
-                        <mods:note displayLabel="ora_record_identifier">uuid_12345678-1234-1234-1234-12345678abcd</mods:note>
+                        <mods:note displayLabel="related_item_ora_record_identifier">uuid_12345678-1234-1234-1234-12345678abcd</mods:note>
                     </mods:relatedItem>
                 
                     <mods:relatedItem otherType="related_item">
