@@ -16,7 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
-07/03/25: Preprints now crosswalk to ORA Preprint work type (instead of Internet Publication)
+10/06/2025: Update dataset types for 2 new fields re embargo
 14/01/2025: Added series title to book markup
 21/10/2024: Removed incorrect pagination from book markup as not different to common fields markup
 19/02/2024: Add deposit comment (append to embargo comment)
@@ -43,6 +43,7 @@ Initial changes not logged.
 - Added new rights r'etention statement included' boolean
 
 ***
+
 30/01/23: Updated rights retention statement and booleans value map
 16/11/22: Added to subfield location <xwalk:field-source from="publisher-url" subfield="url" /> (GitLab Issue #197)
 10/08/2022: 
@@ -174,7 +175,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source from="requested-embargo.comment" />
           </xwalk:field-source>
           
-          <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" />
+ <!--           <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" /> -->
+          <xwalk:field-source from="c-request-embargo" subfield="ora:embargoPeriod" />
+          <!--for datasets, deposit embargo above is diabled-->
+          <xwalk:field-source from="embargoed-file-access" subfield="ora:fileRequestable" />
+          <!--for datasets, deposit embargo above is diabled-->
         </xwalk:result>
         <xwalk:else>
           <xwalk:result>
@@ -184,7 +189,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
               <xwalk:field-source from="deposit.comment" />
               <xwalk:field-source from="requested-embargo.comment" />
             </xwalk:field-source>
-            <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" />
+            <!--             <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" /> -->
+            <xwalk:field-source from="c-request-embargo" subfield="ora:embargoPeriod" />
+            <!--for datasets, deposit embargo above is disabled-->
+            <xwalk:field-source from="c-embargoed-file-access" subfield="ora:fileRequestable" value-map="embargoed-file-access" />
+            <!--for datasets, deposit embargo above is diabled-->
           </xwalk:result>
         </xwalk:else>
       </xwalk:if>
@@ -1872,7 +1881,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="Working paper" />
-      <xwalk:value-mapping from="preprint" to="Preprint" />
+      <xwalk:value-mapping from="preprint" to="Internet publication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object" />
       <xwalk:value-mapping from="other" to="Record" />
@@ -1907,7 +1916,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="WorkingPaper" />
-      <xwalk:value-mapping from="preprint" to="Preprint" />
+      <xwalk:value-mapping from="preprint" to="InternetPublication" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject" />
       <!-- the below is temorary - will be replaced by 
@@ -2021,6 +2030,13 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="PhD Thesis" to="Doctoral" />
       <xwalk:value-mapping from="Master's Thesis" to="Masters" />
       <xwalk:value-mapping from="Undergraduate Dissertation" to="Bachelors" />
+      <xwalk:otherwise-mapping action="continue" />
+    </xwalk:value-map>
+     <xwalk:value-map name="embargoed-file-access">
+      <xwalk:value-mapping from="Available to Oxford users on request" to="automatically_available_to_oxford" />
+      <!--<xwalk:value-mapping from="Automatically available" to="automatically_available" />
+      <xwalk:value-mapping from="Requestable" to="automatically_available_to_oxford" />
+      <xwalk:value-mapping from="Never available" to="unrequestable" />-->
       <xwalk:otherwise-mapping action="continue" />
     </xwalk:value-map>
   </xwalk:value-maps>
