@@ -217,6 +217,7 @@ ORA_Data_Model_Object = {
     "edition": "",
     "host_peer_review_status": "",
     "host_publication_status": "",
+    "host_service_owner": "",
     "host_title": "",
     "issue_number": "",
     "journal_title": "",
