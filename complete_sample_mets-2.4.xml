@@ -391,6 +391,8 @@
                             <mods:roleTerm type="text">Publisher</mods:roleTerm>
                         </mods:role>
                         <mods:nameIdentifier type="website">https://publisher.website.com</mods:nameIdentifier>
+                        <!-- Used only for Preprints, Internet Publications, and datasets -->
+                        <mods:affiliation>Publisher owning body</mods:affiliation>
                     </mods:name>
                     <!-- /CONTRIBUTIONS AND ROLES -->
                  
