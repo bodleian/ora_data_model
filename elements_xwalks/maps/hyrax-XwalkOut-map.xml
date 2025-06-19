@@ -16,6 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+19/06/2025: Add preprint fields for Preprint type
 10/06/2025: Update dataset types for 2 new fields re embargo
 14/01/2025: Added series title to book markup
 21/10/2024: Removed incorrect pagination from book markup as not different to common fields markup
