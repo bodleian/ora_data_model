@@ -1903,7 +1903,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="Working paper" />
-      <xwalk:value-mapping from="preprint" to="Internet publication" />
+      <xwalk:value-mapping from="preprint" to="Preprint" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="Universal Test Object" />
       <xwalk:value-mapping from="other" to="Record" />
@@ -1938,7 +1938,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="report" to="Report" />
       <xwalk:value-mapping from="thesis-dissertation" to="Thesis" />
       <xwalk:value-mapping from="c-report" to="WorkingPaper" />
-      <xwalk:value-mapping from="preprint" to="InternetPublication" />
+      <xwalk:value-mapping from="preprint" to="Preprint" />
       <!-- for type Complete sample data'-->
       <xwalk:value-mapping from="c-journal-article-cloned" to="UniversalTestObject" />
       <!-- the below is temorary - will be replaced by 
