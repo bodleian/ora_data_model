@@ -151,7 +151,9 @@ ORA_Data_Model_Object = {
         "related_item_statement": "",
         "related_item_title": "",
         "related_item_url": "",
-        "related_data_location": ""
+        "related_data_location": "",
+        "related_item_type_of_relationship": "",
+        "related_item_ora_record_identifier": ""
     }],
     "subject": [""],
     "summary_documentation": "",
@@ -215,6 +217,7 @@ ORA_Data_Model_Object = {
     "edition": "",
     "host_peer_review_status": "",
     "host_publication_status": "",
+    "host_service_owner": "",
     "host_title": "",
     "issue_number": "",
     "journal_title": "",

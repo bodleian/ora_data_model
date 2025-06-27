@@ -990,6 +990,12 @@
         </xwalk:result>
       </xwalk:when>
       <xwalk:when>
+        <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Preprint</xwalk:condition>
+        <xwalk:result>
+          <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="preprint" />
+        </xwalk:result>
+      </xwalk:when>
+      <xwalk:when>
         <xwalk:condition argument-field="/*/mods:genre[@type='type_of_work']" operator="equals" select-using="xpath">Internet publication</xwalk:condition>
         <xwalk:result>
           <xwalkin:object-type-selection category="publication" field-map="default-map" object-type="internet-publication" />
