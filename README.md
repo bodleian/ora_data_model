@@ -7,13 +7,14 @@ The most recent ORA data model is 2.4.2
 
 This project maintains four files relating to the ORA Data Model:
 
-## ORA Data Model to MODS
+## ORA Data Model to METS
 
 A MODS file defining how to encode an ORA Data Model object in MODS, including METS conversion.
 
 ## ORA MODS Schema
 
-An XML schema which validates the ORA Data Model to MODS document
+An XML schema which validates the ORA Data Model to MODS document, this is an update to Mods 3.7, that also 
+allows for some ORA specific fields (alternativeName, and roles within contributors)
 
 ## Symplectic to ORA Field Mapping
 
