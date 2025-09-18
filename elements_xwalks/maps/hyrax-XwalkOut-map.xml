@@ -16,6 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+02/09/26:  Add publication status for preprint type (and correct for journal article)
 19/06/2025: Add preprint fields for Preprint type
 10/06/2025: Update dataset types for 2 new fields re embargo
 14/01/2025: Added series title to book markup
@@ -176,7 +177,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
             <xwalk:field-source from="requested-embargo.comment" />
           </xwalk:field-source>
           
- <!--           <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" /> -->
+          <!--           <xwalk:field-source from="requested-embargo.display-name" subfield="ora:embargoPeriod" /> -->
           <xwalk:field-source from="c-request-embargo" subfield="ora:embargoPeriod" />
           <!--for datasets, deposit embargo above is diabled-->
           <xwalk:field-source from="embargoed-file-access" subfield="ora:fileRequestable" />
@@ -294,13 +295,17 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source from="medium" />
         </xwalk:field-source>
       </xwalk:field-mapping>
+      
+      <!-- this seems to be a duplicate of one above 
       <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="host" />
         <xwalk:field-source subfield="physicalDescription" />
         <xwalk:field-source subfield="form" />
         <xwalk:field-source subfield="@type" value="status" />
         <xwalk:field-source from="publication-status" value-map="publication-status" />
-      </xwalk:field-mapping>
+      </xwalk:field-mapping> -->
+      
+      
       <xwalk:field-mapping to="identifier">
         <xwalk:if>
           <xwalk:condition argument-field="object.type" operator="equals">c-report</xwalk:condition>
@@ -1683,7 +1688,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           </xwalk:field-source>
         </xwalk:field-source>
       </xwalk:field-mapping>
-       <xwalk:field-mapping to="relatedItem">
+      <xwalk:field-mapping to="relatedItem">
         <xwalk:field-source subfield="@type" value="series" />
         <xwalk:field-source subfield="titleInfo">
           <xwalk:field-source from="series" subfield="title" />
@@ -1695,10 +1700,11 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
         <xwalk:exclude-field-mapping to="relatedItem" />
         <xwalk:exclude-field-mapping to="originInfo" />
       </xwalk:include-field-map>
+      
       <xwalk:field-mapping to="name">
         <xwalk:field-source subfield="@type" value="corporate" />
         <xwalk:field-source subfield="displayForm">
-          <xwalk:field-source from="parent-title"  />
+          <xwalk:field-source from="parent-title" />
         </xwalk:field-source>
         <xwalk:field-source subfield="role">
           <xwalk:field-source subfield="roleTerm">
@@ -1721,6 +1727,19 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
           <xwalk:field-source data-part="date:year" from="publication-date" />
         </xwalk:field-source>
       </xwalk:field-mapping>
+      
+      <!--Added in 02/09/26-->
+      
+       <xwalk:field-mapping to="relatedItem">
+        <xwalk:field-source subfield="@type" value="host" />
+        <xwalk:field-source subfield="physicalDescription">
+          <xwalk:field-source subfield="form">
+            <xwalk:field-source subfield="@type" value="status" />
+            <xwalk:field-source from="publication-status" value-map="publication-status" />
+          </xwalk:field-source>
+        </xwalk:field-source>
+      </xwalk:field-mapping>
+      
     </xwalk:field-map>
     <xwalk:field-map name="device-product-markup">
       <xwalk:include-field-map name="common-fields-map" />
@@ -2054,7 +2073,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="Undergraduate Dissertation" to="Bachelors" />
       <xwalk:otherwise-mapping action="continue" />
     </xwalk:value-map>
-     <xwalk:value-map name="embargoed-file-access">
+    <xwalk:value-map name="embargoed-file-access">
       <xwalk:value-mapping from="Available to Oxford users on request" to="automatically_available_to_oxford" />
       <!--<xwalk:value-mapping from="Automatically available" to="automatically_available" />
       <xwalk:value-mapping from="Requestable" to="automatically_available_to_oxford" />
