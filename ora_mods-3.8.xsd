@@ -609,7 +609,8 @@ Choice two.	With <etal>.
 ********  alternativeName  ********
 ******************** new in 3.7 ****************************
 -->
-<xs:complexType name="alternativeNameDefinition">
+	<!-- Updated 2025-09-18 to add mixed="true" to allow markup within alternativeName -->
+<xs:complexType name="alternativeNameDefinition" mixed="true">
 
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
 				<xs:element ref="namePart"/>
