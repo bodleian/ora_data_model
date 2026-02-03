@@ -104,6 +104,7 @@ ORA_Data_Model_Object = {
         "given_names": "",
         "initials": "",
         "institution": "",
+        "institution_identifier": "",
         "institutional_identifier": "",
         "ora3_affiliation": "",
         "orcid_identifier": "",
