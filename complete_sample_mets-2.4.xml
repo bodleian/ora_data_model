@@ -440,6 +440,7 @@
                             <mods:form type="status">Published</mods:form>
                             <mods:form type="peer_reviewed">Peer reviewed</mods:form>
                         </mods:physicalDescription>
+                        <mods:classification authority="journal_oa_status">Gold</mods:classification>
                     </mods:relatedItem>
                     <!-- /BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
                     
