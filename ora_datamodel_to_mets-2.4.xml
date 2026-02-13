@@ -19,6 +19,8 @@
     
     CHANGELOG
     =========
+    12/02/2026: Datamodel 2.4.7 (version number due to bad tag in 2.4.6)
+    - journal_oa_status
     16/06/2025: Datamodel 2.4.5
     - host_service_owner
     11/03/2025: Datamodel 2.4.4
@@ -465,6 +467,9 @@
                             <mods:form type="status">field:host_publication_status</mods:form>
                             <mods:form type="peer_reviewed">field:host_peer_review_status</mods:form>
                         </mods:physicalDescription>
+                        <mods:classification authority="journal_oa_status">
+                            field:journal_oa_status
+                        </mods:classification>
                     </mods:relatedItem>
                     <!-- /BOOK, BOOK CHAPTER, EDITED BOOK, EVENT PROCEEDINGS -->
                     
