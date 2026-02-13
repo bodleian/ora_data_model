@@ -222,6 +222,7 @@ ORA_Data_Model_Object = {
     "issue_number": "",
     "journal_title": "",
     "journal_website_url": "",
+    "journal_oa_status": "",
     "pagination": "",
     "paper_number": "",
     "publication_website_url": "",
