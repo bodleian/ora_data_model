@@ -16,6 +16,7 @@ Will crosswalk any external identifiers to Hyrax with a new type - check. e.g. a
 Initial changes not logged.
 
 ***
+01/06/2026:  Add protocol to Subtypes mapping
 02/09/26:  Add publication status for preprint type (and correct for journal article)
 19/06/2025: Add preprint fields for Preprint type
 10/06/2025: Update dataset types for 2 new fields re embargo
