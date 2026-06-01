@@ -1995,6 +1995,7 @@ Removed incorrect crosswalks form publisher-url (if device/product ->manufacture
       <xwalk:value-mapping from="Abstract" to="Abstract" />
       <xwalk:value-mapping from="Comment" to="Comment" />
       <xwalk:value-mapping from="Case note" to="Case note" />
+      <xwalk:value-mapping from="Protocol" to="Protocol" />
       <xwalk:otherwise-mapping action="ignore-this-value" />
     </xwalk:value-map>
     <xwalk:value-map data-part="identifier:scheme" name="remove-irrelevant-identifiers">
